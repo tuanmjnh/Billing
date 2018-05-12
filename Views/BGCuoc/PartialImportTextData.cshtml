@@ -1,0 +1,88 @@
+﻿<div class="modal" id="ModalCreate" tabindex="-1" role="dialog" aria-labelledby="ModalAdd" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="ModalCreateLabel">Nhập Text Data</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div id="TMAlertModal"></div>
+                <div class="form-horizontal">
+                    <div class="card mb-3">
+                        @*<h5 class="card-header">Nhập Text Data</h5>*@
+                        <div class="card-body">
+                            <div class="form-group row">
+                                <textarea id="txtDataVal" name="txtDataVal" class="form-control" rows="5"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary btnAction" action-type="1" data-url="BGCuoc/ImportTextData">Nhập thêm</button>
+                <button class="btn btn-warning btnAction text-white" action-type="2" data-url="BGCuoc/ImportTextData">Làm mới & Nhập</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Quay lại</button>
+            </div>
+        </div>
+    </div>
+    @*<script src="~/Scripts/tinymce/tinymce.min.js"></script>
+    <script src="~/Scripts/site.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/validator.unobtrusive.parseDynamicContent.js"></script>*@
+    <script>
+        function ActionLink(obj) {
+            var formdata = new FormData($('form')[0]);
+            formdata.append('__RequestVerificationToken', $('[name="__RequestVerificationToken"]').val());
+            for (var i in obj.data)
+                formdata.append(i, obj.data[i]);
+            //obj.data = $.extend({}, { '__RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val() }, obj.data);
+            $.ajax({
+                url: obj.url,
+                type: 'POST',
+                dataType: 'json',
+                data: formdata,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (d) {
+                    if (d.success) {
+                        $('#TMAlert').TMAlert({ type: "success", message: d.success });
+                        $("form")[0].reset();
+                    }
+                    if (d.danger)
+                        $('#TMAlert').TMAlert({ type: "danger", message: d.danger });
+                    if (d.warning)
+                        $('#TMAlert').TMAlert({ type: "warning", message: d.warning });
+                    if (d.url)
+                        window.location = d.url;
+                    $('.custom-file-label').html('');
+                    $('.lblUpload').html('');
+                },
+                error: function (xhr, error, status) {
+                    $('#TMAlert').TMAlert({ type: "danger", message: window.location.protocol + '//' + window.location.host + this.url + ' is ' + xhr.status + ' ' + xhr.statusText });
+                    //console.log(error, status);
+                }
+            }).done(function () {
+                if (typeof obj.done == 'function') obj.done();
+                console.log('a');
+            });
+        };
+        //Action link
+        $('.btnAction').on('click', function (e) {
+            e.preventDefault();
+            ActionLink({
+                url: $(this).attr('data-url'),
+                data: { actionType: $(this).attr('action-type') },
+                done: function () { $($table).bootstrapTable('refresh');}
+            });
+        });
+
+        //$(FormModal).FormPost({
+        //    url: $controllerUrl + 'ImportTextData',
+        //    contentType:1,
+        //    data: { 'txtDataVal': $('input[name="txtDataVal"]'), '__RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()},
+        //    done: function () { $($table).bootstrapTable('refresh') }
+        //});
+    </script>
+</div>

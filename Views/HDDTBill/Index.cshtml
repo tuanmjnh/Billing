@@ -1,0 +1,122 @@
+﻿
+@{
+    ViewBag.Title = "Tính cước Fiber";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h3 class="col-md-12">Tạo hóa đơn điện tử</h3>
+<form action="@Url.Action("Upload")" met method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card mb-3 panel-primary">
+                <h3 class="card-header">Tùy chọn thông số</h3>
+                <div class="card-body">
+                    <div class="col-md-12 row">
+                        <label class="mr-3" for="ckhMerginMonth">
+                            <input type="checkbox" id="ckhMerginMonth" name="ckhMerginMonth" value="true" checked /><!--name="ckhMerginMonth" value="1"-->
+                            Ghép theo tháng hiện tại
+                        </label>
+                        <label class="mr-3">
+                            <input type="checkbox" name="ckhTCVN3" value="true" checked />
+                            Định dạng TCVN3
+                        </label>
+                        <label class="mr-3">
+                            <input type="checkbox" name="ckhZipFile" value="true" checked />
+                            Nén Zip
+                        </label>
+                    </div>
+                    <div class="col-md-12 row">
+                        <label class="col-md-3">Chọn tháng</label>
+                        <div class="col-md-8">
+                            <select id="time" class="form-control" name="time">
+                                @foreach (var item in (List<string>)ViewBag.directory)
+                                {
+                                    <option value="@item">@item</option>
+                                }
+                            </select>
+                            <label id="lblTime"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card panel-primary">
+                <h3 class="card-header">Xử lý</h3>
+                <div class="card-body">
+                    <div class="form-group"><a href="javascript:;" data-url="@Url.Action("XuLyHD")" class="btn btn-secondary btnAction">1. Tạo file hóa đơn</a></div>
+                    <div class="form-group"><a href="javascript:;" data-url="@Url.Action("XuLyKH")" class="btn btn-secondary btnAction">2. Tạo file khách hàng</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="clearfix"></div>
+@section scripts {
+    <script>
+        AjaxLoaddingBounce();
+        function MerginMonth() {
+            if ($('#ckhMerginMonth').prop('checked') == true) {
+                var date = new Date();
+                date.setMonth(date.getMonth() - 1);
+                var month = date.getMonth() + 1;
+                month = month < 10 ? '0' + month : month + '';
+                var year = date.getFullYear();
+                $('select[name="time"]').hide();
+                $('#lblTime').html(year + month).show();
+            } else {
+                $('select[name="time"]').show();
+                $('#lblTime').hide();
+            }
+        };
+        $(function () {
+            MerginMonth();
+        });
+        $('#ckhMerginMonth').on('click', function () {
+            MerginMonth();
+        });
+        $('#FileUpload').on('change', function () {
+            var files = this.files;
+            var html = '';
+            for (var i = 0; i < files.length; i++) {
+                html += '<span class="text-primary">' + (i + 1) + '. ' + files[i].name + '</span><br/>';
+            }
+            $('.lblUpload').html(html);
+        });
+        //function ActionLink(obj) {
+        //    var formdata = new FormData($('form')[0]);
+        //    for (var i in obj.data)
+        //        formdata.append(i, obj.data[i]);
+        //    //obj.data = $.extend({}, { '__RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val() }, obj.data);
+        //    $.ajax({
+        //        url: obj.url,
+        //        type: 'POST',
+        //        dataType: 'json',
+        //        data: formdata,
+        //        cache: false,
+        //        contentType: false,
+        //        processData: false,
+        //        success: function (d) {
+        //            if (d.success)
+        //                $('#TMAlert').TMAlert({ type: "success", message: d.success });
+        //            if (d.danger)
+        //                $('#TMAlert').TMAlert({ type: "danger", message: d.danger });
+        //            $('#FileUpload').val('');
+        //            $('.lblUpload').html('');
+        //        },
+        //        error: function (xhr, error, status) {
+        //            $('#TMAlert').TMAlert({ type: "danger", message: window.location.protocol + '//' + window.location.host + this.url + ' is ' + xhr.status + ' ' + xhr.statusText });
+        //            //console.log(error, status);
+        //        }
+        //    });
+        //};
+        //Action link
+        $('.btnAction').on('click', function (e) {
+            e.preventDefault();
+            ActionLink({
+                url: $(this).attr('data-url'),
+                //data: { time: $('#time').val(), ckhMerginMonth: $('#ckhMerginMonth').prop('checked') }
+            });
+        });
+    </script>
+}

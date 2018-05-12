@@ -1,0 +1,542 @@
+﻿@{
+    ViewBag.Title = "Kết xuất";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form action="@Url.Action("Upload")" met method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-md-8">
+            <div id="ExportCustom" class="table-fixed-header"></div>
+            <div id="tableList"></div>
+            @*<div class="card panel-primary mb-3">
+                    <h5 class="card-header">Kết xuất riêng</h5>
+                    <div class="card-body">
+                        <div id="ExportCustom"></div>
+                    </div>
+                </div>
+                <div class="card panel-primary">
+                    <h5 class="card-header">Danh sách bảng</h5>
+                    <div class="card-body">
+                        <div id="tableList"></div>
+                    </div>
+                </div>*@
+        </div>
+        <div class="col-md-4">
+            <div class="card panel-primary">
+                <h5 class="card-header">Tùy chọn</h5>
+                <div class="card-body">
+                    <div class="form-group row">
+                        <label class="col-md-12" for="ckhMerginMonth">
+                            <input type="checkbox" id="ckhMerginMonth" checked /><!--name="ckhMerginMonth" value="1"-->
+                            Sử dụng tháng mặc định
+                        </label>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-4">Chọn tháng</label>
+                        <div class="col-md-8">
+                            <select id="time" class="form-control" name="time">
+                                @foreach (var item in (List<string>)ViewBag.directory)
+                                {
+                                    <option value="@item">@item</option>
+                                }
+                            </select>
+                            <label id="lblTime"></label>
+                        </div>
+                    </div>
+                    @*<div class="form-group">
+                            <label class="col-md-12" for="ckhMerginMonth">
+                                <input type="checkbox" id="ckhMerginMonth" name="ckhMerginMonth" />
+                                Ghép theo tháng hiện tại
+                            </label>
+                        </div>*@
+                </div>
+                <div class="card-footer">
+                    <span class="btn btn-dark CreateExport">Tạo kết xuất</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="clearfix"></div>
+<div></div>
+<!-- Modal -->
+<div class="modal stat" id="ModalUpdateTable" tabindex="-1" role="dialog" data-backdrop="static">
+    <div class="modal-dialog modal-lgs" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">Cập nhật thông tin bảng xuất DBF</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div id="TableDetail"></div>
+                <div id="TableCreateExport"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btnAccept hide">Cập nhật</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Quay lại</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts {
+<script src="~/Scripts/TMTableFixedHeader.js"></script>
+    <script>
+        AjaxLoaddingBounce();
+        function MerginMonth() {
+            if ($('#ckhMerginMonth').prop('checked') == true) {
+                var date = new Date();
+                date.setMonth(date.getMonth() - 1);
+                var month = date.getMonth()+1;
+                month = month < 10 ? '0' + month : month + '';
+                var year = date.getFullYear();
+                $('select[name="time"]').hide();
+                $('#lblTime').html(year + month).show();
+            } else {
+                $('select[name="time"]').show();
+                $('#lblTime').hide();
+            }
+        };
+        $(function () {
+            MerginMonth();
+            //GetTables();
+            GetExportCustom();
+            $('#TableDetail').TMUpdateValue({ url: '@Url.Action("UpdateTableExport")', data: { '__RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val() } });
+            $('#TableCreateExport').TMUpdateValue({ url: null, data: { '__RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val() } });
+        });
+        $('#ckhMerginMonth').on('click', function () {
+            MerginMonth();
+        });
+        //
+        $(document).ajaxComplete(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+        //function ActionLink(obj) {
+        //    var formdata = new FormData($('form')[0]);
+        //    //if($('#ckhMerginMonth').prop('checked') == true)
+        //    //    formdata.append('ckhMerginMonth', true);
+        //    // else
+        //    //    formdata.append('ckhMerginMonth', false);
+        //    for (var i in obj.data)
+        //        formdata.append(i, obj.data[i]);
+
+        //    //obj.data = $.extend({}, { '__RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val() }, obj.data);
+        //    $.ajax({
+        //        url: obj.url,
+        //        type: 'POST',
+        //        dataType: 'json',
+        //        data: formdata,
+        //        cache: false,
+        //        contentType: false,
+        //        processData: false,
+        //        success: function (d) {
+        //            if (d.success)
+        //                $('#TMAlert').TMAlert({ type: "success", message: d.success });
+        //            if (d.danger)
+        //                $('#TMAlert').TMAlert({ type: "danger", message: d.danger });
+        //            if (d.warning)
+        //                $('#TMAlert').TMAlert({ type: "warning", message: d.warning });
+        //            if (d.url)
+        //                window.location = d.url;
+        //        },
+        //        error: function (xhr, error, status) {
+        //            console.log(error, status);
+        //        }
+        //    }).done(function () {
+        //        if (typeof obj.done == 'function')
+        //            obj.done();
+        //    }).always(function () {
+        //        if (typeof obj.always == 'function')
+        //            obj.always();
+        //    });
+        //};
+        //Get Tables
+        function GetTables() {
+            $.get('@Url.Action("GetTableList")', function (d) {
+                if (d.data) {
+                    var html = '<table class="table table-hover">' +
+                        '<tr><th>Tên bảng</th><th class="col-md-1">#</th><th class="col-md-1">#</th></tr>';
+                    for (var i = 0; i < d.data.length; i++) {
+                        html += '<tr data-id="' + d.data[i].TABLE_NAME+'"><td>' + d.data[i].TABLE_NAME + '</td>' +
+                                '<td><span class="btn btn-success pointer btnExportToDBF" alt="Xuất file DBF"><i class="fa fa-cloud-download"></i></span></td>'+
+                                '<td><span class="btn btn-primary pointer btnUpdateTable" alt="Cấu hình"><i class="fa fa-cog fa-spin" aria-hidden="true"></i></span></td></tr>';
+                    }
+                    html +='</table>';
+                    $('#tableList').html(html);
+                }
+                if (d.danger)
+                    $('#TMAlert').TMAlert({ type: "danger", message: d.danger });
+                if (d.warning)
+                    $('#TMAlert').TMAlert({ type: "warning", message: d.warning });
+            })
+        };
+        //Update Table
+        $(document).on('click', '.btnUpdateTable', function () {
+            var table = $(this).parent().prev().prev().html();
+            var data = { '__RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val(), tableName: table };
+            $.post('@Url.Action("GetDetailsTableExport")', data, function (d) {
+                if (d.data) {
+                    $('#ModalUpdateTable').modal('show');
+                    var html = '<table class="table table-hover"><thead><tr>' +
+                        '<th>Tên</th>' +
+                        '<th>Kiểu</th>' +
+                        '<th>Dài</th>' +
+                        '<th>Ex.Tên</th>' +
+                        '<th>Ex.Kiểu</th>' +
+                        '<th>Ex.Dài</th>' +
+                        '<th>Điều kiện</th>' +
+                        '<th>No.</th>' +
+                        '<th class="col-md-1">TT</th></tr></thead><tbody>';
+                    for (var i = 0; i < d.data.length; i++) {
+                        html += '<tr data-id="' + d.data[i].ID + '"><td>' + d.data[i].COLUMN_NAME + '</td>' +
+                            '<td>' + d.data[i].COLUMN_TYPE + '</td>' +
+                            '<td>' + d.data[i].COLUMN_LENGTH + '</td>' +
+                            '<td tm-editable="true" data-val="COLUMN_NAME_EXPORT" maxlength="11">' + d.data[i].COLUMN_NAME_EXPORT + '</td>' +
+                            '<td tm-editable="true" data-val="COLUMN_TYPE_EXPORT">' + d.data[i].COLUMN_TYPE_EXPORT + '</td>' +
+                            '<td tm-editable="true" data-val="COLUMN_LENGTH_EXPORT">' + d.data[i].COLUMN_LENGTH_EXPORT + '</td>' +
+                            '<td tm-editable="true" data-val="CONDITION">' + d.data[i].CONDITION + '</td>' +
+                            '<td tm-editable="true" data-val="ORDERS">' + d.data[i].ORDERS + '</td>' +
+                            '<td tm-editable="true" tm-editable-type="checkbox" data-val="FLAG">' + d.data[i].FLAG + '</td></tr>';
+                    };
+                    html += '</tbody></table>';
+                    $('#TableDetail').html(html);
+                }
+                if (d.danger)
+                    $('#TMAlert').TMAlert({ type: "danger", message: d.danger });
+                if (d.warning)
+                    $('#TMAlert').TMAlert({ type: "warning", message: d.warning });
+            });
+        });
+        //Export Table To DBF
+        $(document).on('click', '.btnExportToDBF', function (e) {
+            e.preventDefault();
+            ActionLink({
+                url: '@Url.Action("ExportToDBF")',
+                data: { time: $('#time').val(), ckhMerginMonth: $('#ckhMerginMonth').prop('checked'), file: $(this).parents('tr').attr('data-id') }
+            });
+        });
+        //Action link
+        $('.btnAction').on('click', function (e) {
+            e.preventDefault();
+            ActionLink({
+                url: $(this).attr('data-url'),
+                data: { time: $('#time').val(), ckhMerginMonth: $('#ckhMerginMonth').prop('checked') }
+            });
+        });
+
+        @*$(document).on('click', '.btnExportToDBF', function (e) {
+            var table = $(this).parents('tr').attr('data-id');
+            var data = { '__RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val(), tableName: table };
+            $.post('@Url.Action("ExportToDBF")', data, function (d) {
+                if (d.success)
+                    $('#TMAlert').TMAlert({ type: "success", message: d.success });
+                if (d.danger)
+                    $('#TMAlert').TMAlert({ type: "danger", message: d.danger });
+            });
+        });*@
+        $('#ModalUpdateTable').on('hidden.bs.modal', function (e) {
+            $('.btnAccept').addClass('hide');
+        });
+        function CreateExport(done, always) {
+            $('#TableDetail').html('');
+            var data = { '__RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val() };
+            $.post('@Url.Action("CreateExport")', data, function (d) {
+                if (d.data) {
+                    var tables = [];
+                    var tbls = '<div class="form-group col-md-12 row">\
+                                    <label class="col-md-2">Tên kết xuất</label>\
+                                    <div class="col-md-10 asterisk">\
+                                        <input type="text" name="txtExportName" class="form-control" value="" data-toggle="tooltip" data-placement="bottom" \
+                                        title="Tên kết xuất"/>\
+                                    </div>\
+                                </div>\
+                                <div class="form-group col-md-12 row">\
+                                    <label class="col-md-2">Tên bảng kết xuất</label>\
+                                    <div class="col-md-10 asterisk">\
+                                        <input type="text" name="txtExportTableName" class="form-control" value="" data-toggle="tooltip" data-placement="bottom" \
+                                        title="Tên file dbf sau khi kết xuất"/>\
+                                    </div>\
+                                </div>\
+                                <div class="form-group col-md-12 row">\
+                                    <label class="col-md-2">Điều kiện</label>\
+                                    <div class="col-md-10 asterisk">\
+                                        <textarea rows="2" name="txtCondition" class="form-control text-code" spellcheck="false" data-toggle="tooltip" data-placement="bottom" \
+                                        title="Điều kiện để lấy dữ liệu gốc"></textarea>\
+                                    </div>\
+                                </div>\
+                                <div class="form-group col-md-12 row">\
+                                    <label class="col-md-2" for="chkUpdateQuery"></label>\
+                                    <label class="" for="chkUpdateQuery"><input type="checkbox" id="chkUpdateQuery" name="chkUpdateQuery"> Cập nhật Query</label>\
+                                </div>\
+                                <div class="form-group col-md-12 row colQuery hide">\
+                                    <label class="col-md-2">Query Create</label>\
+                                    <div class="col-md-10 asterisk">\
+                                        <textarea rows="2" name="txtExportQueryCreate" class="form-control text-code" spellcheck="false" data-toggle="tooltip" data-placement="bottom" \
+                                        title="Truy vấn tạo file dbf"></textarea>\
+                                    </div>\
+                                </div>\
+                                <div class="form-group col-md-12 row colQuery hide">\
+                                    <label class="col-md-2">Query Select</label>\
+                                    <div class="col-md-10 asterisk">\
+                                        <textarea rows="2" name="txtExportQuerySelect" class="form-control text-code" spellcheck="false" data-toggle="tooltip" data-placement="bottom" \
+                                        title="Truy vấn lấy dữ liệu gốc"></textarea>\
+                                    </div>\
+                                </div>\
+                                <div class="form-group col-md-12 row colQuery hide">\
+                                    <label class="col-md-2">Query End</label>\
+                                    <div class="col-md-10 asterisk">\
+                                        <textarea rows="2" name="txtExportQueryEnd" class="form-control text-code" spellcheck="false" data-toggle="tooltip" data-placement="bottom" \
+                                        title="Truy vấn chạy sau khi tạo ra file DBF, Các truy vấn phân cách bằng dấu chấm phẩy (;)"></textarea>\
+                                    </div>\
+                                </div>';
+                    tbls += '<div><h3 style="margin:0 0 5px 0">Danh sách bảng</h3>'
+                    var cols = '<div class="hide"><table><tbody>';
+                    for (var i = 0; i < d.data.length; i++) {
+                        if ($.inArray(d.data[i].TABLE_NAME, tables) < 0) {
+                            tbls += '<span class="btn btn-secondary mb-2 mr-2 btnTable" data-id="' + d.data[i].TABLE_NAME + '">' + d.data[i].TABLE_NAME + '</span>';
+                            tables.push(d.data[i].TABLE_NAME);
+                            //
+                            $.fn.TMCheckBox('.chkAll' + d.data[i].TABLE_NAME, '.chkItem' + d.data[i].TABLE_NAME);
+                            //
+                            cols += '</tbody></table></div><div class="hide" data-table-id="' + d.data[i].TABLE_NAME + '"><div class="hr hr-warning"></div><h4>' + d.data[i].TABLE_NAME + '</h4><table class="table table-bordered table-hover"><thead><tr>' +
+                                '<th>Tên</th>' +
+                                '<th>Kiểu</th>' +
+                                '<th>Dài</th>' +
+                                '<th>Ex.Tên</th>' +
+                                '<th>Ex.Kiểu</th>' +
+                                '<th>Ex.Dài</th>' +
+                                '<th>Điều kiện</th>' +
+                                '<th>No.</th>' +
+                                '<th class="col-md-1 tbl-checkbox"><label><input type="checkbox" class="chkAll' + d.data[i].TABLE_NAME + '"></label></td></th></tr></thead><tbody>';
+                        }
+                        cols += '<tr data-id="' + d.data[i].COLUMN_NAME + '" data-col-id="' + d.data[i].TABLE_NAME + '">' +
+                            '<td>' + d.data[i].COLUMN_NAME + '</td>' +
+                            '<td>' + d.data[i].COLUMN_TYPE + '</td>' +
+                            '<td>' + d.data[i].COLUMN_LENGTH + '</td>' +
+                            '<td tm-editable="true" data-val="COLUMN_NAME_EXPORT" maxlength="11">' + d.data[i].COLUMN_NAME_EXPORT + '</td>' +
+                            '<td tm-editable="true" data-val="COLUMN_TYPE_EXPORT">' + d.data[i].COLUMN_TYPE_EXPORT + '</td>' +
+                            '<td tm-editable="true" data-val="COLUMN_LENGTH_EXPORT">' + d.data[i].COLUMN_LENGTH_EXPORT + '</td>' +
+                            '<td tm-editable="true" data-val="CONDITION">' + d.data[i].CONDITION + '</td>' +
+                            '<td tm-editable="true" data-val="ORDERS">' + d.data[i].ORDERS + '</td>' +
+                            '<td data-val="FLAG" class="tbl-checkbox"><label><input type="checkbox" class="chkItem chkItem' + d.data[i].TABLE_NAME + '"></label></td></tr>';
+                    }
+                    //cols += '</tbody></table>';
+                    tbls += '</div><div><h3 style="margin:0 0 5px 0">Danh sách cột</h3></div><div id="tableCols" style="overflow-y:scroll;max-height:330px;">' + cols + '</div>';
+                    $('#TableCreateExport').html(tbls);
+                    $('.btnAccept').removeClass('hide');
+                    $('#ModalUpdateTable').modal('show');
+                }
+                if (d.danger)
+                    $('#TMAlert').TMAlert({ type: "danger", message: d.danger });
+                if (d.warning)
+                    $('#TMAlert').TMAlert({ type: "warning", message: d.warning });
+            }).done(function () {
+                if (typeof done == 'function')
+                    done();
+            }).always(function () {
+                if (typeof always == 'function')
+                    always();
+            });
+        };
+        $(document).on('change', '#chkUpdateQuery', function () {
+            if ($(this).prop('checked') === true)
+                $(document).find('.colQuery').removeClass('hide');
+            else
+                $(document).find('.colQuery').addClass('hide');
+        });
+        $('.CreateExport').on('click', function () {
+            CreateExport();
+        });
+        $(document).on('click', '.btnTable', function () {
+            var id = $(this).attr('data-id');
+            var table = $('#TableCreateExport').find('[data-table-id="' + id + '"]');
+            //$('#TableDetail').find('table').hide();
+            if (table.hasClass('hide')) {
+                $(this).addClass('active');
+                table.removeClass('hide');
+            }
+            else {
+                $(this).removeClass('active');
+                table.addClass('hide')
+            }
+        });
+         //Get Tables
+        function GetExportCustom() {
+            $.get('@Url.Action("GetExportCustom")', function (d) {
+                if (d.data) {
+
+                    var html = '<table class="table table-hover table-bordered">' +
+                        '<thead class="thead-light"><tr><th class="col">Tên kết xuất</th><th class="col-md-1">#</th><th class="col-md-1">#</th>';
+                    if (d.roles == '@Authentication.Roles.superadmin' || d.roles == '@Authentication.Roles.admin')
+                        html += '<th class="col-md-1">#</th>';
+                    html += '</tr></thead><tbody>';
+                    for (var i = 0; i < d.data.length; i++) {
+                        html += '<tr data-id="' + d.data[i].ID + '">\
+                            <td>' + d.data[i].TABLE_NAME + '</td>\
+                            <td><span class="btn btn-success pointer btnExportExportCustom" data-toggle="tooltip" data-placement="right" title="Xuất file DBF"><i class="fa fa-cloud-download"></i></span></td>\
+                            <td><span class="btn btn-info pointer btnEditExportCustom" data-toggle="tooltip" data-placement="right" title="Cấu hình"><i class="fa fa-cog fa-spin" aria-hidden="true"></i></span></td>';
+                        if (d.roles == '@Authentication.Roles.superadmin' || d.roles == '@Authentication.Roles.admin')
+                            html += '<td><span class="btn btn-danger pointer btnRemoveExportCustom" data-toggle="tooltip" data-placement="right" title="Xóa"><i class="fa fa-times" aria-hidden="true"></i></span></td></tr>';
+                    }
+                    html += '</tbody></table>';
+                    $('#ExportCustom').html(html);
+                }
+                if (d.danger)
+                    $('#TMAlert').TMAlert({ type: "danger", message: d.danger });
+                if (d.warning)
+                    $('#TMAlert').TMAlert({ type: "warning", message: d.warning });
+                $('.table-fixed-header').TMTableFixedHeader();
+                //tableFixedHeader();
+            });
+        };
+        function tableFixedHeader() {
+            var target = $('.table-fixed-header');
+            var table = $('.table-fixed-header').find('table');
+            var thead = table.find('thead');
+            var tbody = table.find('tbody');
+            var html = '<table class="' + table.attr('class') + '"><thead class="' + thead.attr('class') + '">' + thead.html() + '</thead></table>';
+            target.prepend(html);
+            var counter = 0;
+            //
+            table
+                .css('display', 'block')
+                .css('overflow-y', 'scroll')
+                .css('max-height', '500px')
+                .css('overflow-x', 'hidden');
+            //
+            $(target
+                .find('table')[0])
+                .css('margin-bottom', 'initial')
+                .css('position', 'absolute')
+                .css('z-index', '1')
+                .width(tbody.width() + 1);
+            //
+            $(tbody).find('tr:eq(0) td').each(function () {
+                var width = $(this).width();
+                $(target.find('table')[0]).find('tr th:eq(' + counter + ')').width(width);
+                $(tbody).find('tr td:eq(' + counter + ')').width(width);
+                counter++;
+            });
+        }
+        $(document).on('click', '.btnEditExportCustom', function () {
+            var data = { '__RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val(), id: $(this).parents('tr').attr('data-id') };
+            CreateExport(
+                function () {
+                    $.post('@Url.Action("EditExportCustom")', data, function (d) {
+                        var content = $('#TableCreateExport');
+                       if (d.EXPORT_CUSTOM) {
+                           $('#TableCreateExport input[name="txtExportName"]').val(d.EXPORT_CUSTOM.NAME);
+                           $('#TableCreateExport input[name="txtExportTableName"]').val(d.EXPORT_CUSTOM.TABLE_NAME);
+                           $('#TableCreateExport textarea[name="txtCondition"]').html(d.EXPORT_CUSTOM.CONDITION);
+                           $('#TableCreateExport textarea[name="txtExportQueryCreate"]').html(d.EXPORT_CUSTOM.QUERY_CREATE);
+                           $('#TableCreateExport textarea[name="txtExportQuerySelect"]').html(d.EXPORT_CUSTOM.QUERY_SELECT);
+                           $('#TableCreateExport textarea[name="txtExportQueryEnd"]').html(d.EXPORT_CUSTOM.QUERY_END);
+                       }
+                       if (d.EXPORT_TABLE) {
+                           var tables = [];
+                           for (var i = 0; i < d.EXPORT_TABLE.length; i++) {
+                               if ($.inArray(d.EXPORT_TABLE[i].TABLE_NAME, tables) < 0)
+                                   tables.push(d.EXPORT_TABLE[i].TABLE_NAME);
+
+                               content.find('tr[data-id="' + d.EXPORT_TABLE[i].COLUMN_NAME + '"][data-col-id="' + d.EXPORT_TABLE[i].TABLE_NAME + '"] input[type="checkbox"]').prop('checked', true);
+                               content.find('tr[data-id="' + d.EXPORT_TABLE[i].COLUMN_NAME + '"][data-col-id="' + d.EXPORT_TABLE[i].TABLE_NAME + '"] [data-val="COLUMN_NAME_EXPORT"]').html(d.EXPORT_TABLE[i].COLUMN_NAME_EXPORT);
+                               content.find('tr[data-id="' + d.EXPORT_TABLE[i].COLUMN_NAME + '"][data-col-id="' + d.EXPORT_TABLE[i].TABLE_NAME + '"] [data-val="COLUMN_TYPE_EXPORT"]').html(d.EXPORT_TABLE[i].COLUMN_TYPE_EXPORT);
+                               content.find('tr[data-id="' + d.EXPORT_TABLE[i].COLUMN_NAME + '"][data-col-id="' + d.EXPORT_TABLE[i].TABLE_NAME + '"] [data-val="COLUMN_LENGTH_EXPORT"]').html(d.EXPORT_TABLE[i].COLUMN_LENGTH_EXPORT);
+                               content.find('tr[data-id="' + d.EXPORT_TABLE[i].COLUMN_NAME + '"][data-col-id="' + d.EXPORT_TABLE[i].TABLE_NAME + '"] [data-val="CONDITION"]').html(d.EXPORT_TABLE[i].CONDITION);
+                               content.find('tr[data-id="' + d.EXPORT_TABLE[i].COLUMN_NAME + '"][data-col-id="' + d.EXPORT_TABLE[i].TABLE_NAME + '"] [data-val="ORDERS"]').html(d.EXPORT_TABLE[i].ORDERS);
+                           }
+                           for (var i = 0; i < tables.length; i++) {
+                               $('#TableCreateExport div[data-table-id="' + tables[i] + '"]').removeClass('hide');
+                           }
+                       }
+                       if (d.danger)
+                           $('#TMAlert').TMAlert({ type: "danger", message: d.danger });
+                       if (d.warning)
+                           $('#TMAlert').TMAlert({ type: "warning", message: d.warning });
+                   });
+                }
+            );
+        });
+        //Export ExportCustom
+        $(document).on('click', '.btnExportExportCustom', function (e) {
+            e.preventDefault();
+            ActionLink({
+                url: '@Url.Action("ExportExportCustom")',
+                data: { time: $('#time').val(), ckhMerginMonth: $('#ckhMerginMonth').prop('checked'), file: $(this).parents('tr').attr('data-id') }
+            });
+        });
+        //Update ExportCustom
+        $('#ModalUpdateTable .btnAccept').on('click', function () {
+            var item = $('#tableCols').find('.chkItem');
+            var ExportTable = [];
+            for (var i = 0; i < item.length; i++) {
+                if ($(item[i]).prop('checked') === true) {
+                    var parent = $(item[i]).parents('tr');
+                    var _tmp = new Object();
+                    _tmp.TABLE_NAME = $(item[i]).parents('div').attr('data-table-id');
+                    _tmp.COLUMN_NAME = parent.children('td:eq(0)').html();
+                    _tmp.COLUMN_TYPE = parent.children('td:eq(1)').html();
+                    _tmp.COLUMN_LENGTH = parent.children('td:eq(2)').html();
+                    _tmp.COLUMN_NAME_EXPORT = parent.children('td:eq(3)').html();
+                    _tmp.COLUMN_TYPE_EXPORT = parent.children('td:eq(4)').html();
+                    _tmp.COLUMN_LENGTH_EXPORT = parent.children('td:eq(5)').html();
+                    _tmp.CONDITION = parent.children('td:eq(6)').html();
+                    ExportTable.push(_tmp);
+                }
+            }
+            //var data = { '__RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val(), ExportTable: ExportTable };
+
+            var headers = {};
+            headers['__RequestVerificationToken'] = $('input[name="__RequestVerificationToken"]').val();
+            $.ajax({
+                contentType: 'application/json, charset=utf-8',
+                //dataType: 'json',
+                type: 'POST',
+                url: '@Url.Action("CreateExportSave")',
+                headers: headers,
+                data: JSON.stringify({
+                    DataList: ExportTable,
+                    ExportName: $('input[name="txtExportName"]').val(),
+                    ExportTableName: $('input[name="txtExportTableName"]').val(),
+                    ExportQueryCreate: $('textarea[name="txtExportQueryCreate"]').val(),
+                    ExportQuerySelect: $('textarea[name="txtExportQuerySelect"]').val(),
+                    ExportQueryEnd: $('textarea[name="txtExportQueryEnd"]').val(),
+                    Condition: $('textarea[name="txtCondition"]').val(),
+                    chkUpdateQuery: $('#chkUpdateQuery').prop('checked')
+                }),//{ '__RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val(),  },
+                success: function (d) {
+                    if (d.success)
+                        $('#TMAlert').TMAlert({ type: "success", message: d.success });
+                    if (d.danger)
+                        $('#TMAlert').TMAlert({ type: "danger", message: d.danger });
+                    if (d.warning)
+                        $('#TMAlert').TMAlert({ type: "warning", message: d.warning });
+                },
+                //traditional: true,
+                failure: function (response) { }
+            });
+        });
+        $(document).ajaxComplete(function () {
+            $('.btnRemoveExportCustom').TMConfirm({
+                modalOk: function (e) {
+                    var $this = e.parents('tr');
+                     ActionLink({
+                        url: '@Url.Action("RemoveExportCustom")',
+                        data: { time: $('#time').val(), ckhMerginMonth: $('#ckhMerginMonth').prop('checked'), file: $this.attr('data-id') },
+                        done: function () { $this.fadeOut('slow'); }
+                    });
+                //PostComment(e);
+            },
+                modalCancel: function () { }
+            });
+        });
+         @*$(document).on('click', '.btnRemoveExportCustom', function (e) {
+             var $this = $(this).parents('tr');
+             ActionLink({
+                 e: e,
+                 url: '@Url.Action("RemoveExportCustom")',
+                 data: { time: $('#time').val(), ckhMerginMonth: $('#ckhMerginMonth').prop('checked'), file: $this.attr('data-id') },
+                 done: function () { $this.fadeOut('slow'); }
+             });
+         });*@
+    </script>
+}

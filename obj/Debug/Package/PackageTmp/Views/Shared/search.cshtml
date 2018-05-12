@@ -1,0 +1,20 @@
+﻿@*<div class="pull-right col-md-3 mb10">*@
+    <form id="frmSearch" method="get" action="" class="form-inline pull-left">
+        <div class="search-form searching-form">
+            <div class="input-group">
+                <input type="text" id="searchString" name="searchString" class="form-control" placeholder="Nhập từ khóa..." data-toggle="tooltip" data-placement="left" title="Nhập từ khóa..." value="@ViewBag.currentFilter" aria-describedby="search-addon">
+                <a id="search-addon" href="javascript:;" class="input-group-addon btn-info"><span class="glyphicon glyphicon-search"></span></a>
+            </div>
+        </div>
+    </form>
+@*</div>*@
+
+@*@using (Html.BeginForm())
+    {
+        <div class="search-form searching-form">
+            <div class="form-group">
+                <input type="text" id="searchString" name="searchString" class="form-control" placeholder="Nhập từ khóa..." data-toggle="tooltip" data-placement="left" title="Nhập từ khóa..." value="@ViewBag.currentFilter" aria-describedby="search-addon">
+                <input type="submit" value="Tìm" name="Submit" class="btn btn-info" />
+            </div>
+        </div>
+    }*@

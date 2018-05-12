@@ -1,0 +1,86 @@
+﻿<div class="modal" id="ModalCreate" tabindex="-1" role="dialog" aria-labelledby="ModalAdd" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="ModalCreateLabel">Thêm mới nhóm</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="TMAlertModal"></div>
+                <div class="form-horizontal">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <h5 class="card-title">Thông tin chung</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group row">
+                                @*<label class="col-md-2 col-form-label required" for="APPKEY">APPKEY</label>*@
+                                <div class="col-md-12">
+                                    <input type="text" id="APPKEY" name="APPKEY" class="form-control isTooltip" value=""
+                                           placeholder="APPKEY" title="APPKEY" data-placement="right"
+                                           data-val="true" data-val-required="Vui lòng nhập giá trị!">
+                                    <span data-valmsg-for="APPKEY" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                @*<label class="col-md-2 col-form-label required" for="TITLE">Tên nhóm</label>*@
+                                <div class="col-md-12">
+                                    <input type="text" id="TITLE" name="TITLE" class="form-control isTooltip" value=""
+                                           placeholder="Tên nhóm" title="Tên nhóm" data-placement="right"
+                                           data-val="true" data-val-required="Vui lòng nhập giá trị!">
+                                    <span data-valmsg-for="TITLE" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                @*<label class="col-md-2 col-form-label required" for="ORDERS">Sắp xếp</label>*@
+                                <div class="col-md-12">
+                                    <input type="number" id="ORDERS" name="ORDERS" class="form-control isTooltip" value="0"
+                                           placeholder="Sắp xếp" title="Sắp xếp" data-placement="right"
+                                           data-val="true" data-val-required="Vui lòng nhập giá trị!">
+                                    <span data-valmsg-for="ORDERS" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-2 col-form-label required">Trạng thái</label>
+                                <div class="btn-group flag" role="group" data-toggle="buttons">
+                                    <label class="btn btn-secondary active">
+                                        <span>Sử dụng</span>
+                                        <input type="radio" hidden name="FLAG" value="1" autocomplete="off" checked>
+                                    </label>
+                                    <label class="btn btn-secondary">
+                                        <span>Nháp</span>
+                                        <input type="radio" hidden name="FLAG" value="0" autocomplete="off">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer"><label class="text-warning">Vui lòng nhập đầy đủ các trường có dấu (*)</label></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Miêu tả</h5>
+                    </div>
+                    <div class="card-body">
+                        <textarea id="Details" name="Details" class="tinymce"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnCreate" type="submit" class="btn btn-primary">Thêm mới</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Quay lại</button>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/tinymce/tinymce.min.js"></script>
+    <script src="~/Scripts/site.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/validator.unobtrusive.parseDynamicContent.js"></script>
+    <script>
+        $(FormModal).FormPost({ url: $controllerUrl + 'InsertUpdate', done: function () { $($table).bootstrapTable('refresh') } });
+    </script>
+</div>

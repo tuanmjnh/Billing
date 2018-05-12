@@ -1,0 +1,161 @@
+﻿@Html.AntiForgeryToken()
+<script src="@TM.Url.BaseUrl/Scripts/bootstrap-confirmation.min.js"></script>
+<script>
+    $(function () {
+        //$(document).ajaxComplete(function () {
+        //})
+        //Xóa từng dòng
+        $('.delete-row').confirmation({
+            popout: true,
+            singleton: true,
+            placement: 'left',
+            html: true,
+            title: 'Xác nhận xóa',
+            btnOkLabel: 'Chấp nhận',
+            btnCancelLabel: 'Hủy bỏ',
+            btnOkClass: 'btn-sm btn-primary',
+            btnCancelClass: 'btn-sm btn-default',
+            onConfirm: function () {
+                var parent = $(this).parents('tr');
+                $.get(window.location.href.replace(window.location.search, '').replace(window.location.hash, '') + "/update_flag?uid=" + parent.attr('id'), function (a) {
+                    $(parent).fadeOut(function () {
+                        $(this).remove()
+                    });
+                    if (a.success)
+                        $('#TMAlert').TMAlert({ type: "success", message: a.success });
+                    else
+                        $('#TMAlert').TMAlert({ type: "error", message: a.danger });
+                });
+            }
+        });
+        //Cập nhật trạng thái tất cả
+        $('.btn-flag').confirmation({
+            popout: true,
+            singleton: true,
+            placement: 'left',
+            html: true,
+            title: 'Xác nhận xóa',
+            btnOkLabel: 'Chấp nhận',
+            btnCancelLabel: 'Hủy bỏ',
+            btnOkClass: 'btn-sm btn-primary',
+            btnCancelClass: 'btn-sm btn-default',
+            onConfirm: function () {
+                var uid = [];
+                var row = [];
+                $('.chkitem').each(function () {
+                    if ($(this).prop('checked') === true) {
+                        var parent = $(this).parents('tr');
+                        uid.push(parent.attr('id'));
+                        row.push(parent);
+                    }
+                })
+                $.get(window.location.href.replace(window.location.search, '').replace(window.location.hash, '') + "/update_flag?uid=" + uid, function (a) {
+                    for (var i = 0; i < row.length; i++) {
+                        $(row[i]).fadeOut(function () {
+                            $(this).remove()
+                        });
+                    }
+                    if (a.success)
+                        $('#TMAlert').TMAlert({ type: "success", message: a.success });
+                    else
+                        $('#TMAlert').TMAlert({ type: "error", message: a.danger });
+                });
+            }
+        });
+        //Xóa hoàn toàn tất cả
+        $('.btn-trash').confirmation({
+            popout: true,
+            singleton: true,
+            placement: 'left',
+            html: true,
+            title: 'Bạn có chắc chắn muốn thực hiện?',
+            btnOkLabel: 'Chấp nhận',
+            btnCancelLabel: 'Hủy bỏ',
+            btnOkClass: 'btn-sm btn-primary',
+            btnCancelClass: 'btn-sm btn-default',
+            onConfirm: function () {
+                var uid = [];
+                var row = [];
+                $('.chkitem').each(function () {
+                    if ($(this).prop('checked') === true) {
+                        var parent = $(this).parents('tr');
+                        uid.push(parent.attr('id'));
+                        row.push(parent);
+                    }
+                })
+                $.post(
+                    window.location.href.replace(window.location.search, '').replace(window.location.hash, '') + "/Delete",
+                    {
+                        '__RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val(),
+                        'uid': uid
+                    }, function (a) {
+                        for (var i = 0; i < row.length; i++) {
+                            $(row[i]).fadeOut(function () {
+                                $(this).remove()
+                            });
+                        }
+                        if (a.success)
+                            $('#TMAlert').TMAlert({ type: "success", message: a.success });
+                        else
+                            $('#TMAlert').TMAlert({ type: "error", message: a.danger });
+                    })
+                //$.get(window.location.href.replace(window.location.search, '') + "/Delete?uid=" + uid, function (a) {
+                //    for (var i = 0; i < row.length; i++) {
+                //        $(row[i]).fadeOut(function () {
+                //            $(this).remove()
+                //        });
+                //    }
+                //    if (a.success)
+                //        $('#TMAlert').TMAlert({ message: a.success });
+                //    else
+                //        $('#TMAlert').TMAlert({ type: "error", message: a.danger });
+                //});
+            }
+        });
+
+        //
+        $.fn.TMCheckBox(".chkall", ".chkitem", ".btn-chk");
+
+        //
+        $('.link-action').on('click', function () {
+            window.location = window.location.href.replace(window.location.search, '').replace(window.location.hash, '') + '/Edit/' + $(this).parents('tr').attr('id');
+        })
+        $('.link-action').each(function () {
+            var href = window.location.href.replace(window.location.search, '').replace(window.location.hash, '') + '/Edit/' + $(this).parents('tr').attr('id');
+            $(this).find('a').attr('href', href);
+        })
+
+        //
+        //
+        var html = '<div class="input-group col-md-1 pagination-goto">' +
+                        '<input type="text" class="form-control" name="page" placeholder="Số" />' +
+                        '<a class="input-group-addon btn-info"><span class="glyphicon glyphicon-arrow-right"></span></a>' +
+                        '</div>';
+        $('.pagination-container').append(html);
+        @*$(document).on('click', '.pagination-goto a', function () {
+            var input = $(this).parent().children('input[type=text]').val();
+            var url = "@(Html.Raw(Url.Action("Index", new
+            {
+                order = ViewBag.order,
+                currentFilter = ViewBag.currentFilter,
+                flag = ViewBag.flag,
+                report = ViewBag.report
+            })))";
+            window.location = (url.indexOf("?") > 0 ? url : "?") + "&page=" + input;
+        })*@
+
+        //Datetime
+        var dateNow = new Date();
+        $('.startDate').datetimepicker({
+            defaultDate: new Date(dateNow.getFullYear(), dateNow.getMonth(), 1),
+            format: 'DD/MM/YYYY',
+        });
+        $('.endDate').datetimepicker({
+            defaultDate: dateNow,
+            format: 'DD/MM/YYYY',
+        });
+        $('.priceVND').each(function (e) {
+            $(this).children().html(parseFloat($(this).children().html()).format());
+        })
+    })
+</script>
