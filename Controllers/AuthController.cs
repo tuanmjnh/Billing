@@ -50,7 +50,7 @@ namespace Billing.Controllers
                 }
                 //AuthDB
                 qry = $"SELECT * FROM users WHERE username='{obj.username}'";
-                var user = SQLServer.Connection.QueryFirstOrDefault<Authentication.user>(qry);// db.users.SingleOrDefault(u => u.username == username);
+                var user = SQLServer.Connection.QueryFirstOrDefault<Authentication.Users>(qry);// db.users.SingleOrDefault(u => u.username == username);
 
                 //Account not Exist
                 if (user == null)
@@ -78,7 +78,7 @@ namespace Billing.Controllers
                 Authentication.Auth.SetAuth(user);
                 //return Redirect(TM.Url.RedirectContinue());
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return Json(new { danger = "Đăng nhập không thành công, vui lòng liên hệ admin!" }, JsonRequestBehavior.AllowGet);
             }
@@ -111,7 +111,7 @@ namespace Billing.Controllers
             {
                 SQLServer = new TM.Connection.SQLServer("Portal");
                 var qry = $"SELECT * FROM users WHERE id='{id.ToString()}'";
-                var user = SQLServer.Connection.QueryFirstOrDefault<Authentication.user>(qry);
+                var user = SQLServer.Connection.QueryFirstOrDefault<Authentication.Users>(qry);
                 user.password = TM.Encrypt.CryptoMD5TM(password + user.salt);
                 SQLServer.Connection.Update(user);
             }

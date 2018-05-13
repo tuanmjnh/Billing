@@ -111,9 +111,6 @@ D:\Applications\Vinaphone\Billing\bin\Microsoft.SqlServer.Diagnostics.STrace.dll
 D:\Applications\Vinaphone\Billing\bin\Microsoft.SqlServer.SqlTDiagM.dll
 D:\Applications\Vinaphone\Billing\bin\Authentication.dll
 D:\Applications\Vinaphone\Billing\bin\Authentication.pdb
-D:\Applications\Vinaphone\Billing\bin\CrystalDecisions.CrystalReports.Engine.dll
-D:\Applications\Vinaphone\Billing\bin\CrystalDecisions.ReportSource.dll
-D:\Applications\Vinaphone\Billing\bin\CrystalDecisions.Shared.dll
 D:\Applications\Vinaphone\Billing\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
 D:\Applications\Vinaphone\Billing\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
 D:\Applications\Vinaphone\Billing\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
@@ -130,3 +127,4 @@ D:\Applications\Vinaphone\Billing\bin\stdole.dll
 D:\Applications\Vinaphone\Billing\bin\roslyn\System.IO.Pipes.AccessControl.dll
 D:\Applications\Vinaphone\Billing\bin\Dapper.Contrib.xml
 D:\Applications\Vinaphone\Billing\obj\Debug\Billing.csprojAssemblyReference.cache
+D:\Applications\Vinaphone\Billing\bin\roslyn\Microsoft.Managed.Core.targets
