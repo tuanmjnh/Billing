@@ -1,1 +1,2 @@
-.pdf,.xls,.xlsx,.dbf
+*.dbf
+,*.pdf,*.xls,*.xlsx
