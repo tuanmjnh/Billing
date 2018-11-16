@@ -1,0 +1,142 @@
+﻿
+@{
+    ViewBag.Title = "Tính cước Fiber";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h3 class="col-md-12">Tính cước Fiber</h3>
+<br /><br />
+<form action="@Url.Action("Upload")" met method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <div class="col-md-8">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Tùy chọn thông số</h3>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-6 row">
+                    <h4 class="form-group col-md-12">Tải tệp</h4>
+                    <div class="form-group col-md-12 asterisk">
+                        <label for="FileUpload" class="btn btn-warning">
+                            Chọn File
+                            <input type="file" id="FileUpload" name="FileUpload" class="file-upload hidden" multiple data-val="true"
+                                   data-val-required="Vui lòng chọn file" data-rule-extension="dbf" data-msg-extension="Định dạng tệp phải là dbf." />
+                            <span class="field-validation-valid text-danger" data-valmsg-for="FileUpload" data-valmsg-replace="true"></span>
+                        </label>
+                        <a href="javascript:;" data-url="@Url.Action("GeneralUpload")" class="btn btn-primary btnAction">Tải File lên hệ thống</a>
+                    </div>
+                    <div class="form-group col-md-12 lblUpload"></div>
+                </div>
+                <div class="col-md-6 row">
+                    <h4 class="form-group col-md-12">Tháng thực hiện</h4>
+                    <div class="form-group col-md-12">
+                        <label for="ckhMerginMonth">
+                            <input type="checkbox" id="ckhMerginMonth" checked /><!--name="ckhMerginMonth" value="1"-->
+                            Ghép theo tháng hiện tại
+                        </label>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="col-md-6 row">Chọn tháng</label>
+                        <div class="col-md-6">
+                            <select id="time" class="form-control" name="time">
+                                @foreach (var item in (List<string>)ViewBag.directory)
+                                {
+                                    <option value="@item">@item</option>
+                                }
+                            </select>
+                            <label id="lblTime"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Xử lý</h3>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-12">
+                    <div class="form-group"><a href="javascript:;" data-url="@Url.Action("UpdateContact")" class="btn btn-default btnAction">2.1. Cập nhật danh bạ</a></div>
+                    <div class="form-group"><a href="javascript:;" data-url="@Url.Action("UpdateContactNULL")" class="btn btn-default btnAction">2.2. Cập nhật danh bạ NULL</a></div>
+                    <div class="form-group"><a href="javascript:;" data-url="@Url.Action("UpdatePrice")" class="btn btn-default btnAction">3. Cập nhật giá từ bảng giá</a></div>
+                    <div class="form-group"><a href="javascript:;" data-url="@Url.Action("XuLyTichHop")" class="btn btn-default btnAction">4. Xử lý tích hợp</a></div>
+                    <div class="form-group"><a href="javascript:;" data-url="@Url.Action("XuLyKhuyenMai")" class="btn btn-default btnAction">5. Xử lý khuyến mại</a></div>
+                    <div class="form-group"><a href="javascript:;" data-url="@Url.Action("XuLyManu")" class="btn btn-default btnAction">6. Xử lý Thuê bao Manu</a></div>
+                    <div class="form-group"><a href="javascript:;" data-url="@Url.Action("XuLyThanhToanTruoc")" class="btn btn-default btnAction">7. Xử lý thanh toán trước</a></div>
+                    <div class="form-group"><a href="javascript:;" data-url="@Url.Action("XuLyCuocFix")" class="btn btn-default btnAction">8. Xử lý cước Fix</a></div>
+                    <div class="form-group"><a href="javascript:;" data-url="@Url.Action("XuLyCuocMergin")" class="btn btn-default btnAction">9. Xử lý cước ghép</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="clearfix"></div>
+@section scripts {
+    <script>
+        AjaxLoad();
+        function MerginMonth() {
+            if ($('#ckhMerginMonth').prop('checked') == true) {
+                var date = moment();
+                var month = parseInt(date.format('MM')) - 1;
+                month = month < 10 ? '0' + month : month + '';
+                var year = date.format('YYYY');
+                $('select[name="time"]').hide();
+                $('#lblTime').html(year + month).show();
+            } else {
+                $('select[name="time"]').show();
+                $('#lblTime').hide();
+            }
+        };
+        $(function () {
+            MerginMonth();
+        });
+        $('#ckhMerginMonth').on('click', function () {
+            MerginMonth();
+        });
+        $('#FileUpload').on('change', function () {
+            var files = this.files;
+            var html = '';
+            for (var i = 0; i < files.length; i++) {
+                html += '<span class="text-primary">' + (i + 1) + '. ' + files[i].name + '</span><br/>';
+            }
+            $('.lblUpload').html(html);
+        });
+        function ActionLink(obj) {
+            obj.e.preventDefault();
+            var formdata = new FormData($('form')[0]);
+            for (var i in obj.data)
+                formdata.append(i, obj.data[i]);
+            //obj.data = $.extend({}, { '__RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val() }, obj.data);
+            $.ajax({
+                url: obj.url,
+                type: 'POST',
+                dataType: 'json',
+                data: formdata,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (d) {
+                    if (d.success)
+                        $('#TMAlert').TMAlert({ type: "success", message: d.success });
+                    if (d.danger)
+                        $('#TMAlert').TMAlert({ type: "danger", message: d.danger });
+                    $('#FileUpload').val('');
+                    $('.lblUpload').html('');
+                },
+                error: function (xhr, error, status) {
+                    $('#TMAlert').TMAlert({ type: "danger", message: window.location.protocol + '//' + window.location.host + this.url + ' is ' + xhr.status + ' ' + xhr.statusText });
+                    //console.log(error, status);
+                }
+            });
+        };
+        //Action link
+        $('.btnAction').on('click', function (e) {
+            ActionLink({
+                e: e,
+                url: $(this).attr('data-url'),
+                data: { time: $('#time').val(), ckhMerginMonth: $('#ckhMerginMonth').prop('checked') }
+            });
+        });
+    </script>
+}

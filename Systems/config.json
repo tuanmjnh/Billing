@@ -1,0 +1,53 @@
+{
+  "connection": [
+    {
+      "id": 1,
+      "name": "MainContext",
+      "type_name": "mssql",
+      "value": "data source=TTKDServer;initial catalog=CUOC_TEST;persist security info=True;user id=sa;password=tmvnpt;multipleactiveresultsets=True;",
+      "providerName": "System.Data.SqlClient"
+    },
+    {
+      "id": 2,
+      "name": "Portal",
+      "type_name": "mssql",
+      "value": "data source=TTKDServer;initial catalog=Portal;persist security info=True;user id=sa;password=tmvnpt;multipleactiveresultsets=True;",
+      "providerName": "System.Data.SqlClient"
+    },
+    {
+      "id": 3,
+      "name": "TTKDServerTMVN",
+      "type_name": "oracle",
+      "value": "User Id=tmvn;Password=tmvnpt;Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.17.20.99)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=vnpt)));",
+      "providerName": "Oracle.ManagedDataAccess.Client"
+    },
+    {
+      "id": 4,
+      "name": "TTKDServerVNPT",
+      "type_name": "oracle",
+      "value": "User Id=vnpt;Password=tmvnpt;Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.17.20.99)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=vnpt)));",
+      "providerName": "Oracle.ManagedDataAccess.Client"
+    },
+    {
+      "id": 5,
+      "name": "TTKDServerCUOC",
+      "type_name": "oracle",
+      "value": "User Id=cuoc;Password=tmvnpt;Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.17.20.99)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=vnpt)));",
+      "providerName": "Oracle.ManagedDataAccess.Client"
+    },
+    {
+      "id": 6,
+      "name": "HNIVNPTBACKAN1",
+      "type_name": "oracle",
+      "value": "User Id=VNPTBACKAN1;Password=abc123;Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.10.20.15)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=VNPSYN)));",
+      "providerName": "Oracle.ManagedDataAccess.Client"
+    },
+    {
+      "id": 7,
+      "name": "HNIVNPTBACKAN2",
+      "type_name": "oracle",
+      "value": "User Id=VNPTBACKAN2;Password=Abcd1234;Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.10.20.15)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=VNPSYN)));",
+      "providerName": "Oracle.ManagedDataAccess.Client"
+    }
+  ]
+}

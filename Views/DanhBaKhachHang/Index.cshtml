@@ -1,0 +1,311 @@
+﻿@model PagedList.IPagedList<dynamic>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Danh bạ khách hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<p class="pull-left">
+    <button onclick="window.location='@Url.Action("Create")'" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> @TM.Common.Language.addnew</button>
+    <button id="GetDanhBaKhachHangNull" data-url="@Url.Action("DanhBaKhachHangNull")" class="btn btn-default">Danh bạ khách hàng Null</button>
+</p>
+<div class="pull-right mb10 form-inline">
+    @Html.Partial("search")
+    <div class="pull-right">
+        <a href="@Url.Action("Index",new { export = "export"})" class="btn btn-info"><i class="fa fa-file-excel-o" aria-hidden="true"></i></a>
+        @if (ViewBag.flag == 0)
+        {
+            <a href="javascript:;" class="btn btn-info btn-flag btn-chk" data-toggle="tooltip" title="Khôi phục tất cả" style="display:none"><i class="glyphicon glyphicon-refresh"></i></a>
+            if (Authentication.Auth.isAuth && Authentication.Auth.inRoles(new string[] { Authentication.Roles.admin, Authentication.Roles.superadmin }))
+            {
+                <a href="javascript:;" class="btn btn-danger btn-trash btn-chk" data-toggle="tooltip" title="Xóa vĩnh viễn" style="display:none"><i class="glyphicon glyphicon-remove"></i></a>
+            }
+            <a href="@Url.Action("Index",new { datetime = ViewBag.datetime, datetimeType = ViewBag.datetimeType, order = ViewBag.order, searchString = ViewBag.currentFilter, flag = 1 })" class="btn btn-default" data-toggle="tooltip" title="Hiển thị sử dụng"><i class="glyphicon glyphicon-th-list"></i></a>
+            <a href="@Url.Action("Index",new { datetime = ViewBag.datetime, datetimeType = ViewBag.datetimeType, order = ViewBag.order, searchString = ViewBag.currentFilter, flag = 0 })" class="btn btn-default active" data-toggle="tooltip" title="Hiển thị nháp"><i class="glyphicon glyphicon-retweet"></i></a>
+        }
+        else
+        {
+            <a href="javascript:;" class="btn btn-danger btn-flag btn-chk" data-toggle="tooltip" title="Xóa tất cả" style="display:none"><i class="glyphicon glyphicon-trash"></i></a>
+            <a href="@Url.Action("Index",new { datetime = ViewBag.datetime, datetimeType = ViewBag.datetimeType, order = ViewBag.order, searchString = ViewBag.currentFilter, flag = 1 })" class="btn btn-default active" data-toggle="tooltip" title="Hiển thị sử dụng"><i class="glyphicon glyphicon-th-list"></i></a>
+            <a href="@Url.Action("Index",new { datetime = ViewBag.datetime, datetimeType = ViewBag.datetimeType, order = ViewBag.order, searchString = ViewBag.currentFilter, flag = 0 })" class="btn btn-default" data-toggle="tooltip" title="Hiển thị nháp"><i class="glyphicon glyphicon-retweet"></i></a>
+        }
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="pull-right mb10">
+    @{
+        var datetime = ViewBag.datetime != null ? ((string)ViewBag.datetime).Split('-') : new string[0];
+    }
+    <form id="frmSearchDatetime" method="get" action="" class="form-inline">
+        <div class="input-group date startDate">
+            <input type="text" class="form-control" id="started_at" name="started_at" autocomplete="off" placeholder="Nhập ngày bắt đầu" data-toggle="tooltip" data-placement="bottom" title="Nhập ngày bắt đầu" value="@(datetime.Length>0?datetime[0]:"")" />
+            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+        </div>
+        <div class="input-group date endDate end_at">
+            <input type="text" class="form-control" id="ended_at" name="ended_at" autocomplete="off" placeholder="Nhập ngày kết thúc" data-toggle="tooltip" data-placement="bottom" title="Nhập ngày kết thúc" value="@(datetime.Length>1?datetime[1]:"")" />
+            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+        </div>
+        <a id="SearchDatetime" href="javascript:;" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></a>
+        <div class="btn-group datetimeType" data-toggle="buttons">
+            <label data-val="0" class="btn btn-warning @(ViewBag.datetimeType != null ? (ViewBag.datetimeType == 0 ? "active" : "") : "active")">
+                <input type="radio" name="datetimeType" value="0" autocomplete="off"> Ngày tạo
+            </label>
+            <label data-val="1" class="btn btn-warning @(ViewBag.datetimeType != null ? (ViewBag.datetimeType == 1 ? "active" : "") : "")">
+                <input type="radio" name="datetimeType" value="1" autocomplete="off"> Ngày sửa
+            </label>
+        </div>
+    </form>
+</div>
+<div class="clearfix"></div>
+@if (Model == null || Model.Count < 1)
+{
+    <div class="alert alert-warning" role="alert">@TM.Common.Language.emptydb</div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered table-head">
+            <thead>
+                <tr>
+                    @*<th class="tbl-index">STT</th>*@
+                    <th>
+                        @Html.ActionLink("Profile", "Index",
+                                            new
+                                            {
+                                                order = TM.Url.getQueryString("order") != null && TM.Url.getQueryString("order") == "profile_asc" ? "profile_desc" : "profile_asc",
+                                                currentFilter = ViewBag.currentFilter,
+                                                flag = ViewBag.flag,
+                                                datetime = ViewBag.datetime,
+                                                datetimeType = ViewBag.datetimeType,
+                                            })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Tên gói", "Index",
+                                            new
+                                            {
+                                                order = TM.Url.getQueryString("order") != null && TM.Url.getQueryString("order") == "name_asc" ? "name_desc" : "name_asc",
+                                                currentFilter = ViewBag.currentFilter,
+                                                flag = ViewBag.flag,
+                                                datetime = ViewBag.datetime,
+                                                datetimeType = ViewBag.datetimeType,
+                                            })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Tốc độ", "Index",
+                                            new
+                                            {
+                                                order = TM.Url.getQueryString("order") != null && TM.Url.getQueryString("order") == "speed_asc" ? "speed_desc" : "speed_asc",
+                                                currentFilter = ViewBag.currentFilter,
+                                                flag = ViewBag.flag,
+                                                datetime = ViewBag.datetime,
+                                                datetimeType = ViewBag.datetimeType,
+                                            })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Giá", "Index",
+                                            new
+                                            {
+                                                order = TM.Url.getQueryString("order") != null && TM.Url.getQueryString("order") == "price_asc" ? "price_desc" : "price_asc",
+                                                currentFilter = ViewBag.currentFilter,
+                                                flag = ViewBag.flag,
+                                                datetime = ViewBag.datetime,
+                                                datetimeType = ViewBag.datetimeType,
+                                            })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Kiểu", "Index",
+                                            new
+                                            {
+                                                order = TM.Url.getQueryString("order") != null && TM.Url.getQueryString("order") == "type_asc" ? "type_desc" : "type_asc",
+                                                currentFilter = ViewBag.currentFilter,
+                                                flag = ViewBag.flag,
+                                                datetime = ViewBag.datetime,
+                                                datetimeType = ViewBag.datetimeType,
+                                            })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Gói cước ID", "Index",
+                                            new
+                                            {
+                                                order = TM.Url.getQueryString("order") != null && TM.Url.getQueryString("order") == "goicuocId_asc" ? "goicuocId_desc" : "goicuocId_asc",
+                                                currentFilter = ViewBag.currentFilter,
+                                                flag = ViewBag.flag,
+                                                datetime = ViewBag.datetime,
+                                                datetimeType = ViewBag.datetimeType,
+                                            })
+                    </th>
+                    <th class="tbl-checkbox">
+                        <label><input type="checkbox" name="checkboxs" value="all" class="chkall" /></label>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @*@{int index = 0;}*@
+                @foreach (dynamic item in (IEnumerable<dynamic>)Model)
+                {
+                    //index += 1;
+                    <tr id="@item.ID">
+                        @*<td class="center">@(index + (Model.PageNumber - 1) * Model.PageSize)</td>*@
+                        <td>
+                            <a href="@Url.Action("Edit/"+item.ID,"BangGiaCuoc",new { area=""})">@item.PROFILE</a>
+                        </td>
+                        <td>@item.TENGOI</td>
+                        <td>@item.TOCDO</td>
+                        <td>@item.GIA</td>
+                        <td>@item.KIEU</td>
+                        <td>@item.GOICUOCID</td>
+                        <td class="tbl-checkbox">
+                            <label><input type="checkbox" name="checkbox" value="@item.ID" class="chkitem" /></label>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="pagination-list">
+        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) của @Model.PageCount trong tổng số (@ViewBag.TotalRecords bản ghi)
+        @Html.PagedListPager(Model, page => Url.Action("Index",
+                                                  new
+                                                  {
+                                                      page,
+                                                      order = ViewBag.order,
+                                                      currentFilter = ViewBag.currentFilter,
+                                                      flag = ViewBag.flag,
+                                                      datetime = ViewBag.datetime,
+                                                      datetimeType = ViewBag.datetimeType
+                                                  }))
+    </div>
+}
+<div class="clearfix"></div>
+<form id="ActionForm" action="" met method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <!-- Modal -->
+    <div class="modal stat" id="ModalUpdateTable" tabindex="-1" role="dialog" data-backdrop="static">
+        <div class="modal-dialog modal-lgs" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">Cập nhật khách hàng null</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div id="TableDetail" style="overflow-y:scroll;max-height:500px;overflow-x: scroll;"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btnAccept hide">Cập nhật</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Quay lại</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+@section scripts {
+<script>
+    AjaxLoaddingBounce();
+        //function ActionLink(obj) {
+        //    obj.e.preventDefault();
+        //    var formdata = new FormData($('#ActionForm')[0]);
+        //    for (var i in obj.data)
+        //        formdata.append(i, obj.data[i]);
+        //    //obj.data = $.extend({}, { '__RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val() }, obj.data);
+        //    $.ajax({
+        //        url: obj.url,
+        //        type: 'POST',
+        //        dataType: 'json',
+        //        data: formdata,
+        //        cache: false,
+        //        contentType: false,
+        //        processData: false,
+        //        success: function (d) {
+        //            if (d.success) {
+        //                $('#TMAlert').TMAlert({ type: "success", message: d.success });
+        //                $("form")[0].reset();
+        //            }
+        //            if (d.danger)
+        //                $('#TMAlert').TMAlert({ type: "danger", message: d.danger });
+        //            if (d.warning)
+        //                $('#TMAlert').TMAlert({ type: "warning", message: d.warning });
+        //            if (d.url)
+        //                window.location = d.url;
+        //        },
+        //        error: function (xhr, error, status) {
+        //            $('#TMAlert').TMAlert({ type: "danger", message: window.location.protocol + '//' + window.location.host + this.url + ' is ' + xhr.status + ' ' + xhr.statusText });
+        //            //console.log(error, status);
+        //        }
+        //    });
+        //};
+        //Action link
+        $('.btnAction').on('click', function (e) {
+            ActionLink({
+                e: e,
+                url: $(this).attr('data-url'),
+                data: { time: $('#time').val(), ckhMerginMonth: $('#ckhMerginMonth').prop('checked') }
+            });
+        });
+        $(function () {
+            $('#TableDetail').TMUpdateValue({ url: '@Url.Action("UpdateDanhBaKhachHangNull")', data: { '__RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val() } });
+        });
+        $('#GetDanhBaKhachHangNull').on('click', function () {
+            getDataList();
+        });
+        function removeNull(val) {
+            return val == null ? '' : val;
+        }
+        function getDataList(done, always) {
+            $('#TableDetail').html('');
+            var data = { '__RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val() };
+            $.post('@Url.Action("DanhBaKhachHangNull")', data, function (d) {
+                if (d.data) {
+                    $('#ModalUpdateTable').modal('show');
+                    var html = '<table class="table table-bordered table-hover"><thead><tr>\
+                        <th>Account</th>\
+                        <th>Mã TB</th>\
+                        <th>Mã KH</th>\
+                        <th>Mã TT</th>\
+                        <th>Tên</th>\
+                        <th>Địa chỉ</th>\
+                        <th>Điện thoại</th>\
+                        <th>MS Thuế</th>\
+                        <th>BANKNUMBER</th>\
+                        <th>MA_DVI</th>\
+                        <th>MA_CBT</th>\
+                        <th>MA_TUYEN</th>\
+                        <th>MA_DT</th>\
+                        <th>KHLON_ID</th>\
+                        <th>LOAIKH_ID</th>\
+                        </tr></thead><tbody>';
+                    for (var i = 0; i < d.data.length; i++) {
+                        html += '<tr data-id="' + d.data[i].ID + '">\
+                            <td>' + d.data[i].ACCOUNT + '</td>\
+                            <td tm-editable="true" data-val="MA_TB">' + removeNull(d.data[i].MA_TB) + '</td>\
+                            <td tm-editable="true" data-val="MA_KH">' + removeNull(d.data[i].MA_KH) + '</td>\
+                            <td tm-editable="true" data-val="MA_TT_HNI">' + removeNull(d.data[i].MA_TT_HNI) + '</td>\
+                            <td tm-editable="true" data-val="TEN_TT">' + removeNull(d.data[i].TEN_TT) + '</td>\
+                            <td tm-editable="true" data-val="DIACHI_TT">' + removeNull(d.data[i].DIACHI_TT) + '</td>\
+                            <td tm-editable="true" data-val="DIENTHOAI">' + removeNull(d.data[i].DIENTHOAI) + '</td>\
+                            <td tm-editable="true" data-val="MS_THUE">' + removeNull(d.data[i].MS_THUE) + '</td>\
+                            <td tm-editable="true" data-val="BANKNUMBER">' + removeNull(d.data[i].BANKNUMBER) + '</td>\
+                            <td tm-editable="true" data-val="MA_DVI">' + removeNull(d.data[i].MA_DVI) + '</td>\
+                            <td tm-editable="true" data-val="MA_CBT">' + removeNull(d.data[i].MA_CBT) + '</td>\
+                            <td tm-editable="true" data-val="MA_TUYEN">' + removeNull(d.data[i].MA_TUYEN) + '</td>\
+                            <td tm-editable="true" data-val="MA_DT">' + removeNull(d.data[i].MA_DT) + '</td>\
+                            <td tm-editable="true" data-val="KHLON_ID">' + removeNull(d.data[i].KHLON_ID) + '</td>\
+                            <td tm-editable="true" data-val="LOAIKH_ID">' + removeNull(d.data[i].LOAIKH_ID) + '</td>\
+                            </tr>';
+                    };
+                    html += '</tbody></table>';
+                    $('#TableDetail').html(html);
+                }
+                if (d.danger)
+                    $('#TMAlert').TMAlert({ type: "danger", message: d.danger });
+                if (d.warning)
+                    $('#TMAlert').TMAlert({ type: "warning", message: d.warning });
+            }).done(function () {
+                if (typeof done == 'function')
+                    done();
+            }).always(function () {
+                if (typeof always == 'function')
+                    always();
+            });
+        }
+</script>
+}

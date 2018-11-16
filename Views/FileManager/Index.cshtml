@@ -1,0 +1,334 @@
+﻿@{
+    ViewBag.Title = "File Manager";
+    ViewBag.ContentTitle = "File Manager List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var disabled = "";
+    if (Authentication.Auth.AuthUser.roles == Authentication.Roles.staff || Authentication.Auth.AuthUser.roles == Authentication.Roles.leader)
+    {
+        disabled = "disabled";
+    }
+}
+<div class="form-inline pull-right mb10 pl5">
+    <div class="pull-right">
+        <div class="btn-group pull-right" role="group" aria-label="Action Button List">
+            <button type="button" id="indexBtnAdd" class="btn btn-primary isTooltip btnGetForm" tm-lang-attr="true" title="Global.create" data-toggle="modal" data-url="BGCuoc/Insert"><i class="fa fa-plus" aria-hidden="true"></i></button>
+            <button type="button" id="indexBtnDeleteRecover" class="btn btn-danger isTooltip" tm-lang-attr="true" title="Global.delete"><i class="fa fa-times" aria-hidden="true"></i></button>
+            <button type="button" id="indexBtnDeleteForever" class="btn btn-danger isTooltip" tm-lang-attr="true" title="Global.deleteForever" style="display:none"><i class="fa fa-ban" aria-hidden="true"></i></button>
+            @*<button type="button" id="indexBtnSetRoles" class="btn btn-success isTooltip" tm-lang-attr="true" title="Global.setRoles"><i class="fa fa-key" aria-hidden="true"></i></button>*@
+            <button type="button" id="indexBtnImportTextData" class="btn btn-primary isTooltip btnGetForm" tm-lang-attr="true" title="Nhập Text Data" data-toggle="modal" data-url="BGCUOC/ImportTextData"><i class="fa fa-sticky-note" aria-hidden="true"></i></button>
+            <button type="button" id="indexBtnUse" class="btn btn-secondary isTooltip" tm-lang-attr="true" title="Global.use"><i class="fa fa-th-large" aria-hidden="true"></i></button>
+            <button type="button" id="indexBtnTrash" class="btn btn-secondary isTooltip" tm-lang-attr="true" title="Global.locked"><i class="fa fa-lock" aria-hidden="true"></i></button>
+        </div>
+    </div>
+    @*<div>
+            <select class="form-control">
+                <option value="">Export Basic</option>
+                <option value="all">Export All</option>
+                <option value="selected">Export Selected</option>
+            </select>
+        </div>*@
+</div>
+<div class="pull-right toolbar-custom form-inline">
+    <div class="input-group pull-right mr-3">
+        <input type="text" name="dateStart" id="dateStart" class="form-control isTooltip" tm-lang-attr="true" placeholder="Global.dateStart" title="Global.dateStart" data-placement="top" />
+        <div class="input-group-append">
+            <span class="input-group-text" aria-hidden="true"><i class="fa fa-calendar"></i></span>
+        </div>
+    </div>
+    <div class="input-group pull-right mr-3">
+        <input type="text" name="dateEnd" id="dateEnd" class="form-control isTooltip" tm-lang-attr="true" placeholder="Global.dateEnd" title="Global.dateEnd" data-placement="top" />
+        <div class="input-group-append">
+            <span class="input-group-text" aria-hidden="true"><i class="fa fa-calendar"></i></span>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div id="toolbar">
+    @*<div class="form-group">
+            <select class="madvi form-control mb5" @disabled>
+                @if (Authentication.Auth.AuthUser.roles == Authentication.Roles.admin || Authentication.Auth.AuthUser.roles == Authentication.Roles.director || Authentication.Auth.AuthUser.roles == Authentication.Roles.manager)
+                {
+                    <option value="0">-- Tất cả đơn vị --</option>
+                }
+                @foreach (var i in ViewBag.group)
+                {
+                    <option value="@i.level" @(ViewBag.localID == i.level ? "selected" : "")>@i.title</option>
+                }
+            </select>
+        </div>*@
+    <button class="btn btn-info btnGetParentFile" style="border-left: initial" data-val="\">Quay lại</button>
+</div>
+<table class="table table-hover table-bordered" id="table"
+       data-toolbar="#toolbar"
+       data-click-to-select="false"
+       data-search="true"
+       data-show-refresh="true"
+       data-show-toggle="true"
+       data-show-columns="true"
+       data-show-export="false"
+       data-detail-view="false"
+       data-detail-formatter="detailFormatter"
+       data-minimum-count-columns="2"
+       data-show-pagination-switch="true"
+       data-pagination="true"
+       data-id-field="id"
+       data-page-list="[10, 25, 50, 100, 200, 500]"
+       data-show-footer="false"
+       data-side-pagination="server"
+       data-response-handler="responseHandler"
+       data-query-params="queryParams"
+       data-url-select="Select"
+       data-url-create="Insert"
+       data-url-edit="Update">
+    <thead class="thead-light">
+        <tr>
+            <th data-events="chkEvents" data-field="state" data-checkbox="true" data-valign="middle">#</th>
+            <th data-events="cmdEvents" data-field="NAME" data-formatter="nameFormatter" data-sortable="true" data-editable="true" data-valign="middle">Tên</th>
+            <th data-field="LENGTH" data-sortable="true" data-editable="true" data-valign="middle">Kích thước</th>
+            <th data-field="TYPE" data-sortable="true" data-editable="true" data-valign="middle">Kiểu</th>
+            <th data-field="CREATIONTIME" data-formatter="dateTimeFormatter" data-sortable="true" data-editable="true" data-valign="middle" data-width="82">Ngày tạo</th>
+            <th data-field="LASTWRITETIME" data-formatter="dateTimeFormatter" data-sortable="true" data-editable="true" data-valign="middle" data-width="82">Ngày sửa</th>
+            <th data-events="cmdEvents" data-formatter="cmdFormatter" data-align="center" data-valign="middle" data-width="60">#</th>
+        </tr>
+    </thead>
+</table>
+<div class="clearfix mb-1"></div>
+@if (Authentication.Auth.AuthUser.roles == Authentication.Roles.superadmin || Authentication.Auth.AuthUser.roles == Authentication.Roles.admin)
+{
+    <a class="btn btn-secondary btnAction" href="#" data-url="@Url.Action("ExtensionToLower")">Extension To Lower</a>
+    <a class="btn btn-secondary btnAction" href="#" data-url="@Url.Action("LoadData")">Load Data</a>
+    <a class="btn btn-secondary btnAction" href="#" data-url="@Url.Action("BackupDatabase")">Backup Database</a>
+}
+<!-- Modal -->
+<div class="modal" id="ModalExport" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Yêu cầu xác nhận!</h4>
+            </div>
+            <div class="modal-body"> Bạn có chắc chắn muốn thực hiện? </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Đồng ý</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Hủy bỏ</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+@*<div class="modal" id="ModalConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Yêu cầu xác nhận!</h4>
+                </div>
+                <div class="modal-body"> Bạn có chắc chắn muốn thực hiện? </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Đồng ý</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Hủy bỏ</button>
+                </div>
+            </div>
+        </div>
+    </div>*@
+<div id="ExportTable"></div>
+@section scripts {
+    <script src="~/Plugin/bootstrap-table/bootstrap-table.js"></script>
+    <script src="~/Plugin/bootstrap-table/extensions/export/bootstrap-table-export.js"></script>
+    <script src="~/Plugin/bootstrap-table/extensions/export/tableExport.js"></script>
+    <script src="~/Scripts/PartialList.js"></script>
+    <script>
+        var token = { '__RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val() };
+        function ActionLink(obj) {
+            var formdata = new FormData($('form')[0]);
+            for (var i in obj.data)
+                formdata.append(i, obj.data[i]);
+            //obj.data = $.extend({}, { '__RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val() }, obj.data);
+            $.ajax({
+                url: obj.url,
+                type: 'POST',
+                dataType: 'json',
+                data: formdata,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (d) {
+                    if (d.success) {
+                        $('#TMAlert').TMAlert({ type: "success", message: d.success });
+                        $("form")[0].reset();
+                    }
+                    if (d.danger)
+                        $('#TMAlert').TMAlert({ type: "danger", message: d.danger });
+                    if (d.warning)
+                        $('#TMAlert').TMAlert({ type: "warning", message: d.warning });
+                    if (d.url)
+                        window.location = d.url;
+                    $('.custom-file-label').html('');
+                    $('.lblUpload').html('');
+                },
+                error: function (xhr, error, status) {
+                    $('#TMAlert').TMAlert({ type: "danger", message: window.location.protocol + '//' + window.location.host + this.url + ' is ' + xhr.status + ' ' + xhr.statusText });
+                    //console.log(error, status);
+                }
+            });
+        };
+        //Action link
+        $('.btnAction').on('click', function (e) {
+            e.preventDefault();
+            ActionLink({ url: $(this).attr('data-url'), data: { data_id: $(this).attr('data-id') } });
+        });
+        var subDir = null;
+        function nameFormatter(value, row, index) {
+            if (row.TYPE == 'Directory')//value !== null
+                return '<a href="#" class="text-info btnGetChildFile" data-val="' + row.SUBDIRECTORY + row.NAME + '\\"><i class="' + row.EXTENSIONICON + '"></i> ' + value + '</a>';
+            else
+                return '<a href="@Url.Action("Download")?files=' + row.ID + '" target="_blank" class="text-info btnDownload" data-val="' + row.SUBDIRECTORY + row.NAME + '\\"><i class="' + row.EXTENSIONICON + '"></i> ' + value + '</a>';
+        };
+        function cmdFormatter(value, row, index) {
+            if (row.TYPE == 'Directory')
+                return '<a href="#" class="text-info btnGetChildFile" data-val="' + row.SUBDIRECTORY + row.NAME + '\\" title="Mở tệp" data-placement="right" style="display:block""><i class="fa fa-folder-open"></i></a>';
+            else
+                return '<a href="@Url.Action("Download")?files=' + row.ID + '" target="_blank" class="text-info btnDownload" title="Tải tệp" data-placement="right" style="display:block"><i class="fa fa-download"></i></a>';
+        };
+        //$(document).on('click', '.btnGetChildFile', function (e) {
+        //    e.preventDefault();
+        //    console.log(e);
+        //});
+        function getSubDirBack(subDir) {
+            var rs = '';
+            var subDirArray = subDir.length > 1 ? subDir.substring(1, subDir.length - 1).split('\\') : ['\\'];
+            if (subDirArray.length < 2) rs = '\\';
+            else rs = subDir.replace(subDirArray[subDirArray.length - 1] + '\\', '');
+            return rs;
+        };
+        function base64ToBlob(base64, mimetype, slicesize) {
+            if (!window.atob || !window.Uint8Array) {
+                // The current browser doesn't have the atob function. Cannot continue
+                return null;
+            }
+            mimetype = mimetype || '';
+            slicesize = slicesize || 512;
+            var bytechars = atob(base64);
+            var bytearrays = [];
+            for (var offset = 0; offset < bytechars.length; offset += slicesize) {
+                var slice = bytechars.slice(offset, offset + slicesize);
+                var bytenums = new Array(slice.length);
+                for (var i = 0; i < slice.length; i++) {
+                    bytenums[i] = slice.charCodeAt(i);
+                }
+                var bytearray = new Uint8Array(bytenums);
+                bytearrays[bytearrays.length] = bytearray;
+            }
+            return new Blob(bytearrays, { type: mimetype });
+        };
+        window.cmdEvents = {
+            'click .btnGetChildFile': function (e, value, row, index) {
+                e.preventDefault();
+                subDir = $(this).attr('data-val');
+                $('.btnGetParentFile').attr('data-val', getSubDirBack(subDir));
+                $($table).bootstrapTable('refresh');
+            }
+        };
+        $('.btnGetParentFile').on('click', function () {
+            $(this).attr('data-val', getSubDirBack(subDir));
+            subDir = $(this).attr('data-val');
+            $($table).bootstrapTable('refresh');
+        });
+        //params bootstrapTable
+        function queryParams(params) {
+            params.flag = params_flag;
+            if (params_dateStart !== null) params.dateStart = params_dateStart;
+            if (params_dateEnd !== null)  params.dateEnd = params_dateEnd;
+            if (subDir != null) params.subDir = subDir;
+            return params;
+        };
+        function createExport(data) {
+            var html = '<tr>\
+                            <th>MA_DVI</th>\
+                            <th>TEN_DVI</th>\
+                            <th>STB</th>\
+                            <th>SO_ANH</th>\
+                            <th>TD_TKC</th>\
+                            <th>TB_TD3THANG</th>\
+                            <th>BTS</th>\
+                            <th>NVQL</th>\
+                            <th>TEN_NVQL</th>\
+                            <th>NGUOI_TAO</th>\
+                            <th>NGAY_TAO</th>\
+                            <th>NGUOI_CAP_NHAT</th>\
+                            <th>NGAY_CAP_NHAT</th>\
+                        </tr>';
+            if (data) {
+                for (var i = 0; i < data.length; i++) {
+                    html += '<tr>\
+                                    <td>'+ data[i].MA_DVI + '</td>\
+                                    <td>'+ data[i].TEN_DVI + '</td>\
+                                    <td>'+ data[i].STB + '</td>\
+                                    <td>'+ data[i].SO_ANH + '</td>\
+                                    <td>'+ data[i].TD_TKC + '</td>\
+                                    <td>'+ data[i].TB_TD3THANG + '</td>\
+                                    <td>'+ data[i].BTS + '</td>\
+                                    <td>'+ data[i].NVQL + '</td>\
+                                    <td>'+ data[i].TEN_NVQL + '</td>\
+                                    <td>'+ data[i].CREATEDBY + '</td>\
+                                    <td>'+ moment(data[i].CREATEDAT).format('DD/MM/YYYY HH:mm') + '</td>\
+                                    <td>'+ data[i].UPDATEDBY + '</td>\
+                                    <td>'+ moment(data[i].UPDATEDAT).format('DD/MM/YYYY HH:mm') + '</td>\
+                                </tr>';
+                }
+            }
+            return html;
+        };
+        $('.btnExport').on('click', function () {
+            var exportType = $('.ExportType').val();
+            $.get('@Url.Action("Select")', { export: exportType, startDate: $('#started_at').val(), endDate: $('#ended_at').val(), maDvi: $('.madvi').val() }, function (d) {
+                var exportData = [
+                    {
+                        MA_DVI: 'MA_DVI',
+                        TEN_DVI: 'TEN_DVI',
+                        STB: 'STB',
+                        SO_ANH: 'SO_ANH',
+                        TD_TKC: 'TD_TKC',
+                        TB_TD3THANG: 'TB_TD3THANG',
+                        BTS: 'BTS',
+                        NVQL: 'NVQL',
+                        TEN_NVQL: 'TEN_NVQL',
+                        NGUOI_TAO: 'NGUOI_TAO',
+                        NGAY_TAO: 'NGAY_TAO',
+                        NGUOI_CAP_NHAT: 'NGUOI_CAP_NHAT',
+                        NGAY_CAP_NHAT: 'NGAY_CAP_NHAT'
+                    }
+                ];
+                if (d.data) {
+                    for (var i = 0; i < d.data.length; i++) {
+                        exportData.push(
+                            {
+                                MA_DVI: d.data[i].MA_DVI,
+                                TEN_DVI: d.data[i].TEN_DVI,
+                                STB: d.data[i].STB,
+                                SO_ANH: d.data[i].SO_ANH,
+                                TD_TKC: d.data[i].TD_TKC,
+                                TB_TD3THANG: d.data[i].TB_TD3THANG,
+                                BTS: d.data[i].BTS,
+                                NVQL: d.data[i].NVQL,
+                                TEN_NVQL: checkJsonData(d.data[i].TEN_NVQL),
+                                NGUOI_TAO: d.data[i].CREATEDBY,
+                                NGAY_TAO: checkJsonData(moment(d.data[i].CREATEDAT).format('DD/MM/YYYY HH:mm')),
+                                NGUOI_CAP_NHAT: checkJsonData(d.data[i].UPDATEDBY),
+                                NGAY_CAP_NHAT: checkJsonData(moment(d.data[i].UPDATEDAT).format('DD/MM/YYYY HH:mm'))
+                            }
+                        )
+                    }
+                    //JSONToCSVConvertor(exportData, 'dstbnd49_');
+                    //$('#ExportTable').html(createExport(d.data));
+                    var type = 'dahoanthien';
+                    if (exportType == 2)
+                        type = 'chuahoanthien';
+                    else if (exportType == 3)
+                        type = 'toanbo';
+                    JSONToCSVConvertor(exportData, 'dstbnd49_' + type + '_' + d.SHA);
+                }
+            });
+        });
+    </script>
+}

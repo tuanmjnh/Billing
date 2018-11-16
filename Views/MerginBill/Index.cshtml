@@ -1,0 +1,336 @@
+﻿@{
+    ViewBag.Title = "Ghép hóa đơn";
+    ViewBag.ContentTitle = "Xử lý hóa đơn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*@System.Text.RegularExpressions.Regex.Replace("hdnet0916ggGGDW.dbf", @"[a-zA-Z]", "")*@
+@*@using (Html.BeginForm(new { enctype = "multipart/form-data" }))
+    {*@
+@{ var time = "201707";}
+<form id="MerginBillForm" method="post" action="@TM.Url.BaseUrl/MerginBill/UploadFiles" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <hr />
+        <div class="row">
+            <div class="col-md-8">
+                <div id="panelCheckMoney" class="card panel-default" style="display:none">
+                    <h5 class="card-header">Thống kê tổng hóa đơn <span class="close-panel" data-target="panelCheckMoney"><i class="fa fa-close"></i></span></h5>
+                    <div class="card-body mergin-hd">
+                        <div class="col-md-12">
+                            <h4>So sánh HD Ghép - HD từng loại</h4>
+                            <p>
+                                <table class="table table-hover table-bordered table-head table-responsive">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>HD Ghép</th>
+                                        <th>HD từng loại</th>
+                                        <th>Lệch</th>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Cố định</b></td>
+                                        <td id="ss_all_cd"></td>
+                                        <td id="ss_hd_cd"></td>
+                                        <td id="ss_sum_cd"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Di động</b></td>
+                                        <td id="ss_all_dd"></td>
+                                        <td id="ss_hd_dd"></td>
+                                        <td id="ss_sum_dd"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>NET</b></td>
+                                        <td id="ss_all_net"></td>
+                                        <td id="ss_hd_net"></td>
+                                        <td id="ss_sum_net"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>TV</b></td>
+                                        <td id="ss_all_tv"></td>
+                                        <td id="ss_hd_tv"></td>
+                                        <td id="ss_sum_tv"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Tổng</b></td>
+                                        <td id="ss_all_tong"></td>
+                                        <td id="ss_hd_tong"></td>
+                                        <td id="ss_sum_tong"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>VAT</b></td>
+                                        <td id="ss_all_vat"></td>
+                                        <td id="ss_hd_vat"></td>
+                                        <td id="ss_sum_vat"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Không thuế</b></td>
+                                        <td id="ss_all_kthue"></td>
+                                        <td id="ss_hd_kthue"></td>
+                                        <td id="ss_sum_kthue"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Giảm trừ</b></td>
+                                        <td id="ss_all_giam_tru"></td>
+                                        <td id="ss_hd_giam_tru"></td>
+                                        <td id="ss_sum_giam_tru"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Tổng cộng</b></td>
+                                        <td id="ss_all_tongcong"></td>
+                                        <td id="ss_hd_tongcong"></td>
+                                        <td id="ss_sum_tongcong"></td>
+                                    </tr>
+                                </table>
+                            </p>
+                        </div>
+                        <div class="col-md-12">
+                            <h4>Hóa đơn ghép</h4>
+                            <p>
+                                <div id="all_tong_cd" class="col-md-12 row"><b class="col-md-3">Tổng cố định: </b><span class="col-md-8 price"></span></div>
+                                <div id="all_tong_dd" class="col-md-12 row"><b class="col-md-3">Tổng di động: </b><span class="col-md-8 price"></span></div>
+                                <div id="all_tong_net" class="col-md-12 row"><b class="col-md-3">Tổng NET: </b><span class="col-md-8 price"></span></div>
+                                <div id="all_tong_tv" class="col-md-12 row"><b class="col-md-3">Tổng TV: </b><span class="col-md-8 price"></span></div>
+                                <div id="all_tong" class="col-md-12 row"><b class="col-md-3">Tổng: </b><span class="col-md-8 price"></span></div>
+                                <div id="all_vat" class="col-md-12 row"><b class="col-md-3">VAT: </b><span class="col-md-8 price"></span></div>
+                                <div id="all_kthue" class="col-md-12 row"><b class="col-md-3">Tổng Ko thuế: </b><span class="col-md-8 price"></span></div>
+                                <div id="all_giam_tru" class="col-md-12 row"><b class="col-md-3">Giảm trừ: </b><span class="col-md-8 price"></span></div>
+                                <div id="all_tongcong" class="col-md-12 row"><b class="col-md-3">Tổng cộng: </b><span class="col-md-8 price"></span></div>
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Hóa đơn cố định</h4>
+                            <p>
+                                <div id="cd_tong" class="col-md-12 row"><b class="col-md-5">Tổng: </b><span class="col-md-7 price"></span></div>
+                                <div id="cd_vat" class="col-md-12 row"><b class="col-md-5">VAT: </b><span class="col-md-7 price"></span></div>
+                                <div id="cd_tongcong" class="col-md-12 row"><b class="col-md-5">Tổng cộng: </b><span class="col-md-7 price"></span></div>
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Hóa đơn di động</h4>
+                            <p>
+                                <div id="dd_tong" class="col-md-12 row"><b class="col-md-5">Tổng có thuế: </b><span class="col-md-7 price"></span></div>
+                                <div id="dd_kthue" class="col-md-12 row"><b class="col-md-5">Tổng Ko thuế: </b><span class="col-md-7 price"></span></div>
+                                <div id="dd_giam_tru" class="col-md-12 row"><b class="col-md-5">Giảm trừ: </b><span class="col-md-7 price"></span></div>
+                                <div id="dd_vat" class="col-md-12 row"><b class="col-md-5">VAT: </b><span class="col-md-7 price"></span></div>
+                                <div id="dd_tongcong" class="col-md-12 row"><b class="col-md-5">Tổng cộng: </b><span class="col-md-7 price"></span></div>
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Hóa đơn NET</h4>
+                            <p>
+                                <div id="net_tong" class="col-md-12 row"><b class="col-md-5">Tổng: </b><span class="col-md-7 price"></span></div>
+                                <div id="net_vat" class="col-md-12 row"><b class="col-md-5">VAT: </b><span class="col-md-7 price"></span></div>
+                                <div id="net_tongcong" class="col-md-12 row"><b class="col-md-5">Tổng cộng: </b><span class="col-md-7 price"></span></div>
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Hóa đơn TV</h4>
+                            <p>
+                                <div id="tv_tong" class="col-md-12 row"><b class="col-md-5">Tổng: </b><span class="col-md-7 price"></span></div>
+                                <div id="tv_vat" class="col-md-12 row"><b class="col-md-5">VAT: </b><span class="col-md-7 price"></span></div>
+                                <div id="tv_tongcong" class="col-md-12 row"><b class="col-md-5">Tổng cộng: </b><span class="col-md-7 price"></span></div>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card panel-default">
+                    <h5 class="card-header">Ghép hóa đơn cố định - di động - net - mytv và chọn 4 tệp .dbf (V2.0)</h5>
+                    <div class="card-body">
+                        <div class="col-md-12 required row">
+                            <div class="custom-file asterisk">
+                                <input type="file" name="FileUpload" class="FileUpload custom-file-input" lang="vi" data-val="true" multiple
+                                       data-val-required="Vui lòng chọn file" data-rule-extension="dbf" data-msg-extension="Định dạng tệp phải là dbf." />
+                                <label class="custom-file-label" for="FileUpload">Chọn file</label>
+                                <span class="field-validation-valid text-danger" data-valmsg-for="FileUpload" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="lblUpload"><span class="text-danger">Vui lòng chọn tệp!</span></div>
+                        @*<div class="form-group required">
+                                <label class="control-label col-md-3" for="hdnet">Hợp đồng net</label>
+                                <div class="col-md-9">
+                                    <input type="file" id="hdnet" name="hdnet" data-val-required="Vui lòng chọn file hợp đồng cố định theo định dạnh hd+thang+nam" />
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="hdnet" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            <div class="form-group required">
+                                <label class="control-label col-md-3" for="hdtv">Hợp đồng Mytv</label>
+                                <div class="col-md-9">
+                                    <input type="file" id="hdtv" name="hdtv" data-val-required="Vui lòng chọn file hợp đồng cố định theo định dạnh hd+thang+nam" />
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="hdtv" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>*@
+                    </div>
+                    <div class="card-footer ">
+                        <ul class="">
+                            <li class="text-warning">Hóa đơn cố định (hdcd+yyyy+MM)</li>
+                            <li class="text-warning">Hóa đơn net (hdnet+yyyy+MM)</li>
+                            <li class="text-warning">Hóa đơn Mytv (hdtv+yyyy+MM)</li>
+                            <li class="text-warning">Hóa đơn di động (hddd+yyyy+MM)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card panel-default">
+                    <h5 class="card-header">Xử lý ghép hóa đơn</h5>
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <label class="col-md-12" for="ckhMerginMonth">
+                                <input type="checkbox" id="ckhMerginMonth" name="ckhMerginMonth" value="1" checked />
+                                Ghép theo tháng hiện tại
+                            </label>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-4">Chọn tháng</label>
+                            <div class="col-8">
+                                <select id="time" class="form-control" name="time">
+                                    @foreach (var item in (List<string>)ViewBag.directory)
+                                    {
+                                        <option value="@item">@item</option>
+                                    }
+                                </select>
+                                <label id="lblTime"></label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <input type="submit" value="1. Tải tệp hóa đơn" class="btn btn-secondary" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <a id="btnMerginSelf" href="#time" class="btn btn-secondary">2. Ghép hóa đơn lẻ</a>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <a id="btnMergin" href="#time" class="btn btn-secondary">3. Ghép hóa đơn gộp</a>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <a id="btnCheckMoney" href="#time" class="btn btn-warning">Kiểm tra cước sau khi ghép</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+@section scripts {
+    <script>
+        function MerginMonth() {
+            if ($('#ckhMerginMonth').prop('checked') == true) {
+                var date = new Date();
+                date.setMonth(date.getMonth() - 1);
+                var month = date.getMonth() + 1;
+                month = month < 10 ? '0' + month : month + '';
+                var year = date.getFullYear();
+                $('select[name="time"]').hide();
+                $('#lblTime').html(year + month).show();
+            } else {
+                $('select[name="time"]').show();
+                $('#lblTime').hide();
+            }
+        };
+        function openLink(obj) {
+            window.location = window.location.href.replace(window.location.search, '') + '/' + obj.action + '?time=' + $('#time').val() + "&ckhMerginMonth=" + $('#ckhMerginMonth').prop('checked') + (obj.query !== undefined ? obj.query : '');
+        };
+        $(function () {
+            MerginMonth();
+        })
+        $('#ckhMerginMonth').on('click', function () {
+            MerginMonth();
+        })
+        $('#btnMerginSelf').on('click', function (e) {
+            e.preventDefault();
+            openLink({ action: 'MerginSelf' });
+            //e.preventDefault();
+            //window.location = window.location.href.replace(window.location.search, '') + '/MerginSelf?time=' + $('#time').val() + "&ckhMerginMonth=" + $('#ckhMerginMonth').prop('checked');
+        })
+        $('#btnPaidProcess').on('click', function (e) {
+            e.preventDefault();
+            openLink({ action: 'PaidProcess' });
+            //e.preventDefault();
+            //window.location = window.location.href.replace(window.location.search, '') + '/btnPaid?time=' + $('#time').val() + "&ckhMerginMonth=" + $('#ckhMerginMonth').prop('checked');
+        })
+        $('#btnMergin').on('click', function (e) {
+            e.preventDefault();
+            openLink({ action: 'Mergin' });
+            //e.preventDefault();
+            //window.location = window.location.href.replace(window.location.search, '') + '/Mergin?time=' + $('#time').val() + "&ckhMerginMonth=" + $('#ckhMerginMonth').prop('checked');
+        })
+        $('#btnGetHDDTBill').on('click', function (e) {
+            e.preventDefault();
+            openLink({ action: 'GetHDDTBill', query: '&ckhTCVN3=' + $('#ckhTCVN3').prop('checked') + '&ckhZipFile=' + $('#ckhZipFile').prop('checked') });
+            //e.preventDefault();
+            //window.location = window.location.href.replace(window.location.search, '') + '/GetHDDTBill?time=' + $('#time').val() + "&ckhMerginMonth=" + $('#ckhMerginMonth').prop('checked') + "&ckhTCVN3=" + $('#ckhTCVN3').prop('checked') + "&ckhZipFile=" + $('#ckhZipFile').prop('checked');
+        })
+        $('#btnCheckMoney').on('click', function (e) {
+            e.preventDefault();
+            AjaxLoaddingBounce();
+            $.get('@Url.Action("CheckMoney")?time=' + $('#time').val() + '&ckhMerginMonth=' + $('#ckhMerginMonth').prop('checked'),function (d) {
+                if (d.success)
+                {
+                    $('#TMAlert').html('');
+                    $('#panelCheckMoney').show();
+                    //HDALL
+                    $('#all_tong_dd span,#ss_all_dd').html(d.TotalHDAll.tong_dd.format());
+                    $('#all_tong_net span,#ss_all_net').html(d.TotalHDAll.tong_net.format());
+                    $('#all_tong_tv span,#ss_all_tv').html(d.TotalHDAll.tong_tv.format());
+                    $('#all_tong span,#ss_all_tong').html(d.TotalHDAll.tong.format());
+                    $('#all_vat span,#ss_all_vat').html(d.TotalHDAll.vat.format());
+                    $('#all_kthue span,#ss_all_kthue').html(d.TotalHDAll.kthue.format());
+                    $('#all_giam_tru span,#ss_all_giam_tru').html(d.TotalHDAll.giam_tru.format());
+                    $('#all_tongcong span,#ss_all_tongcong').html(d.TotalHDAll.tongcong.format());
+                    //HDCD
+                    $('#cd_tong span,#ss_hd_cd').html(d.TotalHDCD.tong.format());
+                    $('#cd_vat span').html(d.TotalHDCD.vat.format());
+                    $('#cd_tongcong span').html(d.TotalHDCD.tongcong.format());
+                    //HDDD
+                    $('#dd_tong span,#ss_hd_dd').html(d.TotalHDDD.tong.format());
+                    $('#dd_kthue span').html(d.TotalHDDD.kthue.format());
+                    $('#dd_giam_tru span').html(d.TotalHDDD.giam_tru.format());
+                    $('#dd_vat span').html(d.TotalHDDD.vat.format());
+                    $('#dd_tongcong span').html(d.TotalHDDD.tongcong.format());
+                    //HDNET
+                    $('#net_tong span,#ss_hd_net').html(d.TotalHDNET.tong.format());
+                    $('#net_vat span').html(d.TotalHDNET.vat.format());
+                    $('#net_tongcong span').html(d.TotalHDNET.tongcong.format());
+                    //HDTV
+                    $('#tv_tong span,#ss_hd_tv').html(d.TotalHDTV.tong.format());
+                    $('#tv_vat span').html(d.TotalHDTV.vat.format());
+                    $('#tv_tongcong span').html(d.TotalHDTV.tongcong.format());
+
+                    //So sánh
+                    $('#ss_sum_cd').html((d.TotalHDAll.tong_cd - d.TotalHDCD.tong).format());
+                    $('#ss_sum_dd').html((d.TotalHDAll.tong_dd - d.TotalHDDD.tong).format());
+                    $('#ss_sum_net').html((d.TotalHDAll.tong_net - d.TotalHDNET.tong).format());
+                    $('#ss_sum_tv').html((d.TotalHDAll.tong_tv - d.TotalHDTV.tong).format());
+
+                    var tong = d.TotalHDCD.tong + d.TotalHDDD.tong + d.TotalHDNET.tong + d.TotalHDTV.tong;
+                    $('#ss_hd_tong').html(tong.format());
+                    $('#ss_sum_tong').html((d.TotalHDAll.tong - tong).format());
+
+                    var vat = d.TotalHDCD.vat + d.TotalHDDD.vat + d.TotalHDNET.vat + d.TotalHDTV.vat;
+                    $('#ss_hd_vat').html(vat.format());
+                    $('#ss_sum_vat').html((d.TotalHDAll.vat - vat).format());
+
+                    $('#ss_hd_kthue').html(d.TotalHDDD.kthue.format());
+                    $('#ss_sum_kthue').html((d.TotalHDAll.kthue - d.TotalHDDD.kthue).format());
+                    $('#ss_hd_giam_tru').html(d.TotalHDDD.giam_tru.format());
+                    $('#ss_sum_giam_tru').html((d.TotalHDAll.giam_tru - d.TotalHDDD.giam_tru).format());
+
+                    var tongcong = d.TotalHDCD.tongcong + d.TotalHDDD.tongcong + d.TotalHDNET.tongcong + d.TotalHDTV.tongcong;
+                    $('#ss_hd_tongcong').html(tongcong.format());
+                    $('#ss_sum_tongcong').html((d.TotalHDAll.tongcong - tongcong).format());
+                }
+                else {
+                    $('#panelCheckMoney').hide();
+                    $('#TMAlert').TMAlert({ type: "error", message: d.danger });
+                }
+            });
+        })
+    </script>
+}

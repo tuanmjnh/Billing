@@ -1,0 +1,186 @@
+﻿@{
+    ViewBag.Title = "Connection Manager";
+    ViewBag.ContentTitle = "Connection list";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var disabled = "";
+    if (Authentication.Auth.AuthUser.roles == Authentication.Roles.staff || Authentication.Auth.AuthUser.roles == Authentication.Roles.leader)
+    {
+        disabled = "disabled";
+    }
+}
+<div class="form-inline pull-right mb10 pl5">
+    <div class="pull-right">
+        <div class="btn-group pull-right" role="group" aria-label="Action Button List">
+            <button type="button" class="btn btn-primary isTooltip btnAddData" tm-lang-attr="true" title="Global.create" data-toggle="modal" data-url="BGCuoc/Insert"><i class="fa fa-plus" aria-hidden="true"></i></button>
+        </div>
+    </div>
+    @*<div>
+            <select class="form-control">
+                <option value="">Export Basic</option>
+                <option value="all">Export All</option>
+                <option value="selected">Export Selected</option>
+            </select>
+        </div>*@
+</div>
+<div class="pull-right toolbar-custom form-inline">
+    <div class="input-group pull-right mr-3">
+        <input type="text" name="dateStart" id="dateStart" class="form-control isTooltip" tm-lang-attr="true" placeholder="Global.dateStart" title="Global.dateStart" data-placement="top" />
+        <div class="input-group-append">
+            <span class="input-group-text" aria-hidden="true"><i class="fa fa-calendar"></i></span>
+        </div>
+    </div>
+    <div class="input-group pull-right mr-3">
+        <input type="text" name="dateEnd" id="dateEnd" class="form-control isTooltip" tm-lang-attr="true" placeholder="Global.dateEnd" title="Global.dateEnd" data-placement="top" />
+        <div class="input-group-append">
+            <span class="input-group-text" aria-hidden="true"><i class="fa fa-calendar"></i></span>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div id="toolbar">
+    @*<div class="form-group">
+            <select class="madvi form-control mb5" @disabled>
+                @if (Authentication.Auth.AuthUser.roles == Authentication.Roles.admin || Authentication.Auth.AuthUser.roles == Authentication.Roles.director || Authentication.Auth.AuthUser.roles == Authentication.Roles.manager)
+                {
+                    <option value="0">-- Tất cả đơn vị --</option>
+                }
+                @foreach (var i in ViewBag.group)
+                {
+                    <option value="@i.level" @(ViewBag.localID == i.level ? "selected" : "")>@i.title</option>
+                }
+            </select>
+        </div>*@
+</div>
+<table class="table table-hover table-bordered table-striped" id="table"
+       data-toolbar="#toolbar"
+       data-click-to-select="false"
+       data-search="true"
+       data-show-refresh="true"
+       data-show-toggle="true"
+       data-show-columns="true"
+       data-show-export="false"
+       data-detail-view="false"
+       data-detail-formatter="detailFormatter"
+       data-minimum-count-columns="2"
+       data-show-pagination-switch="true"
+       data-pagination="true"
+       data-id-field="id"
+       data-page-list="[10, 25, 50, 100, 200, 500]"
+       data-show-footer="false"
+       data-side-pagination="server"
+       data-response-handler="responseHandler"
+       data-query-params="queryParams"
+       data-url-select="Select"
+       data-url-create="Insert"
+       data-url-edit="Update">
+    <thead class="thead-light">
+        <tr>
+            <th data-events="chkEvents" data-field="state" data-checkbox="true" data-valign="middle">#</th>
+            <th data-field="name" data-sortable="true" data-editable="true" data-valign="middle">Connection name</th>
+            <th data-field="type_name" data-sortable="true" data-editable="true" data-valign="middle">DB Type</th>
+            <th data-events="cmdEvents" data-formatter="cmdFormatter" data-align="center" data-valign="middle" data-width="60">#</th>
+        </tr>
+    </thead>
+</table>
+<div class="modal" id="crudModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="ModalEditLabel">Cập nhật thông tin gói cước</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="TMAlertModal"></div>
+                <div class="form-horizontal">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <h5 class="card-title">Thông tin chung</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <input type="text" id="name" name="name" class="form-control isTooltip" value=""
+                                           placeholder="Name" title="Name" data-placement="right"
+                                           data-val="true" data-val-required="Vui lòng nhập giá trị!">
+                                    <span data-valmsg-for="name" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <input type="text" id="type" name="type" class="form-control isTooltip" value=""
+                                           placeholder="Type" title="Type" data-placement="right"
+                                           data-val="true" data-val-required="Vui lòng nhập giá trị!">
+                                    <span data-valmsg-for="type" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <textarea id="value" name="value" placeholder="Value" title="Value" class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer"><label class="text-warning">Vui lòng nhập đầy đủ các trường có dấu (*)</label></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnCreate" type="submit" class="btn btn-primary">Cập nhật</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Quay lại</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal" id="ModalExport" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Yêu cầu xác nhận!</h4>
+            </div>
+            <div class="modal-body"> Bạn có chắc chắn muốn thực hiện? </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Đồng ý</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Hủy bỏ</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="ExportTable"></div>
+@section scripts {
+    <script src="~/Plugin/bootstrap-table/bootstrap-table.js"></script>
+    <script src="~/Plugin/bootstrap-table/extensions/export/bootstrap-table-export.js"></script>
+    <script src="~/Plugin/bootstrap-table/extensions/export/tableExport.js"></script>
+    <script src="~/Scripts/PartialList.js"></script>
+    <script>
+        var token = { '__RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val() };
+        function dateTimeFormatter(value, row, index) {
+            if (value !== null)
+                return moment(value).format('DD/MM/YYYY');
+            else
+                return '';
+        }
+        window.cmdEvents = {
+            'click .btnEdit': function (e, value, row, index) {
+                getForm({ element: e, url: $urlEdit, data: { id: row.id }, form: FormModal, TinyMCE: true })
+            },
+            'click .btnDelete': function (e, value, row, index) {
+                $(document).TMConfirm({
+                    target: '.btnDelete',
+                    modalOk: function () {
+                        $.post($baseUrl + Segment[0] + '/Delete', $.extend({}, { id: row.BGCUOCID }, token), function (d) {
+                            if (d.success) {
+                                $($TMAlert).TMAlert({ type: "success", message: d.success });
+                                $($table).bootstrapTable('remove', { field: 'BGCUOCID', values: [row.BGCUOCID] });
+                            }
+                            else if (d.danger) $($TMAlert).TMAlert({ type: "danger", message: d.danger });
+                        })
+                    }
+                });
+            }
+        };
+    </script>
+}

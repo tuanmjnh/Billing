@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Đăng nhập quản trị";
+    ViewBag.ContentTitle = "Đăng nhập quản trị";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container body-content login-form">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="mt-5" style="margin-bottom:10rem">
+                <div class="col-md-5 m-auto mb-5">
+                    <div class="card">
+                        <b class="card-header center text-white bg-dark">Đăng nhập hệ thống</b>
+                        <div class="card-body">
+                            <div class="form-group">
+                                @*<label class="control-label col-md-3" for="username">Tài khoản</label>*@
+                                <div class="">
+                                    <input name="username" class="form-control text-box single-line isTooltip" title="Tài khoản" data-placement="right"
+                                           id="username" aria-invalid="true" aria-required="true" aria-describedby="username-error"
+                                           type="text" value="" data-val-required="Vui lòng nhập tài khoản" data-val="true">
+                                    <span class="text-danger field-validation-error" data-valmsg-replace="true" data-valmsg-for="username"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @*<label class="control-label col-md-3" for="password">Mật khẩu</label>*@
+                                <div class="">
+                                    <input name="password" class="form-control text-box single-line isTooltip password" title="Mật khẩu" data-placement="right"
+                                           id="password" aria-invalid="true" aria-required="true" aria-describedby="password-error"
+                                           type="password" value="" data-val-required="Vui lòng nhập mật khẩu" data-val="true">
+                                    <span class="text-danger field-validation-error" data-valmsg-replace="true" data-valmsg-for="password"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="remeberMe" name="remeberMe" value="true">
+                                    <label class="form-check-label" for="remeberMe">Ghi nhớ đăng nhập</label>
+                                </div>
+                            </div>
+                            <div class="form-group pull-right">
+                                <input type="submit" value="Đăng nhập" class="btn btn-info btnAction" data-url="@Url.Action("Login","Auth")" data-id="Login" />
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    }
+</div>
+@section scripts {
+    <script>
+        AjaxLoaddingBounce();
+        //Action link
+        $('.btnAction').on('click', function (e) {
+            e.preventDefault();
+            ActionLink({
+                url: $(this).attr('data-url'),
+                data: { currentUrl: window.location.search, data_id: $(this).attr('data-id') },
+                urlTimeOut: 600
+            });
+        });
+    </script>
+}

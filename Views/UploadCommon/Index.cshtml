@@ -1,0 +1,285 @@
+﻿@{
+    ViewBag.Title = "Upload Data";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*<h3 class="col-md-12">Upload Data</h3>*@
+<form action="" met method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card bg-light mb-3">
+                <h5 class="card-header">Tùy chọn thông số</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <h5 class="col-md-12">Tháng thực hiện</h5>
+                        <div class="col-md-12 row">
+                            <div class="col-md-6">
+                                <label for="ckhMerginMonth">
+                                    <input type="checkbox" id="ckhMerginMonth" name="ckhMerginMonth" value="true" checked /><!--name="ckhMerginMonth" value="1"-->
+                                    Sử dụng tháng mặc định
+                                </label>
+                            </div>
+                            <div class="col-md-6">
+                                <select id="time" class="form-control" name="time">
+                                    @foreach (var item in (List<string>)ViewBag.directory)
+                                    {
+                                        <option value="@item">@item</option>
+                                    }
+                                </select>
+                                <label id="lblTime"></label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="UploadImport">
+                                <input id="UploadImport" type="radio" value="2" name="data_type" checked />
+                                Upload & Import
+                            </label>
+                            <label for="Upload">
+                                <input id="Upload" type="radio" value="0" name="data_type" />
+                                Upload
+                            </label>
+                            <label for="Import">
+                                <input id="Import" type="radio" value="1" name="data_type" />
+                                Import
+                            </label>
+                        </div>
+                        <div class="col-md-12 required">
+                            <div class="custom-file asterisk">
+                                <input type="file" name="FileUpload" class="FileUpload custom-file-input" lang="vi" data-val="true"
+                                       data-val-required="Vui lòng chọn file" data-rule-extension="dbf" data-msg-extension="Định dạng tệp phải là dbf." />
+                                <label class="custom-file-label" for="FileUpload">Chọn file</label>
+                                <span class="field-validation-valid text-danger" data-valmsg-for="FileUpload" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        @*<div class="form-group col-md-12 asterisk">
+                                <label for="FileUpload" class="btn btn-warning">
+                                    Chọn tệp
+                                    <input type="file" id="FileUpload" name="FileUpload" class="file-upload hidden" data-val="true"
+                                           data-val-required="Vui lòng chọn file" data-rule-extension="dbf" data-msg-extension="Định dạng tệp phải là dbf." />
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="FileUpload" data-valmsg-replace="true"></span>
+                                </label>
+                            </div>*@
+                    </div>
+                    <div class="lblUpload"><span class="text-danger">Vui lòng chọn tệp!</span></div>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <h5 class="card-header">Kết chuyển dữ liệu</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <label class="control-label col-md-3">Tháng</label>
+                        <div class="col-md-9">
+                            <select class="form-control" name="TimePreData">
+                                @foreach (var item in (List<string>)ViewBag.directory)
+                                {
+                                    <option value="@item">@item</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <br /><br />
+                    <div class="form-group">
+                        <a href="javascript:;" class="btn btn-secondary mb5 w49percent btnAction" data-url="@Url.Action("GetPreData")" data-id="9999">9999. Tích hợp</a>
+                        <a href="javascript:;" class="btn btn-secondary mb5 w49percent btnAction" data-url="@Url.Action("GetPreData")" data-id="9001">9001. Khuyến Mại</a>
+                        <a href="javascript:;" class="btn btn-secondary mb5 w49percent btnAction" data-url="@Url.Action("GetPreData")" data-id="9003">9003. Đặt cọc</a>
+                        <a href="javascript:;" class="btn btn-secondary mb5 w49percent btnAction" data-url="@Url.Action("GetPreData")" data-id="9682">9682. MyTV Mergin</a>
+                        <a href="javascript:;" class="btn btn-secondary mb5 w49percent btnAction" data-url="@Url.Action("GetPreData")" data-id="9662">9662. MegaVNN Mergin</a>
+                        <a href="javascript:;" class="btn btn-secondary mb5 w49percent btnAction" data-url="@Url.Action("GetPreData")" data-id="9692">9692. Fiber Mergin</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <h5 class="card-header">Cập nhập DATA </h5>
+                <div class="card-body">
+                    <div class="form-group">
+                        <a href="javascript:;" class="btn btn-secondary mb5 w49percent btnAction" data-url="@Url.Action("UpdateDBDT")" data-id="9999">Cập nhật Danh bạ đường thu</a>
+                        <a href="javascript:;" class="btn btn-secondary mb5 w49percent btnAction" data-url="@Url.Action("UpdateQuanHuyen")" data-id="9999">Cập nhật Quận huyện</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <h5 class="card-header">Thực hiện Upload</h5>
+                <div class="card-body">
+                    @foreach (var item in (List<Billing.Models.DICHVU_VT_BKN>)ViewBag.dvvt)
+                    {
+                        <a href="javascript:;" class="btn btn-secondary mb5 w49percent btnAction" data-url="@Url.Action("GeneralUpload")" data-id="@item.DICHVUVT_ID">@item.DICHVUVT_ID. @item.TEN_DVVT</a>
+                    }
+                    @*<div class="form-group"><a href="javascript:;" class="btn btn-success btnAction" data-url="@Url.Action("GeneralUpload")">Upload General</a></div>
+                        <div class="hr hr-danger"></div>
+                        <div class="form-group"><a href="javascript:;" class="btn btn-secondary btnAction" data-url="@Url.Action("GeneralUpload")" data-val="8">Cước MyTV</a></div>
+                        <div class="form-group"><a href="javascript:;" class="btn btn-secondary btnAction" data-url="@Url.Action("GeneralUpload")" data-val="6">Cước MegaVNN</a></div>
+                        <div class="form-group"><a href="javascript:;" class="btn btn-secondary btnAction" data-url="@Url.Action("GeneralUpload")" data-val="9">Cước FiberVNN</a></div>
+                        <div class="form-group"><a href="javascript:;" class="btn btn-secondary btnAction" data-url="@Url.Action("GeneralUpload")" data-val="9693">Cước FiberVNN Gia đình</a></div>*@
+                </div>
+            </div>
+            <div class="card mb-3">
+                <h5 class="card-header">Nhập dữ liệu Text</h5>
+                <div class="card-body">
+                    <div class="form-group">
+                        <textarea rows="3" class="form-control" name="txtDataVal" data-val="true" data-val-required="Vui lòng nhập giá trị"></textarea>
+                        <span class="field-validation-valid text-danger" data-valmsg-for="txtDataVal" data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="rdoTextAddTichHop">
+                            <input id="rdoTextAddTichHop" type="radio" value="9999" name="rdoTextAddType" checked />
+                            Tích hợp
+                        </label>
+                        <label for="rdoTextAddKM">
+                            <input id="rdoTextAddKM" type="radio" value="9001" name="rdoTextAddType" />
+                            Khuyến mại
+                        </label>
+                        <label for="rdoTextAddTTT">
+                            <input id="rdoTextAddTTT" type="radio" value="9006" name="rdoTextAddType" />
+                            Thanh toán trước Fix
+                        </label>
+                        <label for="rdoTextAddDC">
+                            <input id="rdoTextAddDC" type="radio" value="9003" name="rdoTextAddType" />
+                            Đặt cọc
+                        </label>
+                        <label for="rdoTextAddMyTVMergin">
+                            <input id="rdoTextAddMyTVMergin" type="radio" value="9682" name="rdoTextAddType" />
+                            MyTV Mergin
+                        </label>
+                        <label for="rdoTextAddMegaVNNMergin">
+                            <input id="rdoTextAddMegaVNNMergin" type="radio" value="9662" name="rdoTextAddType" />
+                            MegaVNN Mergin
+                        </label>
+                        <label for="rdoTextAddFiberMergin">
+                            <input id="rdoTextAddFiberMergin" type="radio" value="9692" name="rdoTextAddType" />
+                            Fiber Mergin
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="text-warning">Copy định dạnh từ excel (Các trường phân cách bằng ký tự Tab)</label>
+                        <br />
+                        <div class="NoteTextData">
+                            <div class="notes hide" data-val="9999">
+                                ACCOUNT, DICHVUVT_ID, GOICUOC_ID, LOAIGOICUOC_ID
+                                <br /><br />
+                                - <b>ACCOUNT</b>: Account từng thuê bao<br />
+                                - <b>DICHVUVT_ID</b>: ID của Loại dịch vụ viễn thông (VD: MyTV: 8, MegaVNN: 6, FiberVNN: 9)<br />
+                                - <b>GOICUOC_ID</b>: ID ghép của các thuê bao kết gói tích hợp<br />
+                                - <b>LOAIGOICUOC_ID</b>: ID gói tích hợp<br />
+                            </div>
+                            <div class="notes hide" data-val="9001">
+                                ACCOUNT, DICHVUVT_ID, TYPEID, VALUE, NGAY_BD, NGAY_KT, DETAILS
+                                <br /><br />
+                                - <b>ACCOUNT</b>: Account từng thuê bao<br />
+                                - <b>DICHVUVT_ID</b>: ID của Loại dịch vụ viễn thông (VD: MyTV: 8, MegaVNN: 6, FiberVNN: 9)<br />
+                                - <b>TYPEID</b>: Kiểu khuyến mại (1: Phần trăm, 2: Tiền, 3: Fix giá, 4: Fix cước in)<br />
+                                - <b>VALUE</b>: Giá trị của khuyến mại<br />
+                                - <b>NGAY_BD</b>: Tháng thực hiện (Định dạnh: DD/MM/YYYY)<br />
+                                - <b>NGAY_KT</b>: Tháng kết thúc (Định dạnh: DD/MM/YYYY)<br />
+                                - <b>DETAILS</b>: Ghi chú<br />
+                            </div>
+                            <div class="notes hide" data-val="9006">
+                                ACCOUNT, DICHVUVT_ID, TONGHANMUC, SODU, SOTHANG, GHI_CHU
+                                <br /><br />
+                                - <b>ACCOUNT</b>: Account từng thuê bao<br />
+                                - <b>DICHVUVT_ID</b>: ID của Loại dịch vụ viễn thông (VD: MyTV: 8, MegaVNN: 6, FiberVNN: 9)<br />
+                                - <b>TONGHANMUC</b>: Số tiền đặt cọc đã nộp<br />
+                                - <b>SODU</b>: Số tiền đặt cọc cọc lại<br />
+                                - <b>THANG</b>: Tháng bắt đầu<br />
+                                - <b>NAM</b>: Năm bắt đầu<br />
+                                - <b>SOTHANG</b>: Số tháng thực hiện<br />
+                                - <b>GHI_CHU</b>: Ghi chú<br />
+                            </div>
+                            <div class="notes hide" data-val="9003">
+                                ACCOUNT, DICHVUVT_ID, TONGHANMUC, SODU, GHI_CHU
+                                <br /><br />
+                                - <b>ACCOUNT</b>: Account từng thuê bao<br />
+                                - <b>DICHVUVT_ID</b>: ID của Loại dịch vụ viễn thông (VD: MyTV: 8, MegaVNN: 6, FiberVNN: 9)<br />
+                                - <b>TONGHANMUC</b>: Số tiền đặt cọc đã nộp<br />
+                                - <b>SODU</b>: Số tiền đặt cọc cọc lại<br />
+                                - <b>GHI_CHU</b>: Ghi chú<br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="javascript:;" data-url="@Url.Action("XuLyNhapTextData")" class="btn btn-primary btnAction" data-id="1" data-toggle="tooltip" data-placement="bottom" title="Nhập thêm và giữ lại dữ liệu cũ">Nhập thêm</a>
+                    <a href="javascript:;" data-url="@Url.Action("XuLyNhapTextData")" class="btn btn-warning btnAction" data-id="2" data-toggle="tooltip" data-placement="bottom" title="Xóa dữ liệu cũ và nhập dữ liệu mới">Làm mới & Nhập</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="clearfix"></div>
+@section scripts {
+    <script>
+        AjaxLoaddingBounce();
+        function MerginMonth() {
+            if ($('#ckhMerginMonth').prop('checked') == true) {
+                var date = new Date();
+                date.setMonth(date.getMonth() - 1);
+                var month = date.getMonth() + 1;
+                month = month < 10 ? '0' + month : month + '';
+                var year = date.getFullYear();
+                $('select[name="time"]').hide();
+                $('#lblTime').html(year + month).show();
+            } else {
+                $('select[name="time"]').show();
+                $('#lblTime').hide();
+            }
+        };
+        function getNotes(obj) {
+            obj = $(obj);
+            if (obj.prop('checked') == true) {
+                $('.NoteTextData').find('.notes').addClass('hide');
+                $('.NoteTextData').find('[data-val="' + obj.val() + '"]').removeClass('hide');
+            }
+        };
+        $('[name="rdoTextAddType"]').on('click', function () {
+            getNotes($(this));
+
+        })
+        $(function () {
+            MerginMonth();
+            getNotes('[name="rdoTextAddType"]');
+        });
+        $('#ckhMerginMonth').on('click', function () {
+            MerginMonth();
+        });
+        function ActionLink(obj) {
+            var formdata = new FormData($('form')[0]);
+            for (var i in obj.data)
+                formdata.append(i, obj.data[i]);
+            //obj.data = $.extend({}, { '__RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val() }, obj.data);
+            $.ajax({
+                url: obj.url,
+                type: 'POST',
+                dataType: 'json',
+                data: formdata,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (d) {
+                    if (d.success) {
+                        $('#TMAlert').TMAlert({ type: "success", message: d.success });
+                        $("form")[0].reset();
+                    }
+                    if (d.danger)
+                        $('#TMAlert').TMAlert({ type: "danger", message: d.danger });
+                    if (d.warning)
+                        $('#TMAlert').TMAlert({ type: "warning", message: d.warning });
+                    if (d.url)
+                        window.location = d.url;
+                    $('.custom-file-label').html('');
+                    $('.lblUpload').html('');
+                },
+                error: function (xhr, error, status) {
+                    $('#TMAlert').TMAlert({ type: "danger", message: window.location.protocol + '//' + window.location.host + this.url + ' is ' + xhr.status + ' ' + xhr.statusText });
+                    //console.log(error, status);
+                }
+            });
+        };
+        //Action link
+        $('.btnAction').on('click', function (e) {
+            e.preventDefault();
+            ActionLink({ url: $(this).attr('data-url'), data: { data_id: $(this).attr('data-id') } });
+        });
+    </script>
+}

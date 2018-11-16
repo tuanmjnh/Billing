@@ -1,0 +1,68 @@
+﻿<div class="modal" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="ModalEdit" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="ModalEditLabel">Cập nhật thông tin gói cước</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="TMAlertModal"></div>
+                <div class="form-horizontal">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <h5 class="card-title">Thông tin chung</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <input type="text" id="name" name="name" class="form-control isTooltip" value=""
+                                           placeholder="Name" title="Name" data-placement="right"
+                                           data-val="true" data-val-required="Vui lòng nhập giá trị!">
+                                    <span data-valmsg-for="name" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <input type="text" id="type_name" name="type_name" class="form-control isTooltip" value=""
+                                           placeholder="Type name" title="Type name" data-placement="right"
+                                           data-val="true" data-val-required="Vui lòng nhập giá trị!">
+                                    <span data-valmsg-for="type_name" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <textarea id="value" name="value" placeholder="Value" title="Value" class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer"><label class="text-warning">Vui lòng nhập đầy đủ các trường có dấu (*)</label></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnCreate" type="submit" class="btn btn-primary">Cập nhật</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Quay lại</button>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/tinymce/tinymce.min.js"></script>
+    <script src="~/Scripts/site.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/validator.unobtrusive.parseDynamicContent.js"></script>
+    <script>
+        $(function () {
+            formGet({
+                url: $controllerUrl + 'Get', data: { id: $(FormModal).find('[name="id"]').val() }, form: FormModal,
+                success: function (d) {
+                },
+                done: function () {
+                }
+            });
+        });
+        $(FormModal).FormPost({ url: $controllerUrl + 'InsertUpdate', id: $(FormModal).find('[name="id"]').val(), resetForm: false, done: function () { $($table).bootstrapTable('refresh') } });
+    </script>
+</div>

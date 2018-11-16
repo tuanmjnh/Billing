@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:impl="http://113.164.4.13:8080/visa/services/CommonBusinessServices" xmlns:tns2="http://security.model.hyframe.hyperlogy" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns4="urn:account.model.hyframe.hyperlogy" xmlns:tns7="urn:report.model.hyframe.hyperlogy" xmlns:tns8="urn:prov.model.hyframe.hyperlogy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:tns1="urn:security.model.hyframe.hyperlogy" xmlns:tns3="http://rp.model.hyframe.hyperlogy" xmlns:tns6="urn:customer.model.hyframe.hyperlogy" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns5="http://prov.model.hyframe.hyperlogy" xmlns:tns9="urn:reserve.model.hyframe.hyperlogy" xmlns:intf="http://113.164.4.13:8080/visa/services/CommonBusinessServices" targetNamespace="http://113.164.4.13:8080/visa/services/CommonBusinessServices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://113.164.4.13:8080/visa/services/CommonBusinessServices">
+      <xsd:import namespace="urn:customer.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:account.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://rp.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:reserve.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:prov.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://prov.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://xml.apache.org/xml-soap" />
+      <xsd:import namespace="urn:report.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://security.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:security.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="ArrayOf_xsd_anyType">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="xsd:anyType[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_xsd_string">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="xsd:string[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xml.apache.org/xml-soap">
+      <xsd:import namespace="urn:customer.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:account.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://rp.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:reserve.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:prov.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://prov.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:report.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://security.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:security.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://113.164.4.13:8080/visa/services/CommonBusinessServices" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="mapItem">
+        <xsd:sequence>
+          <xsd:element name="key" nillable="true" type="xsd:anyType" />
+          <xsd:element name="value" nillable="true" type="xsd:anyType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Map">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="apachesoap:mapItem" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Vector">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="xsd:anyType" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://rp.model.hyframe.hyperlogy">
+      <xsd:import namespace="urn:customer.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:account.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:reserve.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:prov.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://prov.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://xml.apache.org/xml-soap" />
+      <xsd:import namespace="urn:report.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://security.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:security.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://113.164.4.13:8080/visa/services/CommonBusinessServices" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="AbstractActorModel" abstract="true">
+        <xsd:sequence>
+          <xsd:element name="byActorId" type="xsd:long" />
+          <xsd:element name="type" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://security.model.hyframe.hyperlogy">
+      <xsd:import namespace="urn:customer.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:account.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://rp.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:reserve.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:prov.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://prov.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://xml.apache.org/xml-soap" />
+      <xsd:import namespace="urn:report.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:security.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://113.164.4.13:8080/visa/services/CommonBusinessServices" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="CompanyModel">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns3:AbstractActorModel">
+            <xsd:sequence>
+              <xsd:element name="actorName" nillable="true" type="xsd:string" />
+              <xsd:element name="address" nillable="true" type="xsd:string" />
+              <xsd:element name="agentOf" nillable="true" type="xsd:string" />
+              <xsd:element name="aliasName" nillable="true" type="xsd:string" />
+              <xsd:element name="areaCode" nillable="true" type="xsd:string" />
+              <xsd:element name="city" nillable="true" type="xsd:string" />
+              <xsd:element name="companyDesc" nillable="true" type="xsd:string" />
+              <xsd:element name="companyId" type="xsd:long" />
+              <xsd:element name="country" nillable="true" type="xsd:string" />
+              <xsd:element name="email" nillable="true" type="xsd:string" />
+              <xsd:element name="fullName" nillable="true" type="xsd:string" />
+              <xsd:element name="homepage" nillable="true" type="xsd:string" />
+              <xsd:element name="id" type="xsd:long" />
+              <xsd:element name="parentCompanyId" type="xsd:long" />
+              <xsd:element name="parentCompanyName" nillable="true" type="xsd:string" />
+              <xsd:element name="phoneNo" nillable="true" type="xsd:string" />
+              <xsd:element name="postOffice" nillable="true" type="xsd:string" />
+              <xsd:element name="shortName" nillable="true" type="xsd:string" />
+              <xsd:element name="state" nillable="true" type="xsd:string" />
+              <xsd:element name="zipCode" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="User">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns3:AbstractActorModel">
+            <xsd:sequence>
+              <xsd:element name="actorName" nillable="true" type="xsd:string" />
+              <xsd:element name="address" nillable="true" type="xsd:string" />
+              <xsd:element name="city" nillable="true" type="xsd:string" />
+              <xsd:element name="company" nillable="true" type="tns2:CompanyModel" />
+              <xsd:element name="companyId" type="xsd:long" />
+              <xsd:element name="country" nillable="true" type="xsd:string" />
+              <xsd:element name="createdDate" nillable="true" type="xsd:dateTime" />
+              <xsd:element name="email" nillable="true" type="xsd:string" />
+              <xsd:element name="firstName" nillable="true" type="xsd:string" />
+              <xsd:element name="id" type="xsd:long" />
+              <xsd:element name="languagePref" nillable="true" type="xsd:string" />
+              <xsd:element name="languagePrefString" nillable="true" type="xsd:string" />
+              <xsd:element name="lastModifiedDate" nillable="true" type="xsd:dateTime" />
+              <xsd:element name="lastName" nillable="true" type="xsd:string" />
+              <xsd:element name="modifiedById" nillable="true" type="xsd:string" />
+              <xsd:element name="on" type="xsd:boolean" />
+              <xsd:element name="password" nillable="true" type="xsd:string" />
+              <xsd:element name="phoneNo" nillable="true" type="xsd:string" />
+              <xsd:element name="roleSystem" type="xsd:boolean" />
+              <xsd:element name="state" nillable="true" type="xsd:string" />
+              <xsd:element name="status" nillable="true" type="xsd:string" />
+              <xsd:element name="userCode" type="xsd:long" />
+              <xsd:element name="userId" nillable="true" type="xsd:string" />
+              <xsd:element name="zipCode" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:security.model.hyframe.hyperlogy">
+      <xsd:import namespace="urn:customer.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:account.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://rp.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:reserve.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:prov.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://prov.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://xml.apache.org/xml-soap" />
+      <xsd:import namespace="urn:report.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://security.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://113.164.4.13:8080/visa/services/CommonBusinessServices" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="login">
+        <xsd:sequence>
+          <xsd:element name="companyId" type="xsd:long" />
+          <xsd:element name="email" nillable="true" type="xsd:string" />
+          <xsd:element name="firstName" nillable="true" type="xsd:string" />
+          <xsd:element name="functionKeys" nillable="true" type="intf:ArrayOf_xsd_anyType" />
+          <xsd:element name="id" type="xsd:long" />
+          <xsd:element name="languagePref" nillable="true" type="xsd:string" />
+          <xsd:element name="lastName" nillable="true" type="xsd:string" />
+          <xsd:element name="loginTime" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="on" type="xsd:boolean" />
+          <xsd:element name="password" nillable="true" type="xsd:string" />
+          <xsd:element name="rightCodes" nillable="true" type="intf:ArrayOf_xsd_anyType" />
+          <xsd:element name="roleRightCodesMap" nillable="true" type="apachesoap:Map" />
+          <xsd:element name="sessionId" nillable="true" type="xsd:string" />
+          <xsd:element name="status" nillable="true" type="xsd:string" />
+          <xsd:element name="subCompanyIds" nillable="true" type="intf:ArrayOf_xsd_anyType" />
+          <xsd:element name="user" nillable="true" type="tns2:User" />
+          <xsd:element name="userId" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://prov.model.hyframe.hyperlogy">
+      <xsd:import namespace="urn:customer.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:account.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://rp.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:reserve.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:prov.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://xml.apache.org/xml-soap" />
+      <xsd:import namespace="urn:report.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://security.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:security.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://113.164.4.13:8080/visa/services/CommonBusinessServices" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="Account">
+        <xsd:sequence>
+          <xsd:element name="accountId" type="xsd:long" />
+          <xsd:element name="accountName" nillable="true" type="xsd:string" />
+          <xsd:element name="accountPassword" nillable="true" type="xsd:string" />
+          <xsd:element name="accountServicePk" type="xsd:long" />
+          <xsd:element name="action" nillable="true" type="xsd:string" />
+          <xsd:element name="areaCode" nillable="true" type="xsd:string" />
+          <xsd:element name="customerId" type="xsd:long" />
+          <xsd:element name="deletedId" type="xsd:long" />
+          <xsd:element name="fullAction" nillable="true" type="xsd:string" />
+          <xsd:element name="historyIds" nillable="true" type="intf:ArrayOf_xsd_anyType" />
+          <xsd:element name="newAccountName" nillable="true" type="xsd:string" />
+          <xsd:element name="services" nillable="true" type="intf:ArrayOf_xsd_anyType" />
+          <xsd:element name="status" nillable="true" type="xsd:string" />
+          <xsd:element name="userId" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:customer.model.hyframe.hyperlogy">
+      <xsd:import namespace="urn:account.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://rp.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:reserve.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:prov.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://prov.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://xml.apache.org/xml-soap" />
+      <xsd:import namespace="urn:report.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://security.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:security.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://113.164.4.13:8080/visa/services/CommonBusinessServices" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="CustomerModel">
+        <xsd:sequence>
+          <xsd:element name="accType" nillable="true" type="xsd:string" />
+          <xsd:element name="accountName" nillable="true" type="xsd:string" />
+          <xsd:element name="acctId" type="xsd:long" />
+          <xsd:element name="activeDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="address" nillable="true" type="xsd:string" />
+          <xsd:element name="agentId" type="xsd:long" />
+          <xsd:element name="bankAccount" nillable="true" type="xsd:string" />
+          <xsd:element name="bankCode" type="xsd:long" />
+          <xsd:element name="beginRow" type="xsd:int" />
+          <xsd:element name="bigCustomer" type="xsd:long" />
+          <xsd:element name="birthDay" nillable="true" type="xsd:string" />
+          <xsd:element name="candidateId" type="xsd:long" />
+          <xsd:element name="channelId" type="xsd:long" />
+          <xsd:element name="city" nillable="true" type="xsd:string" />
+          <xsd:element name="createDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="customerType" type="xsd:int" />
+          <xsd:element name="description" nillable="true" type="xsd:string" />
+          <xsd:element name="email" nillable="true" type="xsd:string" />
+          <xsd:element name="endRow" type="xsd:int" />
+          <xsd:element name="firstName" nillable="true" type="xsd:string" />
+          <xsd:element name="groupId" type="xsd:long" />
+          <xsd:element name="hstId" type="xsd:long" />
+          <xsd:element name="id" type="xsd:long" />
+          <xsd:element name="identityNumber" nillable="true" type="xsd:string" />
+          <xsd:element name="jobId" type="xsd:int" />
+          <xsd:element name="lastModifyDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="lastName" nillable="true" type="xsd:string" />
+          <xsd:element name="mobile" nillable="true" type="xsd:string" />
+          <xsd:element name="numberPage" type="xsd:int" />
+          <xsd:element name="phone" nillable="true" type="xsd:string" />
+          <xsd:element name="postCode" nillable="true" type="xsd:string" />
+          <xsd:element name="sex" type="xsd:int" />
+          <xsd:element name="status" nillable="true" type="xsd:string" />
+          <xsd:element name="stringQuery" nillable="true" type="xsd:string" />
+          <xsd:element name="taxCode" nillable="true" type="xsd:string" />
+          <xsd:element name="time" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="userId" nillable="true" type="xsd:string" />
+          <xsd:element name="valueColumn" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:report.model.hyframe.hyperlogy">
+      <xsd:import namespace="urn:customer.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:account.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://rp.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:reserve.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:prov.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://prov.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://xml.apache.org/xml-soap" />
+      <xsd:import namespace="http://security.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:security.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://113.164.4.13:8080/visa/services/CommonBusinessServices" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="ReportAccountModel">
+        <xsd:sequence>
+          <xsd:element name="account" nillable="true" type="xsd:string" />
+          <xsd:element name="addressUsing" nillable="true" type="xsd:string" />
+          <xsd:element name="addressUsingOld" nillable="true" type="xsd:string" />
+          <xsd:element name="attributeInfo" nillable="true" type="xsd:string" />
+          <xsd:element name="brasId" type="xsd:long" />
+          <xsd:element name="brasIp4" nillable="true" type="xsd:string" />
+          <xsd:element name="brasIp6" nillable="true" type="xsd:string" />
+          <xsd:element name="brasName" nillable="true" type="xsd:string" />
+          <xsd:element name="createdBy" type="xsd:long" />
+          <xsd:element name="createdDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="createdName" nillable="true" type="xsd:string" />
+          <xsd:element name="customerCode" nillable="true" type="xsd:string" />
+          <xsd:element name="customerCodeOrganization" nillable="true" type="xsd:string" />
+          <xsd:element name="customerName" nillable="true" type="xsd:string" />
+          <xsd:element name="description" nillable="true" type="xsd:string" />
+          <xsd:element name="dslamCode" nillable="true" type="xsd:string" />
+          <xsd:element name="dslamId" type="xsd:long" />
+          <xsd:element name="dslamName" nillable="true" type="xsd:string" />
+          <xsd:element name="dslamParamInfo" nillable="true" type="xsd:string" />
+          <xsd:element name="dslamType" nillable="true" type="xsd:string" />
+          <xsd:element name="dslamTypeName" nillable="true" type="xsd:string" />
+          <xsd:element name="email" nillable="true" type="xsd:string" />
+          <xsd:element name="fields" nillable="true" type="intf:ArrayOf_xsd_string" />
+          <xsd:element name="groupPackageId" type="xsd:long" />
+          <xsd:element name="hisId" type="xsd:long" />
+          <xsd:element name="id" type="xsd:long" />
+          <xsd:element name="ipCidr" nillable="true" type="xsd:string" />
+          <xsd:element name="ipNumber" type="xsd:int" />
+          <xsd:element name="organizationCode" nillable="true" type="xsd:string" />
+          <xsd:element name="organizationId" type="xsd:long" />
+          <xsd:element name="organizationName" nillable="true" type="xsd:string" />
+          <xsd:element name="packageCode" nillable="true" type="xsd:string" />
+          <xsd:element name="packageCodeOld" nillable="true" type="xsd:string" />
+          <xsd:element name="packageCustomerId" type="xsd:long" />
+          <xsd:element name="packageId" type="xsd:long" />
+          <xsd:element name="packageName" nillable="true" type="xsd:string" />
+          <xsd:element name="packageNameOld" nillable="true" type="xsd:string" />
+          <xsd:element name="paymentType" nillable="true" type="xsd:string" />
+          <xsd:element name="phone" nillable="true" type="xsd:string" />
+          <xsd:element name="reason" nillable="true" type="xsd:string" />
+          <xsd:element name="reportActionId" type="xsd:long" />
+          <xsd:element name="serviceInfoId" type="xsd:long" />
+          <xsd:element name="serviceProvInfo" nillable="true" type="xsd:string" />
+          <xsd:element name="serviceSysCode" nillable="true" type="xsd:string" />
+          <xsd:element name="serviceSysId" type="xsd:long" />
+          <xsd:element name="serviceSysName" nillable="true" type="xsd:string" />
+          <xsd:element name="serviceVas" nillable="true" type="xsd:string" />
+          <xsd:element name="startDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="status" type="xsd:int" />
+          <xsd:element name="statusPre" type="xsd:int" />
+          <xsd:element name="type" type="xsd:int" />
+          <xsd:element name="useType" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:account.model.hyframe.hyperlogy">
+      <xsd:import namespace="urn:customer.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://rp.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:reserve.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:prov.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://prov.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://xml.apache.org/xml-soap" />
+      <xsd:import namespace="urn:report.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://security.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:security.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://113.164.4.13:8080/visa/services/CommonBusinessServices" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="AccountModel">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns5:Account">
+            <xsd:sequence>
+              <xsd:element name="_activeDateStr" nillable="true" type="xsd:string" />
+              <xsd:element name="accType" nillable="true" type="xsd:string" />
+              <xsd:element name="acctId" type="xsd:long" />
+              <xsd:element name="activeDate" nillable="true" type="xsd:dateTime" />
+              <xsd:element name="activeDateStr" nillable="true" type="xsd:string" />
+              <xsd:element name="allowedHours" type="xsd:int" />
+              <xsd:element name="allowedTime" nillable="true" type="xsd:string" />
+              <xsd:element name="createDate" nillable="true" type="xsd:dateTime" />
+              <xsd:element name="customer" nillable="true" type="tns6:CustomerModel" />
+              <xsd:element name="dltId" type="xsd:long" />
+              <xsd:element name="lastModifiedDate" nillable="true" type="xsd:dateTime" />
+              <xsd:element name="numberPage" type="xsd:int" />
+              <xsd:element name="reason" nillable="true" type="xsd:string" />
+              <xsd:element name="reportAccount" nillable="true" type="tns7:ReportAccountModel" />
+              <xsd:element name="time" nillable="true" type="xsd:dateTime" />
+              <xsd:element name="toVisaOld" nillable="true" type="xsd:string" />
+              <xsd:element name="typeDLTAccount" nillable="true" type="xsd:string" />
+              <xsd:element name="valid" type="xsd:boolean" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:prov.model.hyframe.hyperlogy">
+      <xsd:import namespace="urn:customer.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:account.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://rp.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:reserve.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://prov.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://xml.apache.org/xml-soap" />
+      <xsd:import namespace="urn:report.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://security.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:security.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://113.164.4.13:8080/visa/services/CommonBusinessServices" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="AccountServiceModel">
+        <xsd:sequence>
+          <xsd:element name="accountHstId" type="xsd:long" />
+          <xsd:element name="accountId" type="xsd:long" />
+          <xsd:element name="acctId" type="xsd:long" />
+          <xsd:element name="acctType" nillable="true" type="xsd:string" />
+          <xsd:element name="action" nillable="true" type="xsd:string" />
+          <xsd:element name="attrTemp" nillable="true" type="apachesoap:Map" />
+          <xsd:element name="attributes" nillable="true" type="intf:ArrayOf_xsd_anyType" />
+          <xsd:element name="attributesMap" nillable="true" type="apachesoap:Map" />
+          <xsd:element name="createdDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="deletedId" type="xsd:long" />
+          <xsd:element name="dltAccountId" type="xsd:long" />
+          <xsd:element name="dslamParamInfo" nillable="true" type="xsd:string" />
+          <xsd:element name="fullLog" nillable="true" type="xsd:string" />
+          <xsd:element name="id" type="xsd:long" />
+          <xsd:element name="lastModified" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="listChildrenService" nillable="true" type="intf:ArrayOf_xsd_anyType" />
+          <xsd:element name="logCode" nillable="true" type="xsd:string" />
+          <xsd:element name="nasport" nillable="true" type="xsd:string" />
+          <xsd:element name="parentId" type="xsd:long" />
+          <xsd:element name="serviceId" type="xsd:long" />
+          <xsd:element name="serviceName" nillable="true" type="xsd:string" />
+          <xsd:element name="serviceValue" nillable="true" type="xsd:string" />
+          <xsd:element name="serviceValueNew" nillable="true" type="xsd:string" />
+          <xsd:element name="status" nillable="true" type="xsd:string" />
+          <xsd:element name="tariffType" type="xsd:int" />
+          <xsd:element name="toVisaOld" nillable="true" type="xsd:string" />
+          <xsd:element name="type" nillable="true" type="xsd:string" />
+          <xsd:element name="userId" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ServiceAttribute">
+        <xsd:sequence>
+          <xsd:element name="accountServiceId" type="xsd:long" />
+          <xsd:element name="historyId" type="xsd:long" />
+          <xsd:element name="id" type="xsd:long" />
+          <xsd:element name="serviceId" type="xsd:long" />
+          <xsd:element name="type" nillable="true" type="xsd:string" />
+          <xsd:element name="value" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:reserve.model.hyframe.hyperlogy">
+      <xsd:import namespace="urn:customer.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:account.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://rp.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:prov.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://prov.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://xml.apache.org/xml-soap" />
+      <xsd:import namespace="urn:report.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://security.model.hyframe.hyperlogy" />
+      <xsd:import namespace="urn:security.model.hyframe.hyperlogy" />
+      <xsd:import namespace="http://113.164.4.13:8080/visa/services/CommonBusinessServices" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="ReserveModel">
+        <xsd:sequence>
+          <xsd:element name="beginDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="context" nillable="true" type="xsd:string" />
+          <xsd:element name="endDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="id" type="xsd:long" />
+          <xsd:element name="numberPage" type="xsd:int" />
+          <xsd:element name="reservedTime" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="resourceId" nillable="true" type="xsd:string" />
+          <xsd:element name="userId" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="modifyServiceIPAccessMegaResponse" />
+  <wsdl:message name="modifyServiceTypeMegaVNN1Request">
+    <wsdl:part name="login" type="tns1:login" />
+    <wsdl:part name="accountModel" type="tns4:AccountModel" />
+    <wsdl:part name="accountServiceModel" type="tns8:AccountServiceModel" />
+    <wsdl:part name="ip" type="xsd:string" />
+    <wsdl:part name="autoIpFlag" type="xsd:boolean" />
+    <wsdl:part name="oldIp" type="xsd:boolean" />
+    <wsdl:part name="ipv6" type="xsd:string" />
+    <wsdl:part name="autoIpV6Flag" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="getAccountByStatusResponse">
+    <wsdl:part name="getAccountByStatusReturn" type="intf:ArrayOf_xsd_anyType" />
+  </wsdl:message>
+  <wsdl:message name="modifyServiceTypeMegaVNN1Response" />
+  <wsdl:message name="modifyServiceTypeMegaVNNResponse" />
+  <wsdl:message name="registerMegaVNNResponse" />
+  <wsdl:message name="lookupRASAccountNoLogResponse">
+    <wsdl:part name="lookupRASAccountNoLogReturn" type="intf:ArrayOf_xsd_anyType" />
+  </wsdl:message>
+  <wsdl:message name="checkDoFixResponse">
+    <wsdl:part name="checkDoFixReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="checkDoFixRequest">
+    <wsdl:part name="login" type="tns1:login" />
+    <wsdl:part name="accountModel" type="tns4:AccountModel" />
+  </wsdl:message>
+  <wsdl:message name="lookupRASAccountNoLogRequest">
+    <wsdl:part name="login" type="tns1:login" />
+    <wsdl:part name="accountName" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="findAccountsByPortRequest">
+    <wsdl:part name="login" type="tns1:login" />
+    <wsdl:part name="codeOrg" type="xsd:string" />
+    <wsdl:part name="systemid" type="xsd:string" />
+    <wsdl:part name="rackid" type="xsd:string" />
+    <wsdl:part name="shelf" type="xsd:string" />
+    <wsdl:part name="slot" type="xsd:string" />
+    <wsdl:part name="port" type="xsd:string" />
+    <wsdl:part name="vpi" type="xsd:string" />
+    <wsdl:part name="vci" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="modifyServiceIPAccessMegaRequest">
+    <wsdl:part name="login" type="tns1:login" />
+    <wsdl:part name="accountModel" type="tns4:AccountModel" />
+    <wsdl:part name="ip" type="xsd:string" />
+    <wsdl:part name="ipv6lan" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getAccountByStatusRequest">
+    <wsdl:part name="login" type="tns1:login" />
+    <wsdl:part name="type" type="xsd:int" />
+    <wsdl:part name="provinceCode" type="xsd:string" />
+    <wsdl:part name="fromDate" type="xsd:string" />
+    <wsdl:part name="toDate" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="registerMegaVNNRequest">
+    <wsdl:part name="login" type="tns1:login" />
+    <wsdl:part name="customerModel" type="tns6:CustomerModel" />
+    <wsdl:part name="accountModel" type="tns4:AccountModel" />
+    <wsdl:part name="service" type="tns8:AccountServiceModel" />
+    <wsdl:part name="childServices" type="intf:ArrayOf_xsd_anyType" />
+    <wsdl:part name="attributes" type="intf:ArrayOf_xsd_anyType" />
+  </wsdl:message>
+  <wsdl:message name="initModelRequest">
+    <wsdl:part name="ram" type="tns7:ReportAccountModel" />
+    <wsdl:part name="am" type="tns4:AccountModel" />
+    <wsdl:part name="asm" type="tns8:AccountServiceModel" />
+    <wsdl:part name="att" type="tns8:ServiceAttribute" />
+    <wsdl:part name="rvm" type="tns9:ReserveModel" />
+  </wsdl:message>
+  <wsdl:message name="modifyServiceTypeMegaVNNRequest">
+    <wsdl:part name="login" type="tns1:login" />
+    <wsdl:part name="accountModel" type="tns4:AccountModel" />
+    <wsdl:part name="accountServiceModel" type="tns8:AccountServiceModel" />
+    <wsdl:part name="ip" type="xsd:string" />
+    <wsdl:part name="autoIpFlag" type="xsd:boolean" />
+    <wsdl:part name="oldIp" type="xsd:boolean" />
+    <wsdl:part name="ipv6" type="xsd:string" />
+    <wsdl:part name="autoIpV6Flag" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="initModelResponse">
+    <wsdl:part name="initModelReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="findAccountsByPortResponse">
+    <wsdl:part name="findAccountsByPortReturn" type="intf:ArrayOf_xsd_anyType" />
+  </wsdl:message>
+  <wsdl:portType name="WSComImpl">
+    <wsdl:operation name="findAccountsByPort" parameterOrder="login codeOrg systemid rackid shelf slot port vpi vci">
+      <wsdl:input name="findAccountsByPortRequest" message="intf:findAccountsByPortRequest" />
+      <wsdl:output name="findAccountsByPortResponse" message="intf:findAccountsByPortResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="modifyServiceTypeMegaVNN1" parameterOrder="login accountModel accountServiceModel ip autoIpFlag oldIp ipv6 autoIpV6Flag">
+      <wsdl:input name="modifyServiceTypeMegaVNN1Request" message="intf:modifyServiceTypeMegaVNN1Request" />
+      <wsdl:output name="modifyServiceTypeMegaVNN1Response" message="intf:modifyServiceTypeMegaVNN1Response" />
+    </wsdl:operation>
+    <wsdl:operation name="modifyServiceIPAccessMega" parameterOrder="login accountModel ip ipv6lan">
+      <wsdl:input name="modifyServiceIPAccessMegaRequest" message="intf:modifyServiceIPAccessMegaRequest" />
+      <wsdl:output name="modifyServiceIPAccessMegaResponse" message="intf:modifyServiceIPAccessMegaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="registerMegaVNN" parameterOrder="login customerModel accountModel service childServices attributes">
+      <wsdl:input name="registerMegaVNNRequest" message="intf:registerMegaVNNRequest" />
+      <wsdl:output name="registerMegaVNNResponse" message="intf:registerMegaVNNResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="modifyServiceTypeMegaVNN" parameterOrder="login accountModel accountServiceModel ip autoIpFlag oldIp ipv6 autoIpV6Flag">
+      <wsdl:input name="modifyServiceTypeMegaVNNRequest" message="intf:modifyServiceTypeMegaVNNRequest" />
+      <wsdl:output name="modifyServiceTypeMegaVNNResponse" message="intf:modifyServiceTypeMegaVNNResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getAccountByStatus" parameterOrder="login type provinceCode fromDate toDate">
+      <wsdl:input name="getAccountByStatusRequest" message="intf:getAccountByStatusRequest" />
+      <wsdl:output name="getAccountByStatusResponse" message="intf:getAccountByStatusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="initModel" parameterOrder="ram am asm att rvm">
+      <wsdl:input name="initModelRequest" message="intf:initModelRequest" />
+      <wsdl:output name="initModelResponse" message="intf:initModelResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="checkDoFix" parameterOrder="login accountModel">
+      <wsdl:input name="checkDoFixRequest" message="intf:checkDoFixRequest" />
+      <wsdl:output name="checkDoFixResponse" message="intf:checkDoFixResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="lookupRASAccountNoLog" parameterOrder="login accountName">
+      <wsdl:input name="lookupRASAccountNoLogRequest" message="intf:lookupRASAccountNoLogRequest" />
+      <wsdl:output name="lookupRASAccountNoLogResponse" message="intf:lookupRASAccountNoLogResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CommonBusinessServicesSoapBinding" type="intf:WSComImpl">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="findAccountsByPort">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="findAccountsByPortRequest">
+        <wsdlsoap:body use="encoded" namespace="http://app.ws.hyframe.hyperlogy" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="findAccountsByPortResponse">
+        <wsdlsoap:body use="encoded" namespace="http://113.164.4.13:8080/visa/services/CommonBusinessServices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyServiceTypeMegaVNN1">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="modifyServiceTypeMegaVNN1Request">
+        <wsdlsoap:body use="encoded" namespace="http://app.ws.hyframe.hyperlogy" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="modifyServiceTypeMegaVNN1Response">
+        <wsdlsoap:body use="encoded" namespace="http://113.164.4.13:8080/visa/services/CommonBusinessServices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyServiceIPAccessMega">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="modifyServiceIPAccessMegaRequest">
+        <wsdlsoap:body use="encoded" namespace="http://app.ws.hyframe.hyperlogy" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="modifyServiceIPAccessMegaResponse">
+        <wsdlsoap:body use="encoded" namespace="http://113.164.4.13:8080/visa/services/CommonBusinessServices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registerMegaVNN">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="registerMegaVNNRequest">
+        <wsdlsoap:body use="encoded" namespace="http://app.ws.hyframe.hyperlogy" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="registerMegaVNNResponse">
+        <wsdlsoap:body use="encoded" namespace="http://113.164.4.13:8080/visa/services/CommonBusinessServices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyServiceTypeMegaVNN">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="modifyServiceTypeMegaVNNRequest">
+        <wsdlsoap:body use="encoded" namespace="http://app.ws.hyframe.hyperlogy" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="modifyServiceTypeMegaVNNResponse">
+        <wsdlsoap:body use="encoded" namespace="http://113.164.4.13:8080/visa/services/CommonBusinessServices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountByStatus">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAccountByStatusRequest">
+        <wsdlsoap:body use="encoded" namespace="http://app.ws.hyframe.hyperlogy" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getAccountByStatusResponse">
+        <wsdlsoap:body use="encoded" namespace="http://113.164.4.13:8080/visa/services/CommonBusinessServices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="initModel">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="initModelRequest">
+        <wsdlsoap:body use="encoded" namespace="http://app.ws.hyframe.hyperlogy" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="initModelResponse">
+        <wsdlsoap:body use="encoded" namespace="http://113.164.4.13:8080/visa/services/CommonBusinessServices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkDoFix">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="checkDoFixRequest">
+        <wsdlsoap:body use="encoded" namespace="http://app.ws.hyframe.hyperlogy" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="checkDoFixResponse">
+        <wsdlsoap:body use="encoded" namespace="http://113.164.4.13:8080/visa/services/CommonBusinessServices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lookupRASAccountNoLog">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="lookupRASAccountNoLogRequest">
+        <wsdlsoap:body use="encoded" namespace="http://app.ws.hyframe.hyperlogy" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="lookupRASAccountNoLogResponse">
+        <wsdlsoap:body use="encoded" namespace="http://113.164.4.13:8080/visa/services/CommonBusinessServices" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSComImplService">
+    <wsdl:port name="CommonBusinessServices" binding="intf:CommonBusinessServicesSoapBinding">
+      <wsdlsoap:address location="http://113.164.4.13:8080/visa/services/CommonBusinessServices" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
