@@ -1,2 +1,0 @@
-D:\Applications\Vinaphone\Billing\obj\Release\Billing.csprojResolveAssemblyReference.cache
-D:\Applications\Vinaphone\Billing\obj\Release\Billing.csproj.CoreCompileInputs.cache
