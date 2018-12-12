@@ -100,7 +100,7 @@ namespace Billing.Controllers
         public JsonResult UpdateContact(Common.DefaultObj obj)
         {
             var SQLServer = new TM.Connection.SQLServer();
-            var Oracle = new TM.Connection.Oracle("HNIVNPTBACKAN1");
+            var Oracle = new TM.Connection.Oracle("DHSX_BACKAN");
             var index = 0;
             obj.DataSource = Common.Directories.HDDataSource;
             obj = getDefaultObj(obj);
@@ -167,7 +167,10 @@ namespace Billing.Controllers
                 var qry = $"SELECT * FROM {Common.Objects.TYPE_HD.MYTV} WHERE FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
                 var data = SQLServer.Connection.Query<Models.MYTV>(qry);
                 //Get DB PTTB
-                qry = "SELECT * FROM DANH_BA_MYTV";
+                qry = @"select dv.TEN_DV,t.MA_TUYEN,tt.TEN_TT,tt.DIACHI_TT,nv.MA_NV as ma_cbt,nv.TEN_NV,tttb.TRANGTHAI_TB,tt.SO_DT,tt.MST,tb.*,dvvt.ma_dvvt,dvvt.ten_dvvt 
+                        from tinhcuoc_bkn.dbtt_20181101 tt,tinhcuoc_bkn.dbtb_20181101 tb,CSS_BKN.TUYENTHU t,ADMIN_BKN.DONVI dv,ADMIN_BKN.NHANVIEN nv,CSS_BKN.TRANGTHAI_TB tttb,CSS_BKN.DICHVU_VT dvvt
+                        WHERE tb.THANHTOAN_ID=tt.THANHTOAN_ID and tt.TUYENTHU_ID=t.TUYENTHU_ID and tt.DONVI_ID=dv.DONVI_ID and t.NHANVIEN_ID=nv.NHANVIEN_ID and tb.TRANGTHAITB_ID=tttb.TRANGTHAITB_ID 
+                        and dvvt.DICHVUVT_ID=tb.DICHVUVT_ID and tb.DICHVUVT_ID=4 and tb.LOAITB_ID in(61) ORDER BY tt.DONVI_ID,nv.MA_NV,t.MA_TUYEN";
                 var dbpttb = Oracle.Connection.Query<Models.DANH_BA_MYTV>(qry).ToList();
                 //
                 qry = $"SELECT * FROM {Common.Objects.TYPE_HD.DB_THANHTOAN_BKN} WHERE FIX=0 AND FLAG=1 AND TYPE_BILL IN({TYPE_BILL})";
@@ -177,25 +180,25 @@ namespace Billing.Controllers
                 foreach (var i in data)
                 {
                     var _tmp = dbkh.FirstOrDefault(d => d.ACCOUNT == i.USERNAME);
-                    var pttb = dbpttb.FirstOrDefault(d => d.LOGINNAME.Trim() == i.USERNAME);
+                    var pttb = dbpttb.FirstOrDefault(d => d.MA_TB.Trim() == i.USERNAME);
                     if (_tmp != null)
                     {
                         if (pttb != null)
                         {
                             if (!string.IsNullOrEmpty(pttb.MA_KH)) _tmp.MA_KH = pttb.MA_KH.Trim();
-                            if (!string.IsNullOrEmpty(pttb.MA_TT_HNI)) _tmp.MA_TT_HNI = pttb.MA_TT_HNI.Trim();
-                            if (!string.IsNullOrEmpty(pttb.FULLNAME)) _tmp.TEN_TT = pttb.FULLNAME.Trim();
-                            if (!string.IsNullOrEmpty(pttb.ADDRESS1)) _tmp.DIACHI_TT = pttb.ADDRESS1.Trim();
-                            if (!string.IsNullOrEmpty(pttb.MOBILE)) _tmp.DIENTHOAI = pttb.MOBILE.Trim();
-                            if (!string.IsNullOrEmpty(pttb.MA_ST)) _tmp.MS_THUE = pttb.MA_ST.Trim();
+                            if (!string.IsNullOrEmpty(pttb.MA_TT)) _tmp.MA_TT_HNI = pttb.MA_TT.Trim();
+                            if (!string.IsNullOrEmpty(pttb.TEN_TT)) _tmp.TEN_TT = pttb.TEN_TT.Trim();
+                            if (!string.IsNullOrEmpty(pttb.DIACHI_TT)) _tmp.DIACHI_TT = pttb.DIACHI_TT.Trim();
+                            if (!string.IsNullOrEmpty(pttb.SO_DT)) _tmp.DIENTHOAI = pttb.SO_DT.Trim();
+                            if (!string.IsNullOrEmpty(pttb.MST)) _tmp.MS_THUE = pttb.MST.Trim();
                             //_tmp.BANKNUMBER = null;
-                            if (!string.IsNullOrEmpty(pttb.MA_DVI)) _tmp.MA_DVI = pttb.MA_DVI.Trim();
+                            _tmp.DONVI_ID = pttb.DONVI_ID;
                             if (!string.IsNullOrEmpty(pttb.MA_CBT)) _tmp.MA_CBT = pttb.MA_CBT.Trim();
-                            if (!string.IsNullOrEmpty(pttb.MA_TUYENTHU)) _tmp.MA_TUYEN = pttb.MA_TUYENTHU.Trim();
-                            if (!string.IsNullOrEmpty(pttb.CUSTCATE)) _tmp.CUSTCATE = pttb.CUSTCATE.Trim();
+                            if (!string.IsNullOrEmpty(pttb.MA_TUYEN)) _tmp.MA_TUYEN = pttb.MA_TUYEN.Trim();
+                            //if (!string.IsNullOrEmpty(pttb.CUSTCATE)) _tmp.CUSTCATE = pttb.CUSTCATE.Trim();
                             //_tmp.STK = null;
-                            _tmp.MA_DT = pttb.MA_DT;
-                            _tmp.TH_SD = pttb.STATUS;
+                            _tmp.MA_DT = pttb.DOITUONG_ID;
+                            _tmp.TH_SD = pttb.TRANGTHAITB_ID;
                             _tmp.ISNULL = 0;
                             _tmp.ISNULLMT = 0;
                         }
@@ -219,19 +222,19 @@ namespace Billing.Controllers
                         if (pttb != null)
                         {
                             if (!string.IsNullOrEmpty(pttb.MA_KH)) _d.MA_KH = pttb.MA_KH.Trim();
-                            if (!string.IsNullOrEmpty(pttb.MA_TT_HNI)) _d.MA_TT_HNI = pttb.MA_TT_HNI.Trim();
-                            if (!string.IsNullOrEmpty(pttb.FULLNAME)) _d.TEN_TT = pttb.FULLNAME.Trim();
-                            if (!string.IsNullOrEmpty(pttb.ADDRESS1)) _d.DIACHI_TT = pttb.ADDRESS1.Trim();
-                            if (!string.IsNullOrEmpty(pttb.MOBILE)) _d.DIENTHOAI = pttb.MOBILE.Trim();
-                            if (!string.IsNullOrEmpty(pttb.MA_ST)) _d.MS_THUE = pttb.MA_ST.Trim();
+                            if (!string.IsNullOrEmpty(pttb.MA_TT)) _d.MA_TT_HNI = pttb.MA_TT.Trim();
+                            if (!string.IsNullOrEmpty(pttb.TEN_TT)) _d.TEN_TT = pttb.TEN_TT.Trim();
+                            if (!string.IsNullOrEmpty(pttb.DIACHI_TT)) _d.DIACHI_TT = pttb.DIACHI_TT.Trim();
+                            if (!string.IsNullOrEmpty(pttb.SO_DT)) _d.DIENTHOAI = pttb.SO_DT.Trim();
+                            if (!string.IsNullOrEmpty(pttb.MST)) _d.MS_THUE = pttb.MST.Trim();
                             //_tmp.BANKNUMBER = null;
-                            if (!string.IsNullOrEmpty(pttb.MA_DVI)) _d.MA_DVI = pttb.MA_DVI.Trim();
+                            _d.DONVI_ID = pttb.DONVI_ID;
                             if (!string.IsNullOrEmpty(pttb.MA_CBT)) _d.MA_CBT = pttb.MA_CBT.Trim();
-                            if (!string.IsNullOrEmpty(pttb.MA_TUYENTHU)) _d.MA_TUYEN = pttb.MA_TUYENTHU.Trim();
-                            if (!string.IsNullOrEmpty(pttb.CUSTCATE)) _d.CUSTCATE = pttb.CUSTCATE.Trim();
+                            if (!string.IsNullOrEmpty(pttb.MA_TUYEN)) _d.MA_TUYEN = pttb.MA_TUYEN.Trim();
+                            //if (!string.IsNullOrEmpty(pttb.CUSTCATE)) _d.CUSTCATE = pttb.CUSTCATE.Trim();
                             //_tmp.STK = null;
-                            _d.MA_DT = pttb.MA_DT;
-                            _d.TH_SD = pttb.STATUS;
+                            _d.MA_DT = pttb.DOITUONG_ID;
+                            _d.TH_SD = pttb.TRANGTHAITB_ID;
                             _d.ISNULL = 0;
                             _d.ISNULLMT = 0;
                         }
@@ -250,6 +253,16 @@ namespace Billing.Controllers
                 //
                 if (DataInsert.Count > 0) SQLServer.Connection.Insert(DataInsert);
                 if (DataUpdate.Count > 0) SQLServer.Connection.Update(DataUpdate);
+                //
+                qry = @"update DB_THANHTOAN_BKN set MA_DVI = 1 where DONVI_ID=5588;
+                        update DB_THANHTOAN_BKN set MA_DVI = 2 where DONVI_ID = 7575;
+                        update DB_THANHTOAN_BKN set MA_DVI = 3 where DONVI_ID = 5590;
+                        update DB_THANHTOAN_BKN set MA_DVI = 4 where DONVI_ID = 5595;
+                        update DB_THANHTOAN_BKN set MA_DVI = 5 where DONVI_ID = 5591;
+                        update DB_THANHTOAN_BKN set MA_DVI = 6 where DONVI_ID = 5594;
+                        update DB_THANHTOAN_BKN set MA_DVI = 7 where DONVI_ID = 5593;
+                        update DB_THANHTOAN_BKN set MA_DVI = 8 where DONVI_ID = 5592;";
+                SQLServer.Connection.Query(qry);
                 //
                 return Json(new { success = $"{Common.Objects.TYPE_HD.HD_MYTV} - Cập nhật: {DataUpdate.Count} - Thêm mới: {DataInsert.Count}" }, JsonRequestBehavior.AllowGet);
             }
@@ -285,34 +298,34 @@ namespace Billing.Controllers
                 var dbfix = SQLServer.Connection.Query<Models.DB_THANHTOAN_BKN>(qry).ToList();
                 foreach (var i in data)
                 {
-                    var db = dbpttb.FirstOrDefault(d => d.LOGINNAME == i.ACCOUNT);
+                    var db = dbpttb.FirstOrDefault(d => d.MA_TB == i.ACCOUNT);
                     if (db != null)
                     {
                         i.ISNULL = 2;
-                        if (!string.IsNullOrEmpty(db.FULLNAME)) i.TEN_TT = db.FULLNAME.Trim();
-                        if (!string.IsNullOrEmpty(db.ADDRESS1)) i.DIACHI_TT = db.ADDRESS1.Trim();
-                        if (!string.IsNullOrEmpty(db.MOBILE)) i.DIENTHOAI = db.MOBILE.Trim();
-                        if (!string.IsNullOrEmpty(db.MA_TUYENTHU)) i.MA_TUYEN = db.MA_TUYENTHU.Trim();
-                        if (!string.IsNullOrEmpty(db.MA_DVI)) i.MA_DVI = db.MA_DVI;
+                        if (!string.IsNullOrEmpty(db.TEN_TT)) i.TEN_TT = db.TEN_TT.Trim();
+                        if (!string.IsNullOrEmpty(db.DIACHI_TT)) i.DIACHI_TT = db.DIACHI_TT.Trim();
+                        if (!string.IsNullOrEmpty(db.SO_DT)) i.DIENTHOAI = db.SO_DT.Trim();
+                        if (!string.IsNullOrEmpty(db.MA_TUYEN)) i.MA_TUYEN = db.MA_TUYEN.Trim();
+                        i.DONVI_ID = db.DONVI_ID;
                         if (!string.IsNullOrEmpty(db.MA_CBT)) i.MA_CBT = db.MA_CBT;
                         //i.MA_KH = !string.IsNullOrEmpty(db.MA_KH) ? db.MA_KH.Trim() : null;
-                        if (!string.IsNullOrEmpty(db.MA_TT_HNI)) i.MA_TT_HNI = db.MA_TT_HNI.Trim();
+                        if (!string.IsNullOrEmpty(db.MA_TT)) i.MA_TT_HNI = db.MA_TT.Trim();
                         //i.MA_DT = db.MA_DT == 0 ? 1 : db.MA_DT;
-                        if (!string.IsNullOrEmpty(db.MA_ST)) i.MS_THUE = db.MA_ST.Trim();
+                        if (!string.IsNullOrEmpty(db.MST)) i.MS_THUE = db.MST.Trim();
                     }
-                    db = dbpttb_kh.FirstOrDefault(d => d.LOGINNAME == i.MA_KH);
+                    db = dbpttb_kh.FirstOrDefault(d => d.MA_KH == i.MA_KH);
                     if (db != null)
                     {
                         i.ISNULL = 2;
                         if (!string.IsNullOrEmpty(db.MA_KH)) i.MA_KH = db.MA_KH.Trim();
-                        i.MA_DT = db.MA_DT == 0 ? 1 : db.MA_DT;
+                        i.MA_DT = db.DOITUONG_ID == 0 ? 1 : db.DOITUONG_ID;
                     }
-                    db = dbpttb_dvi.FirstOrDefault(d => d.MA_CQ == i.MA_DVI);
+                    db = dbpttb_dvi.FirstOrDefault(d => d.DONVI_ID == i.DONVI_ID);
                     if (db != null)
                     {
                         i.ISNULL = 2;
-                        i.MA_DVI = db.MA_DVI;
-                        if (i.MA_TUYEN == null || i.MA_TUYEN.isNumber()) i.MA_TUYEN = $"T{db.MA_ST}000";
+                        i.DONVI_ID = db.DONVI_ID;
+                        if (i.MA_TUYEN == null || i.MA_TUYEN.isNumber()) i.MA_TUYEN = $"T{db.MST}000";
                     }
                     //Cập nhật danh bạ Fix
                     var dbkh = dbfix.FirstOrDefault(d => d.ACCOUNT == i.ACCOUNT);
@@ -411,17 +424,17 @@ namespace Billing.Controllers
             obj = getDefaultObj(obj);
             try
             {
-                //var qry = $"update tv SET tv.GOICUOCID=thdvnet.LOAIGOICUOC_ID FROM {Common.Objects.TYPE_HD.HD_MYTV} tv inner join (select * from DANHBA_GOICUOC_TICHHOP where goicuoc_id in (select thdv.goicuoc_id from HD_NET net,DANHBA_GOICUOC_TICHHOP thdv where net.ACCOUNT=thdv.ACCOUNT and (net.TYPE_BILL=6 or net.TYPE_BILL=9) and FORMAT(net.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' and FORMAT(thdv.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND thdv.FIX=0)) thdvnet on tv.ACCOUNT=thdvnet.ACCOUNT where tv.TYPE_BILL=8 and FORMAT(tv.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' and thdvnet.NGAY_KT>=CAST('{obj.block_time}' as datetime)";
+                //var qry = $"update tv SET tv.GOICUOCID=thdvnet.GOI_ID FROM {Common.Objects.TYPE_HD.HD_MYTV} tv inner join (select * from DANHBA_GOICUOC_TICHHOP where goicuoc_id in (select thdv.goicuoc_id from HD_NET net,DANHBA_GOICUOC_TICHHOP thdv where net.ACCOUNT=thdv.ACCOUNT and (net.TYPE_BILL=6 or net.TYPE_BILL=9) and FORMAT(net.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' and FORMAT(thdv.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND thdv.FIX=0)) thdvnet on tv.ACCOUNT=thdvnet.ACCOUNT where tv.TYPE_BILL=8 and FORMAT(tv.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' and thdvnet.NGAY_KT>=CAST('{obj.block_time}' as datetime)";
                 //SQLServer.Connection.Query(qry);
 
-                //qry = $"update tv SET tv.GOICUOCID=thdvnet.LOAIGOICUOC_ID FROM {Common.Objects.TYPE_HD.HD_MYTV} tv inner join (select * from DANHBA_GOICUOC_TICHHOP where goicuoc_id in (select thdv.goicuoc_id from HD_NET net,DANHBA_GOICUOC_TICHHOP thdv where net.ACCOUNT=thdv.ACCOUNT and (net.TYPE_BILL=6 or net.TYPE_BILL=9) and FORMAT(net.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' and FORMAT(thdv.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND thdv.FIX=0)) thdvnet on tv.ACCOUNT=thdvnet.ACCOUNT where tv.TYPE_BILL=8 and FORMAT(tv.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' and thdvnet.NGAY_BD<CAST('{obj.block_time}' as datetime) AND thdvnet.NGAY_KT IS NULL";
+                //qry = $"update tv SET tv.GOICUOCID=thdvnet.GOI_ID FROM {Common.Objects.TYPE_HD.HD_MYTV} tv inner join (select * from DANHBA_GOICUOC_TICHHOP where goicuoc_id in (select thdv.goicuoc_id from HD_NET net,DANHBA_GOICUOC_TICHHOP thdv where net.ACCOUNT=thdv.ACCOUNT and (net.TYPE_BILL=6 or net.TYPE_BILL=9) and FORMAT(net.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' and FORMAT(thdv.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND thdv.FIX=0)) thdvnet on tv.ACCOUNT=thdvnet.ACCOUNT where tv.TYPE_BILL=8 and FORMAT(tv.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' and thdvnet.NGAY_BD<CAST('{obj.block_time}' as datetime) AND thdvnet.NGAY_KT IS NULL";
                 //SQLServer.Connection.Query(qry);
 
-                var qry = $@"UPDATE hd SET hd.GOICUOCID=thdv.LOAIGOICUOC_ID FROM {Common.Objects.TYPE_HD.HD_MYTV} hd,DANHBA_GOICUOC_TICHHOP thdv WHERE hd.ACCOUNT=thdv.ACCOUNT AND thdv.NGAY_KT>=CAST('{obj.block_time}' as datetime) AND hd.TYPE_BILL=8 AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND FORMAT(thdv.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND thdv.FIX=0 AND thdv.FLAG=1;
-                             UPDATE hd SET hd.GOICUOCID=thdv.LOAIGOICUOC_ID FROM {Common.Objects.TYPE_HD.HD_MYTV} hd,DANHBA_GOICUOC_TICHHOP thdv WHERE hd.ACCOUNT=thdv.ACCOUNT AND thdv.NGAY_BD<CAST('{obj.block_time}' as datetime) AND thdv.NGAY_KT IS NULL AND hd.TYPE_BILL=8 AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND FORMAT(thdv.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND thdv.FIX=0 AND thdv.FLAG=1;";
+                var qry = $@"UPDATE hd SET hd.GOICUOCID=thdv.GOI_ID FROM {Common.Objects.TYPE_HD.HD_MYTV} hd,DANHBA_GOICUOC_TICHHOP thdv WHERE hd.ACCOUNT=thdv.ACCOUNT AND thdv.NGAY_KT>=CAST('{obj.block_time}' as datetime) AND hd.TYPE_BILL=8 AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND FORMAT(thdv.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND thdv.FIX=0 AND thdv.FLAG=1;
+                             UPDATE hd SET hd.GOICUOCID=thdv.GOI_ID FROM {Common.Objects.TYPE_HD.HD_MYTV} hd,DANHBA_GOICUOC_TICHHOP thdv WHERE hd.ACCOUNT=thdv.ACCOUNT AND thdv.NGAY_DK<CAST('{obj.block_time}' as datetime) AND thdv.NGAY_KT IS NULL AND hd.TYPE_BILL=8 AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND FORMAT(thdv.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND thdv.FIX=0 AND thdv.FLAG=1;";
                 SQLServer.Connection.Query(qry);
                 //Xử lý tích hợp thêm
-                qry = $"UPDATE tv SET tv.GOICUOCID=thdv.LOAIGOICUOC_ID FROM {Common.Objects.TYPE_HD.HD_MYTV} tv INNER JOIN DANHBA_GOICUOC_TICHHOP thdv ON tv.ACCOUNT=thdv.ACCOUNT WHERE tv.TYPE_BILL=8 AND FORMAT(tv.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND thdv.DICHVUVT_ID=8 AND thdv.FIX=1 AND thdv.FLAG=1 AND FORMAT(thdv.TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                qry = $"UPDATE tv SET tv.GOICUOCID=thdv.GOI_ID FROM {Common.Objects.TYPE_HD.HD_MYTV} tv INNER JOIN DANHBA_GOICUOC_TICHHOP thdv ON tv.ACCOUNT=thdv.ACCOUNT WHERE tv.TYPE_BILL=8 AND FORMAT(tv.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND thdv.DICHVUVT_ID=8 AND thdv.FIX=1 AND thdv.FLAG=1 AND FORMAT(thdv.TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
                 SQLServer.Connection.Query(qry);
                 //Cập nhật giá từ bảng giá đối với thuê bao tích hợp
                 qry = $@"UPDATE hd SET hd.TONG=bg.GIA+hd.PAYTV_FEE FROM {Common.Objects.TYPE_HD.HD_MYTV} hd INNER JOIN BGCUOC bg ON hd.GOICUOCID=bg.GOICUOCID WHERE hd.GOICUOCID>0 AND hd.TYPE_BILL=8 AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND bg.DICHVUVT_ID=8 AND bg.FLAG=1";
@@ -460,7 +473,7 @@ namespace Billing.Controllers
                 qry = $"UPDATE hd SET hd.TONG=dc.VALUE FROM {Common.Objects.TYPE_HD.HD_MYTV} hd INNER JOIN DISCOUNT dc ON hd.ACCOUNT=dc.ACCOUNT WHERE hd.TYPE_BILL=8 AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND FORMAT(dc.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND dc.FLAG=1 AND dc.TYPEID={(int)Common.Objects.TYPE_DISCOUNT.FIX} AND ((hd.TIME_BILL>=dc.NGAY_BD AND dc.NGAY_KT IS NULL) OR (hd.TIME_BILL BETWEEN dc.NGAY_BD AND dc.NGAY_KT));";
                 SQLServer.Connection.Query(qry);
                 //Gói GD
-                qry = $"UPDATE dc SET dc.FLAG=0 FROM DISCOUNT dc WHERE FORMAT(dc.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND dc.TYPEID=5 AND dc.ACCOUNT IN(SELECT DISTINCT th.ACCOUNT FROM DANHBA_GOICUOC_TICHHOP th,BGCUOC bg WHERE th.LOAIGOICUOC_ID=bg.GOICUOCID and th.DICHVUVT_ID=8 AND FORMAT(th.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND th.NGAY_KT IS NULL)";
+                qry = $"UPDATE dc SET dc.FLAG=0 FROM DISCOUNT dc WHERE FORMAT(dc.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND dc.TYPEID=5 AND dc.ACCOUNT IN(SELECT DISTINCT th.ACCOUNT FROM DANHBA_GOICUOC_TICHHOP th,BGCUOC bg WHERE th.GOI_ID=bg.GOICUOCID and th.DICHVUVT_ID=8 AND FORMAT(th.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND th.NGAY_KT IS NULL)";
                 SQLServer.Connection.Query(qry);
                 qry = $"UPDATE hd SET hd.TONG=((hd.TONG-PAYTV_FEE)*((100-dc.VALUE)/100))+PAYTV_FEE FROM {Common.Objects.TYPE_HD.HD_MYTV} hd INNER JOIN DISCOUNT dc ON hd.ACCOUNT=dc.ACCOUNT WHERE hd.TYPE_BILL=8 AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND FORMAT(dc.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND dc.FLAG=1 AND dc.TYPEID={(int)Common.Objects.TYPE_DISCOUNT.MYTVGD};";
                 //qry += $"UPDATE hd SET hd.TONG=TONG+GIAM_TRU-PAYTV_FEE FROM {Common.Objects.TYPE_HD.HD_MYTV} hd INNER JOIN DISCOUNT dc ON hd.ACCOUNT=dc.ACCOUNT WHERE hd.TYPE_BILL=8 AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND dc.TYPEID={(int)Common.Objects.TYPE_DISCOUNT.MYTVGD};";
@@ -510,99 +523,118 @@ namespace Billing.Controllers
             var PayTV = "203,213";
             try
             {
-                //-- Thông tin --
-                //TTT Tiền thanh toán trước
-                //KT Khuyến mại tặng cước (tháng)
-                //CK Tiền chiết khấu
-
-                //-- Trạng thái Flag --
-                //0: Trạng thái ban đầu chưa xử lý
-                //1: TTT sau khi trừ có số dư tổng > 0
-                //2: TTT sau khi trừ có số dư tổng < 0
-                //3: TTT sau khi trừ có số dư tổng < 0 và không có KT hoặc CK (Trả lại tiền thiếu vào hóa đơn)
-                //4: KT hoặc CK sau khi trừ có số dư tổng > 0
-                //5: KT hoặc CK sau khi trừ có số dư tổng < 0 (Trả lại tiền thiếu vào hóa đơn)
-                //6: KT hoặc CK không còn TTT có số dư tổng > 0
-                //7: KT hoặc CK không còn TTT có số dư tổng < 0 (Trả lại tiền thiếu vào hóa đơn)
-                //8: KT hoặc CK khi TTT có số dư tổng > 0
-
-                //Đặt lại đầu vào
-                var qry = $@"UPDATE ttt SET ttt.FLAG=0 FROM THANHTOANTRUOC ttt WHERE ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}';
-                             UPDATE ttt SET ttt.FLAG=-1 FROM THANHTOANTRUOC ttt WHERE ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.SODU<0;";
-                SQLServer.Connection.Query(qry);
-                //Check Thuê bao thanh toán trước không có trong hóa đơn
-                qry = $"UPDATE ttt SET ttt.FLAG=-1 FROM THANHTOANTRUOC ttt WHERE ttt.TYPE_BILL={TYPE_BILL} AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.ACCOUNT NOT IN(SELECT ACCOUNT FROM {Common.Objects.TYPE_HD.HD_MYTV} WHERE TYPE_BILL={DVVT_ID} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}');";
-                SQLServer.Connection.Query(qry);
-
-                //Bước 1: Xử lý các thuê bao còn TTT và (KT hoặc CK)
-                //Cập nhật cước từ hóa đơn
-                qry = $@"UPDATE ttt SET ttt.FLAG=1,ttt.TONG=hd.TONG,ttt.EXTRA_TONG=PAYTV_FEE,SODU_TONG=ttt.SODU-(hd.TONG-hd.PAYTV_FEE) FROM THANHTOANTRUOC ttt INNER JOIN {Common.Objects.TYPE_HD.HD_MYTV} hd ON ttt.ACCOUNT=hd.ACCOUNT WHERE ttt.KHOANTIEN='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND ttt.FLAG=0 AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND hd.TYPE_BILL={DVVT_ID} AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
-                SQLServer.Connection.Query(qry);
-                //Pay TV VTVCab 38000
-                // qry = $@"UPDATE ttt SET ttt.FLAG=1,ttt.TONG=hd.TONG,ttt.EXTRA_TONG=hd.PAYTV_FEE,SODU_TONG=ttt.SODU-(hd.TONG-hd.PAYTV_FEE+38000) FROM THANHTOANTRUOC ttt INNER JOIN {Common.Objects.TYPE_HD.HD_MYTV} hd ON ttt.ACCOUNT=hd.ACCOUNT WHERE ttt.KHOANTIEN='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND ttt.FLAG=1 AND ttt.ID_CV IN ({PayTV}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND hd.TYPE_BILL={DVVT_ID} AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
-                qry = $@"UPDATE ttt SET ttt.FLAG=1,ttt.TONG=hd.TONG,ttt.EXTRA_TONG=hd.PAYTV_FEE,SODU_TONG=ttt.SODU-(hd.TONG) FROM THANHTOANTRUOC ttt INNER JOIN {Common.Objects.TYPE_HD.HD_MYTV} hd ON ttt.ACCOUNT=hd.ACCOUNT WHERE ttt.KHOANTIEN='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND ttt.FLAG=1 AND ttt.ID_CV IN ({PayTV}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND hd.TYPE_BILL={DVVT_ID} AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
-                SQLServer.Connection.Query(qry);
-
-                //Cập nhật thực trừ cho TTT có số dư tổng > 0
-                qry = $@"UPDATE ttt SET ttt.THUC_TRU=ttt.TONG-ttt.EXTRA_TONG FROM THANHTOANTRUOC ttt WHERE ttt.KHOANTIEN='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.FLAG=1;";
-                SQLServer.Connection.Query(qry);
-                //Pay TV VTVCab 38000
-                qry = $@"UPDATE ttt SET ttt.THUC_TRU=ttt.TONG FROM THANHTOANTRUOC ttt WHERE ttt.KHOANTIEN='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND ttt.ID_CV IN ({PayTV}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.FLAG=1;";
-                SQLServer.Connection.Query(qry);
-
-                //Cập nhật thực trừ bằng số dư đối với các TTT có số dư tổng < 0
-                qry = $@"UPDATE ttt SET ttt.FLAG=2,ttt.THUC_TRU=SODU FROM THANHTOANTRUOC ttt WHERE ttt.KHOANTIEN='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.FLAG=1 AND ttt.SODU_TONG<0;";
-                SQLServer.Connection.Query(qry);
-                //Cập nhật trạng thái cho TTT sau khi trừ có số dư tổng < 0 và không có KT hoặc CK
-                qry = $@"UPDATE ttt SET ttt.FLAG=3 FROM THANHTOANTRUOC ttt WHERE ttt.KHOANTIEN='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.FLAG=2 AND ttt.MA_TB NOT IN(SELECT MA_TB FROM THANHTOANTRUOC WHERE KHOANTIEN!='TTT' AND TYPE_BILL={TYPE_BILL} AND DVVT_ID={DVVT_ID} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}');";
-                SQLServer.Connection.Query(qry);
-                //Cập nhật trạng thái cho KT hoặc CK khi TTT có số dư tổng < 0
-                qry = $@"UPDATE ttt SET ttt.FLAG=2 FROM THANHTOANTRUOC ttt WHERE ttt.KHOANTIEN!='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND ttt.FLAG=0 AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.MA_TB IN(SELECT MA_TB FROM THANHTOANTRUOC WHERE KHOANTIEN='TTT' AND TYPE_BILL={TYPE_BILL} AND DVVT_ID={DVVT_ID} AND FLAG=2 AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}');";
-                SQLServer.Connection.Query(qry);
-                //Cập nhật trạng thái cho KT hoặc CK khi TTT có số dư tổng > 0
-                qry = $@"UPDATE ttt SET ttt.FLAG=8 FROM THANHTOANTRUOC ttt WHERE ttt.KHOANTIEN!='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.FLAG=0 AND ttt.MA_TB IN(SELECT MA_TB FROM THANHTOANTRUOC WHERE KHOANTIEN='TTT' AND TYPE_BILL={TYPE_BILL} AND DVVT_ID={DVVT_ID} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND FLAG=1);";
-                SQLServer.Connection.Query(qry);
-                //Cập nhật trạng thái, tổng, thực trừ bằng số tiền còn thiếu cho KT hoặc CK sau khi trừ TTT và số du tổng sau khi trừ
-                qry = $@"UPDATE ttt SET ttt.FLAG=4,ttt.THUC_TRU=ttt2.SODU_TONG*-1,ttt.TONG=ttt2.TONG,ttt.SODU_TONG=ttt.SODU+ttt2.SODU_TONG FROM THANHTOANTRUOC ttt,THANHTOANTRUOC ttt2 WHERE ttt.MA_TB=ttt2.MA_TB AND ttt.KHOANTIEN!='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.FLAG=2 AND ttt2.KHOANTIEN='TTT' AND ttt2.TYPE_BILL={TYPE_BILL} AND ttt2.DVVT_ID={DVVT_ID} AND FORMAT(ttt2.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt2.FLAG=2;";
-                SQLServer.Connection.Query(qry);
-                //Cập nhật trạng thái và thực trừ bằng số dư đối với KT hoặc CK có số dư tổng < 0
-                qry = $@"UPDATE ttt SET ttt.FLAG=5,ttt.THUC_TRU=SODU FROM THANHTOANTRUOC ttt WHERE ttt.KHOANTIEN!='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.FLAG=4 AND ttt.SODU_TONG<0;";
-                SQLServer.Connection.Query(qry);
-
-                //Bước 2: Xử lý các thuê bao không còn TTT chỉ còn KT hoặc CK
-                //Cập nhật trạng thái, thực trừ, cước từ hóa đơn
-                qry = $@"UPDATE ttt SET ttt.FLAG=6,ttt.TONG=hd.TONG,ttt.EXTRA_TONG=PAYTV_FEE,SODU_TONG=ttt.SODU-(hd.TONG-hd.PAYTV_FEE),ttt.THUC_TRU=hd.TONG-hd.PAYTV_FEE FROM THANHTOANTRUOC ttt INNER JOIN {Common.Objects.TYPE_HD.HD_MYTV} hd ON ttt.ACCOUNT=hd.ACCOUNT WHERE ttt.KHOANTIEN!='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.FLAG=0 AND hd.TYPE_BILL={DVVT_ID} AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
-                SQLServer.Connection.Query(qry);
-                //Cập nhật trạng thái, thực trừ cho KT hoặc CK có số dư tổng < 0
-                qry = $@"UPDATE ttt SET ttt.FLAG=7,ttt.THUC_TRU=SODU FROM THANHTOANTRUOC ttt WHERE ttt.KHOANTIEN!='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.FLAG=6 AND ttt.SODU_TONG<0;";
-                SQLServer.Connection.Query(qry);
-
-                //Bước 3: Cập nhật thực trừ vào hóa đơn
-                //Cập nhật các thuê bao có số dư tổng > 0
-                qry = $@"UPDATE hd SET hd.ISTTT=1,hd.TONG_TTT=hd.TONG-hd.PAYTV_FEE,hd.TONG=PAYTV_FEE FROM THANHTOANTRUOC ttt INNER JOIN {Common.Objects.TYPE_HD.HD_MYTV} hd ON ttt.ACCOUNT=hd.ACCOUNT WHERE ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.FLAG IN(1,4,6) AND hd.TYPE_BILL={DVVT_ID} AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
-                SQLServer.Connection.Query(qry);
-                //Pay TV VTVCab 38000
-                qry = $@"UPDATE hd SET hd.ISTTT=1,hd.TONG_TTT=ttt.THUC_TRU,hd.TONG=0 FROM THANHTOANTRUOC ttt INNER JOIN {Common.Objects.TYPE_HD.HD_MYTV} hd ON ttt.ACCOUNT=hd.ACCOUNT WHERE ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.FLAG IN(1,4,6) AND ttt.ID_CV IN ({PayTV}) AND hd.TYPE_BILL={DVVT_ID} AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
-                SQLServer.Connection.Query(qry);
-
-                //Cập nhật các thuê bao có số dư tổng < 0
-                qry = $@"UPDATE hd SET hd.ISTTT=1,hd.TONG_TTT=ttt.TONG+SODU_TONG,hd.TONG=ttt.SODU_TONG*-1 FROM THANHTOANTRUOC ttt INNER JOIN {Common.Objects.TYPE_HD.HD_MYTV} hd ON ttt.ACCOUNT=hd.ACCOUNT WHERE ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.FLAG IN(3,5,7) AND hd.TYPE_BILL={DVVT_ID} AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
-                SQLServer.Connection.Query(qry);
-                //Pay TV VTVCab 38000
-                //qry = $@"UPDATE hd SET hd.ISTTT=1,hd.TONG_TTT=ttt.TONG+SODU_TONG,hd.TONG=ttt.SODU_TONG*-1 FROM THANHTOANTRUOC ttt INNER JOIN {Common.Objects.TYPE_HD.HD_MYTV} hd ON ttt.ACCOUNT=hd.ACCOUNT WHERE ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.FLAG IN(3,5,7) AND ttt.ID_CV=203 AND hd.TYPE_BILL={DVVT_ID} AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
-                //SQLServer.Connection.Query(qry);
-
-                //PayTv VTV Cap
-                //qry = $"UPDATE a SET a.TONG=a.TONG+b.TIENHANMUC FROM {Common.Objects.TYPE_HD.HD_MYTV} a INNER JOIN THANHTOANTRUOC b ON a.ACCOUNT=b.ACCOUNT WHERE b.KHOANTIEN='KT' AND b.TIENHANMUC=-38000 AND FORMAT(a.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND FORMAT(b.TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
-                //SQLServer.Connection.Query(qry);
-                //Cập nhật vat và tổng
-                qry = $@"UPDATE {Common.Objects.TYPE_HD.HD_MYTV} SET VAT=ROUND(TONG*0.1,0) WHERE ISTTT=1 AND TYPE_BILL={DVVT_ID} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}';
-                         UPDATE {Common.Objects.TYPE_HD.HD_MYTV} SET TONGCONG=TONG+VAT WHERE ISTTT=1 AND TYPE_BILL={DVVT_ID} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
+                var qry = $"update tv set tv.TONG_TTT=dc.CUOC_DC+dc.TIEN_SD*1.1,ISTTT=1 from HD_MYTV tv, DATCOC dc where tv.account=dc.ma_tb and dc.LOAITB_ID in({DVVT_ID}) and FORMAT(tv.TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
                 SQLServer.Connection.Query(qry);
                 return Json(new { success = $"{Common.Objects.TYPE_HD.HD_MYTV} - Cập nhật thanh toán trước thành công!" }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex) { return Json(new { danger = ex.Message + " - Index: " + index }, JsonRequestBehavior.AllowGet); }
         }
+        //[HttpPost, ValidateAntiForgeryToken]
+        //public JsonResult XuLyThanhToanTruoc(Common.DefaultObj obj)
+        //{
+        //    var SQLServer = new TM.Connection.SQLServer();
+        //    var index = 0;
+        //    obj.DataSource = Common.Directories.HDDataSource;
+        //    obj = getDefaultObj(obj);
+        //    //
+        //    var TYPE_BILL = 9002;
+        //    var DVVT_ID = "8";
+        //    var PayTV = "203,213";
+        //    try
+        //    {
+        //        //-- Thông tin --
+        //        //TTT Tiền thanh toán trước
+        //        //KT Khuyến mại tặng cước (tháng)
+        //        //CK Tiền chiết khấu
+
+        //        //-- Trạng thái Flag --
+        //        //0: Trạng thái ban đầu chưa xử lý
+        //        //1: TTT sau khi trừ có số dư tổng > 0
+        //        //2: TTT sau khi trừ có số dư tổng < 0
+        //        //3: TTT sau khi trừ có số dư tổng < 0 và không có KT hoặc CK (Trả lại tiền thiếu vào hóa đơn)
+        //        //4: KT hoặc CK sau khi trừ có số dư tổng > 0
+        //        //5: KT hoặc CK sau khi trừ có số dư tổng < 0 (Trả lại tiền thiếu vào hóa đơn)
+        //        //6: KT hoặc CK không còn TTT có số dư tổng > 0
+        //        //7: KT hoặc CK không còn TTT có số dư tổng < 0 (Trả lại tiền thiếu vào hóa đơn)
+        //        //8: KT hoặc CK khi TTT có số dư tổng > 0
+
+        //        //Đặt lại đầu vào
+        //        var qry = $@"UPDATE ttt SET ttt.FLAG=0 FROM THANHTOANTRUOC ttt WHERE ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}';
+        //                     UPDATE ttt SET ttt.FLAG=-1 FROM THANHTOANTRUOC ttt WHERE ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.SODU<0;";
+        //        SQLServer.Connection.Query(qry);
+        //        //Check Thuê bao thanh toán trước không có trong hóa đơn
+        //        qry = $"UPDATE ttt SET ttt.FLAG=-1 FROM THANHTOANTRUOC ttt WHERE ttt.TYPE_BILL={TYPE_BILL} AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.ACCOUNT NOT IN(SELECT ACCOUNT FROM {Common.Objects.TYPE_HD.HD_MYTV} WHERE TYPE_BILL={DVVT_ID} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}');";
+        //        SQLServer.Connection.Query(qry);
+
+        //        //Bước 1: Xử lý các thuê bao còn TTT và (KT hoặc CK)
+        //        //Cập nhật cước từ hóa đơn
+        //        qry = $@"UPDATE ttt SET ttt.FLAG=1,ttt.TONG=hd.TONG,ttt.EXTRA_TONG=PAYTV_FEE,SODU_TONG=ttt.SODU-(hd.TONG-hd.PAYTV_FEE) FROM THANHTOANTRUOC ttt INNER JOIN {Common.Objects.TYPE_HD.HD_MYTV} hd ON ttt.ACCOUNT=hd.ACCOUNT WHERE ttt.KHOANTIEN='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND ttt.FLAG=0 AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND hd.TYPE_BILL={DVVT_ID} AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
+        //        SQLServer.Connection.Query(qry);
+        //        //Pay TV VTVCab 38000
+        //        // qry = $@"UPDATE ttt SET ttt.FLAG=1,ttt.TONG=hd.TONG,ttt.EXTRA_TONG=hd.PAYTV_FEE,SODU_TONG=ttt.SODU-(hd.TONG-hd.PAYTV_FEE+38000) FROM THANHTOANTRUOC ttt INNER JOIN {Common.Objects.TYPE_HD.HD_MYTV} hd ON ttt.ACCOUNT=hd.ACCOUNT WHERE ttt.KHOANTIEN='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND ttt.FLAG=1 AND ttt.ID_CV IN ({PayTV}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND hd.TYPE_BILL={DVVT_ID} AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
+        //        qry = $@"UPDATE ttt SET ttt.FLAG=1,ttt.TONG=hd.TONG,ttt.EXTRA_TONG=hd.PAYTV_FEE,SODU_TONG=ttt.SODU-(hd.TONG) FROM THANHTOANTRUOC ttt INNER JOIN {Common.Objects.TYPE_HD.HD_MYTV} hd ON ttt.ACCOUNT=hd.ACCOUNT WHERE ttt.KHOANTIEN='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND ttt.FLAG=1 AND ttt.ID_CV IN ({PayTV}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND hd.TYPE_BILL={DVVT_ID} AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
+        //        SQLServer.Connection.Query(qry);
+
+        //        //Cập nhật thực trừ cho TTT có số dư tổng > 0
+        //        qry = $@"UPDATE ttt SET ttt.THUC_TRU=ttt.TONG-ttt.EXTRA_TONG FROM THANHTOANTRUOC ttt WHERE ttt.KHOANTIEN='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.FLAG=1;";
+        //        SQLServer.Connection.Query(qry);
+        //        //Pay TV VTVCab 38000
+        //        qry = $@"UPDATE ttt SET ttt.THUC_TRU=ttt.TONG FROM THANHTOANTRUOC ttt WHERE ttt.KHOANTIEN='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND ttt.ID_CV IN ({PayTV}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.FLAG=1;";
+        //        SQLServer.Connection.Query(qry);
+
+        //        //Cập nhật thực trừ bằng số dư đối với các TTT có số dư tổng < 0
+        //        qry = $@"UPDATE ttt SET ttt.FLAG=2,ttt.THUC_TRU=SODU FROM THANHTOANTRUOC ttt WHERE ttt.KHOANTIEN='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.FLAG=1 AND ttt.SODU_TONG<0;";
+        //        SQLServer.Connection.Query(qry);
+        //        //Cập nhật trạng thái cho TTT sau khi trừ có số dư tổng < 0 và không có KT hoặc CK
+        //        qry = $@"UPDATE ttt SET ttt.FLAG=3 FROM THANHTOANTRUOC ttt WHERE ttt.KHOANTIEN='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.FLAG=2 AND ttt.MA_TB NOT IN(SELECT MA_TB FROM THANHTOANTRUOC WHERE KHOANTIEN!='TTT' AND TYPE_BILL={TYPE_BILL} AND DVVT_ID={DVVT_ID} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}');";
+        //        SQLServer.Connection.Query(qry);
+        //        //Cập nhật trạng thái cho KT hoặc CK khi TTT có số dư tổng < 0
+        //        qry = $@"UPDATE ttt SET ttt.FLAG=2 FROM THANHTOANTRUOC ttt WHERE ttt.KHOANTIEN!='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND ttt.FLAG=0 AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.MA_TB IN(SELECT MA_TB FROM THANHTOANTRUOC WHERE KHOANTIEN='TTT' AND TYPE_BILL={TYPE_BILL} AND DVVT_ID={DVVT_ID} AND FLAG=2 AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}');";
+        //        SQLServer.Connection.Query(qry);
+        //        //Cập nhật trạng thái cho KT hoặc CK khi TTT có số dư tổng > 0
+        //        qry = $@"UPDATE ttt SET ttt.FLAG=8 FROM THANHTOANTRUOC ttt WHERE ttt.KHOANTIEN!='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.FLAG=0 AND ttt.MA_TB IN(SELECT MA_TB FROM THANHTOANTRUOC WHERE KHOANTIEN='TTT' AND TYPE_BILL={TYPE_BILL} AND DVVT_ID={DVVT_ID} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND FLAG=1);";
+        //        SQLServer.Connection.Query(qry);
+        //        //Cập nhật trạng thái, tổng, thực trừ bằng số tiền còn thiếu cho KT hoặc CK sau khi trừ TTT và số du tổng sau khi trừ
+        //        qry = $@"UPDATE ttt SET ttt.FLAG=4,ttt.THUC_TRU=ttt2.SODU_TONG*-1,ttt.TONG=ttt2.TONG,ttt.SODU_TONG=ttt.SODU+ttt2.SODU_TONG FROM THANHTOANTRUOC ttt,THANHTOANTRUOC ttt2 WHERE ttt.MA_TB=ttt2.MA_TB AND ttt.KHOANTIEN!='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.FLAG=2 AND ttt2.KHOANTIEN='TTT' AND ttt2.TYPE_BILL={TYPE_BILL} AND ttt2.DVVT_ID={DVVT_ID} AND FORMAT(ttt2.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt2.FLAG=2;";
+        //        SQLServer.Connection.Query(qry);
+        //        //Cập nhật trạng thái và thực trừ bằng số dư đối với KT hoặc CK có số dư tổng < 0
+        //        qry = $@"UPDATE ttt SET ttt.FLAG=5,ttt.THUC_TRU=SODU FROM THANHTOANTRUOC ttt WHERE ttt.KHOANTIEN!='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.FLAG=4 AND ttt.SODU_TONG<0;";
+        //        SQLServer.Connection.Query(qry);
+
+        //        //Bước 2: Xử lý các thuê bao không còn TTT chỉ còn KT hoặc CK
+        //        //Cập nhật trạng thái, thực trừ, cước từ hóa đơn
+        //        qry = $@"UPDATE ttt SET ttt.FLAG=6,ttt.TONG=hd.TONG,ttt.EXTRA_TONG=PAYTV_FEE,SODU_TONG=ttt.SODU-(hd.TONG-hd.PAYTV_FEE),ttt.THUC_TRU=hd.TONG-hd.PAYTV_FEE FROM THANHTOANTRUOC ttt INNER JOIN {Common.Objects.TYPE_HD.HD_MYTV} hd ON ttt.ACCOUNT=hd.ACCOUNT WHERE ttt.KHOANTIEN!='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.FLAG=0 AND hd.TYPE_BILL={DVVT_ID} AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
+        //        SQLServer.Connection.Query(qry);
+        //        //Cập nhật trạng thái, thực trừ cho KT hoặc CK có số dư tổng < 0
+        //        qry = $@"UPDATE ttt SET ttt.FLAG=7,ttt.THUC_TRU=SODU FROM THANHTOANTRUOC ttt WHERE ttt.KHOANTIEN!='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.FLAG=6 AND ttt.SODU_TONG<0;";
+        //        SQLServer.Connection.Query(qry);
+
+        //        //Bước 3: Cập nhật thực trừ vào hóa đơn
+        //        //Cập nhật các thuê bao có số dư tổng > 0
+        //        qry = $@"UPDATE hd SET hd.ISTTT=1,hd.TONG_TTT=hd.TONG-hd.PAYTV_FEE,hd.TONG=PAYTV_FEE FROM THANHTOANTRUOC ttt INNER JOIN {Common.Objects.TYPE_HD.HD_MYTV} hd ON ttt.ACCOUNT=hd.ACCOUNT WHERE ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.FLAG IN(1,4,6) AND hd.TYPE_BILL={DVVT_ID} AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
+        //        SQLServer.Connection.Query(qry);
+        //        //Pay TV VTVCab 38000
+        //        qry = $@"UPDATE hd SET hd.ISTTT=1,hd.TONG_TTT=ttt.THUC_TRU,hd.TONG=0 FROM THANHTOANTRUOC ttt INNER JOIN {Common.Objects.TYPE_HD.HD_MYTV} hd ON ttt.ACCOUNT=hd.ACCOUNT WHERE ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.FLAG IN(1,4,6) AND ttt.ID_CV IN ({PayTV}) AND hd.TYPE_BILL={DVVT_ID} AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
+        //        SQLServer.Connection.Query(qry);
+
+        //        //Cập nhật các thuê bao có số dư tổng < 0
+        //        qry = $@"UPDATE hd SET hd.ISTTT=1,hd.TONG_TTT=ttt.TONG+SODU_TONG,hd.TONG=ttt.SODU_TONG*-1 FROM THANHTOANTRUOC ttt INNER JOIN {Common.Objects.TYPE_HD.HD_MYTV} hd ON ttt.ACCOUNT=hd.ACCOUNT WHERE ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.FLAG IN(3,5,7) AND hd.TYPE_BILL={DVVT_ID} AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
+        //        SQLServer.Connection.Query(qry);
+        //        //Pay TV VTVCab 38000
+        //        //qry = $@"UPDATE hd SET hd.ISTTT=1,hd.TONG_TTT=ttt.TONG+SODU_TONG,hd.TONG=ttt.SODU_TONG*-1 FROM THANHTOANTRUOC ttt INNER JOIN {Common.Objects.TYPE_HD.HD_MYTV} hd ON ttt.ACCOUNT=hd.ACCOUNT WHERE ttt.TYPE_BILL={TYPE_BILL} AND ttt.DVVT_ID IN({DVVT_ID}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND ttt.FLAG IN(3,5,7) AND ttt.ID_CV=203 AND hd.TYPE_BILL={DVVT_ID} AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
+        //        //SQLServer.Connection.Query(qry);
+
+        //        //PayTv VTV Cap
+        //        //qry = $"UPDATE a SET a.TONG=a.TONG+b.TIENHANMUC FROM {Common.Objects.TYPE_HD.HD_MYTV} a INNER JOIN THANHTOANTRUOC b ON a.ACCOUNT=b.ACCOUNT WHERE b.KHOANTIEN='KT' AND b.TIENHANMUC=-38000 AND FORMAT(a.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND FORMAT(b.TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
+        //        //SQLServer.Connection.Query(qry);
+        //        //Cập nhật vat và tổng
+        //        qry = $@"UPDATE {Common.Objects.TYPE_HD.HD_MYTV} SET VAT=ROUND(TONG*0.1,0) WHERE ISTTT=1 AND TYPE_BILL={DVVT_ID} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}';
+        //                 UPDATE {Common.Objects.TYPE_HD.HD_MYTV} SET TONGCONG=TONG+VAT WHERE ISTTT=1 AND TYPE_BILL={DVVT_ID} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
+        //        SQLServer.Connection.Query(qry);
+        //        return Json(new { success = $"{Common.Objects.TYPE_HD.HD_MYTV} - Cập nhật thanh toán trước thành công!" }, JsonRequestBehavior.AllowGet);
+        //    }
+        //    catch (Exception ex) { return Json(new { danger = ex.Message + " - Index: " + index }, JsonRequestBehavior.AllowGet); }
+        //}
         [HttpPost, ValidateAntiForgeryToken]
         public JsonResult XuLyThanhToanTruocFix(Common.DefaultObj obj)
         {
@@ -618,13 +650,15 @@ namespace Billing.Controllers
                 var qry = $"UPDATE ttt SET ttt.FLAG=1 FROM THANHTOANTRUOC ttt WHERE ttt.TYPE_BILL={TYPE_BILL} AND ttt.TIME_BILL>=ttt.NGAY_BD AND ttt.TIME_BILL<ttt.NGAY_KT AND ttt.ACCOUNT IN(SELECT ACCOUNT FROM {Common.Objects.TYPE_HD.HD_MYTV}) AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
                 SQLServer.Connection.Query(qry);
 
-                qry = $"UPDATE ttt SET ttt.THUC_TRU=hd.TONG-hd.PAYTV_FEE FROM THANHTOANTRUOC ttt INNER JOIN {Common.Objects.TYPE_HD.HD_MYTV} hd ON ttt.ACCOUNT=hd.ACCOUNT WHERE ttt.KHOANTIEN='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND hd.TIME_BILL>=ttt.NGAY_BD AND hd.TIME_BILL<ttt.NGAY_KT AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND hd.TYPE_BILL=8 AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                //qry = $"UPDATE ttt SET ttt.THUC_TRU=hd.TONG-hd.PAYTV_FEE FROM THANHTOANTRUOC ttt INNER JOIN {Common.Objects.TYPE_HD.HD_MYTV} hd ON ttt.ACCOUNT=hd.ACCOUNT WHERE ttt.KHOANTIEN='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND hd.TIME_BILL>=ttt.NGAY_BD AND hd.TIME_BILL<ttt.NGAY_KT AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND hd.TYPE_BILL=8 AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                qry = $"UPDATE ttt SET ttt.THUC_TRU=hd.TONGCONG FROM THANHTOANTRUOC ttt INNER JOIN {Common.Objects.TYPE_HD.HD_MYTV} hd ON ttt.ACCOUNT=hd.ACCOUNT WHERE ttt.KHOANTIEN='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND hd.TIME_BILL>=ttt.NGAY_BD AND hd.TIME_BILL<ttt.NGAY_KT AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND hd.TYPE_BILL=8 AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
                 SQLServer.Connection.Query(qry, null, null, true, 3000);
-                qry = $"UPDATE hd SET hd.TONG_TTT=hd.TONG FROM THANHTOANTRUOC ttt INNER JOIN {Common.Objects.TYPE_HD.HD_MYTV} hd ON ttt.ACCOUNT=hd.ACCOUNT WHERE ttt.KHOANTIEN='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND ttt.TIME_BILL>=ttt.NGAY_BD AND ttt.TIME_BILL<ttt.NGAY_KT AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND hd.TYPE_BILL=8 AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                qry = $"UPDATE hd SET hd.TONG_TTT=hd.TONGCONG FROM THANHTOANTRUOC ttt INNER JOIN {Common.Objects.TYPE_HD.HD_MYTV} hd ON ttt.ACCOUNT=hd.ACCOUNT WHERE ttt.KHOANTIEN='TTT' AND ttt.TYPE_BILL={TYPE_BILL} AND ttt.TIME_BILL>=ttt.NGAY_BD AND ttt.TIME_BILL<ttt.NGAY_KT AND FORMAT(ttt.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND hd.TYPE_BILL=8 AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
                 SQLServer.Connection.Query(qry);
                 //qry = $"UPDATE DATCOC SET SODU=TONGHANMUC-THUC_TRU WHERE FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
                 // SQLServer.Connection.Query(qry);
-                qry = $"UPDATE {Common.Objects.TYPE_HD.HD_MYTV} SET ISTTT=1,TONG=PAYTV_FEE WHERE ACCOUNT IN(SELECT ACCOUNT FROM THANHTOANTRUOC WHERE TYPE_BILL={TYPE_BILL} AND TIME_BILL>=NGAY_BD AND TIME_BILL<NGAY_KT AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}') AND TYPE_BILL=8 AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
+                //qry = $"UPDATE {Common.Objects.TYPE_HD.HD_MYTV} SET ISTTT=1,TONG=PAYTV_FEE WHERE ACCOUNT IN(SELECT ACCOUNT FROM THANHTOANTRUOC WHERE TYPE_BILL={TYPE_BILL} AND TIME_BILL>=NGAY_BD AND TIME_BILL<NGAY_KT AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}') AND TYPE_BILL=8 AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
+                qry = $"UPDATE {Common.Objects.TYPE_HD.HD_MYTV} SET ISTTT=1,TONG=0 WHERE ACCOUNT IN(SELECT ACCOUNT FROM THANHTOANTRUOC WHERE TYPE_BILL={TYPE_BILL} AND TIME_BILL>=NGAY_BD AND TIME_BILL<NGAY_KT AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}') AND TYPE_BILL=8 AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
                 SQLServer.Connection.Query(qry);
 
                 ////PayTv VTV Cap
@@ -714,6 +748,7 @@ namespace Billing.Controllers
             obj.ckhMerginMonth = obj.ckhMerginMonth;
             obj.file = $"TH_{obj.year_time}{obj.month_time}";
             obj.DataSource = Server.MapPath("~/" + obj.DataSource) + obj.time + "\\";
+            obj.KYHD = obj.datetime.ToString("yyyMM") + "01";
             return obj;
         }
     }

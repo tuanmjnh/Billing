@@ -426,10 +426,10 @@ namespace Billing.Controllers
                                 MA_TB = tmp[0],
                                 ACCOUNT = tmp[0],
                                 DICHVUVT_ID = int.Parse(tmp[1]),
-                                GOICUOC_ID = int.Parse(tmp[2]),
-                                LOAIGOICUOC_ID = int.Parse(tmp[3]),
+                                NHOMTB_ID = int.Parse(tmp[2]),
+                                GOI_ID = int.Parse(tmp[3]),
                                 DETAILS = tmp[4],
-                                NGAY_BD = obj.datetime,
+                                NGAY_DK = obj.datetime,
                                 FIX = 1,
                                 EXTRA_TYPE = 0,
                                 FLAG = 1
@@ -439,7 +439,7 @@ namespace Billing.Controllers
                     //
                     SQLServer.Connection.Insert(dataList);
                     //
-                    qry = $"UPDATE DANHBA_GOICUOC_TICHHOP SET EXTRA_TYPE=1 WHERE LOAIGOICUOC_ID IN (SELECT GOICUOCID FROM BGCUOC WHERE EXTRA_TYPE=1) AND FIX=1 AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                    qry = $"UPDATE DANHBA_GOICUOC_TICHHOP SET EXTRA_TYPE=1 WHERE GOI_ID IN (SELECT GOICUOCID FROM BGCUOC WHERE EXTRA_TYPE=1) AND FIX=1 AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
                     SQLServer.Connection.Query(qry);
                     //
                     //qry = $@"INSERT DANHBA_GOICUOC_TICHHOP select ((select MAX(ID) from DANHBA_GOICUOC_TICHHOP)+ROW_NUMBER() OVER(ORDER BY ID)) as [ID],[TIME_BILL],[MA_TB],[ACCOUNT],[TEN_GOICUOC],[LOAIGOICUOC_ID],[DICHVUVT_ID],[LOAIMAY_ID],[GOICUOC_ID],[NGAY_BD],[NGAY_KT],[DUPE_COUNT],[DUPE_FLAG],[NO_DUPE],[FIX_NGAY_KT],[TH_THANG],[TH_SO_NGAY],[FIX],[EXTRA_TYPE],0 as [FLAG] from DANHBA_GOICUOC_TICHHOP a where FIX=1 and FLAG=1 and FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}' and ACCOUNT in (select ACCOUNT from DANHBA_GOICUOC_TICHHOP where FIX=0 and LOAIGOICUOC_ID!=a.LOAIGOICUOC_ID and FLAG=1 and FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}');

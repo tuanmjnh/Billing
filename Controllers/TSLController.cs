@@ -103,7 +103,7 @@ namespace Billing.Controllers
                         _tmp.MA_CBT = ma_cbt != null ? ma_cbt.MA_DT_GOC : null;
                         //if (!string.IsNullOrEmpty(i.CUSTCATE)) _tmp.CUSTCATE = i.CUSTCATE.Trim();
                         //_tmp.STK = null;
-                        _tmp.DONVIQL_ID = i.DONVIQL_ID;
+                        _tmp.DONVI_ID = i.DONVI_ID;
                         _tmp.KHACHHANG_ID = i.KHACHHANG_ID;
                         _tmp.THANHTOAN_ID = i.THANHTOAN_ID;
                         _tmp.MA_DT = i.MA_DT;
@@ -143,7 +143,7 @@ namespace Billing.Controllers
                         _d.MA_CBT = ma_cbt != null ? ma_cbt.MA_DT_GOC : null;
                         //if (!string.IsNullOrEmpty(i.CUSTCATE)) _d.CUSTCATE = i.CUSTCATE.Trim();
                         //_tmp.STK = null;
-                        _d.DONVIQL_ID = i.DONVIQL_ID;
+                        _d.DONVI_ID = i.DONVI_ID;
                         _d.KHACHHANG_ID = i.KHACHHANG_ID;
                         _d.THANHTOAN_ID = i.THANHTOAN_ID;
                         _d.MA_DT = i.MA_DT;

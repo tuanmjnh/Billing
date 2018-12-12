@@ -253,6 +253,10 @@ namespace Billing.Controllers
             }
             catch (Exception) { throw; }
         }
+        public int mappingDVI(int ma_dvi)
+        {
+            return ma_dvi;
+        }
         public string getMA_DVI(string ma_tuyen)
         {
             //1.BK Bắc Kạn

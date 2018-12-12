@@ -285,7 +285,7 @@ namespace Billing.Controllers
                 //- dd = 5
                 TM.OleDBF.CreateTable(hdall, new Dictionary<string, string>()
                 {
-                    {"ma_dvi", "n(2)"},
+                    {"ma_dvi", "n(10)"},
                     {"ma_tt_hni", "c(20)"},
                     {"acc_net", "c(20)"},
                     {"acc_tv", "c(20)"},

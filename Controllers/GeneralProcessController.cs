@@ -51,7 +51,7 @@ namespace Billing.Controllers
         public JsonResult LayTichHop(Common.DefaultObj obj)
         {
             var SQLServer = new TM.Connection.SQLServer();
-            var Oracle = new TM.Connection.Oracle("HNIVNPTBACKAN1");
+            var Oracle = new TM.Connection.Oracle("DHSX_BACKAN");
             //Lấy dữ liệu tích hợp ghép
             //select ftth.ACCOUNT as account_net,b.ma_tb as account_mytv,a.MA_TB,a.LOAIGOICUOC_ID,a.TEN_GOICUOC,a.NGAY_BD,a.NGAY_KT,a.DICHVUVT_ID from DANHBA_GOICUOC_TICHHOP a,(select * from DANHBA_GOICUOC_TICHHOP where DICHVUVT_ID=8) b,DB_FTTH_BKN ftth where a.GOICUOC_ID=b.GOICUOC_ID AND ftth.SO_FTTH=a.ma_tb and (a.DICHVUVT_ID=6 or a.DICHVUVT_ID=9)
             var index = 0;
@@ -64,7 +64,8 @@ namespace Billing.Controllers
                 //var qry = $"SELECT thdv.*,thdv.ACCOUNT_FTTH AS ACCOUNT,lm.* FROM DANHBA_GOICUOC_TICHHOP thdv LEFT JOIN (SELECT a.LOAIHINHTB_ID,a.TEN_LHTB,b.DICHVUVT_ID,b.MA_DVVT,b.TEN_DVVT FROM LOAIHINH_TB_BKN a,DICHVU_VT_BKN b WHERE a.DICHVUVT_ID=b.DICHVUVT_ID) lm on thdv.LOAIMAY_ID=lm.LOAIHINHTB_ID where thdv.NGAY_KT is null or thdv.NGAY_KT>=TO_DATE('{obj.datetime.ToString("yyyy/MM/dd")}', 'YYYY/MM/DD') ORDER BY thdv.MA_TB ASC,thdv.NGAY_BD ASC";
                 //var qry = $"SELECT thdv.*,ftth.ACCOUNT AS ACCOUNT FROM DANHBA_GOICUOC_TICHHOP thdv LEFT JOIN TB_FTTH_BKN ftth ON thdv.MA_TB=ftth.SO_FTTH ORDER BY thdv.MA_TB ASC,thdv.NGAY_BD DESC";
                 //var qry = $"SELECT thdv.*,ftth.ACCOUNT AS ACCOUNT FROM DANHBA_GOICUOC_TICHHOP thdv LEFT JOIN TB_FTTH_BKN ftth ON thdv.MA_TB=ftth.SO_FTTH WHERE thdv.NGAY_KT IS NULL OR TO_CHAR(thdv.NGAY_KT,'MM/YYYY')='{obj.month_year_time}' ORDER BY thdv.MA_TB ASC,thdv.NGAY_BD DESC";
-                var qry = $"SELECT DISTINCT thdv.*,ftth.ACCOUNT AS ACCOUNT FROM DANHBA_GOICUOC_TICHHOP thdv LEFT JOIN TB_FTTH_BKN ftth ON thdv.MA_TB=ftth.SO_FTTH WHERE thdv.NGAY_KT IS NULL OR thdv.NGAY_KT>=TO_DATE('{obj.datetime.ToString("yyyy/MM/dd")}', 'YYYY/MM/DD') ORDER BY thdv.MA_TB ASC,thdv.NGAY_BD DESC";
+                //var qry = $"SELECT DISTINCT thdv.*,ftth.ACCOUNT AS ACCOUNT FROM DANHBA_GOICUOC_TICHHOP thdv LEFT JOIN TB_FTTH_BKN ftth ON thdv.MA_TB=ftth.SO_FTTH WHERE thdv.NGAY_KT IS NULL OR thdv.NGAY_KT>=TO_DATE('{obj.datetime.ToString("yyyy/MM/dd")}', 'YYYY/MM/DD') ORDER BY thdv.MA_TB ASC,thdv.NGAY_BD DESC";
+                var qry = $"select * from tinhcuoc_bkn.sd_goi_dadv partition(KYHD{obj.KYHD})";
                 var pttb = Oracle.Connection.Query<Models.DANHBA_GOICUOC_TICHHOP>(qry).ToList();
                 var insert_data = new List<Models.DANHBA_GOICUOC_TICHHOP>();
                 //UPDATE Information
@@ -92,12 +93,54 @@ namespace Billing.Controllers
                 SQLServer.Connection.Query(qry);
                 //INSERT DANHBA_GOICUOC_TICHHOP
                 SQLServer.Connection.Insert(insert_data);
+                //
+                qry = $@"update DANHBA_GOICUOC_TICHHOP set loaitb_id=8 where loaitb_id=61 and dichvuvt_id=4;
+                         update DANHBA_GOICUOC_TICHHOP set loaitb_id=9 where loaitb_id=58 and dichvuvt_id=4;
+                         update DANHBA_GOICUOC_TICHHOP set loaitb_id=6 where loaitb_id=11 and dichvuvt_id=4;";
+                SQLServer.Connection.Query(qry);
                 //UPDATE ACCOUNT
                 qry = $@"UPDATE DANHBA_GOICUOC_TICHHOP SET ACCOUNT=MA_TB WHERE ACCOUNT IS NULL AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}';
-                         UPDATE DANHBA_GOICUOC_TICHHOP SET EXTRA_TYPE=1 WHERE LOAIGOICUOC_ID IN (SELECT GOICUOCID FROM BGCUOC WHERE EXTRA_TYPE=1) AND FIX=0 AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                         UPDATE DANHBA_GOICUOC_TICHHOP SET EXTRA_TYPE=1 WHERE GOI_ID IN (SELECT GOICUOCID FROM BGCUOC WHERE EXTRA_TYPE=1) AND FIX=0 AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
                 SQLServer.Connection.Query(qry);
                 //DataAccess.Connection.SQLServer.ConnectionClose();
                 return Json(new { success = "Lấy danh sách tích hợp thành công!" }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex) { return Json(new { danger = ex.Message + " - Index: " + index }, JsonRequestBehavior.AllowGet); }
+            finally
+            {
+                SQLServer.Close();
+                Oracle.Close();
+            }
+        }
+        //Lấy Đặt cọc
+        [HttpPost, ValidateAntiForgeryToken]
+        public JsonResult LayDatCoc(Common.DefaultObj obj)
+        {
+            var SQLServer = new TM.Connection.SQLServer();
+            var Oracle = new TM.Connection.Oracle("DHSX_BACKAN");
+            var index = 0;
+            obj.DataSource = Common.Directories.HDDataSource;
+            obj = getDefaultObj(obj);
+            try
+            {
+                // var qry = $"select * from tinhcuoc_bkn.tb_datcoc partition(KYHD{obj.KYHD})";
+                var qry = $@"select TO_NUMBER('{obj.KYHD}') as KYHOADON,THUEBAO_DC_ID,THUEBAO_ID,MA_TB,DICHVUVT_ID,LOAITB_ID,CONGVAN_ID,
+                             NHOM_DATCOC_ID,TIEN_TD as CUOC_DC,TYLE_TB,TYLE_SD,TIEN_TB,TIEN_SD,NGAY_DK,THANG_BD,THANG_KT,
+                             THANG_BD_MG,THANG_KT_MG,TINH_DT,NGUONKM_ID,GHICHU,MAY_CN,NGAY_CN,NGUOI_CN,CHITIETKM_ID,CUOC_SD,
+                             CUOC_TB,NGAY_THOAI,TTDC_ID,THANG_KT_DC,TIEN_THOAI,HIEULUC,RKM_ID,ID_CU,THANG_HUY,TTDC_TUDONG,FKEY from CSS_BKN.DB_DATCOC 
+                             WHERE TO_DATE(CONCAT((THANG_KT),'01'), 'yyyymmdd')>=TO_DATE('{obj.KYHD}', 'yyyymmdd') and TTDC_ID=0 and
+                             TO_DATE(CONCAT((THANG_BD),'01'), 'yyyymmdd')<=TO_DATE('20181101', 'yyyymmdd') order BY THANG_KT,MA_TB";
+                var data = Oracle.Connection.Query<Billing.Models.DATCOC>(qry);
+                // Remove old
+                qry = $"delete from datcoc where kyhoadon='{obj.KYHD}'";
+                SQLServer.Connection.Query(qry);
+                SQLServer.Connection.Insert(data);
+                //
+                qry = $@"update datcoc set loaitb_id=8 where loaitb_id=61 and dichvuvt_id=4;
+                         update datcoc set loaitb_id=9 where loaitb_id=58 and dichvuvt_id=4;
+                         update datcoc set loaitb_id=6 where loaitb_id=11 and dichvuvt_id=4;";
+                SQLServer.Connection.Query(qry);
+                return Json(new { success = $"Lấy danh sách tích hợp thành công - {data.Count()} thuê bao" }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex) { return Json(new { danger = ex.Message + " - Index: " + index }, JsonRequestBehavior.AllowGet); }
             finally
@@ -932,6 +975,7 @@ namespace Billing.Controllers
             obj.ckhMerginMonth = obj.ckhMerginMonth;
             //obj.file = $"BKN_th";
             obj.DataSource = Server.MapPath("~/" + obj.DataSource) + obj.time + "\\";
+            obj.KYHD = obj.datetime.ToString("yyyMM") + "01";
             return obj;
         }
         public Dictionary<int, string> stk_ma_dvi()

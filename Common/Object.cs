@@ -159,6 +159,7 @@ namespace Billing.Common
         public string file { get; set; }
         public string data_value { get; set; }
         public string DataSource { get; set; }
+        public string KYHD { get; set; }
     }
     public class RemoveMainObj
     {
