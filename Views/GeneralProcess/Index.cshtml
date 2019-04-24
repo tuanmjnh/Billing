@@ -77,7 +77,15 @@
                                 <div class="card-body">
                                     <a href="javascript:;" data-url="@Url.Action("UpdateContact","MyTV")" class="btn btn-secondary mb5 w49percent btnAction">1. Cập nhật danh bạ</a>
                                     @*<a href="javascript:;" data-url="@Url.Action("UpdateContactNULL","MyTV")" class="btn btn-secondary mb5 w49percent btnAction">2. Cập nhật danh bạ NULL</a>*@
-                                    <a href="javascript:;" data-url="@Url.Action("UpdateData","MyTV")" class="btn btn-success mb5 w49percent btnAction">3. Cập nhật data</a>
+                                    <a href="javascript:;" data-url="@Url.Action("UpdateData","MyTV")" class="btn btn-success mb5 w49percent btnAction">2. Cập nhật data</a>
+                                </div>
+                            </div>
+                            <div class="card mb-3 panel-success">
+                                <h5 class="card-header">II. Nhập data Internet</h5>
+                                <div class="card-body">
+                                    <a href="javascript:;" data-url="@Url.Action("UpdateContact","Internet")" class="btn btn-secondary mb5 w49percent btnAction">1. Cập nhật danh bạ</a>
+                                    @*<a href="javascript:;" data-url="@Url.Action("UpdateContactNULL","Internet")" class="btn btn-secondary w49percent mb5 btnAction">2. Cập nhật danh bạ NULL</a>*@
+                                    <a href="javascript:;" data-url="@Url.Action("UpdateData","Internet")" class="btn btn-success mb5 w49percent btnAction">2. Cập nhật data</a>
                                 </div>
                             </div>
                             <div class="card mb-3 panel-success">
@@ -85,24 +93,7 @@
                                 <div class="card-body">
                                     <a href="javascript:;" data-url="@Url.Action("UpdateContact","CoDinh")" class="btn btn-secondary mb5 w49percent btnAction">1. Cập nhật danh bạ</a>
                                     @*<a href="javascript:;" data-url="@Url.Action("UpdateContactNULL","CoDinh")" class="btn btn-secondary w49percent mb5 btnAction">2. Cập nhật danh bạ NULL</a>*@
-                                    <a href="javascript:;" data-url="@Url.Action("UpdateData","CoDinh")" class="btn btn-success mb5 w49percent btnAction">3. Cập nhật data</a>
-                                </div>
-                            </div>
-                            <div class="card mb-3 panel-success">
-                                <h5 class="card-header">II. Nhập data TSL</h5>
-                                <div class="card-body">
-                                    <a href="javascript:;" data-url="@Url.Action("UpdateContactData","TSL")" class="btn btn-secondary mb5 w49percent btnAction">1. Cập nhật danh bạ và data</a>
-                                    <a href="javascript:;" data-url="@Url.Action("UpdateTTHD","TSL")" class="btn btn-secondary mb5 w49percent btnAction">1. Cập nhật trạng thái hợp đồng</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mt-1">
-                            <div class="card mb-3 panel-success">
-                                <h5 class="card-header">II. Nhập data Internet</h5>
-                                <div class="card-body">
-                                    <a href="javascript:;" data-url="@Url.Action("UpdateContact","Internet")" class="btn btn-secondary mb5 w49percent btnAction">1. Cập nhật danh bạ</a>
-                                    @*<a href="javascript:;" data-url="@Url.Action("UpdateContactNULL","Internet")" class="btn btn-secondary w49percent mb5 btnAction">2. Cập nhật danh bạ NULL</a>*@
-                                    <a href="javascript:;" data-url="@Url.Action("UpdateData","Internet")" class="btn btn-success mb5 w49percent btnAction">3. Cập nhật data</a>
+                                    <a href="javascript:;" data-url="@Url.Action("UpdateData","CoDinh")" class="btn btn-success mb5 w49percent btnAction">2. Cập nhật data</a>
                                 </div>
                             </div>
                             <div class="card mb-3 panel-success">
@@ -110,17 +101,27 @@
                                 <div class="card-body">
                                     <a href="javascript:;" data-url="@Url.Action("UpdateContact","DiDong")" class="btn btn-secondary mb5 w49percent btnAction">1. Cập nhật danh bạ</a>
                                     @*<a href="javascript:;" data-url="@Url.Action("UpdateContactNULL","DiDong")" class="btn btn-secondary w49percent mb5 btnAction">2. Cập nhật danh bạ NULL</a>*@
-                                    <a href="javascript:;" data-url="@Url.Action("UpdateData","DiDong")" class="btn btn-success mb5 w49percent btnAction">3. Cập nhật data</a>
+                                    <a href="javascript:;" data-url="@Url.Action("UpdateData","DiDong")" class="btn btn-success mb5 w49percent btnAction">2. Cập nhật data</a>
                                 </div>
                             </div>
+                            @*<div class="card mb-3 panel-success">
+                                    <h5 class="card-header">II. Nhập data TSL</h5>
+                                    <div class="card-body">
+                                        <a href="javascript:;" data-url="@Url.Action("UpdateContactData","TSL")" class="btn btn-secondary mb5 w49percent btnAction">1. Cập nhật danh bạ và data</a>
+                                        <a href="javascript:;" data-url="@Url.Action("UpdateTTHD","TSL")" class="btn btn-secondary mb5 w49percent btnAction">2. Cập nhật trạng thái hợp đồng</a>
+                                    </div>
+                                </div>*@
+                        </div>
+                        <div class="col-md-6 mt-1">
                             <div class="card mb-3 panel-success">
-                                <h5 class="card-header">V. Xử lý thuê bao tích hợp</h5>
+                                <h5 class="card-header">V. Lấy dữ liệu cước</h5>
                                 <div class="card-body">
-                                    <a href="javascript:;" data-url="@Url.Action("LayTichHop")" class="btn btn-secondary mb5 w49percent btnAction">1. Update đa dịch vụ</a>
-                                    <a href="javascript:;" data-url="@Url.Action("LayDatCoc")" class="btn btn-secondary mb5 w49percent btnAction">1. Update đặt cọc (Thanh toán trước)</a>
+                                    <a href="javascript:;" data-url="@Url.Action("LayTichHop")" class="btn btn-secondary mb5 w49percent btnAction">1. Gói đa dịch vụ</a>
+                                    <a href="javascript:;" data-url="@Url.Action("LayDatCoc")" class="btn btn-secondary mb5 w49percent btnAction">2. Đặt cọc (Thanh toán trước)</a>
+                                    <a href="javascript:;" data-url="@Url.Action("LayKhuyenMai")" class="btn btn-secondary mb5 w49percent btnAction">3. Khuyến mại</a>
                                     @*<a href="javascript:;" data-url="@Url.Action("XuLyHuyTichHop")" class="btn btn-secondary mb5 w49percent btnAction">2. Xử lý hủy tích hợp</a>
-        <a href="javascript:;" data-url="@Url.Action("XuLyTichHop")" class="btn btn-secondary mb5 w49percent btnAction">3. Xử lý biến động tích hợp</a>
-        <a href="javascript:;" data-url="@Url.Action("XuLyTichHopToanBo")" class="btn btn-warning mb5 w49percent btnAction">Xử lý Tích hợp toàn bộ thuê bao</a>*@
+                                        <a href="javascript:;" data-url="@Url.Action("XuLyTichHop")" class="btn btn-secondary mb5 w49percent btnAction">3. Xử lý biến động tích hợp</a>
+                                        <a href="javascript:;" data-url="@Url.Action("XuLyTichHopToanBo")" class="btn btn-warning mb5 w49percent btnAction">Xử lý Tích hợp toàn bộ thuê bao</a>*@
                                 </div>
                             </div>
                         </div>
@@ -134,9 +135,10 @@
                                 <div class="card-body">
                                     <a href="javascript:;" data-url="@Url.Action("XuLyTichHop","MyTV")" class="btn btn-secondary mb5 w49percent btnAction">1. Xử lý tích hợp</a>
                                     <a href="javascript:;" data-url="@Url.Action("XuLyKhuyenMai","MyTV")" class="btn btn-secondary mb5 w49percent btnAction">2. Xử lý khuyến mại</a>
-                                    <a href="javascript:;" data-url="@Url.Action("XuLyThanhToanTruoc","MyTV")" class="btn btn-secondary mb5 w49percent btnAction">3. Xử lý thanh toán trước</a>
-                                    <a href="javascript:;" data-url="@Url.Action("XuLyThanhToanTruocFix","MyTV")" class="btn btn-secondary mb5 w49percent btnAction">4. Xử lý thanh toán trước fix</a>
-                                    <a href="javascript:;" data-url="@Url.Action("XuLyDatCoc","MyTV")" class="btn btn-secondary mb5 w49percent btnAction">5. Xử lý đặt cọc</a>
+                                    <a href="javascript:;" data-url="@Url.Action("XuLyKhuyenMaiHeThong", "MyTV")" class="btn btn-secondary mb5 w49percent btnAction">3. Xử lý khuyến mại hệ thống</a>
+                                    <a href="javascript:;" data-url="@Url.Action("XuLyThanhToanTruoc","MyTV")" class="btn btn-secondary mb5 w49percent btnAction">4. Xử lý thanh toán trước</a>
+                                    <a href="javascript:;" data-url="@Url.Action("XuLyThanhToanTruocFix","MyTV")" class="btn btn-secondary mb5 w49percent btnAction">5. Xử lý thanh toán trước fix</a>
+                                    <a href="javascript:;" data-url="@Url.Action("XuLyDatCoc","MyTV")" class="btn btn-secondary mb5 w49percent btnAction">6. Xử lý đặt cọc</a>
                                     @*<a href="javascript:;" data-url="@Url.Action("XuLyCuocFix","MyTV")" class="btn btn-secondary mb5 w49percent btnAction">5. Xử lý cước Fix</a>*@
                                     @*<a href="javascript:;" data-url="@Url.Action("XuLyCuocMergin","MyTV")" class="btn btn-secondary mb5 w49percent btnAction">6. Xử lý cước ghép</a>*@
                                 </div>
@@ -161,12 +163,13 @@
                                     <a href="javascript:;" data-url="@Url.Action("XuLyTichHop","Internet")" class="btn btn-secondary mb5 w49percent btnAction">3. Xử lý tích hợp</a>
                                     <a href="javascript:;" data-url="@Url.Action("XuLyCuocData","Internet")" class="btn btn-secondary mb5 w49percent btnAction">4. Xử lý cước data GD</a>
                                     <a href="javascript:;" data-url="@Url.Action("XuLyKhuyenMai","Internet")" class="btn btn-secondary mb5 w49percent btnAction">5. Xử lý khuyến mại</a>
-                                    <a href="javascript:;" data-url="@Url.Action("XuLyManu","Internet")" class="btn btn-secondary mb5 w49percent btnAction">6. Xử lý Thuê bao Manu</a>
+                                    <a href="javascript:;" data-url="@Url.Action("XuLyKhuyenMaiHeThong","Internet")" class="btn btn-secondary mb5 w49percent btnAction">6. Xử lý khuyến mại hệ thống</a>
+                                    <a href="javascript:;" data-url="@Url.Action("XuLyManu","Internet")" class="btn btn-secondary mb5 w49percent btnAction">7. Xử lý Thuê bao Manu</a>
                                     @*<a href="javascript:;" data-url="@Url.Action("XuLyCuocFix","Internet")" class="btn btn-secondary mb5 w49percent btnAction">8. Xử lý cước Fix</a>*@
-                                    <a href="javascript:;" data-url="@Url.Action("XuLyCuocMergin","Internet")" class="btn btn-secondary mb5 w49percent btnAction">7. Xử lý cước ghép</a>
-                                    <a href="javascript:;" data-url="@Url.Action("XuLyGhepHDNET","Internet")" class="btn btn-success mb5 w49percent btnAction">8. Ghép Mega - Fiber - Fiber GD</a>
-                                    <a href="javascript:;" data-url="@Url.Action("XuLyThanhToanTruoc","Internet")" class="btn btn-secondary mb5 w49percent btnAction">9. Xử lý thanh toán trước</a>
-                                    <a href="javascript:;" data-url="@Url.Action("XuLyThanhToanTruocFix","Internet")" class="btn btn-secondary mb5 w49percent btnAction">10. Xử lý thanh toán trước fix</a>
+                                    <a href="javascript:;" data-url="@Url.Action("XuLyCuocMergin","Internet")" class="btn btn-secondary mb5 w49percent btnAction">8. Xử lý cước ghép</a>
+                                    <a href="javascript:;" data-url="@Url.Action("XuLyGhepHDNET","Internet")" class="btn btn-success mb5 w49percent btnAction">9. Ghép Mega - Fiber - Fiber GD</a>
+                                    <a href="javascript:;" data-url="@Url.Action("XuLyThanhToanTruoc","Internet")" class="btn btn-secondary mb5 w49percent btnAction">10. Xử lý thanh toán trước</a>
+                                    <a href="javascript:;" data-url="@Url.Action("XuLyThanhToanTruocFix","Internet")" class="btn btn-secondary mb5 w49percent btnAction">11. Xử lý thanh toán trước fix</a>
                                     @*<a href="javascript:;" data-url="@Url.Action("XuLyGanCuocIn","Internet")" class="btn btn-warning mb5 w49percent btnAction">11. Gán cước In</a>*@
                                 </div>
                             </div>

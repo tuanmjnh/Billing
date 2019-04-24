@@ -140,11 +140,11 @@ namespace Billing.Controllers
                 }
 
                 //Net
-                //AddPaidProcess(TM.OleDBF.DataSource, hdnet, time, "account", "tong");
-                //AddDepositProcess(TM.OleDBF.DataSource, hdnet, time, "account", "tongcong");
+                //AddPaidProcess(TM.OleDBF.DataSource, hdnet, time, "ma_tb", "tong");
+                //AddDepositProcess(TM.OleDBF.DataSource, hdnet, time, "ma_tb", "tongcong");
                 //TV
-                //AddPaidProcess(TM.OleDBF.DataSource, hdtv, time, "account", "cuoc_tb");
-                //AddDepositProcess(TM.OleDBF.DataSource, hdtv, time, "account", "tongcong");
+                //AddPaidProcess(TM.OleDBF.DataSource, hdtv, time, "ma_tb", "cuoc_tb");
+                //AddDepositProcess(TM.OleDBF.DataSource, hdtv, time, "ma_tb", "tongcong");
 
                 this.success("Cập nhật trả tiền trước, đặt cọc thành công");
             }
@@ -211,10 +211,10 @@ namespace Billing.Controllers
                     new string[] { "ten_tt", "diachi_tt", "ms_thue", "taikhoan" }, "Remove Duplicate " + hddd, "ma_dvi", "ma_cq");
 
                 RemoveDuplicate(TM.OleDBF.DataSource, hdnet, new string[] { "tong", "vat", "tongcong" },
-                    new string[] { "ten_tt", "diachi_tt", "ms_thue", "dienthoai" }, "Remove Duplicate " + hdnet, "ma_dvi", "ma_tt_hni");
+                    new string[] { "ten_tt", "diachi_tt", "ms_thue", "dienthoai" }, "Remove Duplicate " + hdnet, "ma_dvi", "ma_tt");
 
                 RemoveDuplicate(TM.OleDBF.DataSource, hdtv, new string[] { "tong", "vat", "tongcong" },
-                    new string[] { "ten_tt", "diachi_tt", "ms_thue", "dienthoai" }, "Remove Duplicate " + hdtv, "ma_dvi", "ma_tt_hni");
+                    new string[] { "ten_tt", "diachi_tt", "ms_thue", "dienthoai" }, "Remove Duplicate " + hdtv, "ma_dvi", "ma_tt");
 
                 ReExtensionToLower(TM.OleDBF.DataSource);
 
@@ -286,7 +286,7 @@ namespace Billing.Controllers
                 TM.OleDBF.CreateTable(hdall, new Dictionary<string, string>()
                 {
                     {"ma_dvi", "n(10)"},
-                    {"ma_tt_hni", "c(20)"},
+                    {"ma_tt", "c(20)"},
                     {"acc_net", "c(20)"},
                     {"acc_tv", "c(20)"},
                     {"so_dd", "c(20)"},
@@ -355,7 +355,7 @@ namespace Billing.Controllers
                 TM.OleDBF.Execute(InsertString(hdall, hdcd, new Dictionary<string, string>()
                 {
                     { "ma_dvi", "dvql_id" },
-                    { "ma_tt_hni","Ma_kh1" },
+                    { "ma_tt","Ma_kh1" },
                     { "so_cd","so_tb" },
                     { "ten_tt","ten_cq" },
                     { "diachi_tt","dia_chi" },
@@ -378,8 +378,8 @@ namespace Billing.Controllers
                 TM.OleDBF.Execute(InsertString(hdall, hdnet, new Dictionary<string, string>()
                 {
                     { "ma_dvi", "ma_dvi" },
-                    { "ma_tt_hni","ma_tt_hni" },
-                    { "acc_net","account" },
+                    { "ma_tt","ma_tt" },
+                    { "acc_net","ma_tb" },
                     { "ten_tt","ten_tt" },
                     { "diachi_tt","diachi_tt" },
                     { "dienthoai","dienthoai" },
@@ -402,8 +402,8 @@ namespace Billing.Controllers
                 TM.OleDBF.Execute(InsertString(hdall, hdtv, new Dictionary<string, string>()
                 {
                     { "ma_dvi", "ma_dvi" },
-                    { "ma_tt_hni","ma_tt_hni" },
-                    { "acc_tv","account" },
+                    { "ma_tt","ma_tt" },
+                    { "acc_tv","ma_tb" },
                     { "ten_tt","ten_tt" },
                     { "diachi_tt","diachi_tt" },
                     { "dienthoai","dienthoai" },
@@ -426,7 +426,7 @@ namespace Billing.Controllers
                 TM.OleDBF.Execute(InsertString(hdall, hddd, new Dictionary<string, string>()
                 {
                     { "ma_dvi", "ma_dvi" },
-                    { "ma_tt_hni","ma_cq" },
+                    { "ma_tt","ma_cq" },
                     { "so_dd","so_tb" },
                     { "ten_tt","ten_tt" },
                     { "diachi_tt","diachi_tt" },
@@ -468,7 +468,7 @@ namespace Billing.Controllers
                 RemoveDuplicate(TM.OleDBF.DataSource, hdall,
                     new string[] { "tong_cd", "tong_dd", "tong_net", "tong_tv", "vat", "tong", "kthue", "giam_tru", "tongcong" },
                     new string[] { "acc_net", "acc_tv", "so_dd", "so_cd", "diachi_tt", "ma_tuyen", "ms_thue", "ma_dt", "ma_cbt" },
-                    "Remove Duplicate hoadon", "ma_dvi", "ma_tt_hni", "ma_in=1");
+                    "Remove Duplicate hoadon", "ma_dvi", "ma_tt", "ma_in=1");
                 //Cập nhật STK
                 UpdateSTK_MA_DVI(Common.Objects.stk_ma_dvi, hdall);
 
@@ -578,7 +578,7 @@ namespace Billing.Controllers
             foreach (var item in arr)
                 TM.OleDBF.Execute($"UPDATE {table} SET stk='{item.Value}' WHERE ma_dvi={ item.Key}");
         }
-        private void RemoveDuplicate(string DataSource, string file, string[] colsNumberSum, string[] colsString, string extraEX = "", string ma_dvi = "ma_dvi", string ma_tt_hni = "ma_tt_hni", string extraConditions = null)
+        private void RemoveDuplicate(string DataSource, string file, string[] colsNumberSum, string[] colsString, string extraEX = "", string ma_dvi = "ma_dvi", string ma_tt = "ma_tt", string extraConditions = null)
         {
             #region Coment
             ////Remove Duplicate
@@ -635,14 +635,14 @@ namespace Billing.Controllers
             {
                 //Cập nhật các đối tượng trùng dupe_flag=1
                 sql = $@"UPDATE {file} SET {dupe_flag}=1 WHERE {app_id} in(SELECT {app_id} FROM {file} o INNER JOIN 
-                (SELECT {ma_tt_hni},COUNT(*) AS dupeCount FROM {file} GROUP BY {ma_tt_hni} HAVING COUNT(*) > 1) oc ON o.{ma_tt_hni}=oc.{ma_tt_hni} 
-                WHERE NOT EMPTY(o.{ma_tt_hni}))";
+                (SELECT {ma_tt},COUNT(*) AS dupeCount FROM {file} GROUP BY {ma_tt} HAVING COUNT(*) > 1) oc ON o.{ma_tt}=oc.{ma_tt} 
+                WHERE NOT EMPTY(o.{ma_tt}))";
                 TM.OleDBF.Execute(sql, "Cập nhật các đối tượng trùng set dupe_flag=1 - " + file + " - " + extraEX);
 
                 //Cập nhật lại các đối tượng giữ lại và set dupe_flag=2
                 sql = $@"UPDATE {file} SET {dupe_flag}=2 WHERE {app_id} IN(SELECT MAX({app_id}) FROM {file} o INNER JOIN 
-                (SELECT {ma_tt_hni},COUNT(*) AS dupeCount FROM {file} GROUP BY {ma_tt_hni} HAVING COUNT(*) > 1) oc ON o.{ma_tt_hni}=oc.{ma_tt_hni} 
-                WHERE NOT EMPTY(o.{ma_tt_hni}) GROUP BY o.{ma_tt_hni})";
+                (SELECT {ma_tt},COUNT(*) AS dupeCount FROM {file} GROUP BY {ma_tt} HAVING COUNT(*) > 1) oc ON o.{ma_tt}=oc.{ma_tt} 
+                WHERE NOT EMPTY(o.{ma_tt}) GROUP BY o.{ma_tt})";
                 TM.OleDBF.Execute(sql, "Cập nhật lại các đối tượng giữ lại và set dupe_flag=2 - " + file + " - " + extraEX);
             }
             else
@@ -668,13 +668,13 @@ namespace Billing.Controllers
 
                 //Cập nhật các đối tượng trùng dupe_flag=1
                 sql = $@"UPDATE {file} SET {dupe_flag}=1 WHERE {app_id} in(SELECT {app_id} FROM {file} o INNER JOIN 
-                (SELECT {ma_tt_hni},{ma_dvi},COUNT(*) AS dupeCount FROM {file} GROUP BY {ma_tt_hni},{ma_dvi} HAVING COUNT(*) > 1) oc ON o.{ma_tt_hni}=oc.{ma_tt_hni} 
-                WHERE o.{ma_dvi}=oc.{ma_dvi} AND NOT EMPTY(o.{ma_tt_hni}))";
+                (SELECT {ma_tt},{ma_dvi},COUNT(*) AS dupeCount FROM {file} GROUP BY {ma_tt},{ma_dvi} HAVING COUNT(*) > 1) oc ON o.{ma_tt}=oc.{ma_tt} 
+                WHERE o.{ma_dvi}=oc.{ma_dvi} AND NOT EMPTY(o.{ma_tt}))";
                 TM.OleDBF.Execute(sql, "Cập nhật các đối tượng trùng set dupe_flag=1 - " + file + " - " + extraEX);
                 //Cập nhật lại các đối tượng giữ lại và set dupe_flag=2
                 sql = $@"UPDATE {file} SET {dupe_flag}=2{(extraConditions != null ? "," + extraConditions + " " : "")} WHERE {app_id} IN(SELECT MAX({app_id}) FROM {file} o INNER JOIN 
-                (SELECT {ma_tt_hni},{ma_dvi},COUNT(*) AS dupeCount FROM {file} GROUP BY {ma_tt_hni},{ma_dvi} HAVING COUNT(*) > 1) oc ON o.{ma_tt_hni}=oc.{ma_tt_hni} 
-                WHERE o.{ma_dvi}=oc.{ma_dvi} AND NOT EMPTY(o.{ma_tt_hni}) GROUP BY o.{ma_tt_hni},o.{ma_dvi})";
+                (SELECT {ma_tt},{ma_dvi},COUNT(*) AS dupeCount FROM {file} GROUP BY {ma_tt},{ma_dvi} HAVING COUNT(*) > 1) oc ON o.{ma_tt}=oc.{ma_tt} 
+                WHERE o.{ma_dvi}=oc.{ma_dvi} AND NOT EMPTY(o.{ma_tt}) GROUP BY o.{ma_tt},o.{ma_dvi})";
                 //o.{ma_dvi}=oc.{ma_dvi} AND
                 TM.OleDBF.Execute(sql, "Cập nhật lại các đối tượng giữ lại và set dupe_flag=2 - " + file + " - " + extraEX);
             }
@@ -693,11 +693,11 @@ namespace Billing.Controllers
             //TM.OleDBF.Execute(string.Format(@"UPDATE a SET {0}=(SELECT SUM({0}) FROM {1} WHERE {2}=a.{2}) FROM {1} AS a WHERE {3}=2", tongcong, file, ma_cq, dupe_flag), "Cập nhật tổng cộng các đối tượng bị trùng - " + extraEX);
             if (colsNumberSum != null)
                 foreach (var item in colsNumberSum)
-                    TM.OleDBF.Execute($"UPDATE a SET {item}=(SELECT SUM({item}) FROM {file} WHERE {ma_tt_hni}=a.{ma_tt_hni}) FROM {file} AS a WHERE {dupe_flag}=2", "Cập nhật " + item + " của các đối tượng bị trùng - " + extraEX);
+                    TM.OleDBF.Execute($"UPDATE a SET {item}=(SELECT SUM({item}) FROM {file} WHERE {ma_tt}=a.{ma_tt}) FROM {file} AS a WHERE {dupe_flag}=2", "Cập nhật " + item + " của các đối tượng bị trùng - " + extraEX);
 
             if (colsString != null)
                 foreach (var item in colsString)
-                    try { TM.OleDBF.Execute($"UPDATE a SET {item}=(SELECT MAX({item}) FROM {file} WHERE {ma_tt_hni}=a.{ma_tt_hni} AND {item} is NOT null AND NOT EMPTY({item})) FROM {file} as a WHERE a.{item} is null OR EMPTY(a.{item})", "Cập nhật " + item + " của các đối tượng bị trùng - " + extraEX); } catch { }
+                    try { TM.OleDBF.Execute($"UPDATE a SET {item}=(SELECT MAX({item}) FROM {file} WHERE {ma_tt}=a.{ma_tt} AND {item} is NOT null AND NOT EMPTY({item})) FROM {file} as a WHERE a.{item} is null OR EMPTY(a.{item})", "Cập nhật " + item + " của các đối tượng bị trùng - " + extraEX); } catch { }
             //if (colsString != null)
             //    foreach (var item in colsString)
             //    {

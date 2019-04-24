@@ -74,7 +74,6 @@ namespace Billing.Controllers
                     //Set Default
                     index++;
                     i.ID = Guid.NewGuid();
-                    i.TIME_BILL = obj.datetime;
                     i.DUPE_COUNT = 1;
                     i.NO_DUPE = 0;
                     i.FIX_NGAY_KT = 0;
@@ -88,7 +87,7 @@ namespace Billing.Controllers
                     insert_data.Add(i);
                 }
                 //DELETE DANHBA_GOICUOC_TICHHOP
-                qry = $"DELETE DANHBA_GOICUOC_TICHHOP WHERE FIX=0 AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                qry = $"DELETE DANHBA_GOICUOC_TICHHOP WHERE FIX=0 AND KYHOADON={obj.KYHD}";
                 //qry = $"DELETE DANHBA_GOICUOC_TICHHOP WHERE FIX=0";
                 SQLServer.Connection.Query(qry);
                 //INSERT DANHBA_GOICUOC_TICHHOP
@@ -98,9 +97,8 @@ namespace Billing.Controllers
                          update DANHBA_GOICUOC_TICHHOP set loaitb_id=9 where loaitb_id=58 and dichvuvt_id=4;
                          update DANHBA_GOICUOC_TICHHOP set loaitb_id=6 where loaitb_id=11 and dichvuvt_id=4;";
                 SQLServer.Connection.Query(qry);
-                //UPDATE ACCOUNT
-                qry = $@"UPDATE DANHBA_GOICUOC_TICHHOP SET ACCOUNT=MA_TB WHERE ACCOUNT IS NULL AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}';
-                         UPDATE DANHBA_GOICUOC_TICHHOP SET EXTRA_TYPE=1 WHERE GOI_ID IN (SELECT GOICUOCID FROM BGCUOC WHERE EXTRA_TYPE=1) AND FIX=0 AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                // 
+                qry = $@"UPDATE DANHBA_GOICUOC_TICHHOP SET EXTRA_TYPE=1 WHERE GOI_ID IN (SELECT GOICUOCID FROM BGCUOC WHERE EXTRA_TYPE=1) AND FIX=0 AND KYHOADON={obj.KYHD}";
                 SQLServer.Connection.Query(qry);
                 //DataAccess.Connection.SQLServer.ConnectionClose();
                 return Json(new { success = "Lấy danh sách tích hợp thành công!" }, JsonRequestBehavior.AllowGet);
@@ -123,16 +121,16 @@ namespace Billing.Controllers
             obj = getDefaultObj(obj);
             try
             {
-                // var qry = $"select * from tinhcuoc_bkn.tb_datcoc partition(KYHD{obj.KYHD})";
-                var qry = $@"select TO_NUMBER('{obj.KYHD}') as KYHOADON,THUEBAO_DC_ID,THUEBAO_ID,MA_TB,DICHVUVT_ID,LOAITB_ID,CONGVAN_ID,
-                             NHOM_DATCOC_ID,TIEN_TD as CUOC_DC,TYLE_TB,TYLE_SD,TIEN_TB,TIEN_SD,NGAY_DK,THANG_BD,THANG_KT,
-                             THANG_BD_MG,THANG_KT_MG,TINH_DT,NGUONKM_ID,GHICHU,MAY_CN,NGAY_CN,NGUOI_CN,CHITIETKM_ID,CUOC_SD,
-                             CUOC_TB,NGAY_THOAI,TTDC_ID,THANG_KT_DC,TIEN_THOAI,HIEULUC,RKM_ID,ID_CU,THANG_HUY,TTDC_TUDONG,FKEY from CSS_BKN.DB_DATCOC 
-                             WHERE TO_DATE(CONCAT((THANG_KT),'01'), 'yyyymmdd')>=TO_DATE('{obj.KYHD}', 'yyyymmdd') and TTDC_ID=0 and
-                             TO_DATE(CONCAT((THANG_BD),'01'), 'yyyymmdd')<=TO_DATE('20181101', 'yyyymmdd') order BY THANG_KT,MA_TB";
+                var qry = $"select * from tinhcuoc_bkn.tb_datcoc partition(KYHD{obj.KYHD})";
+                //var qry = $@"select TO_NUMBER('{obj.KYHD}') as KYHOADON,THUEBAO_DC_ID,THUEBAO_ID,MA_TB,DICHVUVT_ID,LOAITB_ID,CONGVAN_ID,
+                //             NHOM_DATCOC_ID,TIEN_TD as CUOC_DC,TYLE_TB,TYLE_SD,TIEN_TB,TIEN_SD,NGAY_DK,THANG_BD,THANG_KT,
+                //             THANG_BD_MG,THANG_KT_MG,TINH_DT,NGUONKM_ID,GHICHU,MAY_CN,NGAY_CN,NGUOI_CN,CHITIETKM_ID,CUOC_SD,
+                //             CUOC_TB,NGAY_THOAI,TTDC_ID,THANG_KT_DC,TIEN_THOAI,HIEULUC,RKM_ID,ID_CU,THANG_HUY,TTDC_TUDONG,FKEY from CSS_BKN.DB_DATCOC 
+                //             WHERE TO_DATE(CONCAT((THANG_KT),'01'), 'yyyymmdd')>=TO_DATE('{obj.KYHD}', 'yyyymmdd') and TTDC_ID=0 and
+                //             TO_DATE(CONCAT((THANG_BD),'01'), 'yyyymmdd')<=TO_DATE('{obj.KYHD}', 'yyyymmdd') order BY THANG_KT,MA_TB";
                 var data = Oracle.Connection.Query<Billing.Models.DATCOC>(qry);
                 // Remove old
-                qry = $"delete from datcoc where kyhoadon='{obj.KYHD}'";
+                qry = $"delete from datcoc where KYHOADON={obj.KYHD}";
                 SQLServer.Connection.Query(qry);
                 SQLServer.Connection.Insert(data);
                 //
@@ -140,7 +138,39 @@ namespace Billing.Controllers
                          update datcoc set loaitb_id=9 where loaitb_id=58 and dichvuvt_id=4;
                          update datcoc set loaitb_id=6 where loaitb_id=11 and dichvuvt_id=4;";
                 SQLServer.Connection.Query(qry);
-                return Json(new { success = $"Lấy danh sách tích hợp thành công - {data.Count()} thuê bao" }, JsonRequestBehavior.AllowGet);
+                return Json(new { success = $"Lấy danh sách đặt cọc (thanh toán trước) thành công - {data.Count()} thuê bao" }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex) { return Json(new { danger = ex.Message + " - Index: " + index }, JsonRequestBehavior.AllowGet); }
+            finally
+            {
+                SQLServer.Close();
+                Oracle.Close();
+            }
+        }
+        //Lấy KHuyến mại
+        [HttpPost, ValidateAntiForgeryToken]
+        public JsonResult LayKhuyenMai(Common.DefaultObj obj)
+        {
+            var SQLServer = new TM.Connection.SQLServer();
+            var Oracle = new TM.Connection.Oracle("DHSX_BACKAN");
+            var index = 0;
+            obj.DataSource = Common.Directories.HDDataSource;
+            obj = getDefaultObj(obj);
+            try
+            {
+                // var qry = $"select * from tinhcuoc_bkn.tb_datcoc partition(KYHD{obj.KYHD})";
+                var qry = $"select * from tinhcuoc_bkn.dbkm partition(KYHD{obj.KYHD}) order by dichvuvt_id,loaitb_id";
+                var data = Oracle.Connection.Query<Billing.Models.DB_KHUYEN_MAI>(qry);
+                // Remove old
+                qry = $"delete from DB_KHUYEN_MAI where KYHOADON={obj.KYHD}";
+                SQLServer.Connection.Query(qry);
+                SQLServer.Connection.Insert(data);
+                //
+                qry = $@"update DB_KHUYEN_MAI set loaitb_id=8 where loaitb_id=61 and dichvuvt_id=4;
+                         update DB_KHUYEN_MAI set loaitb_id=9 where loaitb_id=58 and dichvuvt_id=4;
+                         update DB_KHUYEN_MAI set loaitb_id=6 where loaitb_id=11 and dichvuvt_id=4;";
+                SQLServer.Connection.Query(qry);
+                return Json(new { success = $"Lấy danh sách khuyến mại thành công - {data.Count()} thuê bao" }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex) { return Json(new { danger = ex.Message + " - Index: " + index }, JsonRequestBehavior.AllowGet); }
             finally
@@ -160,19 +190,19 @@ namespace Billing.Controllers
             try
             {
                 ////Cập nhật hủy tích hợp khi mytv hủy
-                //var qry = $"UPDATE a SET a.FLAG=0 FROM DANHBA_GOICUOC_TICHHOP a,{Common.Objects.TYPE_HD.HD_MYTV} b where a.ACCOUNT=b.ACCOUNT AND b.TH_SD=0 AND a.FIX=0 AND FORMAT(b.TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                //var qry = $"UPDATE a SET a.FLAG=0 FROM DANHBA_GOICUOC_TICHHOP a,{Common.Objects.TYPE_HD.HD_MYTV} b where a.MA_TB=b.MA_TB AND b.TH_SD=0 AND a.FIX=0 AND b.KYHOADON={obj.KYHD}";
                 //SQLServer.Connection.Query(qry);
                 ////Cập nhật hủy tích hợp khi internet hủy 
-                //qry = $"UPDATE a SET a.FLAG=0 FROM DANHBA_GOICUOC_TICHHOP a,{Common.Objects.TYPE_HD.HD_NET} b where a.MA_TB=b.MA_TB AND b.TH_SD=0 AND a.FIX=0 AND FORMAT(b.TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                //qry = $"UPDATE a SET a.FLAG=0 FROM DANHBA_GOICUOC_TICHHOP a,{Common.Objects.TYPE_HD.HD_NET} b where a.MA_TB=b.MA_TB AND b.TH_SD=0 AND a.FIX=0 AND b.KYHOADON={obj.KYHD}";
 
                 //Cập nhật hủy tích hợp
-                var qry = $@"UPDATE a SET a.FLAG=0 FROM DANHBA_GOICUOC_TICHHOP a,{Common.Objects.TYPE_HD.DB_THANHTOAN_BKN} b where a.MA_TB=b.MA_TB AND b.TH_SD=0 AND a.FIX=0 AND FORMAT(a.TIME_BILL,'MM/yyyy')='{obj.month_year_time}';
-                             UPDATE DANHBA_GOICUOC_TICHHOP SET FLAG=0 WHERE DICHVUVT_ID=8 AND FIX=0 AND EXTRA_TYPE=0 AND ACCOUNT NOT IN (SELECT ACCOUNT FROM {Common.Objects.TYPE_HD.DB_THANHTOAN_BKN}) AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}';
-                             UPDATE DANHBA_GOICUOC_TICHHOP SET FLAG=0 WHERE DICHVUVT_ID=6 AND FIX=0 AND EXTRA_TYPE=0 AND ACCOUNT NOT IN (SELECT ACCOUNT FROM {Common.Objects.TYPE_HD.DB_THANHTOAN_BKN}) AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}';
-                             UPDATE DANHBA_GOICUOC_TICHHOP SET FLAG=0 WHERE DICHVUVT_ID=9 AND FIX=0 AND EXTRA_TYPE=0 AND ACCOUNT NOT IN (SELECT ACCOUNT FROM {Common.Objects.TYPE_HD.DB_THANHTOAN_BKN}) AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
+                var qry = $@"UPDATE a SET a.FLAG=0 FROM DANHBA_GOICUOC_TICHHOP a,{Common.Objects.TYPE_HD.DB_THANHTOAN_BKN} b where a.MA_TB=b.MA_TB AND b.TH_SD=0 AND a.FIX=0 AND a.KYHOADON={obj.KYHD};
+                             UPDATE DANHBA_GOICUOC_TICHHOP SET FLAG=0 WHERE DICHVUVT_ID=8 AND FIX=0 AND EXTRA_TYPE=0 AND MA_TB NOT IN (SELECT MA_TB FROM {Common.Objects.TYPE_HD.DB_THANHTOAN_BKN}) AND KYHOADON={obj.KYHD};
+                             UPDATE DANHBA_GOICUOC_TICHHOP SET FLAG=0 WHERE DICHVUVT_ID=6 AND FIX=0 AND EXTRA_TYPE=0 AND MA_TB NOT IN (SELECT MA_TB FROM {Common.Objects.TYPE_HD.DB_THANHTOAN_BKN}) AND KYHOADON={obj.KYHD};
+                             UPDATE DANHBA_GOICUOC_TICHHOP SET FLAG=0 WHERE DICHVUVT_ID=9 AND FIX=0 AND EXTRA_TYPE=0 AND MA_TB NOT IN (SELECT MA_TB FROM {Common.Objects.TYPE_HD.DB_THANHTOAN_BKN}) AND KYHOADON={obj.KYHD};";
                 SQLServer.Connection.Query(qry);
                 //Hủy tích hợp
-                qry = $"UPDATE DANHBA_GOICUOC_TICHHOP SET FLAG=0 WHERE GOICUOC_ID IN(SELECT GOICUOC_ID from DANHBA_GOICUOC_TICHHOP WHERE FLAG=0 AND FIX=0 AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}') AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
+                qry = $"UPDATE DANHBA_GOICUOC_TICHHOP SET FLAG=0 WHERE GOICUOC_ID IN(SELECT GOICUOC_ID from DANHBA_GOICUOC_TICHHOP WHERE FLAG=0 AND FIX=0 AND KYHOADON={obj.KYHD}) AND KYHOADON={obj.KYHD};";
                 SQLServer.Connection.Query(qry);
                 return Json(new { success = "Xử lý tích hợp thành công!" }, JsonRequestBehavior.AllowGet);
             }
@@ -191,30 +221,30 @@ namespace Billing.Controllers
             {
                 var qry = "";
                 //Xóa Thuê bao đã hủy tích hợp từ tháng trước
-                //qry = $"DELETE DANHBA_GOICUOC_TICHHOP WHERE NGAY_KT<CAST('{obj.datetime.ToString("yyyy/MM/dd")}' AS datetime) AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                //qry = $"DELETE DANHBA_GOICUOC_TICHHOP WHERE NGAY_KT<CAST('{obj.datetime.ToString("yyyy/MM/dd")}' AS datetime) AND KYHOADON={obj.KYHD}";
                 //SQLServer.Connection.Query(qry);
-                //Tìm account trùng
-                qry = $"UPDATE thdv SET DUPE_COUNT=(SELECT COUNT(*) FROM DANHBA_GOICUOC_TICHHOP WHERE thdv.ACCOUNT=ACCOUNT AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}') FROM DANHBA_GOICUOC_TICHHOP thdv WHERE FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                //Tìm MA_TB trùng
+                qry = $"UPDATE thdv SET DUPE_COUNT=(SELECT COUNT(*) FROM DANHBA_GOICUOC_TICHHOP WHERE thdv.MA_TB=MA_TB AND KYHOADON={obj.KYHD}) FROM DANHBA_GOICUOC_TICHHOP thdv WHERE KYHOADON={obj.KYHD}";
                 SQLServer.Connection.Query(qry, null, null, true, 3000);
 
                 //Xử lý trùng không có ngày kết thúc
-                qry = $@"UPDATE a SET a.NO_DUPE=b.count_dupe,FIX_NGAY_KT=1 FROM DANHBA_GOICUOC_TICHHOP a inner join (SELECT ACCOUNT,COUNT(*) count_dupe FROM (SELECT * from DANHBA_GOICUOC_TICHHOP WHERE DUPE_COUNT>1 and NGAY_KT is null AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}') as c group by ACCOUNT,TIME_BILL having COUNT(*)>1 AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}') b on a.ACCOUNT=b.ACCOUNT AND FORMAT(a.TIME_BILL,'MM/yyyy')='{obj.month_year_time}';
-                         UPDATE a SET FIX_NGAY_KT=0 FROM DANHBA_GOICUOC_TICHHOP a WHERE NO_DUPE>0 AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND NGAY_BD IN (SELECT MAX(NGAY_BD) FROM DANHBA_GOICUOC_TICHHOP WHERE ACCOUNT=a.ACCOUNT AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}');
-                         UPDATE a SET NGAY_KT=NGAY_BD FROM DANHBA_GOICUOC_TICHHOP a WHERE FIX_NGAY_KT=1 AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
+                qry = $@"UPDATE a SET a.NO_DUPE=b.count_dupe,FIX_NGAY_KT=1 FROM DANHBA_GOICUOC_TICHHOP a inner join (SELECT MA_TB,COUNT(*) count_dupe FROM (SELECT * from DANHBA_GOICUOC_TICHHOP WHERE DUPE_COUNT>1 and NGAY_KT is null AND KYHOADON={obj.KYHD}) as c group by MA_TB,KYHOADON having COUNT(*)>1 AND KYHOADON={obj.KYHD}) b on a.MA_TB=b.MA_TB AND a.KYHOADON={obj.KYHD};
+                         UPDATE a SET FIX_NGAY_KT=0 FROM DANHBA_GOICUOC_TICHHOP a WHERE NO_DUPE>0 AND KYHOADON={obj.KYHD} AND NGAY_BD IN (SELECT MAX(NGAY_BD) FROM DANHBA_GOICUOC_TICHHOP WHERE MA_TB=a.MA_TB AND KYHOADON={obj.KYHD});
+                         UPDATE a SET NGAY_KT=NGAY_BD FROM DANHBA_GOICUOC_TICHHOP a WHERE FIX_NGAY_KT=1 AND KYHOADON={obj.KYHD};";
                 //DELETE DANHBA_GOICUOC_TICHHOP WHERE STT>1 AND NO_DUPE>1 AND NGAY_KT IS NULL;";
                 SQLServer.Connection.Query(qry, null, null, true, 3000);
 
                 //Tìm thuê bao tích hợp trong tháng
-                qry = $@"UPDATE DANHBA_GOICUOC_TICHHOP SET TH_THANG=1 WHERE FORMAT(NGAY_BD,'MM/yyyy')='{obj.month_year_time}' AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                qry = $@"UPDATE DANHBA_GOICUOC_TICHHOP SET TH_THANG=1 WHERE FORMAT(NGAY_BD,'MM/yyyy')='{obj.month_year_time}' AND KYHOADON={obj.KYHD}";
                 SQLServer.Connection.Query(qry, null, null, true, 3000);
 
                 //Tính số ngày sử dụng tích hợp
                 //
-                qry = $"UPDATE DANHBA_GOICUOC_TICHHOP SET TH_SO_NGAY={obj.day_in_month}-DAY(NGAY_BD) WHERE FORMAT(NGAY_BD,'MM/yyyy')='{obj.month_year_time}' AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                qry = $"UPDATE DANHBA_GOICUOC_TICHHOP SET TH_SO_NGAY={obj.day_in_month}-DAY(NGAY_BD) WHERE FORMAT(NGAY_BD,'MM/yyyy')='{obj.month_year_time}' AND KYHOADON={obj.KYHD}";
                 //
-                qry += $"UPDATE DANHBA_GOICUOC_TICHHOP SET TH_SO_NGAY=DAY(NGAY_KT) WHERE FORMAT(NGAY_KT,'MM/yyyy')='{obj.month_year_time}' AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                qry += $"UPDATE DANHBA_GOICUOC_TICHHOP SET TH_SO_NGAY=DAY(NGAY_KT) WHERE FORMAT(NGAY_KT,'MM/yyyy')='{obj.month_year_time}' AND KYHOADON={obj.KYHD}";
                 //
-                qry += $"UPDATE DANHBA_GOICUOC_TICHHOP SET TH_SO_NGAY=DAY(NGAY_KT)-DAY(NGAY_BD) WHERE FORMAT(NGAY_BD,'MM/yyyy')='{obj.month_year_time}' AND FORMAT(NGAY_KT,'MM/yyyy')='{obj.month_year_time}' AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                qry += $"UPDATE DANHBA_GOICUOC_TICHHOP SET TH_SO_NGAY=DAY(NGAY_KT)-DAY(NGAY_BD) WHERE FORMAT(NGAY_BD,'MM/yyyy')='{obj.month_year_time}' AND FORMAT(NGAY_KT,'MM/yyyy')='{obj.month_year_time}' AND KYHOADON={obj.KYHD}";
                 SQLServer.Connection.Query(qry, null, null, true, 3000);
                 //
                 //DataAccess.Connection.SQLServer.ConnectionClose();
@@ -237,20 +267,20 @@ namespace Billing.Controllers
             try
             {
                 //Xử lý NET
-                var qry = $"update hd SET hd.GOICUOCID=thdvtv.LOAIGOICUOC_ID FROM {Common.Objects.TYPE_HD.HD_NET} hd inner join (select * from DANHBA_GOICUOC_TICHHOP where goicuoc_id in (select thdv.goicuoc_id from {Common.Objects.TYPE_HD.HD_MYTV} tv,DANHBA_GOICUOC_TICHHOP thdv where tv.ACCOUNT=thdv.ACCOUNT and FORMAT(tv.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' and FORMAT(thdv.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND thdv.FIX=0)) thdvtv on hd.ACCOUNT=thdvtv.ACCOUNT where FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
+                var qry = $"update hd SET hd.GOICUOCID=thdvtv.LOAIGOICUOC_ID FROM {Common.Objects.TYPE_HD.HD_NET} hd inner join (select * from DANHBA_GOICUOC_TICHHOP where goicuoc_id in (select thdv.goicuoc_id from {Common.Objects.TYPE_HD.HD_MYTV} tv,DANHBA_GOICUOC_TICHHOP thdv where tv.MA_TB=thdv.MA_TB and tv.KYHOADON={obj.KYHD} and thdv.KYHOADON={obj.KYHD} AND thdv.FIX=0)) thdvtv on hd.MA_TB=thdvtv.MA_TB where hd.KYHOADON={obj.KYHD};";
                 SQLServer.Connection.Query(qry);
-                qry = $@"UPDATE hd SET hd.TONG=bg.GIA FROM {Common.Objects.TYPE_HD.HD_NET} hd INNER JOIN BGCUOC bg ON hd.GOICUOCID=bg.GOICUOCID WHERE hd.GOICUOCID>0 AND hd.TYPE_BILL=9 AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND bg.FLAG=1 AND (bg.DICHVUVT_ID=9 OR bg.DICHVUVT_ID=6);
-                         UPDATE {Common.Objects.TYPE_HD.HD_NET} SET TONG=(TONG/{obj.day_in_month})*NGAY_TB_PTTB where GOICUOCID>0 AND (NGAY_KHOA is not null or NGAY_MO is not null or NGAY_KT is not null) AND TYPE_BILL=9 AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}';
-                         UPDATE {Common.Objects.TYPE_HD.HD_NET} SET VAT=ROUND(TONG/10,0) WHERE TYPE_BILL=9 AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}';
-                         UPDATE {Common.Objects.TYPE_HD.HD_NET} SET TONGCONG=TONG+VAT WHERE TYPE_BILL=9 AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
+                qry = $@"UPDATE hd SET hd.TONG=bg.GIA FROM {Common.Objects.TYPE_HD.HD_NET} hd INNER JOIN BGCUOC bg ON hd.GOICUOCID=bg.GOICUOCID WHERE hd.GOICUOCID>0 AND hd.TYPE_BILL=9 AND hd.KYHOADON={obj.KYHD} AND bg.FLAG=1 AND (bg.DICHVUVT_ID=9 OR bg.DICHVUVT_ID=6);
+                         UPDATE {Common.Objects.TYPE_HD.HD_NET} SET TONG=(TONG/{obj.day_in_month})*NGAY_TB_PTTB where GOICUOCID>0 AND (NGAY_KHOA is not null or NGAY_MO is not null or NGAY_KT is not null) AND TYPE_BILL=9 AND KYHOADON={obj.KYHD};
+                         UPDATE {Common.Objects.TYPE_HD.HD_NET} SET VAT=ROUND(TONG/10,0) WHERE TYPE_BILL=9 AND KYHOADON={obj.KYHD};
+                         UPDATE {Common.Objects.TYPE_HD.HD_NET} SET TONGCONG=TONG+VAT WHERE TYPE_BILL=9 AND KYHOADON={obj.KYHD};";
                 SQLServer.Connection.Query(qry);
                 //Xử lý MyTV
-                qry = $"update hd SET hd.GOICUOCID=thdvtv.LOAIGOICUOC_ID FROM {Common.Objects.TYPE_HD.HD_MYTV} hd inner join (select * from DANHBA_GOICUOC_TICHHOP where goicuoc_id in (select thdv.goicuoc_id from {Common.Objects.TYPE_HD.HD_NET} net,DANHBA_GOICUOC_TICHHOP thdv where net.ACCOUNT=thdv.ACCOUNT and FORMAT(net.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' and FORMAT(thdv.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND thdv.FIX=0)) thdvtv on hd.ACCOUNT=thdvtv.ACCOUNT where FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
+                qry = $"update hd SET hd.GOICUOCID=thdvtv.LOAIGOICUOC_ID FROM {Common.Objects.TYPE_HD.HD_MYTV} hd inner join (select * from DANHBA_GOICUOC_TICHHOP where goicuoc_id in (select thdv.goicuoc_id from {Common.Objects.TYPE_HD.HD_NET} net,DANHBA_GOICUOC_TICHHOP thdv where net.MA_TB=thdv.MA_TB and net.KYHOADON={obj.KYHD} and thdv.KYHOADON={obj.KYHD} AND thdv.FIX=0)) thdvtv on hd.MA_TB=thdvtv.MA_TB where hd.KYHOADON={obj.KYHD};";
                 SQLServer.Connection.Query(qry);
-                qry = $@"UPDATE hd SET hd.TONG=bg.GIA+hd.PAYTV_FEE FROM {Common.Objects.TYPE_HD.HD_MYTV} hd INNER JOIN BGCUOC bg ON hd.GOICUOCID=bg.GOICUOCID WHERE hd.GOICUOCID>0 AND bg.DICHVUVT_ID=8 AND hd.TYPE_BILL=8 AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}';
-                         UPDATE {Common.Objects.TYPE_HD.HD_MYTV} SET TONG=(TONG/{obj.day_in_month})*NGAY_TB_PTTB where GOICUOCID>0 AND (NGAY_KHOA is not null or NGAY_MO is not null or NGAY_KT is not null) AND TYPE_BILL=8 AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}';
-                         UPDATE {Common.Objects.TYPE_HD.HD_MYTV} SET VAT=ROUND(TONG/10,0) WHERE TYPE_BILL=8 AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}';
-                         UPDATE {Common.Objects.TYPE_HD.HD_MYTV} SET TONGCONG=TONG+VAT WHERE TYPE_BILL=8 AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
+                qry = $@"UPDATE hd SET hd.TONG=bg.GIA+hd.PAYTV_FEE FROM {Common.Objects.TYPE_HD.HD_MYTV} hd INNER JOIN BGCUOC bg ON hd.GOICUOCID=bg.GOICUOCID WHERE hd.GOICUOCID>0 AND bg.DICHVUVT_ID=8 AND hd.TYPE_BILL=8 AND hd.KYHOADON={obj.KYHD};
+                         UPDATE {Common.Objects.TYPE_HD.HD_MYTV} SET TONG=(TONG/{obj.day_in_month})*NGAY_TB_PTTB where GOICUOCID>0 AND (NGAY_KHOA is not null or NGAY_MO is not null or NGAY_KT is not null) AND TYPE_BILL=8 AND KYHOADON={obj.KYHD};
+                         UPDATE {Common.Objects.TYPE_HD.HD_MYTV} SET VAT=ROUND(TONG/10,0) WHERE TYPE_BILL=8 AND KYHOADON={obj.KYHD};
+                         UPDATE {Common.Objects.TYPE_HD.HD_MYTV} SET TONGCONG=TONG+VAT WHERE TYPE_BILL=8 AND KYHOADON={obj.KYHD};";
                 SQLServer.Connection.Query(qry);
                 return Json(new { success = "Xử lý tích hợp toàn bộ thuê bao thành công!" }, JsonRequestBehavior.AllowGet);
             }
@@ -270,37 +300,37 @@ namespace Billing.Controllers
             try
             {
                 //Xóa data cũ
-                var qry = $"DELETE {Common.Objects.TYPE_HD.HD_MERGIN} WHERE TYPE_BILL={TYPE_BILL} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                var qry = $"DELETE {Common.Objects.TYPE_HD.HD_MERGIN} WHERE TYPE_BILL={TYPE_BILL} AND KYHOADON={obj.KYHD}";
                 SQLServer.Connection.Query(qry);
                 //Nhập HD Internet
-                qry = $@"INSERT INTO {Common.Objects.TYPE_HD.HD_MERGIN}(ID,HD_ID,DBKH_ID,TYPE_BILL,TIME_BILL,MA_TT_HNI,MA_DVI,ACC_NET,TONG_CD,TONG_DD,TONG_NET,TONG_TV,GIAM_TRU,KIEU,GHEP,MA_IN,KIEU_TT,DUPE_FLAG,FLAG,CUOC_KTHUE,TONG_IN,TONG,VAT,TONGCONG)
-                         SELECT NEWID(),a.ID,DBKH_ID,{TYPE_BILL} AS TYPE_BILL,a.TIME_BILL,b.MA_TT_HNI,b.MA_DVI,a.ACCOUNT AS ACC_NET,0 AS TONG_CD,0 AS TONG_DD,a.TONG AS TONG_NET,0 AS TONG_TV,a.GIAM_TRU,1 AS KIEU,0 AS GHEP,9 AS MA_IN,0 AS KIEU_TT,0 AS DUPE_FLAG,1 AS FLAG,0 AS CUOC_KTHUE,a.TONG_IN,a.TONG,0 AS VAT,0 AS TONGCONG 
-                         FROM {Common.Objects.TYPE_HD.HD_NET} a INNER JOIN DB_THANHTOAN_BKN b ON a.DBKH_ID=b.ID WHERE a.TYPE_BILL=9005 AND FORMAT(a.TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                qry = $@"INSERT INTO {Common.Objects.TYPE_HD.HD_MERGIN}(ID,HD_ID,DBKH_ID,TYPE_BILL,KYHOADON,MA_TT,MA_DVI,ACC_NET,TONG_CD,TONG_DD,TONG_NET,TONG_TV,GIAM_TRU,KIEU,GHEP,MA_IN,KIEU_TT,DUPE_FLAG,FLAG,CUOC_KTHUE,TONG_IN,TONG,VAT,TONGCONG)
+                         SELECT NEWID(),a.ID,DBKH_ID,{TYPE_BILL} AS TYPE_BILL,a.KYHOADON,b.MA_TT,b.MA_DVI,a.MA_TB AS ACC_NET,0 AS TONG_CD,0 AS TONG_DD,a.TONG AS TONG_NET,0 AS TONG_TV,a.GIAM_TRU,1 AS KIEU,0 AS GHEP,9 AS MA_IN,0 AS KIEU_TT,0 AS DUPE_FLAG,1 AS FLAG,0 AS CUOC_KTHUE,a.TONG_IN,a.TONG,0 AS VAT,0 AS TONGCONG 
+                         FROM {Common.Objects.TYPE_HD.HD_NET} a INNER JOIN DB_THANHTOAN_BKN b ON a.DBKH_ID=b.ID WHERE a.TYPE_BILL=9005 AND a.KYHOADON={obj.KYHD}";
                 SQLServer.Connection.Query(qry);
                 //Nhập HD MyTV  
-                qry = $@"INSERT INTO {Common.Objects.TYPE_HD.HD_MERGIN}(ID,HD_ID,DBKH_ID,TYPE_BILL,TIME_BILL,MA_TT_HNI,MA_DVI,ACC_TV,TONG_CD,TONG_DD,TONG_NET,TONG_TV,GIAM_TRU,KIEU,GHEP,MA_IN,KIEU_TT,DUPE_FLAG,FLAG,CUOC_KTHUE,TONG_IN,TONG,VAT,TONGCONG)
-                         SELECT NEWID(),a.ID,DBKH_ID,{TYPE_BILL} AS TYPE_BILL,a.TIME_BILL,b.MA_TT_HNI,b.MA_DVI,a.ACCOUNT AS ACC_TV,0 AS TONG_CD,0 AS TONG_DD,0 AS TONG_NET,a.TONG AS TONG_TV,a.GIAM_TRU,1 AS KIEU,0 AS GHEP,8 AS MA_IN,0 AS KIEU_TT,0 AS DUPE_FLAG,1 AS FLAG,0 AS CUOC_KTHUE,a.TONG_IN,a.TONG,0 AS VAT,0 AS TONGCONG 
-                         FROM {Common.Objects.TYPE_HD.HD_MYTV} a INNER JOIN DB_THANHTOAN_BKN b ON a.DBKH_ID=b.ID WHERE a.TYPE_BILL=8 AND FORMAT(a.TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                qry = $@"INSERT INTO {Common.Objects.TYPE_HD.HD_MERGIN}(ID,HD_ID,DBKH_ID,TYPE_BILL,KYHOADON,MA_TT,MA_DVI,ACC_TV,TONG_CD,TONG_DD,TONG_NET,TONG_TV,GIAM_TRU,KIEU,GHEP,MA_IN,KIEU_TT,DUPE_FLAG,FLAG,CUOC_KTHUE,TONG_IN,TONG,VAT,TONGCONG)
+                         SELECT NEWID(),a.ID,DBKH_ID,{TYPE_BILL} AS TYPE_BILL,a.KYHOADON,b.MA_TT,b.MA_DVI,a.MA_TB AS ACC_TV,0 AS TONG_CD,0 AS TONG_DD,0 AS TONG_NET,a.TONG AS TONG_TV,a.GIAM_TRU,1 AS KIEU,0 AS GHEP,8 AS MA_IN,0 AS KIEU_TT,0 AS DUPE_FLAG,1 AS FLAG,0 AS CUOC_KTHUE,a.TONG_IN,a.TONG,0 AS VAT,0 AS TONGCONG 
+                         FROM {Common.Objects.TYPE_HD.HD_MYTV} a INNER JOIN DB_THANHTOAN_BKN b ON a.DBKH_ID=b.ID WHERE a.TYPE_BILL=8 AND a.KYHOADON={obj.KYHD}";
                 SQLServer.Connection.Query(qry);
                 //Nhập HD CD
-                qry = $@"INSERT INTO {Common.Objects.TYPE_HD.HD_MERGIN}(ID,HD_ID,DBKH_ID,TYPE_BILL,TIME_BILL,MA_TT_HNI,MA_DVI,SO_CD,TONG_CD,TONG_DD,TONG_NET,TONG_TV,GIAM_TRU,KIEU,GHEP,MA_IN,KIEU_TT,DUPE_FLAG,FLAG,CUOC_KTHUE,TONG_IN,TONG,VAT,TONGCONG)
-                         SELECT NEWID(),a.ID,DBKH_ID,{TYPE_BILL} AS TYPE_BILL,a.TIME_BILL,b.MA_TT_HNI,b.MA_DVI,a.SO_TB AS SO_CD,a.TONG AS TONG_CD,0 AS TONG_DD,0 AS TONG_NET,0 AS TONG_TV,a.CHIET_KHAU AS GIAM_TRU,1 AS KIEU,0 AS GHEP,1 AS MA_IN,0 AS KIEU_TT,0 AS DUPE_FLAG,1 AS FLAG,0 AS CUOC_KTHUE,a.TONG_IN,a.TONG,0 AS VAT,0 AS TONGCONG 
-                         FROM {Common.Objects.TYPE_HD.HD_CD} a INNER JOIN DB_THANHTOAN_BKN b ON a.DBKH_ID=b.ID WHERE a.TYPE_BILL=1 AND FORMAT(a.TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                qry = $@"INSERT INTO {Common.Objects.TYPE_HD.HD_MERGIN}(ID,HD_ID,DBKH_ID,TYPE_BILL,KYHOADON,MA_TT,MA_DVI,SO_CD,TONG_CD,TONG_DD,TONG_NET,TONG_TV,GIAM_TRU,KIEU,GHEP,MA_IN,KIEU_TT,DUPE_FLAG,FLAG,CUOC_KTHUE,TONG_IN,TONG,VAT,TONGCONG)
+                         SELECT NEWID(),a.ID,DBKH_ID,{TYPE_BILL} AS TYPE_BILL,a.KYHOADON,b.MA_TT,b.MA_DVI,a.SO_TB AS SO_CD,a.TONG AS TONG_CD,0 AS TONG_DD,0 AS TONG_NET,0 AS TONG_TV,a.CHIET_KHAU AS GIAM_TRU,1 AS KIEU,0 AS GHEP,1 AS MA_IN,0 AS KIEU_TT,0 AS DUPE_FLAG,1 AS FLAG,0 AS CUOC_KTHUE,a.TONG_IN,a.TONG,0 AS VAT,0 AS TONGCONG 
+                         FROM {Common.Objects.TYPE_HD.HD_CD} a INNER JOIN DB_THANHTOAN_BKN b ON a.DBKH_ID=b.ID WHERE a.TYPE_BILL=1 AND a.KYHOADON={obj.KYHD}";
                 SQLServer.Connection.Query(qry);
                 //Nhập HD DD
-                qry = $@"INSERT INTO {Common.Objects.TYPE_HD.HD_MERGIN}(ID,HD_ID,DBKH_ID,TYPE_BILL,TIME_BILL,MA_TT_HNI,MA_DVI,SO_DD,TONG_CD,TONG_DD,TONG_NET,TONG_TV,GIAM_TRU,KIEU,GHEP,MA_IN,KIEU_TT,DUPE_FLAG,FLAG,CUOC_KTHUE,TONG_IN,TONG,VAT,TONGCONG)
-                         SELECT NEWID(),a.ID,DBKH_ID,{TYPE_BILL} AS TYPE_BILL,a.TIME_BILL,b.MA_TT_HNI,b.MA_DVI,a.SO_TB AS SO_DD,0 AS TONG_CD,a.TONG AS TONG_DD,0 AS TONG_NET,0 AS TONG_TV,a.GIAM_TRU,1 AS KIEU,0 AS GHEP,2 AS MA_IN,a.EZPAY AS KIEU_TT,0 AS DUPE_FLAG,1 AS FLAG,a.CUOC_KTHUE,a.TONG_IN,a.TONG,0 AS VAT,0 AS TONGCONG 
-                         FROM {Common.Objects.TYPE_HD.HD_DD} a INNER JOIN DB_THANHTOAN_BKN b ON a.DBKH_ID=b.ID WHERE a.TYPE_BILL=2 AND FORMAT(a.TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                qry = $@"INSERT INTO {Common.Objects.TYPE_HD.HD_MERGIN}(ID,HD_ID,DBKH_ID,TYPE_BILL,KYHOADON,MA_TT,MA_DVI,SO_DD,TONG_CD,TONG_DD,TONG_NET,TONG_TV,GIAM_TRU,KIEU,GHEP,MA_IN,KIEU_TT,DUPE_FLAG,FLAG,CUOC_KTHUE,TONG_IN,TONG,VAT,TONGCONG)
+                         SELECT NEWID(),a.ID,DBKH_ID,{TYPE_BILL} AS TYPE_BILL,a.KYHOADON,b.MA_TT,b.MA_DVI,a.SO_TB AS SO_DD,0 AS TONG_CD,a.TONG AS TONG_DD,0 AS TONG_NET,0 AS TONG_TV,a.GIAM_TRU,1 AS KIEU,0 AS GHEP,2 AS MA_IN,a.EZPAY AS KIEU_TT,0 AS DUPE_FLAG,1 AS FLAG,a.CUOC_KTHUE,a.TONG_IN,a.TONG,0 AS VAT,0 AS TONGCONG 
+                         FROM {Common.Objects.TYPE_HD.HD_DD} a INNER JOIN DB_THANHTOAN_BKN b ON a.DBKH_ID=b.ID WHERE a.TYPE_BILL=2 AND a.KYHOADON={obj.KYHD}";
                 SQLServer.Connection.Query(qry);
                 //Ghép cước
                 RemoveDuplicate(new Common.RemoveTableObj
                 {
                     table = Common.Objects.TYPE_HD.HD_MERGIN.ToString(),
-                    PrimeryKey = "MA_TT_HNI",
+                    PrimeryKey = "MA_TT",
                     IsExtraValue = true,
-                    ExtraValue = "MA_DVI,TYPE_BILL,TIME_BILL",
+                    ExtraValue = "MA_DVI,TYPE_BILL,KYHOADON",
                     TYPE_BILL = TYPE_BILL,
-                    TIME_BILL = obj.month_year_time
+                    KYHOADON = obj.KYHD
                 });
                 //Cập nhật STK theo mã đơn vị
                 qry = "";
@@ -308,8 +338,8 @@ namespace Billing.Controllers
                     qry += $"UPDATE {Common.Objects.TYPE_HD.DB_THANHTOAN_BKN} SET STK=N'{i.Value}' WHERE ma_dvi='{i.Key}';";
                 SQLServer.Connection.Query(qry);
                 //Cập nhật vat và tổng cộng
-                qry = $@"UPDATE {Common.Objects.TYPE_HD.HD_MERGIN} SET VAT=ROUND(TONG*0.1,0) WHERE TYPE_BILL={TYPE_BILL} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}';
-                         UPDATE {Common.Objects.TYPE_HD.HD_MERGIN} SET TONGCONG=TONG+VAT+CUOC_KTHUE WHERE TYPE_BILL={TYPE_BILL} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
+                qry = $@"UPDATE {Common.Objects.TYPE_HD.HD_MERGIN} SET VAT=ROUND(TONG*0.1,0) WHERE TYPE_BILL={TYPE_BILL} AND KYHOADON={obj.KYHD};
+                         UPDATE {Common.Objects.TYPE_HD.HD_MERGIN} SET TONGCONG=TONG+VAT+CUOC_KTHUE WHERE TYPE_BILL={TYPE_BILL} AND KYHOADON={obj.KYHD};";
                 SQLServer.Connection.Query(qry);
                 return Json(new { success = $"{Common.Objects.TYPE_HD.HD_MERGIN} - Xử lý ghép hóa đơn thành công!" }, JsonRequestBehavior.AllowGet);
             }
@@ -328,26 +358,26 @@ namespace Billing.Controllers
             try
             {
                 //Xóa data cũ
-                var qry = $"DELETE {Common.Objects.TYPE_HD.HD_MERGIN} WHERE TYPE_BILL={TYPE_BILL} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                var qry = $"DELETE {Common.Objects.TYPE_HD.HD_MERGIN} WHERE TYPE_BILL={TYPE_BILL} AND KYHOADON={obj.KYHD}";
                 SQLServer.Connection.Query(qry);
                 //Tạo data hóa đơn điện tử
                 qry = $@"INSERT INTO {Common.Objects.TYPE_HD.HD_MERGIN} 
-                         SELECT NEWID(),HD_ID,DBKH_ID,{TYPE_BILL} AS TYPE_BILL,TIME_BILL,APP_ID,MA_TT_HNI,MA_DVI,ACC_NET,ACC_TV,SO_DD,SO_CD,TONG_CD,TONG_DD,TONG_NET,TONG_TV,CUOC_KTHUE,GIAM_TRU,TONG_IN,TONG,VAT,TONGCONG,KIEU,GHEP,MA_IN,KIEU_TT,DUPE_FLAG,FLAG 
-                         FROM {Common.Objects.TYPE_HD.HD_MERGIN} WHERE TYPE_BILL=9006 AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                         SELECT NEWID(),HD_ID,DBKH_ID,{TYPE_BILL} AS TYPE_BILL,KYHOADON,APP_ID,MA_TT,MA_DVI,ACC_NET,ACC_TV,SO_DD,SO_CD,TONG_CD,TONG_DD,TONG_NET,TONG_TV,CUOC_KTHUE,GIAM_TRU,TONG_IN,TONG,VAT,TONGCONG,KIEU,GHEP,MA_IN,KIEU_TT,DUPE_FLAG,FLAG 
+                         FROM {Common.Objects.TYPE_HD.HD_MERGIN} WHERE TYPE_BILL=9006 AND KYHOADON={obj.KYHD}";
                 SQLServer.Connection.Query(qry);
                 //Ghép cước hóa đơn điện tử
                 RemoveDuplicate(new Common.RemoveTableObj
                 {
                     table = Common.Objects.TYPE_HD.HD_MERGIN.ToString(),
-                    PrimeryKey = "MA_TT_HNI",
+                    PrimeryKey = "MA_TT",
                     IsExtraValue = true,
-                    ExtraValue = "TYPE_BILL,TIME_BILL",
+                    ExtraValue = "TYPE_BILL,KYHOADON",
                     TYPE_BILL = TYPE_BILL,
-                    TIME_BILL = obj.month_year_time
+                    KYHOADON = obj.KYHD
                 });
                 //Cập nhật vat và tổng cộng
-                qry = $@"UPDATE {Common.Objects.TYPE_HD.HD_MERGIN} SET VAT=ROUND(TONG*0.1,0) WHERE TYPE_BILL={TYPE_BILL} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}';
-                         UPDATE {Common.Objects.TYPE_HD.HD_MERGIN} SET TONGCONG=TONG+VAT+CUOC_KTHUE WHERE TYPE_BILL={TYPE_BILL} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
+                qry = $@"UPDATE {Common.Objects.TYPE_HD.HD_MERGIN} SET VAT=ROUND(TONG*0.1,0) WHERE TYPE_BILL={TYPE_BILL} AND KYHOADON={obj.KYHD};
+                         UPDATE {Common.Objects.TYPE_HD.HD_MERGIN} SET TONGCONG=TONG+VAT+CUOC_KTHUE WHERE TYPE_BILL={TYPE_BILL} AND KYHOADON={obj.KYHD};";
                 SQLServer.Connection.Query(qry);
                 return Json(new { success = $"Hóa đơn điện tử Xử lý thành công!" }, JsonRequestBehavior.AllowGet);
             }
@@ -381,7 +411,7 @@ namespace Billing.Controllers
                 FileManagerController.DeleteDirFile(obj.DataSource + fileNameXMLError, false);
                 //
                 //Get data from HDDT
-                var data = SQLServer.Connection.Query<Models.HD_DT>($"SELECT * FROM {Common.Objects.TYPE_HD.HD_MERGIN} a LEFT JOIN {Common.Objects.TYPE_HD.DB_THANHTOAN_BKN} b ON a.DBKH_ID=b.ID WHERE a.TYPE_BILL={TYPE_BILL} AND FORMAT(a.TIME_BILL,'MM/yyyy')='{obj.month_year_time}'").OrderBy(d => d.TYPE_BILL).ThenBy(d => d.TONGCONG).ToList();
+                var data = SQLServer.Connection.Query<Models.HD_DT>($"SELECT * FROM {Common.Objects.TYPE_HD.HD_MERGIN} a LEFT JOIN {Common.Objects.TYPE_HD.DB_THANHTOAN_BKN} b ON a.DBKH_ID=b.ID WHERE a.TYPE_BILL={TYPE_BILL} AND a.KYHOADON={obj.KYHD}").OrderBy(d => d.TYPE_BILL).ThenBy(d => d.TONGCONG).ToList();
                 //HDDT Hoa don
                 using (System.IO.Stream outfile = new System.IO.FileStream(obj.DataSource + fileNameXMLFull, System.IO.FileMode.Create, System.IO.FileAccess.ReadWrite))
                 {
@@ -432,22 +462,22 @@ namespace Billing.Controllers
                         //Check EzPay
                         if (i.KIEU_TT == 1)
                         {
-                            err.Append($"<Inv><app_id>{i.APP_ID}</app_id><key>{i.MA_TT_HNI}</key><error>Is Ezpay</error></Inv>").AppendLine();
+                            err.Append($"<Inv><app_id>{i.APP_ID}</app_id><key>{i.MA_TT}</key><error>Is Ezpay</error></Inv>").AppendLine();
                             check = false;
                             hasError = true;
                         }
                         //Check Error
-                        if (string.IsNullOrEmpty(i.MA_TT_HNI))
+                        if (string.IsNullOrEmpty(i.MA_TT))
                         {
-                            err.Append($"<Inv><app_id>{i.APP_ID}</app_id><key>{i.MA_TT_HNI}</key><error>Null Or Empty</error></Inv>").AppendLine();
+                            err.Append($"<Inv><app_id>{i.APP_ID}</app_id><key>{i.MA_TT}</key><error>Null Or Empty</error></Inv>").AppendLine();
                             check = false;
                             hasError = true;
                         }
                         else
                         {
-                            if (listKey.Contains(i.MA_TT_HNI))
+                            if (listKey.Contains(i.MA_TT))
                             {
-                                err.Append($"<Inv><app_id>{i.APP_ID}</app_id><key>{i.MA_TT_HNI}</key><error>Trùng mã thanh toán</error></Inv>").AppendLine();
+                                err.Append($"<Inv><app_id>{i.APP_ID}</app_id><key>{i.MA_TT}</key><error>Trùng mã thanh toán</error></Inv>").AppendLine();
                                 check = false;
                                 hasError = true;
                             }
@@ -466,8 +496,8 @@ namespace Billing.Controllers
                             //var acc_tv = string.IsNullOrEmpty(dt.Rows[i]["acc_tv"].ToString().Trim());
                             //var ma_in = dt.Rows[i]["ma_in"].ToString().Trim();
                             var Invoice = "<Invoice>" +
-                                            $"<MaThanhToan><![CDATA[{getMaThanhToanHD(obj.datetime.ToString("MMyyyy"), i.MA_TT_HNI, i.MA_IN == 2 ? Common.HDDT.DetailDiDong : Common.HDDT.DetailCoDinh)}]]></MaThanhToan>" +
-                                            $"<CusCode><![CDATA[{i.MA_TT_HNI}]]></CusCode>" +
+                                            $"<MaThanhToan><![CDATA[{getMaThanhToanHD(obj.datetime.ToString("MMyyyy"), i.MA_TT, i.MA_IN == 2 ? Common.HDDT.DetailDiDong : Common.HDDT.DetailCoDinh)}]]></MaThanhToan>" +
+                                            $"<CusCode><![CDATA[{i.MA_TT}]]></CusCode>" +
                                             $"<CusName><![CDATA[{(obj.ckhTCVN3 ? i.TEN_TT.TCVN3ToUnicode() : i.TEN_TT)}]]></CusName>" +
                                             $"<CusAddress><![CDATA[{(obj.ckhTCVN3 ? i.DIACHI_TT.TCVN3ToUnicode() : i.DIACHI_TT)}]]></CusAddress>" +
                                             $"<CusPhone><![CDATA[{getCusPhone(i.ACC_NET, i.ACC_TV, i.SO_CD, i.SO_DD)}]]></CusPhone>" +
@@ -485,9 +515,9 @@ namespace Billing.Controllers
                                             $"<Extra>{i.MA_CBT};0;0</Extra>" +
                                             $"<ResourceCode>{i.MA_CBT}</ResourceCode>" +
                                         "</Invoice>";
-                            Invoice = $"<Inv><key>{i.MA_TT_HNI}{obj.month_time}{obj.year_time}</key>{Invoice}</Inv>";
+                            Invoice = $"<Inv><key>{i.MA_TT}{obj.month_time}{obj.year_time}</key>{Invoice}</Inv>";
                             ok.Append(Invoice).AppendLine();
-                            listKey.Add(i.MA_TT_HNI);
+                            listKey.Add(i.MA_TT);
                         }
                         if (index % 100 == 0)
                         {
@@ -548,7 +578,7 @@ namespace Billing.Controllers
                 FileManagerController.DeleteDirFile(fileNameZIPFull);
                 FileManagerController.DeleteDirFile(fileNameXMLError);
                 //Get data from HDDT
-                var data = SQLServer.Connection.Query<Models.HD_DT>($"SELECT * FROM {Common.Objects.TYPE_HD.HD_MERGIN} WHERE TYPE_BILL={TYPE_BILL} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'").OrderBy(d => d.MA_DVI).ThenBy(d => d.TONGCONG).ToList();
+                var data = SQLServer.Connection.Query<Models.HD_DT>($"SELECT * FROM {Common.Objects.TYPE_HD.HD_MERGIN} WHERE TYPE_BILL={TYPE_BILL} AND KYHOADON={obj.KYHD}").OrderBy(d => d.MA_DVI).ThenBy(d => d.TONGCONG).ToList();
                 using (System.IO.Stream outfile = new System.IO.FileStream(obj.DataSource + fileNameXMLFull, System.IO.FileMode.Create, System.IO.FileAccess.ReadWrite))
                 {
                     ok.Append("<Customers>").AppendLine();
@@ -560,22 +590,22 @@ namespace Billing.Controllers
                         var check = true;
                         if (i.KIEU_TT == 1)
                         {
-                            err.Append($"<Inv><app_id>{i.APP_ID}</app_id><key>{i.MA_TT_HNI}</key><error>Is Ezpay</error></Inv>").AppendLine();
+                            err.Append($"<Inv><app_id>{i.APP_ID}</app_id><key>{i.MA_TT}</key><error>Is Ezpay</error></Inv>").AppendLine();
                             check = false;
                             hasError = true;
                         }
                         //Check Error
-                        if (string.IsNullOrEmpty(i.MA_TT_HNI))
+                        if (string.IsNullOrEmpty(i.MA_TT))
                         {
-                            err.Append($"<Customer><app_id>{i.APP_ID}</app_id><key>{i.MA_TT_HNI}</key><error>Null Or Empty HDDT Khách hàng</error></Customer>").AppendLine();
+                            err.Append($"<Customer><app_id>{i.APP_ID}</app_id><key>{i.MA_TT}</key><error>Null Or Empty HDDT Khách hàng</error></Customer>").AppendLine();
                             check = false;
                             hasError = true;
                         }
                         else
                         {
-                            if (listKey.Contains(i.MA_TT_HNI))
+                            if (listKey.Contains(i.MA_TT))
                             {
-                                err.Append($"<Customer><app_id>{i.APP_ID}</app_id><key>{i.MA_TT_HNI}</key><error>Trùng mã thanh toán Khách hàng</error></Customer>").AppendLine();
+                                err.Append($"<Customer><app_id>{i.APP_ID}</app_id><key>{i.MA_TT}</key><error>Trùng mã thanh toán Khách hàng</error></Customer>").AppendLine();
                                 check = false;
                                 hasError = true;
                             }
@@ -585,7 +615,7 @@ namespace Billing.Controllers
                         {
                             var customer = "<Customer>" +
                                                 $"<Name><![CDATA[{(obj.ckhTCVN3 ? i.TEN_TT.TCVN3ToUnicode() : i.TEN_TT)}]]></Name>" +
-                                                $"<Code>{i.MA_TT_HNI}</Code>" +
+                                                $"<Code>{i.MA_TT}</Code>" +
                                                 $"<TaxCode>{i.MS_THUE}</TaxCode>" +
                                                 $"<Address><![CDATA[{(obj.ckhTCVN3 ? i.DIACHI_TT.TCVN3ToUnicode() : i.TEN_TT)}]]></Address>" +
                                                  "<BankAccountName></BankAccountName>" +
@@ -597,10 +627,10 @@ namespace Billing.Controllers
                                                  "<ContactPerson></ContactPerson>" +
                                                  "<RepresentPerson></RepresentPerson>" +
                                                  "<CusType>0</CusType>" +
-                                                $"<MaThanhToan><![CDATA[{getMaThanhToanKH(obj.datetime.ToString("MMyyyy"), i.MA_TT_HNI, i.MA_IN == 2 ? Common.HDDT.DetailDiDong : Common.HDDT.DetailCoDinh)}]]></MaThanhToan>" +
+                                                $"<MaThanhToan><![CDATA[{getMaThanhToanKH(obj.datetime.ToString("MMyyyy"), i.MA_TT, i.MA_IN == 2 ? Common.HDDT.DetailDiDong : Common.HDDT.DetailCoDinh)}]]></MaThanhToan>" +
                                            "</Customer>";
                             ok.Append(customer).AppendLine();
-                            listKey.Add(i.MA_TT_HNI);
+                            listKey.Add(i.MA_TT);
                         }
                         if (index % 100 == 0)
                         {
@@ -673,10 +703,10 @@ namespace Billing.Controllers
                 else
                     obj.IsExtraValue = false;
                 //
-                var billCondition = $"AND a.TYPE_BILL={obj.TYPE_BILL} AND FORMAT(a.TIME_BILL,'MM/yyyy')='{obj.TIME_BILL}' AND b.TYPE_BILL={obj.TYPE_BILL} AND FORMAT(b.TIME_BILL,'MM/yyyy')='{obj.TIME_BILL}'";
-                var billCondition2 = $"AND TYPE_BILL={obj.TYPE_BILL} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.TIME_BILL}'";
+                var billCondition = $"AND a.TYPE_BILL={obj.TYPE_BILL} AND FORMAT(a.KYHOADON,'MM/yyyy')='{obj.KYHOADON}' AND b.TYPE_BILL={obj.TYPE_BILL} AND FORMAT(b.KYHOADON,'MM/yyyy')='{obj.KYHOADON}'";
+                var billCondition2 = $"AND TYPE_BILL={obj.TYPE_BILL} AND FORMAT(KYHOADON,'MM/yyyy')='{obj.KYHOADON}'";
                 //
-                var qry = $"UPDATE a SET DUPE_FLAG=0,APP_ID=b.rownumber FROM {obj.table} a,(SELECT *,ROW_NUMBER() OVER(ORDER BY MA_TT_HNI) AS rownumber FROM {obj.table}) b WHERE a.ID=b.ID {billCondition}";
+                var qry = $"UPDATE a SET DUPE_FLAG=0,APP_ID=b.rownumber FROM {obj.table} a,(SELECT *,ROW_NUMBER() OVER(ORDER BY MA_TT) AS rownumber FROM {obj.table}) b WHERE a.ID=b.ID {billCondition}";
                 SQLServer.Connection.Query(qry);
 
                 if (obj.IsExtraValue)
@@ -692,8 +722,8 @@ namespace Billing.Controllers
                     qry = $"UPDATE {obj.table} SET DUPE_FLAG=2 WHERE APP_ID IN(SELECT MAX(APP_ID) FROM {obj.table} a INNER JOIN (SELECT {obj.PrimeryKey},COUNT(*) AS dupeCount FROM {obj.table} GROUP BY {obj.PrimeryKey} HAVING COUNT(*) > 1) b ON a.{obj.PrimeryKey}=b.{obj.PrimeryKey} GROUP BY a.{obj.PrimeryKey})";
                 SQLServer.Connection.Query(qry);
                 //Sum Col
-                SumCol(new Common.RemoveTableObj { table = obj.table, listCol = new[] { "TONG_CD", "TONG_DD", "TONG_NET", "TONG_TV", "CUOC_KTHUE", "GIAM_TRU", "TONG", "TONG_IN" }, conditionKey = new[] { "MA_TT_HNI" }, ExtraValue = $"WHERE DUPE_FLAG=2 {billCondition2}" });
-                AppendCol(new Common.RemoveTableObj { table = obj.table, listCol = new[] { "ACC_NET", "ACC_TV", "SO_DD", "SO_CD" }, conditionKey = new[] { "MA_TT_HNI" }, ExtraValue = $"AND DUPE_FLAG=2 {billCondition2}" });
+                SumCol(new Common.RemoveTableObj { table = obj.table, listCol = new[] { "TONG_CD", "TONG_DD", "TONG_NET", "TONG_TV", "CUOC_KTHUE", "GIAM_TRU", "TONG", "TONG_IN" }, conditionKey = new[] { "MA_TT" }, ExtraValue = $"WHERE DUPE_FLAG=2 {billCondition2}" });
+                AppendCol(new Common.RemoveTableObj { table = obj.table, listCol = new[] { "ACC_NET", "ACC_TV", "SO_DD", "SO_CD" }, conditionKey = new[] { "MA_TT" }, ExtraValue = $"AND DUPE_FLAG=2 {billCondition2}" });
                 qry = $"DELETE FROM {obj.table} WHERE DUPE_FLAG=1";
                 SQLServer.Connection.Query(qry);
                 return true;
@@ -734,13 +764,13 @@ namespace Billing.Controllers
         //            groupCondition += ",TYPE_BILL";
         //        }
 
-        //        if (obj.TIME_BILL != null)
+        //        if (obj.KYHOADON != null)
         //        {
-        //            condition += $"AND FORMAT(a.TIME_BILL,'MM/yyyy')='{obj.TIME_BILL}' AND FORMAT(b.TIME_BILL,'MM/yyyy')='{obj.TIME_BILL}'";
-        //            groupCondition += ",TIME_BILL";
+        //            condition += $"AND FORMAT(a.KYHOADON,'MM/yyyy')='{obj.KYHOADON}' AND FORMAT(b.KYHOADON,'MM/yyyy')='{obj.KYHOADON}'";
+        //            groupCondition += ",KYHOADON";
         //        }
         //        //
-        //        var qry = $"UPDATE a SET DUPE_FLAG=0,APP_ID=b.rownumber FROM {obj.table} a,(SELECT *,ROW_NUMBER() OVER(ORDER BY MA_TT_HNI) AS rownumber FROM {obj.table}) b WHERE a.ID=b.ID {condition}";
+        //        var qry = $"UPDATE a SET DUPE_FLAG=0,APP_ID=b.rownumber FROM {obj.table} a,(SELECT *,ROW_NUMBER() OVER(ORDER BY MA_TT) AS rownumber FROM {obj.table}) b WHERE a.ID=b.ID {condition}";
         //        SQLServer.Connection.Query(qry);
 
         //        if (obj.IsExtraValue)
@@ -756,8 +786,8 @@ namespace Billing.Controllers
         //            qry = $"UPDATE {obj.table} SET DUPE_FLAG=2 WHERE APP_ID IN(SELECT MAX(APP_ID) FROM {obj.table} a INNER JOIN (SELECT {obj.PrimeryKey},COUNT(*) AS dupeCount FROM {obj.table} GROUP BY {obj.PrimeryKey} HAVING COUNT(*) > 1) b ON a.{obj.PrimeryKey}=b.{obj.PrimeryKey} GROUP BY a.{obj.PrimeryKey})";
         //        SQLServer.Connection.Query(qry);
         //        //Sum Col
-        //        SumCol(new Common.RemoveTableObj { table = obj.table, listCol = new[] { "TONG_CD", "TONG_DD", "TONG_NET", "TONG_TV", "CUOC_KTHUE", "GIAM_TRU", "TONG" }, conditionKey = new[] { "MA_TT_HNI" }, ExtraValue = "WHERE DUPE_FLAG=2" });
-        //        AppendCol(new Common.RemoveTableObj { table = obj.table, listCol = new[] { "ACC_NET", "ACC_TV", "SO_DD", "SO_CD" }, conditionKey = new[] { "MA_TT_HNI" }, ExtraValue = "AND DUPE_FLAG=2" });
+        //        SumCol(new Common.RemoveTableObj { table = obj.table, listCol = new[] { "TONG_CD", "TONG_DD", "TONG_NET", "TONG_TV", "CUOC_KTHUE", "GIAM_TRU", "TONG" }, conditionKey = new[] { "MA_TT" }, ExtraValue = "WHERE DUPE_FLAG=2" });
+        //        AppendCol(new Common.RemoveTableObj { table = obj.table, listCol = new[] { "ACC_NET", "ACC_TV", "SO_DD", "SO_CD" }, conditionKey = new[] { "MA_TT" }, ExtraValue = "AND DUPE_FLAG=2" });
         //        qry = $"DELETE FROM {obj.table} WHERE DUPE_FLAG=1";
         //        SQLServer.Connection.Query(qry);
         //        return true;
@@ -805,7 +835,7 @@ namespace Billing.Controllers
             catch (Exception) { throw; }
             finally { SQLServer.Close(); }
         }
-        private Boolean RemoveDuplicate(string DataSource, string file, string[] colsNumberSum, string[] colsString, string extraEX = "", string ma_dvi = "ma_dvi", string ma_tt_hni = "ma_tt_hni", string extraConditions = null)
+        private Boolean RemoveDuplicate(string DataSource, string file, string[] colsNumberSum, string[] colsString, string extraEX = "", string ma_dvi = "ma_dvi", string MA_TT = "MA_TT", string extraConditions = null)
         {
             #region Coment
             ////Remove Duplicate
@@ -849,27 +879,27 @@ namespace Billing.Controllers
             {
                 //Cập nhật các đối tượng trùng DUPE_FLAG=1
                 qry = $@"UPDATE {file} SET {DUPE_FLAG}=1 WHERE {APP_ID} in(SELECT {APP_ID} FROM {file} o INNER JOIN 
-                (SELECT {ma_tt_hni},COUNT(*) AS dupeCount FROM {file} GROUP BY {ma_tt_hni} HAVING COUNT(*) > 1) oc ON o.{ma_tt_hni}=oc.{ma_tt_hni} 
-                WHERE NOT EMPTY(o.{ma_tt_hni}))";
+                (SELECT {MA_TT},COUNT(*) AS dupeCount FROM {file} GROUP BY {MA_TT} HAVING COUNT(*) > 1) oc ON o.{MA_TT}=oc.{MA_TT} 
+                WHERE NOT EMPTY(o.{MA_TT}))";
                 SQLServer.Connection.Query(qry);
 
                 //Cập nhật lại các đối tượng giữ lại và set DUPE_FLAG=2
                 qry = $@"UPDATE {file} SET {DUPE_FLAG}=2 WHERE {APP_ID} IN(SELECT MAX({APP_ID}) FROM {file} o INNER JOIN 
-                (SELECT {ma_tt_hni},COUNT(*) AS dupeCount FROM {file} GROUP BY {ma_tt_hni} HAVING COUNT(*) > 1) oc ON o.{ma_tt_hni}=oc.{ma_tt_hni} 
-                WHERE NOT EMPTY(o.{ma_tt_hni}) GROUP BY o.{ma_tt_hni})";
+                (SELECT {MA_TT},COUNT(*) AS dupeCount FROM {file} GROUP BY {MA_TT} HAVING COUNT(*) > 1) oc ON o.{MA_TT}=oc.{MA_TT} 
+                WHERE NOT EMPTY(o.{MA_TT}) GROUP BY o.{MA_TT})";
                 SQLServer.Connection.Query(qry);
             }
             else
             {
                 //Cập nhật các đối tượng trùng DUPE_FLAG=1
                 qry = $@"UPDATE {file} SET {DUPE_FLAG}=1 WHERE {APP_ID} in(SELECT {APP_ID} FROM {file} o INNER JOIN 
-                (SELECT {ma_tt_hni},{ma_dvi},COUNT(*) AS dupeCount FROM {file} GROUP BY {ma_tt_hni},{ma_dvi} HAVING COUNT(*) > 1) oc ON o.{ma_tt_hni}=oc.{ma_tt_hni} 
-                WHERE o.{ma_dvi}=oc.{ma_dvi} AND NOT EMPTY(o.{ma_tt_hni}))";
+                (SELECT {MA_TT},{ma_dvi},COUNT(*) AS dupeCount FROM {file} GROUP BY {MA_TT},{ma_dvi} HAVING COUNT(*) > 1) oc ON o.{MA_TT}=oc.{MA_TT} 
+                WHERE o.{ma_dvi}=oc.{ma_dvi} AND NOT EMPTY(o.{MA_TT}))";
                 SQLServer.Connection.Query(qry);
                 //Cập nhật lại các đối tượng giữ lại và set DUPE_FLAG=2
                 qry = $@"UPDATE {file} SET {DUPE_FLAG}=2{(extraConditions != null ? "," + extraConditions + " " : "")} WHERE {APP_ID} IN(SELECT MAX({APP_ID}) FROM {file} o INNER JOIN 
-                (SELECT {ma_tt_hni},{ma_dvi},COUNT(*) AS dupeCount FROM {file} GROUP BY {ma_tt_hni},{ma_dvi} HAVING COUNT(*) > 1) oc ON o.{ma_tt_hni}=oc.{ma_tt_hni} 
-                WHERE o.{ma_dvi}=oc.{ma_dvi} AND NOT EMPTY(o.{ma_tt_hni}) GROUP BY o.{ma_tt_hni},o.{ma_dvi})";
+                (SELECT {MA_TT},{ma_dvi},COUNT(*) AS dupeCount FROM {file} GROUP BY {MA_TT},{ma_dvi} HAVING COUNT(*) > 1) oc ON o.{MA_TT}=oc.{MA_TT} 
+                WHERE o.{ma_dvi}=oc.{ma_dvi} AND NOT EMPTY(o.{MA_TT}) GROUP BY o.{MA_TT},o.{ma_dvi})";
                 //o.{ma_dvi}=oc.{ma_dvi} AND 
                 SQLServer.Connection.Query(qry);
             }
@@ -878,13 +908,13 @@ namespace Billing.Controllers
             if (colsNumberSum != null)
                 foreach (var item in colsNumberSum)
                 {
-                    qry = $"UPDATE a SET {item}=(SELECT SUM({item}) FROM {file} WHERE {ma_tt_hni}=a.{ma_tt_hni}) FROM {file} AS a WHERE {DUPE_FLAG}=2";
+                    qry = $"UPDATE a SET {item}=(SELECT SUM({item}) FROM {file} WHERE {MA_TT}=a.{MA_TT}) FROM {file} AS a WHERE {DUPE_FLAG}=2";
                     SQLServer.Connection.Query(qry);
                 }
             if (colsString != null)
                 foreach (var item in colsString)
                 {
-                    qry = $"UPDATE a SET {item}=(SELECT MAX({item}) FROM {file} WHERE {ma_tt_hni}=a.{ma_tt_hni} AND {item} is NOT null AND NOT EMPTY({item})) FROM {file} as a WHERE a.{item} is null OR EMPTY(a.{item})";
+                    qry = $"UPDATE a SET {item}=(SELECT MAX({item}) FROM {file} WHERE {MA_TT}=a.{MA_TT} AND {item} is NOT null AND NOT EMPTY({item})) FROM {file} as a WHERE a.{item} is null OR EMPTY(a.{item})";
                     try { SQLServer.Connection.Query(qry); } catch { }
                 }
             //Xóa các đối tượng trùng
@@ -975,7 +1005,7 @@ namespace Billing.Controllers
             obj.ckhMerginMonth = obj.ckhMerginMonth;
             //obj.file = $"BKN_th";
             obj.DataSource = Server.MapPath("~/" + obj.DataSource) + obj.time + "\\";
-            obj.KYHD = obj.datetime.ToString("yyyMM") + "01";
+            obj.KYHD = int.Parse(obj.datetime.ToString("yyyyMM") + "01");
             return obj;
         }
         public Dictionary<int, string> stk_ma_dvi()

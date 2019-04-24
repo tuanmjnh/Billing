@@ -27,18 +27,18 @@ namespace Billing.Controllers
         public JsonResult UpdateContact(Common.DefaultObj obj)
         {
             var SQLServer = new TM.Connection.SQLServer();
-            var Oracle = new TM.Connection.Oracle("HNIVNPTBACKAN1");
+            //var Oracle = new TM.Connection.Oracle("HNIVNPTBACKAN1");
             var index = 0;
             obj.DataSource = Common.Directories.HDDataSource;
             obj = getDefaultObj(obj);
             var TYPE_BILL = "1";
             try
             {
-                var qry = $"SELECT * FROM {Common.Objects.TYPE_HD.CD} WHERE FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                var qry = $"SELECT * FROM {Common.Objects.TYPE_HD.CD} WHERE KYHOADON='{obj.KYHD}'";
                 var data = SQLServer.Connection.Query<Models.CD>(qry);
                 //Get DB PTTB
                 qry = "SELECT a.*,a.TRANGTHAI_ AS TRANGTHAI FROM DANH_BA_CO_DINH a";
-                var dbpttb = Oracle.Connection.Query<Models.DANH_BA_CO_DINH>(qry).ToList();
+                //var dbpttb = Oracle.Connection.Query<Models.DANH_BA_CO_DINH>(qry).ToList();
                 //
                 qry = $"SELECT * FROM {Common.Objects.TYPE_HD.DB_THANHTOAN_BKN} WHERE FIX=0 AND FLAG=1 AND TYPE_BILL IN({TYPE_BILL})";
                 var dbkh = SQLServer.Connection.Query<Models.DB_THANHTOAN_BKN>(qry);
@@ -46,15 +46,15 @@ namespace Billing.Controllers
                 var DataUpdate = new List<Models.DB_THANHTOAN_BKN>();
                 foreach (var i in data)
                 {
-                    var _tmp = dbkh.FirstOrDefault(d => d.ACCOUNT == i.SO_TB);
-                    var pttb = dbpttb.FirstOrDefault(d => d.MA_TB.Trim() == i.SO_TB);
+                    var _tmp = dbkh.FirstOrDefault(d => d.MA_TB == i.SO_TB);
+                    //var pttb = dbpttb.FirstOrDefault(d => d.MA_TB.Trim() == i.SO_TB);
                     if (_tmp != null)
                     {
-                        if (pttb != null)
-                        {
-                            if (!string.IsNullOrEmpty(pttb.MA_KH)) _tmp.MA_KH = pttb.MA_KH.Trim();
-                        }
-                        _tmp.MA_TT_HNI = i.MA_TT;
+                        //if (pttb != null)
+                        //{
+                        //    if (!string.IsNullOrEmpty(pttb.MA_KH)) _tmp.MA_KH = pttb.MA_KH.Trim();
+                        //}
+                        _tmp.MA_TT = i.MA_TT;
                         _tmp.TEN_TT = i.TEN_TT;
                         _tmp.DIACHI_TT = i.DIACHI_TT;
                         _tmp.DIENTHOAI = i.SO_TB;
@@ -78,12 +78,12 @@ namespace Billing.Controllers
                         var _d = new Models.DB_THANHTOAN_BKN();
                         _d.ID = Guid.NewGuid();
                         _d.TYPE_BILL = i.TYPE_BILL;
-                        _d.ACCOUNT = _d.MA_TB = i.SO_TB;
-                        if (pttb != null)
-                        {
-                            if (!string.IsNullOrEmpty(pttb.MA_KH)) _d.MA_KH = pttb.MA_KH.Trim();
-                        }
-                        _d.MA_TT_HNI = i.MA_TT;
+                        _d.MA_TB = i.SO_TB;
+                        //if (pttb != null)
+                        //{
+                        //    if (!string.IsNullOrEmpty(pttb.MA_KH)) _d.MA_KH = pttb.MA_KH.Trim();
+                        //}
+                        _d.MA_TT = i.MA_TT;
                         _d.TEN_TT = i.TEN_TT;
                         _d.DIACHI_TT = i.DIACHI_TT;
                         _d.DIENTHOAI = i.SO_TB;
@@ -107,6 +107,9 @@ namespace Billing.Controllers
                 if (DataInsert.Count > 0) SQLServer.Connection.Insert(DataInsert);
                 if (DataUpdate.Count > 0) SQLServer.Connection.Update(DataUpdate);
                 //
+                qry = $"update db set db.DONVI_ID=dv.DONVI_ID,db.DONVI_QL_ID=dv.DONVI_QL_ID from DB_THANHTOAN_BKN db,DB_DONVI_BKN dv where dv.MA_DVI=db.MA_DVI and type_bill in({TYPE_BILL})";
+                SQLServer.Connection.Query(qry);
+                //
                 return Json(new { success = $"{Common.Objects.TYPE_HD.HD_CD} - Cập nhật: {DataUpdate.Count} - Thêm mới: {DataInsert.Count}" }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex) { return Json(new { danger = ex.Message + " - Index: " + index }, JsonRequestBehavior.AllowGet); }
@@ -127,7 +130,7 @@ namespace Billing.Controllers
         //        var qry = $"SELECT * FROM {Common.Objects.TYPE_HD.DB_THANHTOAN_BKN} WHERE ISNULL>0 AND FIX=0 AND FLAG=1 AND TYPE_BILL IN({TYPE_BILL})";
         //        var data = SQLServer.Connection.Query<Models.DB_THANHTOAN_BKN>(qry).ToList();
         //        //Get DB PTTB
-        //        qry = "select tt.MA_TT as MA_TT_HNI,tb.MA_TB as LOGINNAME,tt.DIACHI_TT as ADDRESS1,tt.TEN_TT as FULLNAME,tt.DIENTHOAI_TT as MOBILE,tt.KHACHHANG_ID as MA_KH,tt.MAPHO_ID as MA_DVI,tt.MA_TUYENTHU as MA_TUYENTHU from DB_THUEBAO_BKN tb,DB_THANHTOAN_BKN tt where tb.thanhtoan_id=tt.thanhtoan_id";
+        //        qry = "select tt.MA_TT as MA_TT,tb.MA_TB as LOGINNAME,tt.DIACHI_TT as ADDRESS1,tt.TEN_TT as FULLNAME,tt.DIENTHOAI_TT as MOBILE,tt.KHACHHANG_ID as MA_KH,tt.MAPHO_ID as MA_DVI,tt.MA_TUYENTHU as MA_TUYENTHU from DB_THUEBAO_BKN tb,DB_THANHTOAN_BKN tt where tb.thanhtoan_id=tt.thanhtoan_id";
         //        var dbpttb = Oracle.Connection.Query<Models.DANH_BA_MYTV>(qry).ToList();
         //        qry = "select MA_KH,DOITUONGKH_ID as MA_DT,KHACHHANG_ID,KHACHHANG_ID as LOGINNAME from VTT.DB_KHACHHANG_BKN";
         //        var dbpttb_kh = Oracle.Connection.Query<Models.DANH_BA_MYTV>(qry).ToList();
@@ -137,7 +140,7 @@ namespace Billing.Controllers
         //        var dbfix = SQLServer.Connection.Query<Models.DB_THANHTOAN_BKN>(qry).ToList();
         //        foreach (var i in data)
         //        {
-        //            var db = dbpttb.FirstOrDefault(d => d.LOGINNAME == i.ACCOUNT);
+        //            var db = dbpttb.FirstOrDefault(d => d.LOGINNAME == i.MA_TB);
         //            if (db != null)
         //            {
         //                i.ISNULL = 2;
@@ -148,7 +151,7 @@ namespace Billing.Controllers
         //                if (!string.IsNullOrEmpty(db.MA_DVI)) i.MA_DVI = db.MA_DVI;
         //                if (!string.IsNullOrEmpty(db.MA_CBT)) i.MA_CBT = db.MA_CBT;
         //                //i.MA_KH = !string.IsNullOrEmpty(db.MA_KH) ? db.MA_KH.Trim() : null;
-        //                if (!string.IsNullOrEmpty(db.MA_TT_HNI)) i.MA_TT_HNI = db.MA_TT_HNI.Trim();
+        //                if (!string.IsNullOrEmpty(db.MA_TT)) i.MA_TT = db.MA_TT.Trim();
         //                //i.MA_DT = db.MA_DT == 0 ? 1 : db.MA_DT;
         //                if (!string.IsNullOrEmpty(db.MA_ST)) i.MS_THUE = db.MA_ST.Trim();
         //            }
@@ -167,7 +170,7 @@ namespace Billing.Controllers
         //                if (i.MA_TUYEN == null || i.MA_TUYEN.isNumber()) i.MA_TUYEN = $"T{db.MA_ST}000";
         //            }
         //            //Cập nhật danh bạ Fix
-        //            var dbkh = dbfix.FirstOrDefault(d => d.ACCOUNT == i.ACCOUNT);
+        //            var dbkh = dbfix.FirstOrDefault(d => d.MA_TB == i.MA_TB);
         //            if (dbkh != null)
         //            {
         //                i.ISNULL = 3;
@@ -178,7 +181,7 @@ namespace Billing.Controllers
         //                if (!string.IsNullOrEmpty(dbkh.MA_TUYEN)) i.MA_TUYEN = dbkh.MA_TUYEN.Trim();
         //                if (!string.IsNullOrEmpty(dbkh.MA_CBT)) i.MA_CBT = dbkh.MA_CBT.Trim();
         //                if (!string.IsNullOrEmpty(dbkh.MA_KH)) i.MA_KH = dbkh.MA_KH.Trim();
-        //                if (!string.IsNullOrEmpty(dbkh.MA_TT_HNI)) i.MA_TT_HNI = dbkh.MA_TT_HNI.Trim();
+        //                if (!string.IsNullOrEmpty(dbkh.MA_TT)) i.MA_TT = dbkh.MA_TT.Trim();
         //                if (!string.IsNullOrEmpty(dbkh.MS_THUE)) i.MS_THUE = dbkh.MS_THUE.Trim();
         //                i.MA_DT = dbkh.MA_DT;
         //            }
@@ -198,7 +201,7 @@ namespace Billing.Controllers
         //        qry = $@"UPDATE {Common.Objects.TYPE_HD.DB_THANHTOAN_BKN} SET ISNULLMT=1 WHERE MA_TUYEN LIKE '%000' AND FIX=0 AND FLAG=1 AND TYPE_BILL IN({TYPE_BILL});
         //                 UPDATE {Common.Objects.TYPE_HD.DB_THANHTOAN_BKN} SET MA_CBT=CAST(CAST(ma_dvi as varchar)+'01' as int),MA_TUYEN=REPLACE(MA_TUYEN,'000','001') WHERE ISNULLMT>0 AND FIX=0 AND FLAG=1 AND TYPE_BILL IN({TYPE_BILL})
         //                 UPDATE a SET a.MA_TUYEN='T'+b.VIETTAT+'001' FROM {Common.Objects.TYPE_HD.DB_THANHTOAN_BKN} a,QUAN_HUYEN_BKN b WHERE a.MA_DVI=b.MA_QUANHUYEN AND a.MA_TUYEN IS NULL AND a.FIX=0 AND a.FLAG=1 AND a.TYPE_BILL IN({TYPE_BILL});
-        //                 UPDATE {Common.Objects.TYPE_HD.DB_THANHTOAN_BKN} SET MA_KH=MA_TT_HNI WHERE MA_KH IS NULL AND FIX=0 AND FLAG=1 AND TYPE_BILL IN({TYPE_BILL})";
+        //                 UPDATE {Common.Objects.TYPE_HD.DB_THANHTOAN_BKN} SET MA_KH=MA_TT WHERE MA_KH IS NULL AND FIX=0 AND FLAG=1 AND TYPE_BILL IN({TYPE_BILL})";
         //        SQLServer.Connection.Query(qry);
         //        return Json(new { success = $"{Common.Objects.TYPE_HD.HD_MYTV} - Cập nhật danh bạ thành công {data.Count()} Thuê bao" }, JsonRequestBehavior.AllowGet);
         //    }
@@ -218,16 +221,18 @@ namespace Billing.Controllers
             obj = getDefaultObj(obj);
             try
             {
-                var qry = $"DELETE {Common.Objects.TYPE_HD.HD_CD} WHERE FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                var qry = $"DELETE {Common.Objects.TYPE_HD.HD_CD} WHERE KYHOADON='{obj.KYHD}'";
                 SQLServer.Connection.Query(qry);
                 qry = $@"INSERT INTO {Common.Objects.TYPE_HD.HD_CD} 
-                         SELECT NEWID() AS ID,ID AS CD_ID,NEWID() AS DBKH_ID,TYPE_BILL,TIME_BILL,APP_ID,SO_TB,KIEU,TB_DAUCUOI,CUOC_TB,CUOC_DV,CUOC_NH,CUOC_NT,CUOC_PSTN,
+                         SELECT NEWID() AS ID,KYHOADON,ID AS CD_ID,NEWID() AS DBKH_ID,TYPE_BILL,APP_ID,SO_TB,KIEU,TB_DAUCUOI,CUOC_TB,CUOC_DV,CUOC_NH,CUOC_NT,CUOC_PSTN,
                          CUOC_V171,CUOC_VDNK,CUOC_DD,CUOC_IDD,CUOC_V171Q,CUOC_VDNKQ,CUOC_CI,CUOC_KM,CHIET_KHAU,0 AS TONG_IN,TONG,VAT,TONGCONG,DUPE_FLAG
-                         FROM {Common.Objects.TYPE_HD.CD} WHERE FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND TONGCONG>0";
+                         FROM {Common.Objects.TYPE_HD.CD} WHERE KYHOADON='{obj.KYHD}' AND TONGCONG>0";
                 SQLServer.Connection.Query(qry);
-                qry = $"UPDATE a SET a.DBKH_ID=b.ID FROM {Common.Objects.TYPE_HD.HD_CD} a INNER JOIN {Common.Objects.TYPE_HD.DB_THANHTOAN_BKN} b ON a.SO_TB=b.ACCOUNT WHERE a.TYPE_BILL=b.TYPE_BILL AND b.FIX=0 AND b.FLAG=1";
+                qry = $"UPDATE a SET a.DBKH_ID=b.ID FROM {Common.Objects.TYPE_HD.HD_CD} a INNER JOIN {Common.Objects.TYPE_HD.DB_THANHTOAN_BKN} b ON a.SO_TB=b.MA_TB WHERE a.TYPE_BILL=b.TYPE_BILL AND b.FIX=0 AND b.FLAG=1 and KYHOADON='{obj.KYHD}'";
                 SQLServer.Connection.Query(qry);
-                return Json(new { success = $"{Common.Objects.TYPE_HD.HD_CD} - Cập nhật dữ liệu thành công" }, JsonRequestBehavior.AllowGet);
+                qry = $"select * from {Common.Objects.TYPE_HD.HD_CD} where KYHOADON='{obj.KYHD}'";
+                var data = SQLServer.Connection.Query<Models.HD_CD>(qry);
+                return Json(new { success = $"{Common.Objects.TYPE_HD.HD_CD} - Cập nhật dữ liệu thành công - {data.Count()} thuê bao" }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex) { return Json(new { danger = ex.Message + " - Index: " + index }, JsonRequestBehavior.AllowGet); }
             finally { SQLServer.Close(); }
@@ -253,6 +258,7 @@ namespace Billing.Controllers
             obj.ckhMerginMonth = obj.ckhMerginMonth;
             obj.file = $"TH_{obj.year_time}{obj.month_time}";
             obj.DataSource = Server.MapPath("~/" + obj.DataSource) + obj.time + "\\";
+            obj.KYHD = int.Parse(obj.datetime.ToString("yyyyMM") + "01");
             return obj;
         }
     }

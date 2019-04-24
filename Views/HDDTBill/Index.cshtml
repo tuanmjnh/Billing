@@ -24,6 +24,10 @@
                             <input type="checkbox" name="ckhZipFile" value="true" checked />
                             Nén Zip
                         </label>
+                        <label class="mr-3">
+                            <input type="checkbox" name="ckhExcept" value="true" />
+                            Loại trừ
+                        </label>
                     </div>
                     <div class="col-md-12 row">
                         <label class="col-md-3">Chọn tháng</label>
@@ -67,6 +71,21 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group"><a href="javascript:;" data-url="@Url.Action("XuLyHuyHD")" class="btn btn-secondary btnAction">File hủy hóa đơn</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-3 panel-primary">
+                <h5 class="card-header">Xử lý thêm</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group"><a href="javascript:;" data-url="@Url.Action("XuLyHuyHDTheoMATT")" class="btn btn-secondary btnAction">File hủy hóa đơn</a></div>
                         </div>
                     </div>
                 </div>

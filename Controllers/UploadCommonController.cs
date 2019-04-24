@@ -54,7 +54,7 @@ namespace Billing.Controllers
                     var TABLE_FIELD_SET = DVVT.TABLE_FIELD_SET.Trim(',').Split(',');
                     UpdateProperties(collection, TABLE_FIELD_SET, DVVT, obj.datetime);
                     //Delete old
-                    SQLServer.Connection.Query($"DELETE {DVVT.TABLE_TARGET} WHERE TYPE_BILL={DVVT.DICHVUVT_ID} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'");
+                    SQLServer.Connection.Query($"DELETE {DVVT.TABLE_TARGET} WHERE TYPE_BILL={DVVT.DICHVUVT_ID} AND KYHOADON={obj.KYHD}");
                     //
                     SQLServer.Connection.Insert(collection);
                 }
@@ -66,7 +66,7 @@ namespace Billing.Controllers
                     var TABLE_FIELD_SET = DVVT.TABLE_FIELD_SET.Trim(',').Split(',');
                     UpdateProperties(collection, TABLE_FIELD_SET, DVVT, obj.datetime);
                     //Delete old
-                    SQLServer.Connection.Query($"DELETE {DVVT.TABLE_TARGET} WHERE TYPE_BILL={DVVT.DICHVUVT_ID} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'");
+                    SQLServer.Connection.Query($"DELETE {DVVT.TABLE_TARGET} WHERE TYPE_BILL={DVVT.DICHVUVT_ID} AND KYHOADON={obj.KYHD}");
                     //
                     SQLServer.Connection.Insert(collection);
                 }
@@ -88,8 +88,8 @@ namespace Billing.Controllers
                     var DataUpdate = new List<Models.DB_THANHTOAN_BKN>();
                     foreach (var i in new_dbkh)
                     {
-                        var _tmp = old_dbkh.FirstOrDefault(d => d.ACCOUNT == i.ACCOUNT);
-                        var _tmp_collection = collection.FirstOrDefault(d => d.ACCOUNT == i.ACCOUNT);
+                        var _tmp = old_dbkh.FirstOrDefault(d => d.MA_TB == i.MA_TB);
+                        var _tmp_collection = collection.FirstOrDefault(d => d.MA_TB == i.MA_TB);
                         if (_tmp_collection != null)
                             _tmp_collection.DBKH_ID = i.ID;
                         collectionInsert.Add(_tmp_collection);
@@ -104,7 +104,7 @@ namespace Billing.Controllers
                             if (!string.IsNullOrEmpty(i.MA_CBT)) _tmp.MA_CBT = i.MA_CBT.Trim();
                             if (!string.IsNullOrEmpty(i.MA_TUYEN)) _tmp.MA_TUYEN = i.MA_TUYEN.Trim();
                             if (!string.IsNullOrEmpty(i.MA_KH)) _tmp.MA_KH = i.MA_KH.Trim();
-                            if (!string.IsNullOrEmpty(i.MA_TT_HNI)) _tmp.MA_TT_HNI = i.MA_TT_HNI.Trim();
+                            if (!string.IsNullOrEmpty(i.MA_TT)) _tmp.MA_TT = i.MA_TT.Trim();
                             if (!string.IsNullOrEmpty(i.MS_THUE)) _tmp.MS_THUE = i.MS_THUE.Trim();
                             _tmp.MA_DT = i.MA_DT;
                             _tmp.KHLON_ID = i.KHLON_ID;
@@ -128,7 +128,7 @@ namespace Billing.Controllers
                         }
                     }
                     //Delete old
-                    SQLServer.Connection.Query($"DELETE {DVVT.TABLE_TARGET} WHERE TYPE_BILL={DVVT.DICHVUVT_ID} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'");
+                    SQLServer.Connection.Query($"DELETE {DVVT.TABLE_TARGET} WHERE TYPE_BILL={DVVT.DICHVUVT_ID} AND KYHOADON={obj.KYHD}");
                     //
                     SQLServer.Connection.Insert(collectionInsert);
                     SQLServer.Connection.Insert(DataInsert);
@@ -142,7 +142,7 @@ namespace Billing.Controllers
                     var TABLE_FIELD_SET = DVVT.TABLE_FIELD_SET.Trim(',').Split(',');
                     UpdateProperties(collection, TABLE_FIELD_SET, DVVT, obj.datetime);
                     //Delete old
-                    SQLServer.Connection.Query($"DELETE {DVVT.TABLE_TARGET} WHERE TYPE_BILL={DVVT.DICHVUVT_ID} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'");
+                    SQLServer.Connection.Query($"DELETE {DVVT.TABLE_TARGET} WHERE TYPE_BILL={DVVT.DICHVUVT_ID} AND KYHOADON={obj.KYHD}");
                     //
                     SQLServer.Connection.Insert(collection);
                 }
@@ -154,7 +154,7 @@ namespace Billing.Controllers
                     var TABLE_FIELD_SET = DVVT.TABLE_FIELD_SET.Trim(',').Split(',');
                     UpdateProperties(collection, TABLE_FIELD_SET, DVVT, obj.datetime);
                     //Delete old
-                    SQLServer.Connection.Query($"DELETE {DVVT.TABLE_TARGET} WHERE TYPE_BILL={DVVT.DICHVUVT_ID} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'");
+                    SQLServer.Connection.Query($"DELETE {DVVT.TABLE_TARGET} WHERE TYPE_BILL={DVVT.DICHVUVT_ID} AND KYHOADON={obj.KYHD}");
                     //
                     SQLServer.Connection.Insert(collection);
                 }
@@ -166,26 +166,26 @@ namespace Billing.Controllers
                     var TABLE_FIELD_SET = DVVT.TABLE_FIELD_SET.Trim(',').Split(',');
                     UpdateProperties(collection, TABLE_FIELD_SET, DVVT, obj.datetime);
                     //Delete old
-                    SQLServer.Connection.Query($"DELETE {DVVT.TABLE_TARGET} WHERE TYPE_BILL={DVVT.DICHVUVT_ID} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'");
+                    SQLServer.Connection.Query($"DELETE {DVVT.TABLE_TARGET} WHERE TYPE_BILL={DVVT.DICHVUVT_ID} AND KYHOADON={obj.KYHD}");
                     //
                     SQLServer.Connection.Insert(collection);
                 }
                 else if (DVVT.TABLE_TARGET == "THANHTOANTRUOC")
                 {
-                    var qry = $"SELECT a.*,a.MA_TB AS ACCOUNT FROM {DVVT.MA_DVVT} a";
+                    var qry = $"SELECT a.*,a.MA_TB FROM {DVVT.MA_DVVT} a";
                     var collection = FoxPro.Connection.Query<Models.THANHTOANTRUOC>(qry).ToList();
                     //
                     var TABLE_FIELD_SET = DVVT.TABLE_FIELD_SET.Trim(',').Split(',');
                     UpdateProperties(collection, TABLE_FIELD_SET, DVVT, obj.datetime);
                     //Delete old
-                    SQLServer.Connection.Query($"DELETE {DVVT.TABLE_TARGET} WHERE TYPE_BILL={DVVT.DICHVUVT_ID} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'");
+                    SQLServer.Connection.Query($"DELETE {DVVT.TABLE_TARGET} WHERE TYPE_BILL={DVVT.DICHVUVT_ID} AND KYHOADON={obj.KYHD}");
                     //
                     SQLServer.Connection.Insert(collection);
                     //Update NGAY_BD
-                    qry = $"UPDATE THANHTOANTRUOC SET NGAY_BD=CAST(CAST(NAM AS varchar(4))+'-'+CAST(THANG AS varchar(2))+'-1' as datetime) WHERE TYPE_BILL={DVVT.DICHVUVT_ID} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                    qry = $"UPDATE THANHTOANTRUOC SET NGAY_BD=CAST(CAST(NAM AS varchar(4))+'-'+CAST(THANG AS varchar(2))+'-1' as datetime) WHERE TYPE_BILL={DVVT.DICHVUVT_ID} AND KYHOADON={obj.KYHD}";
                     SQLServer.Connection.Query(qry);
                     //Update NGAY_KT
-                    qry = $"UPDATE THANHTOANTRUOC SET NGAY_KT=DATEADD(MONTH,SOTHANG,CAST(CAST(NAM as varchar(4))+'-'+CAST(THANG as varchar(2))+'-01' as datetime)) WHERE TYPE_BILL={DVVT.DICHVUVT_ID} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                    qry = $"UPDATE THANHTOANTRUOC SET NGAY_KT=DATEADD(MONTH,SOTHANG,CAST(CAST(NAM as varchar(4))+'-'+CAST(THANG as varchar(2))+'-01' as datetime)) WHERE TYPE_BILL={DVVT.DICHVUVT_ID} AND KYHOADON={obj.KYHD}";
                     SQLServer.Connection.Query(qry);
                 }
                 else if (DVVT.TABLE_TARGET == "CD")
@@ -198,7 +198,7 @@ namespace Billing.Controllers
                     var TABLE_FIELD_SET = DVVT.TABLE_FIELD_SET.Trim(',').Split(',');
                     UpdateProperties(collection, TABLE_FIELD_SET, DVVT, obj.datetime);
                     //Delete old
-                    SQLServer.Connection.Query($"DELETE {DVVT.TABLE_TARGET} WHERE TYPE_BILL={DVVT.DICHVUVT_ID} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'");
+                    SQLServer.Connection.Query($"DELETE {DVVT.TABLE_TARGET} WHERE TYPE_BILL={DVVT.DICHVUVT_ID} AND KYHOADON={obj.KYHD}");
                     //
                     SQLServer.Connection.Insert(collection);
                 }
@@ -210,7 +210,7 @@ namespace Billing.Controllers
                     var TABLE_FIELD_SET = DVVT.TABLE_FIELD_SET.Trim(',').Split(',');
                     UpdateProperties(collection, TABLE_FIELD_SET, DVVT, obj.datetime);
                     //Delete old
-                    SQLServer.Connection.Query($"DELETE {DVVT.TABLE_TARGET} WHERE TYPE_BILL={DVVT.DICHVUVT_ID} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'");
+                    SQLServer.Connection.Query($"DELETE {DVVT.TABLE_TARGET} WHERE TYPE_BILL={DVVT.DICHVUVT_ID} AND KYHOADON={obj.KYHD}");
                     //
                     SQLServer.Connection.Insert(collection);
                 }
@@ -222,7 +222,7 @@ namespace Billing.Controllers
                     var TABLE_FIELD_SET = DVVT.TABLE_FIELD_SET.Trim(',').Split(',');
                     UpdateProperties(collection, TABLE_FIELD_SET, DVVT, obj.datetime);
                     //Delete old
-                    SQLServer.Connection.Query($"DELETE {DVVT.TABLE_TARGET} WHERE TYPE_BILL={DVVT.DICHVUVT_ID} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'");
+                    SQLServer.Connection.Query($"DELETE {DVVT.TABLE_TARGET} WHERE TYPE_BILL={DVVT.DICHVUVT_ID} AND KYHOADON={obj.KYHD}");
                     //
                     SQLServer.Connection.Insert(collection);
                 }
@@ -246,17 +246,13 @@ namespace Billing.Controllers
         private void SetNullData<T>(T item, System.Reflection.PropertyInfo p, Models.DICHVU_VT_BKN DVVT, DateTime TIME_BILL)
         {
             if (p.PropertyType == typeof(Guid) || !p.CanWrite || !p.CanRead)
-            {
                 p.SetValue(item, Guid.NewGuid());
-            }
-            else if (p.PropertyType == typeof(int) || !p.CanWrite || !p.CanRead)
-            {
+            else if (p.Name.ToUpper() == "TYPE_BILL" && p.PropertyType == typeof(int))
                 p.SetValue(item, DVVT.DICHVUVT_ID);
-            }
-            else if (p.PropertyType == typeof(DateTime) || !p.CanWrite || !p.CanRead)
-            {
+            else if (p.Name.ToUpper() == "KYHOADON" && p.PropertyType == typeof(int))
+                p.SetValue(item, int.Parse(TIME_BILL.ToString("yyyyMM") + "01"));
+            else if (p.Name.ToUpper() == "TIME_BILL" && p.PropertyType == typeof(DateTime))
                 p.SetValue(item, TIME_BILL);
-            }
         }
         //Upload
         [HttpPost, ValidateAntiForgeryToken]
@@ -315,62 +311,62 @@ namespace Billing.Controllers
                 OldObj = getDefaultObj(OldObj);
                 if (obj.data_id == 9001) //Khuyến Mại
                 {
-                    qry = $"DELETE FROM DISCOUNT WHERE FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                    qry = $"DELETE FROM DISCOUNT WHERE KYHOADON={obj.KYHD}";
                     SQLServer.Connection.Query(qry);
                     //
                     qry = $@"INSERT INTO DISCOUNT 
-                             SELECT NEWID() AS ID,TYPE_HD,TYPE_BILL,CAST('{obj.datetime.ToString("yyyy/MM/dd")}' AS datetime) AS TIME_BILL,ACCOUNT,TYPE,TYPEID,VALUE,DETAILS,NGAY_DK,NGAY_BD,NGAY_KT,FLAG 
-                             FROM DISCOUNT WHERE FORMAT(TIME_BILL,'MM/yyyy')='{OldObj.month_year_time}' AND FLAG=1 AND ((NGAY_KT IS NULL) OR (CAST('{obj.datetime.ToString("yyyy/MM/dd")}' AS datetime) BETWEEN NGAY_BD AND NGAY_KT))";
+                             SELECT NEWID() AS ID,{obj.KYHD} AS KYHOADON,TYPE_HD,TYPE_BILL,MA_TB,TYPE,TYPEID,VALUE,DETAILS,NGAY_DK,NGAY_BD,NGAY_KT,FLAG 
+                             FROM DISCOUNT WHERE KYHOADON={TimePreData+"01"} AND FLAG=1 AND ((NGAY_KT IS NULL) OR (CAST('{obj.datetime.ToString("yyyy/MM/dd")}' AS datetime) BETWEEN NGAY_BD AND NGAY_KT))";
                     SQLServer.Connection.Query(qry);
                 }
                 else if (obj.data_id == 9003) //Đặt cọc
                 {
-                    qry = $"DELETE FROM THANHTOANTRUOC WHERE FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND TYPE_BILL=9003";
+                    qry = $"DELETE FROM THANHTOANTRUOC WHERE KYHOADON={obj.KYHD} AND TYPE_BILL=9003";
                     SQLServer.Connection.Query(qry);
                     //
                     qry = $@"INSERT INTO THANHTOANTRUOC 
-                             SELECT NEWID() AS ID,TYPE_BILL,CAST('{obj.datetime.ToString("yyyy/MM/dd")}' AS datetime) AS TIME_BILL,ID_TTT,ACCOUNT,MA_TB,SO_MAY,DVVT_ID,TOCDO_ID,0 AS GOICUOC_ID,TIENHANMUC,TONGHANMUC,TT,KHOANTIEN,THANG,NAM,NGAY_BD,NGAY_KT,SODU_TONG AS SODU,ID_CV,NGAY_TT,NGUONDL,CUOC_FIX,TEN_DVVT,SOTHANG,0 AS THUC_TRU,NGAY_SD,GHI_CHU,0 AS TONG,0 AS EXTRA_TONG,0 AS SODU_TONG,1 AS FLAG 
-                             FROM THANHTOANTRUOC WHERE FORMAT(TIME_BILL,'MM/yyyy')='{OldObj.month_year_time}' AND TYPE_BILL=9003 AND SODU_TONG>0";
+                             SELECT NEWID() AS ID,{obj.KYHD} AS KYHOADON,TYPE_BILL,ID_TTT,MA_TB,DVVT_ID,TOCDO_ID,0 AS GOICUOC_ID,TIENHANMUC,TONGHANMUC,TT,KHOANTIEN,THANG,NAM,NGAY_BD,NGAY_KT,SODU_TONG AS SODU,ID_CV,NGAY_TT,NGUONDL,CUOC_FIX,TEN_DVVT,SOTHANG,0 AS THUC_TRU,NGAY_SD,GHI_CHU,0 AS TONG,0 AS EXTRA_TONG,0 AS SODU_TONG,1 AS FLAG 
+                             FROM THANHTOANTRUOC WHERE KYHOADON={TimePreData + "01"} AND TYPE_BILL=9003 AND SODU_TONG>0";
                     SQLServer.Connection.Query(qry);
                 }
                 else if (obj.data_id == 9682) //MyTV Mergin
                 {
-                    qry = $"DELETE FROM HD_MYTV WHERE FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND TYPE_BILL=9682";
+                    qry = $"DELETE FROM HD_MYTV WHERE KYHOADON={obj.KYHD} AND TYPE_BILL=9682";
                     SQLServer.Connection.Query(qry);
                     //
                     qry = $@"INSERT INTO HD_MYTV 
-                             SELECT NEWID() AS ID,MYTV_ID,DBKH_ID,TYPE_BILL,CAST('{obj.datetime.ToString("yyyy/MM/dd")}' AS datetime) AS TIME_BILL,ACCOUNT,TOC_DO,TT_THANG,NGAY_TB,NGAY_TB_PTTB,GOICUOCID,TH_THANG,TH_HUY,DUPECOUNT,ISDATMOI,ISHUY,ISTTT,ISDATCOC,PAYTV_FEE,SUB_FEE,GIAM_TRU,TONG_TTT,TONG_DC,TONG_IN,TONG,VAT,TONGCONG,SIGNDATE,REGISTDATE,NGAY_SD,NGAY_KHOA,NGAY_MO,NGAY_KT 
-                             FROM HD_MYTV WHERE FORMAT(TIME_BILL,'MM/yyyy')='{OldObj.month_year_time}' AND TYPE_BILL=9682";
+                             SELECT NEWID() AS ID,{obj.KYHD} AS KYHOADON,MYTV_ID,DBKH_ID,TYPE_BILL,MA_TB,TOC_DO,TT_THANG,NGAY_TB,NGAY_TB_PTTB,GOICUOCID,TH_THANG,TH_HUY,DUPECOUNT,ISDATMOI,ISHUY,ISTTT,ISDATCOC,PAYTV_FEE,SUB_FEE,GIAM_TRU,TONG_TTT,TONG_DC,TONG_IN,TONG,VAT,TONGCONG,SIGNDATE,REGISTDATE,NGAY_SD,NGAY_KHOA,NGAY_MO,NGAY_KT 
+                             FROM HD_MYTV WHERE KYHOADON={TimePreData + "01"} AND TYPE_BILL=9682";
                     SQLServer.Connection.Query(qry);
                 }
                 else if (obj.data_id == 9662) //MegaVNN Mergin
                 {
-                    qry = $"DELETE FROM HD_NET WHERE FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND TYPE_BILL=9662";
+                    qry = $"DELETE FROM HD_NET WHERE KYHOADON={obj.KYHD} AND TYPE_BILL=9662";
                     SQLServer.Connection.Query(qry);
                     //
                     qry = $@"INSERT INTO HD_NET 
-                             SELECT NEWID() AS ID,NET_ID,DBKH_ID,TYPE_BILL,CAST('{obj.datetime.ToString("yyyy/MM/dd")}' AS datetime) AS TIME_BILL,ACCOUNT,MA_TB,TOC_DO,TT_THANG,TBTHG,NGAY_TB,NGAY_TB_PTTB,GOICUOCID,TH_THANG,TH_HUY,DUPECOUNT,ISDATMOI,ISHUY,ISTTT,ISDATCOC,GIAM_TRU,CUOC_IP,CUOC_EMAIL,CUOC_DATA,CUOC_SD,CUOC_TB,TONG_TTT,TONG_DC,TONG_IN,TONG,VAT,TONGCONG,NGAY_DKY,NGAY_CAT,NGAY_HUY,NGAY_CHUYEN,NGAY_SD,NGAY_KHOA,NGAY_MO,NGAY_KT
-                             FROM HD_NET WHERE FORMAT(TIME_BILL,'MM/yyyy')='{OldObj.month_year_time}' AND TYPE_BILL=9662";
+                             SELECT NEWID() AS ID,{obj.KYHD} AS KYHOADON,NET_ID,DBKH_ID,TYPE_BILL,MA_TB,TOC_DO,TT_THANG,TBTHG,NGAY_TB,NGAY_TB_PTTB,GOICUOCID,TH_THANG,TH_HUY,DUPECOUNT,ISDATMOI,ISHUY,ISTTT,ISDATCOC,GIAM_TRU,CUOC_IP,CUOC_EMAIL,CUOC_DATA,CUOC_SD,CUOC_TB,TONG_TTT,TONG_DC,TONG_IN,TONG,VAT,TONGCONG,NGAY_DKY,NGAY_CAT,NGAY_HUY,NGAY_CHUYEN,NGAY_SD,NGAY_KHOA,NGAY_MO,NGAY_KT
+                             FROM HD_NET WHERE KYHOADON={TimePreData + "01"} AND TYPE_BILL=9662";
                     SQLServer.Connection.Query(qry);
                 }
                 else if (obj.data_id == 9692) //Fiber Mergin
                 {
-                    qry = $"DELETE FROM HD_NET WHERE FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND TYPE_BILL=9692";
+                    qry = $"DELETE FROM HD_NET WHERE KYHOADON={obj.KYHD} AND TYPE_BILL=9692";
                     SQLServer.Connection.Query(qry);
                     //
                     qry = $@"INSERT INTO HD_NET 
-                             SELECT NEWID() AS ID,NET_ID,DBKH_ID,TYPE_BILL,CAST('{obj.datetime.ToString("yyyy/MM/dd")}' AS datetime) AS TIME_BILL,ACCOUNT,MA_TB,TOC_DO,TT_THANG,TBTHG,NGAY_TB,NGAY_TB_PTTB,GOICUOCID,TH_THANG,TH_HUY,DUPECOUNT,ISDATMOI,ISHUY,ISTTT,ISDATCOC,GIAM_TRU,CUOC_IP,CUOC_EMAIL,CUOC_DATA,CUOC_SD,CUOC_TB,TONG_TTT,TONG_DC,TONG_IN,TONG,VAT,TONGCONG,NGAY_DKY,NGAY_CAT,NGAY_HUY,NGAY_CHUYEN,NGAY_SD,NGAY_KHOA,NGAY_MO,NGAY_KT
-                             FROM HD_NET WHERE FORMAT(TIME_BILL,'MM/yyyy')='{OldObj.month_year_time}' AND TYPE_BILL=9692";
+                             SELECT NEWID() AS ID,{obj.KYHD} AS KYHOADON,NET_ID,DBKH_ID,TYPE_BILL,MA_TB,TOC_DO,TT_THANG,TBTHG,NGAY_TB,NGAY_TB_PTTB,GOICUOCID,TH_THANG,TH_HUY,DUPECOUNT,ISDATMOI,ISHUY,ISTTT,ISDATCOC,GIAM_TRU,CUOC_IP,CUOC_EMAIL,CUOC_DATA,CUOC_SD,CUOC_TB,TONG_TTT,TONG_DC,TONG_IN,TONG,VAT,TONGCONG,NGAY_DKY,NGAY_CAT,NGAY_HUY,NGAY_CHUYEN,NGAY_SD,NGAY_KHOA,NGAY_MO,NGAY_KT
+                             FROM HD_NET WHERE KYHOADON={TimePreData + "01"} AND TYPE_BILL=9692";
                     SQLServer.Connection.Query(qry);
                 }
                 else if (obj.data_id == 9999) //Tích hợp
                 {
-                    qry = $"DELETE FROM DANHBA_GOICUOC_TICHHOP WHERE FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND FIX=1 AND FLAG=1";
+                    qry = $"DELETE FROM DANHBA_GOICUOC_TICHHOP WHERE KYHOADON={obj.KYHD} AND FIX=1 AND FLAG=1";
                     SQLServer.Connection.Query(qry);
                     //
                     qry = $@"INSERT INTO DANHBA_GOICUOC_TICHHOP 
-                             SELECT NEWID() AS ID,CAST('{obj.datetime.ToString("yyyy/MM/dd")}' AS datetime) AS TIME_BILL,MA_TB,ACCOUNT,TEN_GOICUOC,LOAIGOICUOC_ID,DICHVUVT_ID,LOAIMAY_ID,GOICUOC_ID,NGAY_BD,NGAY_KT,DUPE_COUNT,DUPE_FLAG,NO_DUPE,FIX_NGAY_KT,TH_THANG,TH_SO_NGAY,FIX,EXTRA_TYPE,DETAILS,FLAG
-                             FROM HD_NET WHERE FORMAT(TIME_BILL,'MM/yyyy')='{OldObj.month_year_time}' AND FIX=1 AND FLAG=1";
+                             SELECT NEWID() AS ID,{obj.KYHD} AS KYHOADON,MA_TB,MA_TB,TEN_GOICUOC,LOAIGOICUOC_ID,DICHVUVT_ID,LOAIMAY_ID,GOICUOC_ID,NGAY_BD,NGAY_KT,DUPE_COUNT,DUPE_FLAG,NO_DUPE,FIX_NGAY_KT,TH_THANG,TH_SO_NGAY,FIX,EXTRA_TYPE,DETAILS,FLAG
+                             FROM HD_NET WHERE KYHOADON={TimePreData + "01"} AND FIX=1 AND FLAG=1";
                     SQLServer.Connection.Query(qry);
                 }
                 return Json(new { success = $"Nhập dữ liệu {dvvv} từ {OldObj.datetime.ToString("MM/yyyy")} sang {obj.datetime.ToString("MM/yyyy")} thành công" }, JsonRequestBehavior.AllowGet);
@@ -400,7 +396,7 @@ namespace Billing.Controllers
                     //Remove old
                     if (obj.data_id == 2)
                     {
-                        qry = $"DELETE DANHBA_GOICUOC_TICHHOP WHERE FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND FIX=1";
+                        qry = $"DELETE DANHBA_GOICUOC_TICHHOP WHERE KYHOADON={obj.KYHD} AND FIX=1";
                         SQLServer.Connection.Query(qry);
                     }
                     //qry = "SELECT MAX(ID) ID FROM DANHBA_GOICUOC_TICHHOP";
@@ -422,9 +418,8 @@ namespace Billing.Controllers
                             dataList.Add(new Models.DANHBA_GOICUOC_TICHHOP()
                             {
                                 ID = Guid.NewGuid(),
-                                TIME_BILL = obj.datetime,
+                                KYHOADON = obj.KYHD,
                                 MA_TB = tmp[0],
-                                ACCOUNT = tmp[0],
                                 DICHVUVT_ID = int.Parse(tmp[1]),
                                 NHOMTB_ID = int.Parse(tmp[2]),
                                 GOI_ID = int.Parse(tmp[3]),
@@ -439,16 +434,16 @@ namespace Billing.Controllers
                     //
                     SQLServer.Connection.Insert(dataList);
                     //
-                    qry = $"UPDATE DANHBA_GOICUOC_TICHHOP SET EXTRA_TYPE=1 WHERE GOI_ID IN (SELECT GOICUOCID FROM BGCUOC WHERE EXTRA_TYPE=1) AND FIX=1 AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                    qry = $"UPDATE DANHBA_GOICUOC_TICHHOP SET EXTRA_TYPE=1 WHERE GOI_ID IN (SELECT GOICUOCID FROM BGCUOC WHERE EXTRA_TYPE=1) AND FIX=1 AND KYHOADON={obj.KYHD}";
                     SQLServer.Connection.Query(qry);
                     //
-                    //qry = $@"INSERT DANHBA_GOICUOC_TICHHOP select ((select MAX(ID) from DANHBA_GOICUOC_TICHHOP)+ROW_NUMBER() OVER(ORDER BY ID)) as [ID],[TIME_BILL],[MA_TB],[ACCOUNT],[TEN_GOICUOC],[LOAIGOICUOC_ID],[DICHVUVT_ID],[LOAIMAY_ID],[GOICUOC_ID],[NGAY_BD],[NGAY_KT],[DUPE_COUNT],[DUPE_FLAG],[NO_DUPE],[FIX_NGAY_KT],[TH_THANG],[TH_SO_NGAY],[FIX],[EXTRA_TYPE],0 as [FLAG] from DANHBA_GOICUOC_TICHHOP a where FIX=1 and FLAG=1 and FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}' and ACCOUNT in (select ACCOUNT from DANHBA_GOICUOC_TICHHOP where FIX=0 and LOAIGOICUOC_ID!=a.LOAIGOICUOC_ID and FLAG=1 and FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}');
-                    //         UPDATE DANHBA_GOICUOC_TICHHOP SET EXTRA_TYPE=1 WHERE LOAIGOICUOC_ID IN (SELECT GOICUOCID FROM BANGGIACUOC WHERE EXTRA_TYPE=1) AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                    //qry = $@"INSERT DANHBA_GOICUOC_TICHHOP select ((select MAX(ID) from DANHBA_GOICUOC_TICHHOP)+ROW_NUMBER() OVER(ORDER BY ID)) as [ID],[KYHOADON],[MA_TB],[MA_TB],[TEN_GOICUOC],[LOAIGOICUOC_ID],[DICHVUVT_ID],[LOAIMAY_ID],[GOICUOC_ID],[NGAY_BD],[NGAY_KT],[DUPE_COUNT],[DUPE_FLAG],[NO_DUPE],[FIX_NGAY_KT],[TH_THANG],[TH_SO_NGAY],[FIX],[EXTRA_TYPE],0 as [FLAG] from DANHBA_GOICUOC_TICHHOP a where FIX=1 and FLAG=1 and KYHOADON={obj.KYHD} and MA_TB in (select MA_TB from DANHBA_GOICUOC_TICHHOP where FIX=0 and LOAIGOICUOC_ID!=a.LOAIGOICUOC_ID and FLAG=1 and KYHOADON={obj.KYHD});
+                    //         UPDATE DANHBA_GOICUOC_TICHHOP SET EXTRA_TYPE=1 WHERE LOAIGOICUOC_ID IN (SELECT GOICUOCID FROM BANGGIACUOC WHERE EXTRA_TYPE=1) AND KYHOADON={obj.KYHD}";
                     //SQLServer.Connection.Query(qry, null, null, true, 0);
 
-                    //qry = $"update a set a.FLAG=2 from DANHBA_GOICUOC_TICHHOP a where FIX=1 and FLAG=1 and FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}' and ACCOUNT in (select ACCOUNT from DANHBA_GOICUOC_TICHHOP where FIX=0 and LOAIGOICUOC_ID!=a.LOAIGOICUOC_ID and FLAG=1 and FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}')";
+                    //qry = $"update a set a.FLAG=2 from DANHBA_GOICUOC_TICHHOP a where FIX=1 and FLAG=1 and KYHOADON={obj.KYHD} and MA_TB in (select MA_TB from DANHBA_GOICUOC_TICHHOP where FIX=0 and LOAIGOICUOC_ID!=a.LOAIGOICUOC_ID and FLAG=1 and KYHOADON={obj.KYHD})";
                     //SQLServer.Connection.Query(qry);
-                    //qry = $"update a set a.FLAG=1,a.LOAIGOICUOC_ID=(select MAX(LOAIGOICUOC_ID) from DANHBA_GOICUOC_TICHHOP where FIX=0 and LOAIGOICUOC_ID!=a.LOAIGOICUOC_ID and FLAG=1 and FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}') from DANHBA_GOICUOC_TICHHOP a where a.FIX=1 and a.FLAG=2 and FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                    //qry = $"update a set a.FLAG=1,a.LOAIGOICUOC_ID=(select MAX(LOAIGOICUOC_ID) from DANHBA_GOICUOC_TICHHOP where FIX=0 and LOAIGOICUOC_ID!=a.LOAIGOICUOC_ID and FLAG=1 and KYHOADON={obj.KYHD}) from DANHBA_GOICUOC_TICHHOP a where a.FIX=1 and a.FLAG=2 and KYHOADON={obj.KYHD}";
                     //SQLServer.Connection.Query(qry);
                     msg += $" tích hợp - {dataList.Count} thuê bao";
                 }
@@ -457,7 +452,7 @@ namespace Billing.Controllers
                     //Remove old
                     if (obj.data_id == 2)
                     {
-                        qry = $"DELETE DISCOUNT WHERE FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";//AND TYPEID={(int)Common.Objects.TYPE_DISCOUNT.FIX_IN}
+                        qry = $"DELETE DISCOUNT WHERE KYHOADON={obj.KYHD}";//AND TYPEID={(int)Common.Objects.TYPE_DISCOUNT.FIX_IN}
                         SQLServer.Connection.Query(qry);
                     }
                     var dataList = new List<Models.DISCOUNT>();
@@ -472,8 +467,8 @@ namespace Billing.Controllers
                             var _data = new Models.DISCOUNT();
                             _data.ID = Guid.NewGuid();
                             _data.TYPE_BILL = 9001;
-                            _data.TIME_BILL = obj.datetime;
-                            _data.ACCOUNT = string.IsNullOrEmpty(tmp[0]) ? null : tmp[0].Trim();
+                            _data.KYHOADON = obj.KYHD;
+                            _data.MA_TB = string.IsNullOrEmpty(tmp[0]) ? null : tmp[0].Trim();
                             _data.TYPE_HD = int.Parse(tmp[1]);
                             _data.TYPEID = int.Parse(tmp[2]);
                             _data.TYPE = Enum.GetName(typeof(Common.Objects.TYPE_DISCOUNT), int.Parse(tmp[2]));//Common.Objects.TYPE_DISCOUNT.FIX_IN.ToString(),
@@ -494,11 +489,11 @@ namespace Billing.Controllers
                     //Remove old
                     if (obj.data_id == 2)
                     {
-                        qry = $"DELETE THANHTOANTRUOC WHERE FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND TYPE_BILL=9006";
+                        qry = $"DELETE THANHTOANTRUOC WHERE KYHOADON={obj.KYHD} AND TYPE_BILL=9006";
                         SQLServer.Connection.Query(qry);
                     }
                     //Get data ttt
-                    qry = $"SELECT * FROM THANHTOANTRUOC WHERE FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND TYPE_BILL IN(9002,9006)";
+                    qry = $"SELECT * FROM THANHTOANTRUOC WHERE KYHOADON={obj.KYHD} AND TYPE_BILL IN(9002,9006)";
                     var datattt = SQLServer.Connection.Query<Models.THANHTOANTRUOC>(qry).ToList();
                     var dataList = new List<Models.THANHTOANTRUOC>();
                     index = 0;
@@ -510,17 +505,17 @@ namespace Billing.Controllers
                         if (index == 1) continue;
                         if (tmp.Length > 7)
                         {
-                            var account = string.IsNullOrEmpty(tmp[0]) ? null : tmp[0].Trim();
+                            var ma_tb = string.IsNullOrEmpty(tmp[0]) ? null : tmp[0].Trim();
                             //Check exist ttt
-                            if (datattt.Any(d => d.ACCOUNT == account)) continue;
+                            if (datattt.Any(d => d.MA_TB == ma_tb)) continue;
                             //Check exist List Insert
-                            if (dataList.Any(d => d.ACCOUNT == account)) continue;
+                            if (dataList.Any(d => d.MA_TB == ma_tb)) continue;
 
                             var _data = new Models.THANHTOANTRUOC();
                             _data.ID = Guid.NewGuid();
                             _data.TYPE_BILL = 9006;
-                            _data.TIME_BILL = obj.datetime;
-                            _data.ACCOUNT = _data.MA_TB = _data.SO_MAY = account;
+                            _data.KYHOADON = obj.KYHD;
+                            _data.MA_TB = ma_tb;
                             _data.DVVT_ID = int.Parse(tmp[1]);
                             _data.TOCDO_ID = 0;
                             _data.GOICUOC_ID = 0;
@@ -541,10 +536,10 @@ namespace Billing.Controllers
                     }
                     SQLServer.Connection.Insert(dataList);
                     //Update NGAY_BD
-                    qry = $"UPDATE THANHTOANTRUOC SET NGAY_BD=CAST(CAST(NAM AS varchar(4))+'-'+CAST(THANG AS varchar(2))+'-1' as datetime) WHERE TYPE_BILL=9006 AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                    qry = $"UPDATE THANHTOANTRUOC SET NGAY_BD=CAST(CAST(NAM AS varchar(4))+'-'+CAST(THANG AS varchar(2))+'-1' as datetime) WHERE TYPE_BILL=9006 AND KYHOADON={obj.KYHD}";
                     SQLServer.Connection.Query(qry);
                     //Update NGAY_KT
-                    qry = $"UPDATE THANHTOANTRUOC SET NGAY_KT=DATEADD(MONTH,SOTHANG,CAST(CAST(NAM as varchar(4))+'-'+CAST(THANG as varchar(2))+'-01' as datetime)) WHERE TYPE_BILL=9006 AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
+                    qry = $"UPDATE THANHTOANTRUOC SET NGAY_KT=DATEADD(MONTH,SOTHANG,CAST(CAST(NAM as varchar(4))+'-'+CAST(THANG as varchar(2))+'-01' as datetime)) WHERE TYPE_BILL=9006 AND KYHOADON={obj.KYHD}";
                     SQLServer.Connection.Query(qry);
                     msg += $" thanh toán trước fix - {dataList.Count} thuê bao";
                 }
@@ -553,7 +548,7 @@ namespace Billing.Controllers
                     //Remove old
                     if (obj.data_id == 2)
                     {
-                        qry = $"DELETE THANHTOANTRUOC WHERE FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND TYPE_BILL=9003";
+                        qry = $"DELETE THANHTOANTRUOC WHERE KYHOADON={obj.KYHD} AND TYPE_BILL=9003";
                         SQLServer.Connection.Query(qry);
                     }
                     var dataList = new List<Models.THANHTOANTRUOC>();
@@ -565,17 +560,17 @@ namespace Billing.Controllers
                         if (index == 1) continue;
                         if (tmp.Length > 4)
                         {
-                            var account = string.IsNullOrEmpty(tmp[0]) ? null : tmp[0].Trim();
+                            var ma_tb = string.IsNullOrEmpty(tmp[0]) ? null : tmp[0].Trim();
                             //Check exist
-                            qry = $"SELECT * FROM THANHTOANTRUOC WHERE FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND TYPE_BILL=9003 AND ACCOUNT='{account}'";
+                            qry = $"SELECT * FROM THANHTOANTRUOC WHERE KYHOADON={obj.KYHD} AND TYPE_BILL=9003 AND MA_TB='{ma_tb}'";
                             if (SQLServer.Connection.Query<Models.THANHTOANTRUOC>(qry).Count() > 0) continue;
-                            if (dataList.Any(d => d.ACCOUNT == account)) continue;
+                            if (dataList.Any(d => d.MA_TB == ma_tb)) continue;
 
                             var _data = new Models.THANHTOANTRUOC();
                             _data.ID = Guid.NewGuid();
                             _data.TYPE_BILL = 9003;
-                            _data.TIME_BILL = obj.datetime;
-                            _data.ACCOUNT = _data.MA_TB = _data.SO_MAY = account;
+                            _data.KYHOADON = obj.KYHD;
+                            _data.MA_TB = ma_tb;
                             _data.DVVT_ID = int.Parse(tmp[1]);
                             _data.TOCDO_ID = 0;
                             _data.GOICUOC_ID = 0;
@@ -685,6 +680,7 @@ namespace Billing.Controllers
             obj.ckhMerginMonth = obj.ckhMerginMonth;
             //obj.file = $"BKN_th";
             obj.DataSource = Server.MapPath("~/" + obj.DataSource) + obj.time + "\\";
+            obj.KYHD = int.Parse(obj.datetime.ToString("yyyyMM") + "01");
             return obj;
         }
         //private string MappingFile(int type)

@@ -16,69 +16,53 @@ namespace Billing.Vasc {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="Vasc.SubscriberManagementSoap")]
     public interface SubscriberManagementSoap {
         
-        // CODEGEN: Generating message contract since message AddHotelRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddHotel", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message STB_PROM_RegisterRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/STB_PROM_Register", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.AddHotelResponse AddHotel(Billing.Vasc.AddHotelRequest request);
+        Billing.Vasc.STB_PROM_RegisterResponse STB_PROM_Register(Billing.Vasc.STB_PROM_RegisterRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddHotel", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.AddHotelResponse> AddHotelAsync(Billing.Vasc.AddHotelRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/STB_PROM_Register", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.STB_PROM_RegisterResponse> STB_PROM_RegisterAsync(Billing.Vasc.STB_PROM_RegisterRequest request);
         
-        // CODEGEN: Generating message contract since message EditHotelRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/EditHotel", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message STB_PROM_ActiveRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/STB_PROM_Active", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.EditHotelResponse EditHotel(Billing.Vasc.EditHotelRequest request);
+        Billing.Vasc.STB_PROM_ActiveResponse STB_PROM_Active(Billing.Vasc.STB_PROM_ActiveRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/EditHotel", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.EditHotelResponse> EditHotelAsync(Billing.Vasc.EditHotelRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/STB_PROM_Active", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.STB_PROM_ActiveResponse> STB_PROM_ActiveAsync(Billing.Vasc.STB_PROM_ActiveRequest request);
         
-        // CODEGEN: Generating message contract since message DeleteHotelRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteHotel", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message STB_PROM_BackRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/STB_PROM_Back", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.DeleteHotelResponse DeleteHotel(Billing.Vasc.DeleteHotelRequest request);
+        Billing.Vasc.STB_PROM_BackResponse STB_PROM_Back(Billing.Vasc.STB_PROM_BackRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteHotel", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.DeleteHotelResponse> DeleteHotelAsync(Billing.Vasc.DeleteHotelRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/STB_PROM_Back", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.STB_PROM_BackResponse> STB_PROM_BackAsync(Billing.Vasc.STB_PROM_BackRequest request);
         
-        // CODEGEN: Generating message contract since message ChangePWHotelRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePWHotel", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message STB_PROM_SummaryRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/STB_PROM_Summary", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.ChangePWHotelResponse ChangePWHotel(Billing.Vasc.ChangePWHotelRequest request);
+        Billing.Vasc.STB_PROM_SummaryResponse STB_PROM_Summary(Billing.Vasc.STB_PROM_SummaryRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePWHotel", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangePWHotelResponse> ChangePWHotelAsync(Billing.Vasc.ChangePWHotelRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/STB_PROM_Summary", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.STB_PROM_SummaryResponse> STB_PROM_SummaryAsync(Billing.Vasc.STB_PROM_SummaryRequest request);
         
-        // CODEGEN: Generating message contract since message ChangeStatusHotelRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeStatusHotel", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message STB_PROM_Summary3855Request has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/STB_PROM_Summary3855", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.ChangeStatusHotelResponse ChangeStatusHotel(Billing.Vasc.ChangeStatusHotelRequest request);
+        Billing.Vasc.STB_PROM_Summary3855Response STB_PROM_Summary3855(Billing.Vasc.STB_PROM_Summary3855Request request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeStatusHotel", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangeStatusHotelResponse> ChangeStatusHotelAsync(Billing.Vasc.ChangeStatusHotelRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/STB_PROM_Summary3855", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.STB_PROM_Summary3855Response> STB_PROM_Summary3855Async(Billing.Vasc.STB_PROM_Summary3855Request request);
         
-        // CODEGEN: Generating message contract since message ComboFAF_UpdateRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ComboFAF_Update", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message STB_PROM_BuyRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/STB_PROM_Buy", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.ComboFAF_UpdateResponse ComboFAF_Update(Billing.Vasc.ComboFAF_UpdateRequest request);
+        Billing.Vasc.STB_PROM_BuyResponse STB_PROM_Buy(Billing.Vasc.STB_PROM_BuyRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ComboFAF_Update", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.ComboFAF_UpdateResponse> ComboFAF_UpdateAsync(Billing.Vasc.ComboFAF_UpdateRequest request);
-        
-        // CODEGEN: Generating message contract since message PayTVFull_RegisterRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/PayTVFull_Register", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.PayTVFull_RegisterResponse PayTVFull_Register(Billing.Vasc.PayTVFull_RegisterRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/PayTVFull_Register", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.PayTVFull_RegisterResponse> PayTVFull_RegisterAsync(Billing.Vasc.PayTVFull_RegisterRequest request);
-        
-        // CODEGEN: Generating message contract since message Smart_OTTGetMemberPendingRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Smart_OTTGetMemberPending", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.Smart_OTTGetMemberPendingResponse Smart_OTTGetMemberPending(Billing.Vasc.Smart_OTTGetMemberPendingRequest1 request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Smart_OTTGetMemberPending", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.Smart_OTTGetMemberPendingResponse> Smart_OTTGetMemberPendingAsync(Billing.Vasc.Smart_OTTGetMemberPendingRequest1 request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/STB_PROM_Buy", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.STB_PROM_BuyResponse> STB_PROM_BuyAsync(Billing.Vasc.STB_PROM_BuyRequest request);
         
         // CODEGEN: Generating message contract since message GponCab_RegistWithoutMyTVRequest has headers
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GponCab_RegistWithoutMyTV", ReplyAction="*")]
@@ -104,6 +88,110 @@ namespace Billing.Vasc {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateSubGponCab", ReplyAction="*")]
         System.Threading.Tasks.Task<Billing.Vasc.UpdateSubGponCabResponse> UpdateSubGponCabAsync(Billing.Vasc.UpdateSubGponCabRequest1 request);
         
+        // CODEGEN: Generating message contract since message AddNewDistrictRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddNewDistrict", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.AddNewDistrictResponse AddNewDistrict(Billing.Vasc.AddNewDistrictRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddNewDistrict", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.AddNewDistrictResponse> AddNewDistrictAsync(Billing.Vasc.AddNewDistrictRequest request);
+        
+        // CODEGEN: Generating message contract since message EditDistrictRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/EditDistrict", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.EditDistrictResponse EditDistrict(Billing.Vasc.EditDistrictRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/EditDistrict", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.EditDistrictResponse> EditDistrictAsync(Billing.Vasc.EditDistrictRequest request);
+        
+        // CODEGEN: Generating message contract since message DeleteDistrictRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteDistrict", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.DeleteDistrictResponse DeleteDistrict(Billing.Vasc.DeleteDistrictRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteDistrict", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.DeleteDistrictResponse> DeleteDistrictAsync(Billing.Vasc.DeleteDistrictRequest request);
+        
+        // CODEGEN: Generating message contract since message ChangeDistrictSubscriberRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeDistrictSubscriber", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.ChangeDistrictSubscriberResponse ChangeDistrictSubscriber(Billing.Vasc.ChangeDistrictSubscriberRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeDistrictSubscriber", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangeDistrictSubscriberResponse> ChangeDistrictSubscriberAsync(Billing.Vasc.ChangeDistrictSubscriberRequest request);
+        
+        // CODEGEN: Generating message contract since message ChangeSTBRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeSTB", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.ChangeSTBResponse ChangeSTB(Billing.Vasc.ChangeSTBRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeSTB", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangeSTBResponse> ChangeSTBAsync(Billing.Vasc.ChangeSTBRequest request);
+        
+        // CODEGEN: Generating message contract since message GetSTBInfoRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSTBInfo", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.GetSTBInfoResponse GetSTBInfo(Billing.Vasc.GetSTBInfoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSTBInfo", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.GetSTBInfoResponse> GetSTBInfoAsync(Billing.Vasc.GetSTBInfoRequest request);
+        
+        // CODEGEN: Generating message contract since message GetSTBInforRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSTBInfor", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.GetSTBInforResponse GetSTBInfor(Billing.Vasc.GetSTBInforRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSTBInfor", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.GetSTBInforResponse> GetSTBInforAsync(Billing.Vasc.GetSTBInforRequest request);
+        
+        // CODEGEN: Generating message contract since message GetHistorySTBRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetHistorySTB", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.GetHistorySTBResponse GetHistorySTB(Billing.Vasc.GetHistorySTBRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetHistorySTB", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.GetHistorySTBResponse> GetHistorySTBAsync(Billing.Vasc.GetHistorySTBRequest request);
+        
+        // CODEGEN: Generating message contract since message GetHisSubscriberChangeSTBRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetHisSubscriberChangeSTB", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.GetHisSubscriberChangeSTBResponse GetHisSubscriberChangeSTB(Billing.Vasc.GetHisSubscriberChangeSTBRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetHisSubscriberChangeSTB", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.GetHisSubscriberChangeSTBResponse> GetHisSubscriberChangeSTBAsync(Billing.Vasc.GetHisSubscriberChangeSTBRequest request);
+        
+        // CODEGEN: Generating message contract since message UpdateDeviceInfoRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateDeviceInfo", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.UpdateDeviceInfoResponse UpdateDeviceInfo(Billing.Vasc.UpdateDeviceInfoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateDeviceInfo", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.UpdateDeviceInfoResponse> UpdateDeviceInfoAsync(Billing.Vasc.UpdateDeviceInfoRequest request);
+        
+        // CODEGEN: Generating message contract since message STB_Rent_UpdateInfoRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/STB_Rent_UpdateInfo", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.STB_Rent_UpdateInfoResponse STB_Rent_UpdateInfo(Billing.Vasc.STB_Rent_UpdateInfoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/STB_Rent_UpdateInfo", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.STB_Rent_UpdateInfoResponse> STB_Rent_UpdateInfoAsync(Billing.Vasc.STB_Rent_UpdateInfoRequest request);
+        
+        // CODEGEN: Generating message contract since message Cust_UserMulti_UpdateInfoRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Cust_UserMulti_UpdateInfo", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.Cust_UserMulti_UpdateInfoResponse Cust_UserMulti_UpdateInfo(Billing.Vasc.Cust_UserMulti_UpdateInfoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Cust_UserMulti_UpdateInfo", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.Cust_UserMulti_UpdateInfoResponse> Cust_UserMulti_UpdateInfoAsync(Billing.Vasc.Cust_UserMulti_UpdateInfoRequest request);
+        
+        // CODEGEN: Generating message contract since message Cust_Trial_UpdateInfoRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Cust_Trial_UpdateInfo", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.Cust_Trial_UpdateInfoResponse Cust_Trial_UpdateInfo(Billing.Vasc.Cust_Trial_UpdateInfoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Cust_Trial_UpdateInfo", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.Cust_Trial_UpdateInfoResponse> Cust_Trial_UpdateInfoAsync(Billing.Vasc.Cust_Trial_UpdateInfoRequest request);
+        
         // CODEGEN: Generating message contract since message UpdateSubTrialRequest has headers
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateSubTrial", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -112,29 +200,125 @@ namespace Billing.Vasc {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateSubTrial", ReplyAction="*")]
         System.Threading.Tasks.Task<Billing.Vasc.UpdateSubTrialResponse> UpdateSubTrialAsync(Billing.Vasc.UpdateSubTrialRequest1 request);
         
-        // CODEGEN: Generating message contract since message TotalMyTVPlusRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TotalMyTVPlus", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message UpdatePackDailyRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePackDaily", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.TotalMyTVPlusResponse TotalMyTVPlus(Billing.Vasc.TotalMyTVPlusRequest request);
+        Billing.Vasc.UpdatePackDailyResponse UpdatePackDaily(Billing.Vasc.UpdatePackDailyRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TotalMyTVPlus", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.TotalMyTVPlusResponse> TotalMyTVPlusAsync(Billing.Vasc.TotalMyTVPlusRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePackDaily", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.UpdatePackDailyResponse> UpdatePackDailyAsync(Billing.Vasc.UpdatePackDailyRequest request);
         
-        // CODEGEN: Generating message contract since message ChangeSystemRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeSystem", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message ChangeFiberVNNRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeFiberVNN", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.ChangeSystemResponse ChangeSystem(Billing.Vasc.ChangeSystemRequest request);
+        Billing.Vasc.ChangeFiberVNNResponse ChangeFiberVNN(Billing.Vasc.ChangeFiberVNNRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeSystem", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangeSystemResponse> ChangeSystemAsync(Billing.Vasc.ChangeSystemRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeFiberVNN", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangeFiberVNNResponse> ChangeFiberVNNAsync(Billing.Vasc.ChangeFiberVNNRequest request);
         
-        // CODEGEN: Generating message contract since message getStatusBlockPayTVRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getStatusBlockPayTV", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message UpdateUserConferenceRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateUserConference", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.getStatusBlockPayTVResponse getStatusBlockPayTV(Billing.Vasc.getStatusBlockPayTVRequest request);
+        Billing.Vasc.UpdateUserConferenceResponse UpdateUserConference(Billing.Vasc.UpdateUserConferenceRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getStatusBlockPayTV", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.getStatusBlockPayTVResponse> getStatusBlockPayTVAsync(Billing.Vasc.getStatusBlockPayTVRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateUserConference", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.UpdateUserConferenceResponse> UpdateUserConferenceAsync(Billing.Vasc.UpdateUserConferenceRequest request);
+        
+        // CODEGEN: Generating message contract since message MethodChangePayRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/MethodChangePay", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.MethodChangePayResponse MethodChangePay(Billing.Vasc.MethodChangePayRequest1 request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/MethodChangePay", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.MethodChangePayResponse> MethodChangePayAsync(Billing.Vasc.MethodChangePayRequest1 request);
+        
+        // CODEGEN: Generating message contract since message MethodChangePayV2Request has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/MethodChangePayV2", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.MethodChangePayV2Response MethodChangePayV2(Billing.Vasc.MethodChangePayV2Request request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/MethodChangePayV2", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.MethodChangePayV2Response> MethodChangePayV2Async(Billing.Vasc.MethodChangePayV2Request request);
+        
+        // CODEGEN: Generating message contract since message MethodChangePayV3Request has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/MethodChangePayV3", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.MethodChangePayV3Response MethodChangePayV3(Billing.Vasc.MethodChangePayV3Request request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/MethodChangePayV3", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.MethodChangePayV3Response> MethodChangePayV3Async(Billing.Vasc.MethodChangePayV3Request request);
+        
+        // CODEGEN: Generating message contract since message Smart_OTTGetMemberPendingRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Smart_OTTGetMemberPending", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.Smart_OTTGetMemberPendingResponse Smart_OTTGetMemberPending(Billing.Vasc.Smart_OTTGetMemberPendingRequest1 request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Smart_OTTGetMemberPending", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.Smart_OTTGetMemberPendingResponse> Smart_OTTGetMemberPendingAsync(Billing.Vasc.Smart_OTTGetMemberPendingRequest1 request);
+        
+        // CODEGEN: Generating message contract since message ChangePackageV3Request has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePackageV3", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.ChangePackageV3Response ChangePackageV3(Billing.Vasc.ChangePackageV3Request request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePackageV3", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangePackageV3Response> ChangePackageV3Async(Billing.Vasc.ChangePackageV3Request request);
+        
+        // CODEGEN: Generating message contract since message ChangePackageRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePackage", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.ChangePackageResponse ChangePackage(Billing.Vasc.ChangePackageRequest1 request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePackage", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangePackageResponse> ChangePackageAsync(Billing.Vasc.ChangePackageRequest1 request);
+        
+        // CODEGEN: Generating message contract since message ChangePackageAndMegaVNNRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePackageAndMegaVNN", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.ChangePackageAndMegaVNNResponse ChangePackageAndMegaVNN(Billing.Vasc.ChangePackageAndMegaVNNRequest1 request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePackageAndMegaVNN", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangePackageAndMegaVNNResponse> ChangePackageAndMegaVNNAsync(Billing.Vasc.ChangePackageAndMegaVNNRequest1 request);
+        
+        // CODEGEN: Generating message contract since the wrapper name (ChangePackageAndMegaVNN_TitanSportHome) of message ChangePackageAndMegaVNN_TitanSportHome does not match the default value (ChangePackageAndMegaVNNV3)
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePackageAndMegaVNN_TitanSportHome", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.ChangePackageAndMegaVNN_TitanSportHome1 ChangePackageAndMegaVNNV3(Billing.Vasc.ChangePackageAndMegaVNN_TitanSportHome request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePackageAndMegaVNN_TitanSportHome", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangePackageAndMegaVNN_TitanSportHome1> ChangePackageAndMegaVNNV3Async(Billing.Vasc.ChangePackageAndMegaVNN_TitanSportHome request);
+        
+        // CODEGEN: Generating message contract since message ChangeMegaVNNRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeMegaVNN", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.ChangeMegaVNNResponse ChangeMegaVNN(Billing.Vasc.ChangeMegaVNNRequest1 request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeMegaVNN", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangeMegaVNNResponse> ChangeMegaVNNAsync(Billing.Vasc.ChangeMegaVNNRequest1 request);
+        
+        // CODEGEN: Generating message contract since message ChangeMegaVNNV3Request has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeMegaVNNV3", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.ChangeMegaVNNV3Response ChangeMegaVNNV3(Billing.Vasc.ChangeMegaVNNV3Request request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeMegaVNNV3", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangeMegaVNNV3Response> ChangeMegaVNNV3Async(Billing.Vasc.ChangeMegaVNNV3Request request);
+        
+        // CODEGEN: Generating message contract since message GetPackageNameRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPackageName", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.GetPackageNameResponse GetPackageName(Billing.Vasc.GetPackageNameRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPackageName", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.GetPackageNameResponse> GetPackageNameAsync(Billing.Vasc.GetPackageNameRequest request);
+        
+        // CODEGEN: Generating message contract since message GetPackageEPGRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPackageEPG", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.GetPackageEPGResponse GetPackageEPG(Billing.Vasc.GetPackageEPGRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPackageEPG", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.GetPackageEPGResponse> GetPackageEPGAsync(Billing.Vasc.GetPackageEPGRequest request);
         
         // CODEGEN: Generating message contract since message GetListObjPromoCDRequest has headers
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetListObjPromoCD", ReplyAction="*")]
@@ -152,69 +336,53 @@ namespace Billing.Vasc {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateObjPromoCD", ReplyAction="*")]
         System.Threading.Tasks.Task<Billing.Vasc.UpdateObjPromoCDResponse> UpdateObjPromoCDAsync(Billing.Vasc.UpdateObjPromoCDRequest request);
         
-        // CODEGEN: Generating message contract since message UpdateUserConferenceRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateUserConference", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message UpdatePromotionsRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePromotions", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.UpdateUserConferenceResponse UpdateUserConference(Billing.Vasc.UpdateUserConferenceRequest request);
+        Billing.Vasc.UpdatePromotionsResponse UpdatePromotions(Billing.Vasc.UpdatePromotionsRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateUserConference", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.UpdateUserConferenceResponse> UpdateUserConferenceAsync(Billing.Vasc.UpdateUserConferenceRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePromotions", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.UpdatePromotionsResponse> UpdatePromotionsAsync(Billing.Vasc.UpdatePromotionsRequest request);
         
-        // CODEGEN: Generating message contract since message UpdateUserParentRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateUserParent", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message ChangeID_STBDiscountRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeID_STBDiscount", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.UpdateUserParentResponse UpdateUserParent(Billing.Vasc.UpdateUserParentRequest request);
+        Billing.Vasc.ChangeID_STBDiscountResponse ChangeID_STBDiscount(Billing.Vasc.ChangeID_STBDiscountRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateUserParent", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.UpdateUserParentResponse> UpdateUserParentAsync(Billing.Vasc.UpdateUserParentRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeID_STBDiscount", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangeID_STBDiscountResponse> ChangeID_STBDiscountAsync(Billing.Vasc.ChangeID_STBDiscountRequest request);
         
-        // CODEGEN: Generating message contract since message GetUserParentRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetUserParent", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message ChangeFiberCDRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeFiberCD", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.GetUserParentResponse GetUserParent(Billing.Vasc.GetUserParentRequest request);
+        Billing.Vasc.ChangeFiberCDResponse ChangeFiberCD(Billing.Vasc.ChangeFiberCDRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetUserParent", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.GetUserParentResponse> GetUserParentAsync(Billing.Vasc.GetUserParentRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeFiberCD", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangeFiberCDResponse> ChangeFiberCDAsync(Billing.Vasc.ChangeFiberCDRequest request);
         
-        // CODEGEN: Generating message contract since message BlockPayTVRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/BlockPayTV", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message ChangePromotionsRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePromotions", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.BlockPayTVResponse BlockPayTV(Billing.Vasc.BlockPayTVRequest1 request);
+        Billing.Vasc.ChangePromotionsResponse ChangePromotions(Billing.Vasc.ChangePromotionsRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/BlockPayTV", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.BlockPayTVResponse> BlockPayTVAsync(Billing.Vasc.BlockPayTVRequest1 request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePromotions", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangePromotionsResponse> ChangePromotionsAsync(Billing.Vasc.ChangePromotionsRequest request);
         
-        // CODEGEN: Generating message contract since message GetHisPayTVRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetHisPayTV", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message ChangePromotionsV2Request has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePromotionsV2", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.GetHisPayTVResponse GetHisPayTV(Billing.Vasc.GetHisPayTVRequest request);
+        Billing.Vasc.ChangePromotionsV2Response ChangePromotionsV2(Billing.Vasc.ChangePromotionsV2Request request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetHisPayTV", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.GetHisPayTVResponse> GetHisPayTVAsync(Billing.Vasc.GetHisPayTVRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePromotionsV2", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangePromotionsV2Response> ChangePromotionsV2Async(Billing.Vasc.ChangePromotionsV2Request request);
         
-        // CODEGEN: Generating message contract since message GetHisSubscriberChangeSTBRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetHisSubscriberChangeSTB", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message UpdatePrepaidRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePrepaid", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.GetHisSubscriberChangeSTBResponse GetHisSubscriberChangeSTB(Billing.Vasc.GetHisSubscriberChangeSTBRequest request);
+        Billing.Vasc.UpdatePrepaidResponse UpdatePrepaid(Billing.Vasc.UpdatePrepaidRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetHisSubscriberChangeSTB", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.GetHisSubscriberChangeSTBResponse> GetHisSubscriberChangeSTBAsync(Billing.Vasc.GetHisSubscriberChangeSTBRequest request);
-        
-        // CODEGEN: Generating message contract since message GetHistorySTBRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetHistorySTB", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.GetHistorySTBResponse GetHistorySTB(Billing.Vasc.GetHistorySTBRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetHistorySTB", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.GetHistorySTBResponse> GetHistorySTBAsync(Billing.Vasc.GetHistorySTBRequest request);
-        
-        // CODEGEN: Generating message contract since message GetSTBInforRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSTBInfor", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.GetSTBInforResponse GetSTBInfor(Billing.Vasc.GetSTBInforRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSTBInfor", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.GetSTBInforResponse> GetSTBInforAsync(Billing.Vasc.GetSTBInforRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePrepaid", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.UpdatePrepaidResponse> UpdatePrepaidAsync(Billing.Vasc.UpdatePrepaidRequest request);
         
         // CODEGEN: Generating message contract since message RegisterSubscriberV3Request has headers
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegisterSubscriberV3", ReplyAction="*")]
@@ -320,54 +488,6 @@ namespace Billing.Vasc {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/RegisterSubscriberV2_1Fiber", ReplyAction="*")]
         System.Threading.Tasks.Task<Billing.Vasc.RegisterSubscriberV2_1FiberResponse> RegisterSubscriberV2_1FiberAsync(Billing.Vasc.RegisterSubscriberV2_1FiberRequest request);
         
-        // CODEGEN: Generating message contract since message UpdatePromotionsRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePromotions", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.UpdatePromotionsResponse UpdatePromotions(Billing.Vasc.UpdatePromotionsRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePromotions", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.UpdatePromotionsResponse> UpdatePromotionsAsync(Billing.Vasc.UpdatePromotionsRequest request);
-        
-        // CODEGEN: Generating message contract since message SuspendSubscriberRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SuspendSubscriber", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.SuspendSubscriberResponse SuspendSubscriber(Billing.Vasc.SuspendSubscriberRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SuspendSubscriber", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.SuspendSubscriberResponse> SuspendSubscriberAsync(Billing.Vasc.SuspendSubscriberRequest request);
-        
-        // CODEGEN: Generating message contract since message SuspendSubscriberV2Request has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SuspendSubscriberV2", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.SuspendSubscriberV2Response SuspendSubscriberV2(Billing.Vasc.SuspendSubscriberV2Request request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SuspendSubscriberV2", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.SuspendSubscriberV2Response> SuspendSubscriberV2Async(Billing.Vasc.SuspendSubscriberV2Request request);
-        
-        // CODEGEN: Generating message contract since message ResumeSubscriberRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ResumeSubscriber", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.ResumeSubscriberResponse ResumeSubscriber(Billing.Vasc.ResumeSubscriberRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ResumeSubscriber", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.ResumeSubscriberResponse> ResumeSubscriberAsync(Billing.Vasc.ResumeSubscriberRequest request);
-        
-        // CODEGEN: Generating message contract since message CancelSubscriberRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CancelSubscriber", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.CancelSubscriberResponse CancelSubscriber(Billing.Vasc.CancelSubscriberRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CancelSubscriber", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.CancelSubscriberResponse> CancelSubscriberAsync(Billing.Vasc.CancelSubscriberRequest request);
-        
-        // CODEGEN: Generating message contract since message CancelSubscriberV2Request has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CancelSubscriberV2", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.CancelSubscriberV2Response CancelSubscriberV2(Billing.Vasc.CancelSubscriberV2Request request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CancelSubscriberV2", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.CancelSubscriberV2Response> CancelSubscriberV2Async(Billing.Vasc.CancelSubscriberV2Request request);
-        
         // CODEGEN: Generating message contract since message ChangeSubscriberV3Request has headers
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeSubscriberV3", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -392,53 +512,101 @@ namespace Billing.Vasc {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeSubscriberV2", ReplyAction="*")]
         System.Threading.Tasks.Task<Billing.Vasc.ChangeSubscriberV2Response> ChangeSubscriberV2Async(Billing.Vasc.ChangeSubscriberV2Request request);
         
-        // CODEGEN: Generating message contract since message ChangePackageRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePackage", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message SuspendSubscriberRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SuspendSubscriber", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.ChangePackageResponse ChangePackage(Billing.Vasc.ChangePackageRequest1 request);
+        Billing.Vasc.SuspendSubscriberResponse SuspendSubscriber(Billing.Vasc.SuspendSubscriberRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePackage", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangePackageResponse> ChangePackageAsync(Billing.Vasc.ChangePackageRequest1 request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SuspendSubscriber", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.SuspendSubscriberResponse> SuspendSubscriberAsync(Billing.Vasc.SuspendSubscriberRequest request);
         
-        // CODEGEN: Generating message contract since message ChangePackageAndMegaVNNRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePackageAndMegaVNN", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message SuspendSubscriberV2Request has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SuspendSubscriberV2", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.ChangePackageAndMegaVNNResponse ChangePackageAndMegaVNN(Billing.Vasc.ChangePackageAndMegaVNNRequest1 request);
+        Billing.Vasc.SuspendSubscriberV2Response SuspendSubscriberV2(Billing.Vasc.SuspendSubscriberV2Request request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePackageAndMegaVNN", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangePackageAndMegaVNNResponse> ChangePackageAndMegaVNNAsync(Billing.Vasc.ChangePackageAndMegaVNNRequest1 request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SuspendSubscriberV2", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.SuspendSubscriberV2Response> SuspendSubscriberV2Async(Billing.Vasc.SuspendSubscriberV2Request request);
         
-        // CODEGEN: Generating message contract since the wrapper name (ChangePackageAndMegaVNN_TitanSportHome) of message ChangePackageAndMegaVNN_TitanSportHome does not match the default value (ChangePackageAndMegaVNNV3)
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePackageAndMegaVNN_TitanSportHome", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message CancelSubscriberRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CancelSubscriber", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.ChangePackageAndMegaVNN_TitanSportHome1 ChangePackageAndMegaVNNV3(Billing.Vasc.ChangePackageAndMegaVNN_TitanSportHome request);
+        Billing.Vasc.CancelSubscriberResponse CancelSubscriber(Billing.Vasc.CancelSubscriberRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePackageAndMegaVNN_TitanSportHome", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangePackageAndMegaVNN_TitanSportHome1> ChangePackageAndMegaVNNV3Async(Billing.Vasc.ChangePackageAndMegaVNN_TitanSportHome request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CancelSubscriber", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.CancelSubscriberResponse> CancelSubscriberAsync(Billing.Vasc.CancelSubscriberRequest request);
         
-        // CODEGEN: Generating message contract since message ChangeMegaVNNRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeMegaVNN", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message CancelSubscriberV2Request has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CancelSubscriberV2", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.ChangeMegaVNNResponse ChangeMegaVNN(Billing.Vasc.ChangeMegaVNNRequest1 request);
+        Billing.Vasc.CancelSubscriberV2Response CancelSubscriberV2(Billing.Vasc.CancelSubscriberV2Request request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeMegaVNN", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangeMegaVNNResponse> ChangeMegaVNNAsync(Billing.Vasc.ChangeMegaVNNRequest1 request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CancelSubscriberV2", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.CancelSubscriberV2Response> CancelSubscriberV2Async(Billing.Vasc.CancelSubscriberV2Request request);
         
-        // CODEGEN: Generating message contract since message ChangeMegaVNNV3Request has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeMegaVNNV3", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message ResumeSubscriberRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ResumeSubscriber", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.ChangeMegaVNNV3Response ChangeMegaVNNV3(Billing.Vasc.ChangeMegaVNNV3Request request);
+        Billing.Vasc.ResumeSubscriberResponse ResumeSubscriber(Billing.Vasc.ResumeSubscriberRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeMegaVNNV3", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangeMegaVNNV3Response> ChangeMegaVNNV3Async(Billing.Vasc.ChangeMegaVNNV3Request request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ResumeSubscriber", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.ResumeSubscriberResponse> ResumeSubscriberAsync(Billing.Vasc.ResumeSubscriberRequest request);
         
-        // CODEGEN: Generating message contract since message ChangePackageV3Request has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePackageV3", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message GetSubscriberInfoRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSubscriberInfo", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.ChangePackageV3Response ChangePackageV3(Billing.Vasc.ChangePackageV3Request request);
+        Billing.Vasc.GetSubscriberInfoResponse GetSubscriberInfo(Billing.Vasc.GetSubscriberInfoRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePackageV3", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangePackageV3Response> ChangePackageV3Async(Billing.Vasc.ChangePackageV3Request request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSubscriberInfo", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.GetSubscriberInfoResponse> GetSubscriberInfoAsync(Billing.Vasc.GetSubscriberInfoRequest request);
+        
+        // CODEGEN: Generating message contract since message GetSubscriberInfoV2Request has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSubscriberInfoV2", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.GetSubscriberInfoV2Response GetSubscriberInfoV2(Billing.Vasc.GetSubscriberInfoV2Request request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSubscriberInfoV2", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.GetSubscriberInfoV2Response> GetSubscriberInfoV2Async(Billing.Vasc.GetSubscriberInfoV2Request request);
+        
+        // CODEGEN: Generating message contract since message GetListSubscriberRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetListSubscriber", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.GetListSubscriberResponse GetListSubscriber(Billing.Vasc.GetListSubscriberRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetListSubscriber", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.GetListSubscriberResponse> GetListSubscriberAsync(Billing.Vasc.GetListSubscriberRequest request);
+        
+        // CODEGEN: Generating message contract since message ChangeSystemRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeSystem", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.ChangeSystemResponse ChangeSystem(Billing.Vasc.ChangeSystemRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeSystem", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangeSystemResponse> ChangeSystemAsync(Billing.Vasc.ChangeSystemRequest request);
+        
+        // CODEGEN: Generating message contract since message UpdateUserParentRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateUserParent", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.UpdateUserParentResponse UpdateUserParent(Billing.Vasc.UpdateUserParentRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateUserParent", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.UpdateUserParentResponse> UpdateUserParentAsync(Billing.Vasc.UpdateUserParentRequest request);
+        
+        // CODEGEN: Generating message contract since message GetUserParentRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetUserParent", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.GetUserParentResponse GetUserParent(Billing.Vasc.GetUserParentRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetUserParent", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.GetUserParentResponse> GetUserParentAsync(Billing.Vasc.GetUserParentRequest request);
+        
+        // CODEGEN: Generating message contract since message ChangeContractRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeContract", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.ChangeContractResponse ChangeContract(Billing.Vasc.ChangeContractRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeContract", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangeContractResponse> ChangeContractAsync(Billing.Vasc.ChangeContractRequest request);
         
         // CODEGEN: Generating message contract since message ChangePasswordRequest has headers
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePassword", ReplyAction="*")]
@@ -464,166 +632,6 @@ namespace Billing.Vasc {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ResetPassword", ReplyAction="*")]
         System.Threading.Tasks.Task<Billing.Vasc.ResetPasswordResponse> ResetPasswordAsync(Billing.Vasc.ResetPasswordRequest request);
         
-        // CODEGEN: Generating message contract since message ChangeSTBRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeSTB", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.ChangeSTBResponse ChangeSTB(Billing.Vasc.ChangeSTBRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeSTB", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangeSTBResponse> ChangeSTBAsync(Billing.Vasc.ChangeSTBRequest request);
-        
-        // CODEGEN: Generating message contract since message GetSubscriberInfoRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSubscriberInfo", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.GetSubscriberInfoResponse GetSubscriberInfo(Billing.Vasc.GetSubscriberInfoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSubscriberInfo", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.GetSubscriberInfoResponse> GetSubscriberInfoAsync(Billing.Vasc.GetSubscriberInfoRequest request);
-        
-        // CODEGEN: Generating message contract since message GetSubscriberInfoV2Request has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSubscriberInfoV2", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.GetSubscriberInfoV2Response GetSubscriberInfoV2(Billing.Vasc.GetSubscriberInfoV2Request request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSubscriberInfoV2", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.GetSubscriberInfoV2Response> GetSubscriberInfoV2Async(Billing.Vasc.GetSubscriberInfoV2Request request);
-        
-        // CODEGEN: Generating message contract since message GetPackageNameRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPackageName", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.GetPackageNameResponse GetPackageName(Billing.Vasc.GetPackageNameRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPackageName", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.GetPackageNameResponse> GetPackageNameAsync(Billing.Vasc.GetPackageNameRequest request);
-        
-        // CODEGEN: Generating message contract since message GetSTBInfoRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSTBInfo", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.GetSTBInfoResponse GetSTBInfo(Billing.Vasc.GetSTBInfoRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSTBInfo", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.GetSTBInfoResponse> GetSTBInfoAsync(Billing.Vasc.GetSTBInfoRequest request);
-        
-        // CODEGEN: Generating message contract since message ChangeBillCodeRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeBillCode", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.ChangeBillCodeResponse ChangeBillCode(Billing.Vasc.ChangeBillCodeRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeBillCode", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangeBillCodeResponse> ChangeBillCodeAsync(Billing.Vasc.ChangeBillCodeRequest request);
-        
-        // CODEGEN: Generating message contract since message ChangeDateBillRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeDateBill", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.ChangeDateBillResponse ChangeDateBill(Billing.Vasc.ChangeDateBillRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeDateBill", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangeDateBillResponse> ChangeDateBillAsync(Billing.Vasc.ChangeDateBillRequest request);
-        
-        // CODEGEN: Generating message contract since message AddNewDistrictRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddNewDistrict", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.AddNewDistrictResponse AddNewDistrict(Billing.Vasc.AddNewDistrictRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddNewDistrict", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.AddNewDistrictResponse> AddNewDistrictAsync(Billing.Vasc.AddNewDistrictRequest request);
-        
-        // CODEGEN: Generating message contract since message EditDistrictRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/EditDistrict", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.EditDistrictResponse EditDistrict(Billing.Vasc.EditDistrictRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/EditDistrict", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.EditDistrictResponse> EditDistrictAsync(Billing.Vasc.EditDistrictRequest request);
-        
-        // CODEGEN: Generating message contract since message DeleteDistrictRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteDistrict", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.DeleteDistrictResponse DeleteDistrict(Billing.Vasc.DeleteDistrictRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteDistrict", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.DeleteDistrictResponse> DeleteDistrictAsync(Billing.Vasc.DeleteDistrictRequest request);
-        
-        // CODEGEN: Generating message contract since message MethodChangePayRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/MethodChangePay", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.MethodChangePayResponse MethodChangePay(Billing.Vasc.MethodChangePayRequest1 request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/MethodChangePay", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.MethodChangePayResponse> MethodChangePayAsync(Billing.Vasc.MethodChangePayRequest1 request);
-        
-        // CODEGEN: Generating message contract since message MethodChangePayV2Request has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/MethodChangePayV2", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.MethodChangePayV2Response MethodChangePayV2(Billing.Vasc.MethodChangePayV2Request request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/MethodChangePayV2", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.MethodChangePayV2Response> MethodChangePayV2Async(Billing.Vasc.MethodChangePayV2Request request);
-        
-        // CODEGEN: Generating message contract since message MethodChangePayV3Request has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/MethodChangePayV3", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.MethodChangePayV3Response MethodChangePayV3(Billing.Vasc.MethodChangePayV3Request request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/MethodChangePayV3", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.MethodChangePayV3Response> MethodChangePayV3Async(Billing.Vasc.MethodChangePayV3Request request);
-        
-        // CODEGEN: Generating message contract since message ChangeContractRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeContract", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.ChangeContractResponse ChangeContract(Billing.Vasc.ChangeContractRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeContract", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangeContractResponse> ChangeContractAsync(Billing.Vasc.ChangeContractRequest request);
-        
-        // CODEGEN: Generating message contract since message ChangeID_STBDiscountRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeID_STBDiscount", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.ChangeID_STBDiscountResponse ChangeID_STBDiscount(Billing.Vasc.ChangeID_STBDiscountRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeID_STBDiscount", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangeID_STBDiscountResponse> ChangeID_STBDiscountAsync(Billing.Vasc.ChangeID_STBDiscountRequest request);
-        
-        // CODEGEN: Generating message contract since message ChangeFiberCDRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeFiberCD", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.ChangeFiberCDResponse ChangeFiberCD(Billing.Vasc.ChangeFiberCDRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeFiberCD", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangeFiberCDResponse> ChangeFiberCDAsync(Billing.Vasc.ChangeFiberCDRequest request);
-        
-        // CODEGEN: Generating message contract since message ChangePromotionsRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePromotions", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.ChangePromotionsResponse ChangePromotions(Billing.Vasc.ChangePromotionsRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePromotions", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangePromotionsResponse> ChangePromotionsAsync(Billing.Vasc.ChangePromotionsRequest request);
-        
-        // CODEGEN: Generating message contract since message ChangePromotionsV2Request has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePromotionsV2", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.ChangePromotionsV2Response ChangePromotionsV2(Billing.Vasc.ChangePromotionsV2Request request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePromotionsV2", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangePromotionsV2Response> ChangePromotionsV2Async(Billing.Vasc.ChangePromotionsV2Request request);
-        
-        // CODEGEN: Generating message contract since message ChangeDistrictSubscriberRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeDistrictSubscriber", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.ChangeDistrictSubscriberResponse ChangeDistrictSubscriber(Billing.Vasc.ChangeDistrictSubscriberRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeDistrictSubscriber", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangeDistrictSubscriberResponse> ChangeDistrictSubscriberAsync(Billing.Vasc.ChangeDistrictSubscriberRequest request);
-        
-        // CODEGEN: Generating message contract since message GetListSubscriberRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetListSubscriber", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.GetListSubscriberResponse GetListSubscriber(Billing.Vasc.GetListSubscriberRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetListSubscriber", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.GetListSubscriberResponse> GetListSubscriberAsync(Billing.Vasc.GetListSubscriberRequest request);
-        
         // CODEGEN: Generating message contract since message ChangeUserPasswordRequest has headers
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeUserPassword", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -640,53 +648,61 @@ namespace Billing.Vasc {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteMyTV", ReplyAction="*")]
         System.Threading.Tasks.Task<Billing.Vasc.DeleteMyTVResponse> DeleteMyTVAsync(Billing.Vasc.DeleteMyTVRequest request);
         
-        // CODEGEN: Generating message contract since message GetPackageEPGRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPackageEPG", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message AddHotelRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddHotel", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.GetPackageEPGResponse GetPackageEPG(Billing.Vasc.GetPackageEPGRequest request);
+        Billing.Vasc.AddHotelResponse AddHotel(Billing.Vasc.AddHotelRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPackageEPG", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.GetPackageEPGResponse> GetPackageEPGAsync(Billing.Vasc.GetPackageEPGRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddHotel", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.AddHotelResponse> AddHotelAsync(Billing.Vasc.AddHotelRequest request);
         
-        // CODEGEN: Generating message contract since message ChangeFiberVNNRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeFiberVNN", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message EditHotelRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/EditHotel", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.ChangeFiberVNNResponse ChangeFiberVNN(Billing.Vasc.ChangeFiberVNNRequest request);
+        Billing.Vasc.EditHotelResponse EditHotel(Billing.Vasc.EditHotelRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeFiberVNN", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangeFiberVNNResponse> ChangeFiberVNNAsync(Billing.Vasc.ChangeFiberVNNRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/EditHotel", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.EditHotelResponse> EditHotelAsync(Billing.Vasc.EditHotelRequest request);
         
-        // CODEGEN: Generating message contract since message UpdateDeviceInfoRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateDeviceInfo", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message DeleteHotelRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteHotel", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.UpdateDeviceInfoResponse UpdateDeviceInfo(Billing.Vasc.UpdateDeviceInfoRequest request);
+        Billing.Vasc.DeleteHotelResponse DeleteHotel(Billing.Vasc.DeleteHotelRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateDeviceInfo", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.UpdateDeviceInfoResponse> UpdateDeviceInfoAsync(Billing.Vasc.UpdateDeviceInfoRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteHotel", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.DeleteHotelResponse> DeleteHotelAsync(Billing.Vasc.DeleteHotelRequest request);
         
-        // CODEGEN: Generating message contract since message UpdateKplusInfoRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateKplusInfo", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message ChangePWHotelRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePWHotel", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.UpdateKplusInfoResponse UpdateKplusInfo(Billing.Vasc.UpdateKplusInfoRequest request);
+        Billing.Vasc.ChangePWHotelResponse ChangePWHotel(Billing.Vasc.ChangePWHotelRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateKplusInfo", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.UpdateKplusInfoResponse> UpdateKplusInfoAsync(Billing.Vasc.UpdateKplusInfoRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangePWHotel", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangePWHotelResponse> ChangePWHotelAsync(Billing.Vasc.ChangePWHotelRequest request);
         
-        // CODEGEN: Generating message contract since message UpdatePrepaidRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePrepaid", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message ChangeStatusHotelRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeStatusHotel", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.UpdatePrepaidResponse UpdatePrepaid(Billing.Vasc.UpdatePrepaidRequest request);
+        Billing.Vasc.ChangeStatusHotelResponse ChangeStatusHotel(Billing.Vasc.ChangeStatusHotelRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePrepaid", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.UpdatePrepaidResponse> UpdatePrepaidAsync(Billing.Vasc.UpdatePrepaidRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeStatusHotel", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangeStatusHotelResponse> ChangeStatusHotelAsync(Billing.Vasc.ChangeStatusHotelRequest request);
         
-        // CODEGEN: Generating message contract since message UpdatePackDailyRequest has headers
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePackDaily", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message ChangeBillCodeRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeBillCode", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Billing.Vasc.UpdatePackDailyResponse UpdatePackDaily(Billing.Vasc.UpdatePackDailyRequest request);
+        Billing.Vasc.ChangeBillCodeResponse ChangeBillCode(Billing.Vasc.ChangeBillCodeRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePackDaily", ReplyAction="*")]
-        System.Threading.Tasks.Task<Billing.Vasc.UpdatePackDailyResponse> UpdatePackDailyAsync(Billing.Vasc.UpdatePackDailyRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeBillCode", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangeBillCodeResponse> ChangeBillCodeAsync(Billing.Vasc.ChangeBillCodeRequest request);
+        
+        // CODEGEN: Generating message contract since message ChangeDateBillRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeDateBill", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.ChangeDateBillResponse ChangeDateBill(Billing.Vasc.ChangeDateBillRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ChangeDateBill", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangeDateBillResponse> ChangeDateBillAsync(Billing.Vasc.ChangeDateBillRequest request);
         
         // CODEGEN: Generating message contract since message GetBillByMonthRequest has headers
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBillByMonth", ReplyAction="*")]
@@ -711,10 +727,66 @@ namespace Billing.Vasc {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBillPackage", ReplyAction="*")]
         System.Threading.Tasks.Task<Billing.Vasc.GetBillPackageResponse> GetBillPackageAsync(Billing.Vasc.GetBillPackageRequest request);
+        
+        // CODEGEN: Generating message contract since message getStatusBlockPayTVRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getStatusBlockPayTV", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.getStatusBlockPayTVResponse getStatusBlockPayTV(Billing.Vasc.getStatusBlockPayTVRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/getStatusBlockPayTV", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.getStatusBlockPayTVResponse> getStatusBlockPayTVAsync(Billing.Vasc.getStatusBlockPayTVRequest request);
+        
+        // CODEGEN: Generating message contract since message BlockPayTVRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/BlockPayTV", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.BlockPayTVResponse BlockPayTV(Billing.Vasc.BlockPayTVRequest1 request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/BlockPayTV", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.BlockPayTVResponse> BlockPayTVAsync(Billing.Vasc.BlockPayTVRequest1 request);
+        
+        // CODEGEN: Generating message contract since message UpdateKplusInfoRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateKplusInfo", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.UpdateKplusInfoResponse UpdateKplusInfo(Billing.Vasc.UpdateKplusInfoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateKplusInfo", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.UpdateKplusInfoResponse> UpdateKplusInfoAsync(Billing.Vasc.UpdateKplusInfoRequest request);
+        
+        // CODEGEN: Generating message contract since message TotalMyTVPlusRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TotalMyTVPlus", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.TotalMyTVPlusResponse TotalMyTVPlus(Billing.Vasc.TotalMyTVPlusRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/TotalMyTVPlus", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.TotalMyTVPlusResponse> TotalMyTVPlusAsync(Billing.Vasc.TotalMyTVPlusRequest request);
+        
+        // CODEGEN: Generating message contract since message GetHisPayTVRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetHisPayTV", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.GetHisPayTVResponse GetHisPayTV(Billing.Vasc.GetHisPayTVRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetHisPayTV", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.GetHisPayTVResponse> GetHisPayTVAsync(Billing.Vasc.GetHisPayTVRequest request);
+        
+        // CODEGEN: Generating message contract since message ComboFAF_UpdateRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ComboFAF_Update", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.ComboFAF_UpdateResponse ComboFAF_Update(Billing.Vasc.ComboFAF_UpdateRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ComboFAF_Update", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.ComboFAF_UpdateResponse> ComboFAF_UpdateAsync(Billing.Vasc.ComboFAF_UpdateRequest request);
+        
+        // CODEGEN: Generating message contract since message PayTVFull_RegisterRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/PayTVFull_Register", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Billing.Vasc.PayTVFull_RegisterResponse PayTVFull_Register(Billing.Vasc.PayTVFull_RegisterRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/PayTVFull_Register", ReplyAction="*")]
+        System.Threading.Tasks.Task<Billing.Vasc.PayTVFull_RegisterResponse> PayTVFull_RegisterAsync(Billing.Vasc.PayTVFull_RegisterRequest request);
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -774,7 +846,1147 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetHisPayTVResp : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private System.Data.DataSet dataKplusField;
+        
+        private System.Data.DataSet dataVTVcabField;
+        
+        private System.Data.DataSet dataHBOField;
+        
+        private System.Data.DataSet dataFafilmField;
+        
+        private System.DateTime responseTimeField;
+        
+        private int resultField;
+        
+        private string errorDescField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public System.Data.DataSet DataKplus {
+            get {
+                return this.dataKplusField;
+            }
+            set {
+                this.dataKplusField = value;
+                this.RaisePropertyChanged("DataKplus");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public System.Data.DataSet DataVTVcab {
+            get {
+                return this.dataVTVcabField;
+            }
+            set {
+                this.dataVTVcabField = value;
+                this.RaisePropertyChanged("DataVTVcab");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public System.Data.DataSet DataHBO {
+            get {
+                return this.dataHBOField;
+            }
+            set {
+                this.dataHBOField = value;
+                this.RaisePropertyChanged("DataHBO");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public System.Data.DataSet DataFafilm {
+            get {
+                return this.dataFafilmField;
+            }
+            set {
+                this.dataFafilmField = value;
+                this.RaisePropertyChanged("DataFafilm");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public System.DateTime ResponseTime {
+            get {
+                return this.responseTimeField;
+            }
+            set {
+                this.responseTimeField = value;
+                this.RaisePropertyChanged("ResponseTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public int Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+                this.RaisePropertyChanged("Result");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public string ErrorDesc {
+            get {
+                return this.errorDescField;
+            }
+            set {
+                this.errorDescField = value;
+                this.RaisePropertyChanged("ErrorDesc");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class MyTVPlusRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string iPTVAccountField;
+        
+        private string operatorCDField;
+        
+        private string serviceCDField;
+        
+        private string reasonField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string IPTVAccount {
+            get {
+                return this.iPTVAccountField;
+            }
+            set {
+                this.iPTVAccountField = value;
+                this.RaisePropertyChanged("IPTVAccount");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string OperatorCD {
+            get {
+                return this.operatorCDField;
+            }
+            set {
+                this.operatorCDField = value;
+                this.RaisePropertyChanged("OperatorCD");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string ServiceCD {
+            get {
+                return this.serviceCDField;
+            }
+            set {
+                this.serviceCDField = value;
+                this.RaisePropertyChanged("ServiceCD");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string Reason {
+            get {
+                return this.reasonField;
+            }
+            set {
+                this.reasonField = value;
+                this.RaisePropertyChanged("Reason");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class BlockPayTVResp : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private System.DateTime responseTimeField;
+        
+        private int resultField;
+        
+        private string errorDescField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public System.DateTime ResponseTime {
+            get {
+                return this.responseTimeField;
+            }
+            set {
+                this.responseTimeField = value;
+                this.RaisePropertyChanged("ResponseTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+                this.RaisePropertyChanged("Result");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string ErrorDesc {
+            get {
+                return this.errorDescField;
+            }
+            set {
+                this.errorDescField = value;
+                this.RaisePropertyChanged("ErrorDesc");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class BlockPayTVRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string myTVIDField;
+        
+        private int operatorField;
+        
+        private string reasonField;
+        
+        private string allServiceField;
+        
+        private string fimPlusField;
+        
+        private string kplusFLGField;
+        
+        private string fafilmFLGField;
+        
+        private string hBOFlgField;
+        
+        private string vTVcabFlgField;
+        
+        private string cloudGameField;
+        
+        private string phimTruyenField;
+        
+        private string troChoiField;
+        
+        private string karaokeField;
+        
+        private string caNhacField;
+        
+        private string docTruyenField;
+        
+        private string theThaoField;
+        
+        private string sucKhoeLamDepField;
+        
+        private string nhipCauMyTVField;
+        
+        private string phongCachSongField;
+        
+        private string thieuNhiField;
+        
+        private string giaoDucDaoTaoField;
+        
+        private string daoTaoTuXaField;
+        
+        private string ketQuaXoSoField;
+        
+        private string binhChonField;
+        
+        private string danetField;
+        
+        private string ceemeField;
+        
+        private string myTVShowField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string MyTVID {
+            get {
+                return this.myTVIDField;
+            }
+            set {
+                this.myTVIDField = value;
+                this.RaisePropertyChanged("MyTVID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int Operator {
+            get {
+                return this.operatorField;
+            }
+            set {
+                this.operatorField = value;
+                this.RaisePropertyChanged("Operator");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string Reason {
+            get {
+                return this.reasonField;
+            }
+            set {
+                this.reasonField = value;
+                this.RaisePropertyChanged("Reason");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string AllService {
+            get {
+                return this.allServiceField;
+            }
+            set {
+                this.allServiceField = value;
+                this.RaisePropertyChanged("AllService");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public string FimPlus {
+            get {
+                return this.fimPlusField;
+            }
+            set {
+                this.fimPlusField = value;
+                this.RaisePropertyChanged("FimPlus");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public string KplusFLG {
+            get {
+                return this.kplusFLGField;
+            }
+            set {
+                this.kplusFLGField = value;
+                this.RaisePropertyChanged("KplusFLG");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public string FafilmFLG {
+            get {
+                return this.fafilmFLGField;
+            }
+            set {
+                this.fafilmFLGField = value;
+                this.RaisePropertyChanged("FafilmFLG");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public string HBOFlg {
+            get {
+                return this.hBOFlgField;
+            }
+            set {
+                this.hBOFlgField = value;
+                this.RaisePropertyChanged("HBOFlg");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        public string VTVcabFlg {
+            get {
+                return this.vTVcabFlgField;
+            }
+            set {
+                this.vTVcabFlgField = value;
+                this.RaisePropertyChanged("VTVcabFlg");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
+        public string CloudGame {
+            get {
+                return this.cloudGameField;
+            }
+            set {
+                this.cloudGameField = value;
+                this.RaisePropertyChanged("CloudGame");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=10)]
+        public string PhimTruyen {
+            get {
+                return this.phimTruyenField;
+            }
+            set {
+                this.phimTruyenField = value;
+                this.RaisePropertyChanged("PhimTruyen");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=11)]
+        public string TroChoi {
+            get {
+                return this.troChoiField;
+            }
+            set {
+                this.troChoiField = value;
+                this.RaisePropertyChanged("TroChoi");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=12)]
+        public string Karaoke {
+            get {
+                return this.karaokeField;
+            }
+            set {
+                this.karaokeField = value;
+                this.RaisePropertyChanged("Karaoke");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=13)]
+        public string CaNhac {
+            get {
+                return this.caNhacField;
+            }
+            set {
+                this.caNhacField = value;
+                this.RaisePropertyChanged("CaNhac");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=14)]
+        public string DocTruyen {
+            get {
+                return this.docTruyenField;
+            }
+            set {
+                this.docTruyenField = value;
+                this.RaisePropertyChanged("DocTruyen");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=15)]
+        public string TheThao {
+            get {
+                return this.theThaoField;
+            }
+            set {
+                this.theThaoField = value;
+                this.RaisePropertyChanged("TheThao");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=16)]
+        public string SucKhoeLamDep {
+            get {
+                return this.sucKhoeLamDepField;
+            }
+            set {
+                this.sucKhoeLamDepField = value;
+                this.RaisePropertyChanged("SucKhoeLamDep");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=17)]
+        public string NhipCauMyTV {
+            get {
+                return this.nhipCauMyTVField;
+            }
+            set {
+                this.nhipCauMyTVField = value;
+                this.RaisePropertyChanged("NhipCauMyTV");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=18)]
+        public string PhongCachSong {
+            get {
+                return this.phongCachSongField;
+            }
+            set {
+                this.phongCachSongField = value;
+                this.RaisePropertyChanged("PhongCachSong");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=19)]
+        public string ThieuNhi {
+            get {
+                return this.thieuNhiField;
+            }
+            set {
+                this.thieuNhiField = value;
+                this.RaisePropertyChanged("ThieuNhi");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=20)]
+        public string GiaoDucDaoTao {
+            get {
+                return this.giaoDucDaoTaoField;
+            }
+            set {
+                this.giaoDucDaoTaoField = value;
+                this.RaisePropertyChanged("GiaoDucDaoTao");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=21)]
+        public string DaoTaoTuXa {
+            get {
+                return this.daoTaoTuXaField;
+            }
+            set {
+                this.daoTaoTuXaField = value;
+                this.RaisePropertyChanged("DaoTaoTuXa");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=22)]
+        public string KetQuaXoSo {
+            get {
+                return this.ketQuaXoSoField;
+            }
+            set {
+                this.ketQuaXoSoField = value;
+                this.RaisePropertyChanged("KetQuaXoSo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=23)]
+        public string BinhChon {
+            get {
+                return this.binhChonField;
+            }
+            set {
+                this.binhChonField = value;
+                this.RaisePropertyChanged("BinhChon");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=24)]
+        public string Danet {
+            get {
+                return this.danetField;
+            }
+            set {
+                this.danetField = value;
+                this.RaisePropertyChanged("Danet");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=25)]
+        public string Ceeme {
+            get {
+                return this.ceemeField;
+            }
+            set {
+                this.ceemeField = value;
+                this.RaisePropertyChanged("Ceeme");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=26)]
+        public string MyTVShow {
+            get {
+                return this.myTVShowField;
+            }
+            set {
+                this.myTVShowField = value;
+                this.RaisePropertyChanged("MyTVShow");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class StatusBlockPayTVInfor : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private System.DateTime responseTimeField;
+        
+        private int resultField;
+        
+        private string errordescField;
+        
+        private string myTVShowField;
+        
+        private string ceemeField;
+        
+        private string danetField;
+        
+        private string cloudGameField;
+        
+        private string phimTruyenField;
+        
+        private string troChoiField;
+        
+        private string karaokeField;
+        
+        private string caNhacField;
+        
+        private string docTruyenField;
+        
+        private string theThaoField;
+        
+        private string sucKhoeLamDepField;
+        
+        private string nhipCauMyTVField;
+        
+        private string phongCachSongField;
+        
+        private string thieuNhiField;
+        
+        private string giaoDucDaoTaoField;
+        
+        private string daoTaoTuXaField;
+        
+        private string ketQuaXoSoField;
+        
+        private string binhChonField;
+        
+        private string payTVField;
+        
+        private string myTVIDField;
+        
+        private string fimPlusField;
+        
+        private string kplusFLGField;
+        
+        private string fafilmFLGField;
+        
+        private string hBOFlgField;
+        
+        private string vTVcabFlgField;
+        
+        private string fimPlus_USEField;
+        
+        private string kplus_USEField;
+        
+        private string fafilm_USEField;
+        
+        private string hBO_USEField;
+        
+        private string vTVcab_USEField;
+        
+        private string myTVShow_USEField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public System.DateTime ResponseTime {
+            get {
+                return this.responseTimeField;
+            }
+            set {
+                this.responseTimeField = value;
+                this.RaisePropertyChanged("ResponseTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+                this.RaisePropertyChanged("Result");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string Errordesc {
+            get {
+                return this.errordescField;
+            }
+            set {
+                this.errordescField = value;
+                this.RaisePropertyChanged("Errordesc");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string MyTVShow {
+            get {
+                return this.myTVShowField;
+            }
+            set {
+                this.myTVShowField = value;
+                this.RaisePropertyChanged("MyTVShow");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public string Ceeme {
+            get {
+                return this.ceemeField;
+            }
+            set {
+                this.ceemeField = value;
+                this.RaisePropertyChanged("Ceeme");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public string Danet {
+            get {
+                return this.danetField;
+            }
+            set {
+                this.danetField = value;
+                this.RaisePropertyChanged("Danet");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public string CloudGame {
+            get {
+                return this.cloudGameField;
+            }
+            set {
+                this.cloudGameField = value;
+                this.RaisePropertyChanged("CloudGame");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public string PhimTruyen {
+            get {
+                return this.phimTruyenField;
+            }
+            set {
+                this.phimTruyenField = value;
+                this.RaisePropertyChanged("PhimTruyen");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        public string TroChoi {
+            get {
+                return this.troChoiField;
+            }
+            set {
+                this.troChoiField = value;
+                this.RaisePropertyChanged("TroChoi");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
+        public string Karaoke {
+            get {
+                return this.karaokeField;
+            }
+            set {
+                this.karaokeField = value;
+                this.RaisePropertyChanged("Karaoke");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=10)]
+        public string CaNhac {
+            get {
+                return this.caNhacField;
+            }
+            set {
+                this.caNhacField = value;
+                this.RaisePropertyChanged("CaNhac");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=11)]
+        public string DocTruyen {
+            get {
+                return this.docTruyenField;
+            }
+            set {
+                this.docTruyenField = value;
+                this.RaisePropertyChanged("DocTruyen");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=12)]
+        public string TheThao {
+            get {
+                return this.theThaoField;
+            }
+            set {
+                this.theThaoField = value;
+                this.RaisePropertyChanged("TheThao");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=13)]
+        public string SucKhoeLamDep {
+            get {
+                return this.sucKhoeLamDepField;
+            }
+            set {
+                this.sucKhoeLamDepField = value;
+                this.RaisePropertyChanged("SucKhoeLamDep");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=14)]
+        public string NhipCauMyTV {
+            get {
+                return this.nhipCauMyTVField;
+            }
+            set {
+                this.nhipCauMyTVField = value;
+                this.RaisePropertyChanged("NhipCauMyTV");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=15)]
+        public string PhongCachSong {
+            get {
+                return this.phongCachSongField;
+            }
+            set {
+                this.phongCachSongField = value;
+                this.RaisePropertyChanged("PhongCachSong");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=16)]
+        public string ThieuNhi {
+            get {
+                return this.thieuNhiField;
+            }
+            set {
+                this.thieuNhiField = value;
+                this.RaisePropertyChanged("ThieuNhi");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=17)]
+        public string GiaoDucDaoTao {
+            get {
+                return this.giaoDucDaoTaoField;
+            }
+            set {
+                this.giaoDucDaoTaoField = value;
+                this.RaisePropertyChanged("GiaoDucDaoTao");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=18)]
+        public string DaoTaoTuXa {
+            get {
+                return this.daoTaoTuXaField;
+            }
+            set {
+                this.daoTaoTuXaField = value;
+                this.RaisePropertyChanged("DaoTaoTuXa");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=19)]
+        public string KetQuaXoSo {
+            get {
+                return this.ketQuaXoSoField;
+            }
+            set {
+                this.ketQuaXoSoField = value;
+                this.RaisePropertyChanged("KetQuaXoSo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=20)]
+        public string BinhChon {
+            get {
+                return this.binhChonField;
+            }
+            set {
+                this.binhChonField = value;
+                this.RaisePropertyChanged("BinhChon");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=21)]
+        public string PayTV {
+            get {
+                return this.payTVField;
+            }
+            set {
+                this.payTVField = value;
+                this.RaisePropertyChanged("PayTV");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=22)]
+        public string MyTVID {
+            get {
+                return this.myTVIDField;
+            }
+            set {
+                this.myTVIDField = value;
+                this.RaisePropertyChanged("MyTVID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=23)]
+        public string FimPlus {
+            get {
+                return this.fimPlusField;
+            }
+            set {
+                this.fimPlusField = value;
+                this.RaisePropertyChanged("FimPlus");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=24)]
+        public string KplusFLG {
+            get {
+                return this.kplusFLGField;
+            }
+            set {
+                this.kplusFLGField = value;
+                this.RaisePropertyChanged("KplusFLG");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=25)]
+        public string FafilmFLG {
+            get {
+                return this.fafilmFLGField;
+            }
+            set {
+                this.fafilmFLGField = value;
+                this.RaisePropertyChanged("FafilmFLG");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=26)]
+        public string HBOFlg {
+            get {
+                return this.hBOFlgField;
+            }
+            set {
+                this.hBOFlgField = value;
+                this.RaisePropertyChanged("HBOFlg");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=27)]
+        public string VTVcabFlg {
+            get {
+                return this.vTVcabFlgField;
+            }
+            set {
+                this.vTVcabFlgField = value;
+                this.RaisePropertyChanged("VTVcabFlg");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=28)]
+        public string FimPlus_USE {
+            get {
+                return this.fimPlus_USEField;
+            }
+            set {
+                this.fimPlus_USEField = value;
+                this.RaisePropertyChanged("FimPlus_USE");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=29)]
+        public string Kplus_USE {
+            get {
+                return this.kplus_USEField;
+            }
+            set {
+                this.kplus_USEField = value;
+                this.RaisePropertyChanged("Kplus_USE");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=30)]
+        public string Fafilm_USE {
+            get {
+                return this.fafilm_USEField;
+            }
+            set {
+                this.fafilm_USEField = value;
+                this.RaisePropertyChanged("Fafilm_USE");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=31)]
+        public string HBO_USE {
+            get {
+                return this.hBO_USEField;
+            }
+            set {
+                this.hBO_USEField = value;
+                this.RaisePropertyChanged("HBO_USE");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=32)]
+        public string VTVcab_USE {
+            get {
+                return this.vTVcab_USEField;
+            }
+            set {
+                this.vTVcab_USEField = value;
+                this.RaisePropertyChanged("VTVcab_USE");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=33)]
+        public string MyTVShow_USE {
+            get {
+                return this.myTVShow_USEField;
+            }
+            set {
+                this.myTVShow_USEField = value;
+                this.RaisePropertyChanged("MyTVShow_USE");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -848,7 +2060,7 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -922,7 +2134,7 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1038,677 +2250,7 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ChangeFiberVNNVO : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string responseTimeField;
-        
-        private int resultField;
-        
-        private string errordescField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string ResponseTime {
-            get {
-                return this.responseTimeField;
-            }
-            set {
-                this.responseTimeField = value;
-                this.RaisePropertyChanged("ResponseTime");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public int Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-                this.RaisePropertyChanged("Result");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string Errordesc {
-            get {
-                return this.errordescField;
-            }
-            set {
-                this.errordescField = value;
-                this.RaisePropertyChanged("Errordesc");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class GetPackageEPGVO : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string responseTimeField;
-        
-        private int resultField;
-        
-        private string errordescField;
-        
-        private System.Data.DataSet getDataField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string ResponseTime {
-            get {
-                return this.responseTimeField;
-            }
-            set {
-                this.responseTimeField = value;
-                this.RaisePropertyChanged("ResponseTime");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public int Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-                this.RaisePropertyChanged("Result");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string Errordesc {
-            get {
-                return this.errordescField;
-            }
-            set {
-                this.errordescField = value;
-                this.RaisePropertyChanged("Errordesc");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public System.Data.DataSet GetData {
-            get {
-                return this.getDataField;
-            }
-            set {
-                this.getDataField = value;
-                this.RaisePropertyChanged("GetData");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class DeleteMyTVVO : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string iPTVACCOUNTField;
-        
-        private string responseTimeField;
-        
-        private int resultField;
-        
-        private string errordescField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string IPTVACCOUNT {
-            get {
-                return this.iPTVACCOUNTField;
-            }
-            set {
-                this.iPTVACCOUNTField = value;
-                this.RaisePropertyChanged("IPTVACCOUNT");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string ResponseTime {
-            get {
-                return this.responseTimeField;
-            }
-            set {
-                this.responseTimeField = value;
-                this.RaisePropertyChanged("ResponseTime");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public int Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-                this.RaisePropertyChanged("Result");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string Errordesc {
-            get {
-                return this.errordescField;
-            }
-            set {
-                this.errordescField = value;
-                this.RaisePropertyChanged("Errordesc");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ChangeUserPassVO : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string userPassField;
-        
-        private string responseTimeField;
-        
-        private int resultField;
-        
-        private string errordescField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string UserPass {
-            get {
-                return this.userPassField;
-            }
-            set {
-                this.userPassField = value;
-                this.RaisePropertyChanged("UserPass");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string ResponseTime {
-            get {
-                return this.responseTimeField;
-            }
-            set {
-                this.responseTimeField = value;
-                this.RaisePropertyChanged("ResponseTime");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public int Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-                this.RaisePropertyChanged("Result");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string Errordesc {
-            get {
-                return this.errordescField;
-            }
-            set {
-                this.errordescField = value;
-                this.RaisePropertyChanged("Errordesc");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ChangeDistrictSubscriberVO : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string responseTimeField;
-        
-        private int resultField;
-        
-        private string errordescField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string ResponseTime {
-            get {
-                return this.responseTimeField;
-            }
-            set {
-                this.responseTimeField = value;
-                this.RaisePropertyChanged("ResponseTime");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public int Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-                this.RaisePropertyChanged("Result");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string Errordesc {
-            get {
-                return this.errordescField;
-            }
-            set {
-                this.errordescField = value;
-                this.RaisePropertyChanged("Errordesc");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ChangePromotionsVO : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string responseTimeField;
-        
-        private int resultField;
-        
-        private string errordescField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string ResponseTime {
-            get {
-                return this.responseTimeField;
-            }
-            set {
-                this.responseTimeField = value;
-                this.RaisePropertyChanged("ResponseTime");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public int Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-                this.RaisePropertyChanged("Result");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string Errordesc {
-            get {
-                return this.errordescField;
-            }
-            set {
-                this.errordescField = value;
-                this.RaisePropertyChanged("Errordesc");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ChangeContractVO : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string responseTimeField;
-        
-        private int resultField;
-        
-        private string errordescField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string ResponseTime {
-            get {
-                return this.responseTimeField;
-            }
-            set {
-                this.responseTimeField = value;
-                this.RaisePropertyChanged("ResponseTime");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public int Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-                this.RaisePropertyChanged("Result");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string Errordesc {
-            get {
-                return this.errordescField;
-            }
-            set {
-                this.errordescField = value;
-                this.RaisePropertyChanged("Errordesc");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class MethodChangePayRequest : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string no_MonthField;
-        
-        private string methodField;
-        
-        private string iPTVACCOUNTField;
-        
-        private string startDateField;
-        
-        private string operatorField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string No_Month {
-            get {
-                return this.no_MonthField;
-            }
-            set {
-                this.no_MonthField = value;
-                this.RaisePropertyChanged("No_Month");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string Method {
-            get {
-                return this.methodField;
-            }
-            set {
-                this.methodField = value;
-                this.RaisePropertyChanged("Method");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string IPTVACCOUNT {
-            get {
-                return this.iPTVACCOUNTField;
-            }
-            set {
-                this.iPTVACCOUNTField = value;
-                this.RaisePropertyChanged("IPTVACCOUNT");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string StartDate {
-            get {
-                return this.startDateField;
-            }
-            set {
-                this.startDateField = value;
-                this.RaisePropertyChanged("StartDate");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public string Operator {
-            get {
-                return this.operatorField;
-            }
-            set {
-                this.operatorField = value;
-                this.RaisePropertyChanged("Operator");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class MethodChangePayVO : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string responseTimeField;
-        
-        private int resultField;
-        
-        private string errordescField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string ResponseTime {
-            get {
-                return this.responseTimeField;
-            }
-            set {
-                this.responseTimeField = value;
-                this.RaisePropertyChanged("ResponseTime");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public int Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-                this.RaisePropertyChanged("Result");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string Errordesc {
-            get {
-                return this.errordescField;
-            }
-            set {
-                this.errordescField = value;
-                this.RaisePropertyChanged("Errordesc");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class DistrictVO : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string responseTimeField;
-        
-        private int resultField;
-        
-        private string errordescField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string ResponseTime {
-            get {
-                return this.responseTimeField;
-            }
-            set {
-                this.responseTimeField = value;
-                this.RaisePropertyChanged("ResponseTime");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public int Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-                this.RaisePropertyChanged("Result");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string Errordesc {
-            get {
-                return this.errordescField;
-            }
-            set {
-                this.errordescField = value;
-                this.RaisePropertyChanged("Errordesc");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1782,7 +2324,7 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1856,78 +2398,36 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class GetSTBInfoVO : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class ChangeStatusHotelVO : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private string lastloginField;
+        private string userNameField;
         
-        private string serialSTBField;
-        
-        private string sTBMACField;
-        
-        private string sTBIPField;
-        
-        private System.DateTime responseTimeField;
+        private string responseTimeField;
         
         private int resultField;
         
-        private string errorDescField;
+        private string errordescField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string Lastlogin {
+        public string UserName {
             get {
-                return this.lastloginField;
+                return this.userNameField;
             }
             set {
-                this.lastloginField = value;
-                this.RaisePropertyChanged("Lastlogin");
+                this.userNameField = value;
+                this.RaisePropertyChanged("UserName");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string SerialSTB {
-            get {
-                return this.serialSTBField;
-            }
-            set {
-                this.serialSTBField = value;
-                this.RaisePropertyChanged("SerialSTB");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string STBMAC {
-            get {
-                return this.sTBMACField;
-            }
-            set {
-                this.sTBMACField = value;
-                this.RaisePropertyChanged("STBMAC");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string STBIP {
-            get {
-                return this.sTBIPField;
-            }
-            set {
-                this.sTBIPField = value;
-                this.RaisePropertyChanged("STBIP");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public System.DateTime ResponseTime {
+        public string ResponseTime {
             get {
                 return this.responseTimeField;
             }
@@ -1938,7 +2438,7 @@ namespace Billing.Vasc {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
         public int Result {
             get {
                 return this.resultField;
@@ -1950,14 +2450,14 @@ namespace Billing.Vasc {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-        public string ErrorDesc {
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string Errordesc {
             get {
-                return this.errorDescField;
+                return this.errordescField;
             }
             set {
-                this.errorDescField = value;
-                this.RaisePropertyChanged("ErrorDesc");
+                this.errordescField = value;
+                this.RaisePropertyChanged("Errordesc");
             }
         }
         
@@ -1972,64 +2472,36 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class GetPackageNameVO : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class ChangePWHotelVO : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private string serviceCodeField;
+        private string userNameField;
         
-        private string serviceVASField;
-        
-        private string packageNameField;
-        
-        private System.DateTime responseTimeField;
+        private string responseTimeField;
         
         private int resultField;
         
-        private string errorDescField;
+        private string errordescField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string ServiceCode {
+        public string UserName {
             get {
-                return this.serviceCodeField;
+                return this.userNameField;
             }
             set {
-                this.serviceCodeField = value;
-                this.RaisePropertyChanged("ServiceCode");
+                this.userNameField = value;
+                this.RaisePropertyChanged("UserName");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string ServiceVAS {
-            get {
-                return this.serviceVASField;
-            }
-            set {
-                this.serviceVASField = value;
-                this.RaisePropertyChanged("ServiceVAS");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string PackageName {
-            get {
-                return this.packageNameField;
-            }
-            set {
-                this.packageNameField = value;
-                this.RaisePropertyChanged("PackageName");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public System.DateTime ResponseTime {
+        public string ResponseTime {
             get {
                 return this.responseTimeField;
             }
@@ -2040,7 +2512,7 @@ namespace Billing.Vasc {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
         public int Result {
             get {
                 return this.resultField;
@@ -2052,14 +2524,14 @@ namespace Billing.Vasc {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-        public string ErrorDesc {
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string Errordesc {
             get {
-                return this.errorDescField;
+                return this.errordescField;
             }
             set {
-                this.errorDescField = value;
-                this.RaisePropertyChanged("ErrorDesc");
+                this.errordescField = value;
+                this.RaisePropertyChanged("Errordesc");
             }
         }
         
@@ -2074,7 +2546,913 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class DeleteHotelVO : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string userNameField;
+        
+        private string responseTimeField;
+        
+        private int resultField;
+        
+        private string errordescField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string UserName {
+            get {
+                return this.userNameField;
+            }
+            set {
+                this.userNameField = value;
+                this.RaisePropertyChanged("UserName");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string ResponseTime {
+            get {
+                return this.responseTimeField;
+            }
+            set {
+                this.responseTimeField = value;
+                this.RaisePropertyChanged("ResponseTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+                this.RaisePropertyChanged("Result");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string Errordesc {
+            get {
+                return this.errordescField;
+            }
+            set {
+                this.errordescField = value;
+                this.RaisePropertyChanged("Errordesc");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class EditHotelVO : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string userNameField;
+        
+        private string responseTimeField;
+        
+        private int resultField;
+        
+        private string errordescField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string UserName {
+            get {
+                return this.userNameField;
+            }
+            set {
+                this.userNameField = value;
+                this.RaisePropertyChanged("UserName");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string ResponseTime {
+            get {
+                return this.responseTimeField;
+            }
+            set {
+                this.responseTimeField = value;
+                this.RaisePropertyChanged("ResponseTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+                this.RaisePropertyChanged("Result");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string Errordesc {
+            get {
+                return this.errordescField;
+            }
+            set {
+                this.errordescField = value;
+                this.RaisePropertyChanged("Errordesc");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class AddHotelVO : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string userNameField;
+        
+        private string responseTimeField;
+        
+        private int resultField;
+        
+        private string errordescField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string UserName {
+            get {
+                return this.userNameField;
+            }
+            set {
+                this.userNameField = value;
+                this.RaisePropertyChanged("UserName");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string ResponseTime {
+            get {
+                return this.responseTimeField;
+            }
+            set {
+                this.responseTimeField = value;
+                this.RaisePropertyChanged("ResponseTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+                this.RaisePropertyChanged("Result");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string Errordesc {
+            get {
+                return this.errordescField;
+            }
+            set {
+                this.errordescField = value;
+                this.RaisePropertyChanged("Errordesc");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class DeleteMyTVVO : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string iPTVACCOUNTField;
+        
+        private string responseTimeField;
+        
+        private int resultField;
+        
+        private string errordescField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string IPTVACCOUNT {
+            get {
+                return this.iPTVACCOUNTField;
+            }
+            set {
+                this.iPTVACCOUNTField = value;
+                this.RaisePropertyChanged("IPTVACCOUNT");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string ResponseTime {
+            get {
+                return this.responseTimeField;
+            }
+            set {
+                this.responseTimeField = value;
+                this.RaisePropertyChanged("ResponseTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+                this.RaisePropertyChanged("Result");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string Errordesc {
+            get {
+                return this.errordescField;
+            }
+            set {
+                this.errordescField = value;
+                this.RaisePropertyChanged("Errordesc");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ChangeUserPassVO : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string userPassField;
+        
+        private string responseTimeField;
+        
+        private int resultField;
+        
+        private string errordescField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string UserPass {
+            get {
+                return this.userPassField;
+            }
+            set {
+                this.userPassField = value;
+                this.RaisePropertyChanged("UserPass");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string ResponseTime {
+            get {
+                return this.responseTimeField;
+            }
+            set {
+                this.responseTimeField = value;
+                this.RaisePropertyChanged("ResponseTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+                this.RaisePropertyChanged("Result");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string Errordesc {
+            get {
+                return this.errordescField;
+            }
+            set {
+                this.errordescField = value;
+                this.RaisePropertyChanged("Errordesc");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ResetPasswordVO : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string iPTVACCOUNTField;
+        
+        private string responseTimeField;
+        
+        private int resultField;
+        
+        private string errordescField;
+        
+        private string passwordOldField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string IPTVACCOUNT {
+            get {
+                return this.iPTVACCOUNTField;
+            }
+            set {
+                this.iPTVACCOUNTField = value;
+                this.RaisePropertyChanged("IPTVACCOUNT");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string ResponseTime {
+            get {
+                return this.responseTimeField;
+            }
+            set {
+                this.responseTimeField = value;
+                this.RaisePropertyChanged("ResponseTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+                this.RaisePropertyChanged("Result");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string Errordesc {
+            get {
+                return this.errordescField;
+            }
+            set {
+                this.errordescField = value;
+                this.RaisePropertyChanged("Errordesc");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public string PasswordOld {
+            get {
+                return this.passwordOldField;
+            }
+            set {
+                this.passwordOldField = value;
+                this.RaisePropertyChanged("PasswordOld");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ValidPasswordVO : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string iPTVACCOUNTField;
+        
+        private string responseTimeField;
+        
+        private int resultField;
+        
+        private string errordescField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string IPTVACCOUNT {
+            get {
+                return this.iPTVACCOUNTField;
+            }
+            set {
+                this.iPTVACCOUNTField = value;
+                this.RaisePropertyChanged("IPTVACCOUNT");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string ResponseTime {
+            get {
+                return this.responseTimeField;
+            }
+            set {
+                this.responseTimeField = value;
+                this.RaisePropertyChanged("ResponseTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+                this.RaisePropertyChanged("Result");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string Errordesc {
+            get {
+                return this.errordescField;
+            }
+            set {
+                this.errordescField = value;
+                this.RaisePropertyChanged("Errordesc");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ChangePasswordVO : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string iPTVACCOUNTField;
+        
+        private string responseTimeField;
+        
+        private int resultField;
+        
+        private string errordescField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string IPTVACCOUNT {
+            get {
+                return this.iPTVACCOUNTField;
+            }
+            set {
+                this.iPTVACCOUNTField = value;
+                this.RaisePropertyChanged("IPTVACCOUNT");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string ResponseTime {
+            get {
+                return this.responseTimeField;
+            }
+            set {
+                this.responseTimeField = value;
+                this.RaisePropertyChanged("ResponseTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+                this.RaisePropertyChanged("Result");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string Errordesc {
+            get {
+                return this.errordescField;
+            }
+            set {
+                this.errordescField = value;
+                this.RaisePropertyChanged("Errordesc");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ChangeContractVO : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string responseTimeField;
+        
+        private int resultField;
+        
+        private string errordescField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string ResponseTime {
+            get {
+                return this.responseTimeField;
+            }
+            set {
+                this.responseTimeField = value;
+                this.RaisePropertyChanged("ResponseTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+                this.RaisePropertyChanged("Result");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string Errordesc {
+            get {
+                return this.errordescField;
+            }
+            set {
+                this.errordescField = value;
+                this.RaisePropertyChanged("Errordesc");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class UpdateUserParentReq : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string childUserField;
+        
+        private string parentUserField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string ChildUser {
+            get {
+                return this.childUserField;
+            }
+            set {
+                this.childUserField = value;
+                this.RaisePropertyChanged("ChildUser");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string ParentUser {
+            get {
+                return this.parentUserField;
+            }
+            set {
+                this.parentUserField = value;
+                this.RaisePropertyChanged("ParentUser");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ChangeSystemResp : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private System.DateTime responseTimeField;
+        
+        private int resultField;
+        
+        private string errordescField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public System.DateTime ResponseTime {
+            get {
+                return this.responseTimeField;
+            }
+            set {
+                this.responseTimeField = value;
+                this.RaisePropertyChanged("ResponseTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+                this.RaisePropertyChanged("Result");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string Errordesc {
+            get {
+                return this.errordescField;
+            }
+            set {
+                this.errordescField = value;
+                this.RaisePropertyChanged("Errordesc");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ChangeSystemReq : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string iPTVAccountField;
+        
+        private string sysFlgField;
+        
+        private string reasonField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string IPTVAccount {
+            get {
+                return this.iPTVAccountField;
+            }
+            set {
+                this.iPTVAccountField = value;
+                this.RaisePropertyChanged("IPTVAccount");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string SysFlg {
+            get {
+                return this.sysFlgField;
+            }
+            set {
+                this.sysFlgField = value;
+                this.RaisePropertyChanged("SysFlg");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string Reason {
+            get {
+                return this.reasonField;
+            }
+            set {
+                this.reasonField = value;
+                this.RaisePropertyChanged("Reason");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetListSubscriberVO : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string responseTimeField;
+        
+        private System.Data.DataSet dataField;
+        
+        private int resultField;
+        
+        private string errordescField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string ResponseTime {
+            get {
+                return this.responseTimeField;
+            }
+            set {
+                this.responseTimeField = value;
+                this.RaisePropertyChanged("ResponseTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public System.Data.DataSet Data {
+            get {
+                return this.dataField;
+            }
+            set {
+                this.dataField = value;
+                this.RaisePropertyChanged("Data");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+                this.RaisePropertyChanged("Result");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string Errordesc {
+            get {
+                return this.errordescField;
+            }
+            set {
+                this.errordescField = value;
+                this.RaisePropertyChanged("Errordesc");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2134,7 +3512,7 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2180,7 +3558,7 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2870,7 +4248,7 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3028,12 +4406,12 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ChangeSTBVO : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class ResumeSubscriberVO : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string iPTVACCOUNTField;
         
@@ -3102,100 +4480,12 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ResetPasswordVO : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string iPTVACCOUNTField;
-        
-        private string responseTimeField;
-        
-        private int resultField;
-        
-        private string errordescField;
-        
-        private string passwordOldField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string IPTVACCOUNT {
-            get {
-                return this.iPTVACCOUNTField;
-            }
-            set {
-                this.iPTVACCOUNTField = value;
-                this.RaisePropertyChanged("IPTVACCOUNT");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string ResponseTime {
-            get {
-                return this.responseTimeField;
-            }
-            set {
-                this.responseTimeField = value;
-                this.RaisePropertyChanged("ResponseTime");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public int Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-                this.RaisePropertyChanged("Result");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string Errordesc {
-            get {
-                return this.errordescField;
-            }
-            set {
-                this.errordescField = value;
-                this.RaisePropertyChanged("Errordesc");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public string PasswordOld {
-            get {
-                return this.passwordOldField;
-            }
-            set {
-                this.passwordOldField = value;
-                this.RaisePropertyChanged("PasswordOld");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ValidPasswordVO : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class CancelSubscriberVO : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string iPTVACCOUNTField;
         
@@ -3264,12 +4554,12 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ChangePasswordVO : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class SuspendSubscriberVO : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string iPTVACCOUNTField;
         
@@ -3338,359 +4628,7 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ChangePackageRequest : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string combo_FiberCDField;
-        
-        private string addOnCDField;
-        
-        private string packageNoField;
-        
-        private string reasonField;
-        
-        private string megaMyTVField;
-        
-        private string iPTVAccountField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string Combo_FiberCD {
-            get {
-                return this.combo_FiberCDField;
-            }
-            set {
-                this.combo_FiberCDField = value;
-                this.RaisePropertyChanged("Combo_FiberCD");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string AddOnCD {
-            get {
-                return this.addOnCDField;
-            }
-            set {
-                this.addOnCDField = value;
-                this.RaisePropertyChanged("AddOnCD");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string PackageNo {
-            get {
-                return this.packageNoField;
-            }
-            set {
-                this.packageNoField = value;
-                this.RaisePropertyChanged("PackageNo");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string Reason {
-            get {
-                return this.reasonField;
-            }
-            set {
-                this.reasonField = value;
-                this.RaisePropertyChanged("Reason");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public string MegaMyTV {
-            get {
-                return this.megaMyTVField;
-            }
-            set {
-                this.megaMyTVField = value;
-                this.RaisePropertyChanged("MegaMyTV");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-        public string IPTVAccount {
-            get {
-                return this.iPTVAccountField;
-            }
-            set {
-                this.iPTVAccountField = value;
-                this.RaisePropertyChanged("IPTVAccount");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ChangeMegaVNNRequest : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string iPTVAccountField;
-        
-        private string megaMyTVField;
-        
-        private string combo_FiberCDField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string IPTVAccount {
-            get {
-                return this.iPTVAccountField;
-            }
-            set {
-                this.iPTVAccountField = value;
-                this.RaisePropertyChanged("IPTVAccount");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string MegaMyTV {
-            get {
-                return this.megaMyTVField;
-            }
-            set {
-                this.megaMyTVField = value;
-                this.RaisePropertyChanged("MegaMyTV");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string Combo_FiberCD {
-            get {
-                return this.combo_FiberCDField;
-            }
-            set {
-                this.combo_FiberCDField = value;
-                this.RaisePropertyChanged("Combo_FiberCD");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ChangePackageAndMegaVNNRequest : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string iPTVAccountField;
-        
-        private string packageNoField;
-        
-        private string serviceCDField;
-        
-        private string serviceVASField;
-        
-        private string reasonField;
-        
-        private string megaMyTVField;
-        
-        private string combo_FiberCDField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string IPTVAccount {
-            get {
-                return this.iPTVAccountField;
-            }
-            set {
-                this.iPTVAccountField = value;
-                this.RaisePropertyChanged("IPTVAccount");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string PackageNo {
-            get {
-                return this.packageNoField;
-            }
-            set {
-                this.packageNoField = value;
-                this.RaisePropertyChanged("PackageNo");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string ServiceCD {
-            get {
-                return this.serviceCDField;
-            }
-            set {
-                this.serviceCDField = value;
-                this.RaisePropertyChanged("ServiceCD");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string ServiceVAS {
-            get {
-                return this.serviceVASField;
-            }
-            set {
-                this.serviceVASField = value;
-                this.RaisePropertyChanged("ServiceVAS");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public string Reason {
-            get {
-                return this.reasonField;
-            }
-            set {
-                this.reasonField = value;
-                this.RaisePropertyChanged("Reason");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-        public string MegaMyTV {
-            get {
-                return this.megaMyTVField;
-            }
-            set {
-                this.megaMyTVField = value;
-                this.RaisePropertyChanged("MegaMyTV");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-        public string Combo_FiberCD {
-            get {
-                return this.combo_FiberCDField;
-            }
-            set {
-                this.combo_FiberCDField = value;
-                this.RaisePropertyChanged("Combo_FiberCD");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ChangePackageVO : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string iPTVACCOUNTField;
-        
-        private string responseTimeField;
-        
-        private int resultField;
-        
-        private string errordescField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string IPTVACCOUNT {
-            get {
-                return this.iPTVACCOUNTField;
-            }
-            set {
-                this.iPTVACCOUNTField = value;
-                this.RaisePropertyChanged("IPTVACCOUNT");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string ResponseTime {
-            get {
-                return this.responseTimeField;
-            }
-            set {
-                this.responseTimeField = value;
-                this.RaisePropertyChanged("ResponseTime");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public int Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-                this.RaisePropertyChanged("Result");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string Errordesc {
-            get {
-                return this.errordescField;
-            }
-            set {
-                this.errordescField = value;
-                this.RaisePropertyChanged("Errordesc");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3988,289 +4926,7 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class CancelSubscriberVO : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string iPTVACCOUNTField;
-        
-        private string responseTimeField;
-        
-        private int resultField;
-        
-        private string errordescField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string IPTVACCOUNT {
-            get {
-                return this.iPTVACCOUNTField;
-            }
-            set {
-                this.iPTVACCOUNTField = value;
-                this.RaisePropertyChanged("IPTVACCOUNT");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string ResponseTime {
-            get {
-                return this.responseTimeField;
-            }
-            set {
-                this.responseTimeField = value;
-                this.RaisePropertyChanged("ResponseTime");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public int Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-                this.RaisePropertyChanged("Result");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string Errordesc {
-            get {
-                return this.errordescField;
-            }
-            set {
-                this.errordescField = value;
-                this.RaisePropertyChanged("Errordesc");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ResumeSubscriberVO : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string iPTVACCOUNTField;
-        
-        private string responseTimeField;
-        
-        private int resultField;
-        
-        private string errordescField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string IPTVACCOUNT {
-            get {
-                return this.iPTVACCOUNTField;
-            }
-            set {
-                this.iPTVACCOUNTField = value;
-                this.RaisePropertyChanged("IPTVACCOUNT");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string ResponseTime {
-            get {
-                return this.responseTimeField;
-            }
-            set {
-                this.responseTimeField = value;
-                this.RaisePropertyChanged("ResponseTime");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public int Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-                this.RaisePropertyChanged("Result");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string Errordesc {
-            get {
-                return this.errordescField;
-            }
-            set {
-                this.errordescField = value;
-                this.RaisePropertyChanged("Errordesc");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class SuspendSubscriberVO : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string iPTVACCOUNTField;
-        
-        private string responseTimeField;
-        
-        private int resultField;
-        
-        private string errordescField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string IPTVACCOUNT {
-            get {
-                return this.iPTVACCOUNTField;
-            }
-            set {
-                this.iPTVACCOUNTField = value;
-                this.RaisePropertyChanged("IPTVACCOUNT");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string ResponseTime {
-            get {
-                return this.responseTimeField;
-            }
-            set {
-                this.responseTimeField = value;
-                this.RaisePropertyChanged("ResponseTime");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public int Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-                this.RaisePropertyChanged("Result");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string Errordesc {
-            get {
-                return this.errordescField;
-            }
-            set {
-                this.errordescField = value;
-                this.RaisePropertyChanged("Errordesc");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class UpdatePromoVO : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string responseTimeField;
-        
-        private int resultField;
-        
-        private string errordescField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string ResponseTime {
-            get {
-                return this.responseTimeField;
-            }
-            set {
-                this.responseTimeField = value;
-                this.RaisePropertyChanged("ResponseTime");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public int Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-                this.RaisePropertyChanged("Result");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string Errordesc {
-            get {
-                return this.errordescField;
-            }
-            set {
-                this.errordescField = value;
-                this.RaisePropertyChanged("Errordesc");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4344,7 +5000,7 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4418,7 +5074,7 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5136,7 +5792,1571 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ChangePromotionsVO : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string responseTimeField;
+        
+        private int resultField;
+        
+        private string errordescField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string ResponseTime {
+            get {
+                return this.responseTimeField;
+            }
+            set {
+                this.responseTimeField = value;
+                this.RaisePropertyChanged("ResponseTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+                this.RaisePropertyChanged("Result");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string Errordesc {
+            get {
+                return this.errordescField;
+            }
+            set {
+                this.errordescField = value;
+                this.RaisePropertyChanged("Errordesc");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class UpdatePromoVO : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string responseTimeField;
+        
+        private int resultField;
+        
+        private string errordescField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string ResponseTime {
+            get {
+                return this.responseTimeField;
+            }
+            set {
+                this.responseTimeField = value;
+                this.RaisePropertyChanged("ResponseTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+                this.RaisePropertyChanged("Result");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string Errordesc {
+            get {
+                return this.errordescField;
+            }
+            set {
+                this.errordescField = value;
+                this.RaisePropertyChanged("Errordesc");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class UpdateObjPromoCDReq : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string iPTVAcountField;
+        
+        private string objPromoCDField;
+        
+        private string objCustPromoCDField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string IPTVAcount {
+            get {
+                return this.iPTVAcountField;
+            }
+            set {
+                this.iPTVAcountField = value;
+                this.RaisePropertyChanged("IPTVAcount");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string ObjPromoCD {
+            get {
+                return this.objPromoCDField;
+            }
+            set {
+                this.objPromoCDField = value;
+                this.RaisePropertyChanged("ObjPromoCD");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string ObjCustPromoCD {
+            get {
+                return this.objCustPromoCDField;
+            }
+            set {
+                this.objCustPromoCDField = value;
+                this.RaisePropertyChanged("ObjCustPromoCD");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetObjPromoCDVO : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int resultField;
+        
+        private string errordescField;
+        
+        private System.Data.DataTable dataField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public int Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+                this.RaisePropertyChanged("Result");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string Errordesc {
+            get {
+                return this.errordescField;
+            }
+            set {
+                this.errordescField = value;
+                this.RaisePropertyChanged("Errordesc");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public System.Data.DataTable Data {
+            get {
+                return this.dataField;
+            }
+            set {
+                this.dataField = value;
+                this.RaisePropertyChanged("Data");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetPackageEPGVO : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string responseTimeField;
+        
+        private int resultField;
+        
+        private string errordescField;
+        
+        private System.Data.DataSet getDataField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string ResponseTime {
+            get {
+                return this.responseTimeField;
+            }
+            set {
+                this.responseTimeField = value;
+                this.RaisePropertyChanged("ResponseTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+                this.RaisePropertyChanged("Result");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string Errordesc {
+            get {
+                return this.errordescField;
+            }
+            set {
+                this.errordescField = value;
+                this.RaisePropertyChanged("Errordesc");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public System.Data.DataSet GetData {
+            get {
+                return this.getDataField;
+            }
+            set {
+                this.getDataField = value;
+                this.RaisePropertyChanged("GetData");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetPackageNameVO : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string serviceCodeField;
+        
+        private string serviceVASField;
+        
+        private string packageNameField;
+        
+        private System.DateTime responseTimeField;
+        
+        private int resultField;
+        
+        private string errorDescField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string ServiceCode {
+            get {
+                return this.serviceCodeField;
+            }
+            set {
+                this.serviceCodeField = value;
+                this.RaisePropertyChanged("ServiceCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string ServiceVAS {
+            get {
+                return this.serviceVASField;
+            }
+            set {
+                this.serviceVASField = value;
+                this.RaisePropertyChanged("ServiceVAS");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string PackageName {
+            get {
+                return this.packageNameField;
+            }
+            set {
+                this.packageNameField = value;
+                this.RaisePropertyChanged("PackageName");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public System.DateTime ResponseTime {
+            get {
+                return this.responseTimeField;
+            }
+            set {
+                this.responseTimeField = value;
+                this.RaisePropertyChanged("ResponseTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public int Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+                this.RaisePropertyChanged("Result");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public string ErrorDesc {
+            get {
+                return this.errorDescField;
+            }
+            set {
+                this.errorDescField = value;
+                this.RaisePropertyChanged("ErrorDesc");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ChangeMegaVNNRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string iPTVAccountField;
+        
+        private string megaMyTVField;
+        
+        private string combo_FiberCDField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string IPTVAccount {
+            get {
+                return this.iPTVAccountField;
+            }
+            set {
+                this.iPTVAccountField = value;
+                this.RaisePropertyChanged("IPTVAccount");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string MegaMyTV {
+            get {
+                return this.megaMyTVField;
+            }
+            set {
+                this.megaMyTVField = value;
+                this.RaisePropertyChanged("MegaMyTV");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string Combo_FiberCD {
+            get {
+                return this.combo_FiberCDField;
+            }
+            set {
+                this.combo_FiberCDField = value;
+                this.RaisePropertyChanged("Combo_FiberCD");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ChangePackageAndMegaVNNRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string iPTVAccountField;
+        
+        private string packageNoField;
+        
+        private string serviceCDField;
+        
+        private string serviceVASField;
+        
+        private string reasonField;
+        
+        private string megaMyTVField;
+        
+        private string combo_FiberCDField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string IPTVAccount {
+            get {
+                return this.iPTVAccountField;
+            }
+            set {
+                this.iPTVAccountField = value;
+                this.RaisePropertyChanged("IPTVAccount");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string PackageNo {
+            get {
+                return this.packageNoField;
+            }
+            set {
+                this.packageNoField = value;
+                this.RaisePropertyChanged("PackageNo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string ServiceCD {
+            get {
+                return this.serviceCDField;
+            }
+            set {
+                this.serviceCDField = value;
+                this.RaisePropertyChanged("ServiceCD");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string ServiceVAS {
+            get {
+                return this.serviceVASField;
+            }
+            set {
+                this.serviceVASField = value;
+                this.RaisePropertyChanged("ServiceVAS");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public string Reason {
+            get {
+                return this.reasonField;
+            }
+            set {
+                this.reasonField = value;
+                this.RaisePropertyChanged("Reason");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public string MegaMyTV {
+            get {
+                return this.megaMyTVField;
+            }
+            set {
+                this.megaMyTVField = value;
+                this.RaisePropertyChanged("MegaMyTV");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public string Combo_FiberCD {
+            get {
+                return this.combo_FiberCDField;
+            }
+            set {
+                this.combo_FiberCDField = value;
+                this.RaisePropertyChanged("Combo_FiberCD");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ChangePackageVO : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string iPTVACCOUNTField;
+        
+        private string responseTimeField;
+        
+        private int resultField;
+        
+        private string errordescField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string IPTVACCOUNT {
+            get {
+                return this.iPTVACCOUNTField;
+            }
+            set {
+                this.iPTVACCOUNTField = value;
+                this.RaisePropertyChanged("IPTVACCOUNT");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string ResponseTime {
+            get {
+                return this.responseTimeField;
+            }
+            set {
+                this.responseTimeField = value;
+                this.RaisePropertyChanged("ResponseTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+                this.RaisePropertyChanged("Result");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string Errordesc {
+            get {
+                return this.errordescField;
+            }
+            set {
+                this.errordescField = value;
+                this.RaisePropertyChanged("Errordesc");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ChangePackageRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string combo_FiberCDField;
+        
+        private string addOnCDField;
+        
+        private string packageNoField;
+        
+        private string reasonField;
+        
+        private string megaMyTVField;
+        
+        private string iPTVAccountField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string Combo_FiberCD {
+            get {
+                return this.combo_FiberCDField;
+            }
+            set {
+                this.combo_FiberCDField = value;
+                this.RaisePropertyChanged("Combo_FiberCD");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string AddOnCD {
+            get {
+                return this.addOnCDField;
+            }
+            set {
+                this.addOnCDField = value;
+                this.RaisePropertyChanged("AddOnCD");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string PackageNo {
+            get {
+                return this.packageNoField;
+            }
+            set {
+                this.packageNoField = value;
+                this.RaisePropertyChanged("PackageNo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string Reason {
+            get {
+                return this.reasonField;
+            }
+            set {
+                this.reasonField = value;
+                this.RaisePropertyChanged("Reason");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public string MegaMyTV {
+            get {
+                return this.megaMyTVField;
+            }
+            set {
+                this.megaMyTVField = value;
+                this.RaisePropertyChanged("MegaMyTV");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public string IPTVAccount {
+            get {
+                return this.iPTVAccountField;
+            }
+            set {
+                this.iPTVAccountField = value;
+                this.RaisePropertyChanged("IPTVAccount");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class OTTGetMemberPendingResult : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string idField;
+        
+        private string mobileField;
+        
+        private string area_codeField;
+        
+        private string statusField;
+        
+        private string otp_statusField;
+        
+        private string otpField;
+        
+        private string create_dateField;
+        
+        private string modify_dateField;
+        
+        private string manufacturer_idField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string mobile {
+            get {
+                return this.mobileField;
+            }
+            set {
+                this.mobileField = value;
+                this.RaisePropertyChanged("mobile");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string area_code {
+            get {
+                return this.area_codeField;
+            }
+            set {
+                this.area_codeField = value;
+                this.RaisePropertyChanged("area_code");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string status {
+            get {
+                return this.statusField;
+            }
+            set {
+                this.statusField = value;
+                this.RaisePropertyChanged("status");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public string otp_status {
+            get {
+                return this.otp_statusField;
+            }
+            set {
+                this.otp_statusField = value;
+                this.RaisePropertyChanged("otp_status");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public string otp {
+            get {
+                return this.otpField;
+            }
+            set {
+                this.otpField = value;
+                this.RaisePropertyChanged("otp");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public string create_date {
+            get {
+                return this.create_dateField;
+            }
+            set {
+                this.create_dateField = value;
+                this.RaisePropertyChanged("create_date");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public string modify_date {
+            get {
+                return this.modify_dateField;
+            }
+            set {
+                this.modify_dateField = value;
+                this.RaisePropertyChanged("modify_date");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        public string manufacturer_id {
+            get {
+                return this.manufacturer_idField;
+            }
+            set {
+                this.manufacturer_idField = value;
+                this.RaisePropertyChanged("manufacturer_id");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Smart_OTTGetMemberPendingVO : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int resultField;
+        
+        private string errorDescField;
+        
+        private OTTGetMemberPendingResult[] dataField;
+        
+        private int totalItemField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public int result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+                this.RaisePropertyChanged("result");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string errorDesc {
+            get {
+                return this.errorDescField;
+            }
+            set {
+                this.errorDescField = value;
+                this.RaisePropertyChanged("errorDesc");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=2)]
+        public OTTGetMemberPendingResult[] data {
+            get {
+                return this.dataField;
+            }
+            set {
+                this.dataField = value;
+                this.RaisePropertyChanged("data");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public int totalItem {
+            get {
+                return this.totalItemField;
+            }
+            set {
+                this.totalItemField = value;
+                this.RaisePropertyChanged("totalItem");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Smart_OTTGetMemberPendingRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string area_codeField;
+        
+        private string mobileField;
+        
+        private int numberField;
+        
+        private int pageField;
+        
+        private string fromDateField;
+        
+        private string toDateField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string area_code {
+            get {
+                return this.area_codeField;
+            }
+            set {
+                this.area_codeField = value;
+                this.RaisePropertyChanged("area_code");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string mobile {
+            get {
+                return this.mobileField;
+            }
+            set {
+                this.mobileField = value;
+                this.RaisePropertyChanged("mobile");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int number {
+            get {
+                return this.numberField;
+            }
+            set {
+                this.numberField = value;
+                this.RaisePropertyChanged("number");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public int page {
+            get {
+                return this.pageField;
+            }
+            set {
+                this.pageField = value;
+                this.RaisePropertyChanged("page");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public string fromDate {
+            get {
+                return this.fromDateField;
+            }
+            set {
+                this.fromDateField = value;
+                this.RaisePropertyChanged("fromDate");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public string toDate {
+            get {
+                return this.toDateField;
+            }
+            set {
+                this.toDateField = value;
+                this.RaisePropertyChanged("toDate");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class MethodChangePayRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string no_MonthField;
+        
+        private string methodField;
+        
+        private string iPTVACCOUNTField;
+        
+        private string startDateField;
+        
+        private string operatorField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string No_Month {
+            get {
+                return this.no_MonthField;
+            }
+            set {
+                this.no_MonthField = value;
+                this.RaisePropertyChanged("No_Month");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string Method {
+            get {
+                return this.methodField;
+            }
+            set {
+                this.methodField = value;
+                this.RaisePropertyChanged("Method");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string IPTVACCOUNT {
+            get {
+                return this.iPTVACCOUNTField;
+            }
+            set {
+                this.iPTVACCOUNTField = value;
+                this.RaisePropertyChanged("IPTVACCOUNT");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string StartDate {
+            get {
+                return this.startDateField;
+            }
+            set {
+                this.startDateField = value;
+                this.RaisePropertyChanged("StartDate");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public string Operator {
+            get {
+                return this.operatorField;
+            }
+            set {
+                this.operatorField = value;
+                this.RaisePropertyChanged("Operator");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class MethodChangePayVO : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string responseTimeField;
+        
+        private int resultField;
+        
+        private string errordescField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string ResponseTime {
+            get {
+                return this.responseTimeField;
+            }
+            set {
+                this.responseTimeField = value;
+                this.RaisePropertyChanged("ResponseTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+                this.RaisePropertyChanged("Result");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string Errordesc {
+            get {
+                return this.errordescField;
+            }
+            set {
+                this.errordescField = value;
+                this.RaisePropertyChanged("Errordesc");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ChangeFiberVNNVO : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string responseTimeField;
+        
+        private int resultField;
+        
+        private string errordescField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string ResponseTime {
+            get {
+                return this.responseTimeField;
+            }
+            set {
+                this.responseTimeField = value;
+                this.RaisePropertyChanged("ResponseTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+                this.RaisePropertyChanged("Result");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string Errordesc {
+            get {
+                return this.errordescField;
+            }
+            set {
+                this.errordescField = value;
+                this.RaisePropertyChanged("Errordesc");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class UpdateSubTrialRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string iPTVAccountField;
+        
+        private string codeIDField;
+        
+        private string reasonField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string IPTVAccount {
+            get {
+                return this.iPTVAccountField;
+            }
+            set {
+                this.iPTVAccountField = value;
+                this.RaisePropertyChanged("IPTVAccount");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string CodeID {
+            get {
+                return this.codeIDField;
+            }
+            set {
+                this.codeIDField = value;
+                this.RaisePropertyChanged("CodeID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string Reason {
+            get {
+                return this.reasonField;
+            }
+            set {
+                this.reasonField = value;
+                this.RaisePropertyChanged("Reason");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class CustTrialDTO : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string uSERNAMEField;
+        
+        private string mETHOD_FLGField;
+        
+        private string nOMONTHField;
+        
+        private string tRIAL_CODEField;
+        
+        private string tRIAL_GROUPField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string USERNAME {
+            get {
+                return this.uSERNAMEField;
+            }
+            set {
+                this.uSERNAMEField = value;
+                this.RaisePropertyChanged("USERNAME");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string METHOD_FLG {
+            get {
+                return this.mETHOD_FLGField;
+            }
+            set {
+                this.mETHOD_FLGField = value;
+                this.RaisePropertyChanged("METHOD_FLG");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string NOMONTH {
+            get {
+                return this.nOMONTHField;
+            }
+            set {
+                this.nOMONTHField = value;
+                this.RaisePropertyChanged("NOMONTH");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string TRIAL_CODE {
+            get {
+                return this.tRIAL_CODEField;
+            }
+            set {
+                this.tRIAL_CODEField = value;
+                this.RaisePropertyChanged("TRIAL_CODE");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public string TRIAL_GROUP {
+            get {
+                return this.tRIAL_GROUPField;
+            }
+            set {
+                this.tRIAL_GROUPField = value;
+                this.RaisePropertyChanged("TRIAL_GROUP");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class CustUserMultiDTO : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string uSERNAME_FIRSTField;
+        
+        private string uSERNAME_MULTIField;
+        
+        private string mULTI_FLGField;
+        
+        private string mETHOD_FLGField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string USERNAME_FIRST {
+            get {
+                return this.uSERNAME_FIRSTField;
+            }
+            set {
+                this.uSERNAME_FIRSTField = value;
+                this.RaisePropertyChanged("USERNAME_FIRST");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string USERNAME_MULTI {
+            get {
+                return this.uSERNAME_MULTIField;
+            }
+            set {
+                this.uSERNAME_MULTIField = value;
+                this.RaisePropertyChanged("USERNAME_MULTI");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string MULTI_FLG {
+            get {
+                return this.mULTI_FLGField;
+            }
+            set {
+                this.mULTI_FLGField = value;
+                this.RaisePropertyChanged("MULTI_FLG");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string METHOD_FLG {
+            get {
+                return this.mETHOD_FLGField;
+            }
+            set {
+                this.mETHOD_FLGField = value;
+                this.RaisePropertyChanged("METHOD_FLG");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class STBRentDTO : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string uSERNAMEField;
+        
+        private string rENT_STATUSField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string USERNAME {
+            get {
+                return this.uSERNAMEField;
+            }
+            set {
+                this.uSERNAMEField = value;
+                this.RaisePropertyChanged("USERNAME");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string RENT_STATUS {
+            get {
+                return this.rENT_STATUSField;
+            }
+            set {
+                this.rENT_STATUSField = value;
+                this.RaisePropertyChanged("RENT_STATUS");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -5210,20 +7430,20 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class GetHisPayTVResp : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class GetSTBInfoVO : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private System.Data.DataSet dataKplusField;
+        private string lastloginField;
         
-        private System.Data.DataSet dataVTVcabField;
+        private string serialSTBField;
         
-        private System.Data.DataSet dataHBOField;
+        private string sTBMACField;
         
-        private System.Data.DataSet dataFafilmField;
+        private string sTBIPField;
         
         private System.DateTime responseTimeField;
         
@@ -5233,49 +7453,49 @@ namespace Billing.Vasc {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public System.Data.DataSet DataKplus {
+        public string Lastlogin {
             get {
-                return this.dataKplusField;
+                return this.lastloginField;
             }
             set {
-                this.dataKplusField = value;
-                this.RaisePropertyChanged("DataKplus");
+                this.lastloginField = value;
+                this.RaisePropertyChanged("Lastlogin");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public System.Data.DataSet DataVTVcab {
+        public string SerialSTB {
             get {
-                return this.dataVTVcabField;
+                return this.serialSTBField;
             }
             set {
-                this.dataVTVcabField = value;
-                this.RaisePropertyChanged("DataVTVcab");
+                this.serialSTBField = value;
+                this.RaisePropertyChanged("SerialSTB");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public System.Data.DataSet DataHBO {
+        public string STBMAC {
             get {
-                return this.dataHBOField;
+                return this.sTBMACField;
             }
             set {
-                this.dataHBOField = value;
-                this.RaisePropertyChanged("DataHBO");
+                this.sTBMACField = value;
+                this.RaisePropertyChanged("STBMAC");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public System.Data.DataSet DataFafilm {
+        public string STBIP {
             get {
-                return this.dataFafilmField;
+                return this.sTBIPField;
             }
             set {
-                this.dataFafilmField = value;
-                this.RaisePropertyChanged("DataFafilm");
+                this.sTBIPField = value;
+                this.RaisePropertyChanged("STBIP");
             }
         }
         
@@ -5326,472 +7546,88 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class BlockPayTVResp : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class ChangeSTBVO : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private System.DateTime responseTimeField;
-        
-        private int resultField;
-        
-        private string errorDescField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public System.DateTime ResponseTime {
-            get {
-                return this.responseTimeField;
-            }
-            set {
-                this.responseTimeField = value;
-                this.RaisePropertyChanged("ResponseTime");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public int Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-                this.RaisePropertyChanged("Result");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string ErrorDesc {
-            get {
-                return this.errorDescField;
-            }
-            set {
-                this.errorDescField = value;
-                this.RaisePropertyChanged("ErrorDesc");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class BlockPayTVRequest : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string myTVIDField;
-        
-        private int operatorField;
-        
-        private string reasonField;
-        
-        private string allServiceField;
-        
-        private string fimPlusField;
-        
-        private string kplusFLGField;
-        
-        private string fafilmFLGField;
-        
-        private string hBOFlgField;
-        
-        private string vTVcabFlgField;
-        
-        private string cloudGameField;
-        
-        private string phimTruyenField;
-        
-        private string troChoiField;
-        
-        private string karaokeField;
-        
-        private string caNhacField;
-        
-        private string docTruyenField;
-        
-        private string theThaoField;
-        
-        private string sucKhoeLamDepField;
-        
-        private string nhipCauMyTVField;
-        
-        private string phongCachSongField;
-        
-        private string thieuNhiField;
-        
-        private string giaoDucDaoTaoField;
-        
-        private string daoTaoTuXaField;
-        
-        private string ketQuaXoSoField;
-        
-        private string binhChonField;
-        
-        private string danetField;
-        
-        private string ceemeField;
-        
-        private string myTVShowField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string MyTVID {
-            get {
-                return this.myTVIDField;
-            }
-            set {
-                this.myTVIDField = value;
-                this.RaisePropertyChanged("MyTVID");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public int Operator {
-            get {
-                return this.operatorField;
-            }
-            set {
-                this.operatorField = value;
-                this.RaisePropertyChanged("Operator");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string Reason {
-            get {
-                return this.reasonField;
-            }
-            set {
-                this.reasonField = value;
-                this.RaisePropertyChanged("Reason");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string AllService {
-            get {
-                return this.allServiceField;
-            }
-            set {
-                this.allServiceField = value;
-                this.RaisePropertyChanged("AllService");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public string FimPlus {
-            get {
-                return this.fimPlusField;
-            }
-            set {
-                this.fimPlusField = value;
-                this.RaisePropertyChanged("FimPlus");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-        public string KplusFLG {
-            get {
-                return this.kplusFLGField;
-            }
-            set {
-                this.kplusFLGField = value;
-                this.RaisePropertyChanged("KplusFLG");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-        public string FafilmFLG {
-            get {
-                return this.fafilmFLGField;
-            }
-            set {
-                this.fafilmFLGField = value;
-                this.RaisePropertyChanged("FafilmFLG");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
-        public string HBOFlg {
-            get {
-                return this.hBOFlgField;
-            }
-            set {
-                this.hBOFlgField = value;
-                this.RaisePropertyChanged("HBOFlg");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
-        public string VTVcabFlg {
-            get {
-                return this.vTVcabFlgField;
-            }
-            set {
-                this.vTVcabFlgField = value;
-                this.RaisePropertyChanged("VTVcabFlg");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
-        public string CloudGame {
-            get {
-                return this.cloudGameField;
-            }
-            set {
-                this.cloudGameField = value;
-                this.RaisePropertyChanged("CloudGame");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=10)]
-        public string PhimTruyen {
-            get {
-                return this.phimTruyenField;
-            }
-            set {
-                this.phimTruyenField = value;
-                this.RaisePropertyChanged("PhimTruyen");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=11)]
-        public string TroChoi {
-            get {
-                return this.troChoiField;
-            }
-            set {
-                this.troChoiField = value;
-                this.RaisePropertyChanged("TroChoi");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=12)]
-        public string Karaoke {
-            get {
-                return this.karaokeField;
-            }
-            set {
-                this.karaokeField = value;
-                this.RaisePropertyChanged("Karaoke");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=13)]
-        public string CaNhac {
-            get {
-                return this.caNhacField;
-            }
-            set {
-                this.caNhacField = value;
-                this.RaisePropertyChanged("CaNhac");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=14)]
-        public string DocTruyen {
-            get {
-                return this.docTruyenField;
-            }
-            set {
-                this.docTruyenField = value;
-                this.RaisePropertyChanged("DocTruyen");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=15)]
-        public string TheThao {
-            get {
-                return this.theThaoField;
-            }
-            set {
-                this.theThaoField = value;
-                this.RaisePropertyChanged("TheThao");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=16)]
-        public string SucKhoeLamDep {
-            get {
-                return this.sucKhoeLamDepField;
-            }
-            set {
-                this.sucKhoeLamDepField = value;
-                this.RaisePropertyChanged("SucKhoeLamDep");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=17)]
-        public string NhipCauMyTV {
-            get {
-                return this.nhipCauMyTVField;
-            }
-            set {
-                this.nhipCauMyTVField = value;
-                this.RaisePropertyChanged("NhipCauMyTV");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=18)]
-        public string PhongCachSong {
-            get {
-                return this.phongCachSongField;
-            }
-            set {
-                this.phongCachSongField = value;
-                this.RaisePropertyChanged("PhongCachSong");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=19)]
-        public string ThieuNhi {
-            get {
-                return this.thieuNhiField;
-            }
-            set {
-                this.thieuNhiField = value;
-                this.RaisePropertyChanged("ThieuNhi");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=20)]
-        public string GiaoDucDaoTao {
-            get {
-                return this.giaoDucDaoTaoField;
-            }
-            set {
-                this.giaoDucDaoTaoField = value;
-                this.RaisePropertyChanged("GiaoDucDaoTao");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=21)]
-        public string DaoTaoTuXa {
-            get {
-                return this.daoTaoTuXaField;
-            }
-            set {
-                this.daoTaoTuXaField = value;
-                this.RaisePropertyChanged("DaoTaoTuXa");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=22)]
-        public string KetQuaXoSo {
-            get {
-                return this.ketQuaXoSoField;
-            }
-            set {
-                this.ketQuaXoSoField = value;
-                this.RaisePropertyChanged("KetQuaXoSo");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=23)]
-        public string BinhChon {
-            get {
-                return this.binhChonField;
-            }
-            set {
-                this.binhChonField = value;
-                this.RaisePropertyChanged("BinhChon");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=24)]
-        public string Danet {
-            get {
-                return this.danetField;
-            }
-            set {
-                this.danetField = value;
-                this.RaisePropertyChanged("Danet");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=25)]
-        public string Ceeme {
-            get {
-                return this.ceemeField;
-            }
-            set {
-                this.ceemeField = value;
-                this.RaisePropertyChanged("Ceeme");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=26)]
-        public string MyTVShow {
-            get {
-                return this.myTVShowField;
-            }
-            set {
-                this.myTVShowField = value;
-                this.RaisePropertyChanged("MyTVShow");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class GetListSubscriberVO : object, System.ComponentModel.INotifyPropertyChanged {
+        private string iPTVACCOUNTField;
         
         private string responseTimeField;
         
-        private System.Data.DataSet dataField;
+        private int resultField;
+        
+        private string errordescField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string IPTVACCOUNT {
+            get {
+                return this.iPTVACCOUNTField;
+            }
+            set {
+                this.iPTVACCOUNTField = value;
+                this.RaisePropertyChanged("IPTVACCOUNT");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string ResponseTime {
+            get {
+                return this.responseTimeField;
+            }
+            set {
+                this.responseTimeField = value;
+                this.RaisePropertyChanged("ResponseTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+                this.RaisePropertyChanged("Result");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string Errordesc {
+            get {
+                return this.errordescField;
+            }
+            set {
+                this.errordescField = value;
+                this.RaisePropertyChanged("Errordesc");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ChangeDistrictSubscriberVO : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string responseTimeField;
         
         private int resultField;
         
@@ -5811,306 +7647,6 @@ namespace Billing.Vasc {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public System.Data.DataSet Data {
-            get {
-                return this.dataField;
-            }
-            set {
-                this.dataField = value;
-                this.RaisePropertyChanged("Data");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public int Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-                this.RaisePropertyChanged("Result");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string Errordesc {
-            get {
-                return this.errordescField;
-            }
-            set {
-                this.errordescField = value;
-                this.RaisePropertyChanged("Errordesc");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class UpdateUserParentReq : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string childUserField;
-        
-        private string parentUserField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string ChildUser {
-            get {
-                return this.childUserField;
-            }
-            set {
-                this.childUserField = value;
-                this.RaisePropertyChanged("ChildUser");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string ParentUser {
-            get {
-                return this.parentUserField;
-            }
-            set {
-                this.parentUserField = value;
-                this.RaisePropertyChanged("ParentUser");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class UpdateObjPromoCDReq : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string iPTVAcountField;
-        
-        private string objPromoCDField;
-        
-        private string objCustPromoCDField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string IPTVAcount {
-            get {
-                return this.iPTVAcountField;
-            }
-            set {
-                this.iPTVAcountField = value;
-                this.RaisePropertyChanged("IPTVAcount");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string ObjPromoCD {
-            get {
-                return this.objPromoCDField;
-            }
-            set {
-                this.objPromoCDField = value;
-                this.RaisePropertyChanged("ObjPromoCD");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string ObjCustPromoCD {
-            get {
-                return this.objCustPromoCDField;
-            }
-            set {
-                this.objCustPromoCDField = value;
-                this.RaisePropertyChanged("ObjCustPromoCD");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class GetObjPromoCDVO : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private int resultField;
-        
-        private string errordescField;
-        
-        private System.Data.DataTable dataField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public int Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-                this.RaisePropertyChanged("Result");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string Errordesc {
-            get {
-                return this.errordescField;
-            }
-            set {
-                this.errordescField = value;
-                this.RaisePropertyChanged("Errordesc");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public System.Data.DataTable Data {
-            get {
-                return this.dataField;
-            }
-            set {
-                this.dataField = value;
-                this.RaisePropertyChanged("Data");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class StatusBlockPayTVInfor : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private System.DateTime responseTimeField;
-        
-        private int resultField;
-        
-        private string errordescField;
-        
-        private string myTVShowField;
-        
-        private string ceemeField;
-        
-        private string danetField;
-        
-        private string cloudGameField;
-        
-        private string phimTruyenField;
-        
-        private string troChoiField;
-        
-        private string karaokeField;
-        
-        private string caNhacField;
-        
-        private string docTruyenField;
-        
-        private string theThaoField;
-        
-        private string sucKhoeLamDepField;
-        
-        private string nhipCauMyTVField;
-        
-        private string phongCachSongField;
-        
-        private string thieuNhiField;
-        
-        private string giaoDucDaoTaoField;
-        
-        private string daoTaoTuXaField;
-        
-        private string ketQuaXoSoField;
-        
-        private string binhChonField;
-        
-        private string payTVField;
-        
-        private string myTVIDField;
-        
-        private string fimPlusField;
-        
-        private string kplusFLGField;
-        
-        private string fafilmFLGField;
-        
-        private string hBOFlgField;
-        
-        private string vTVcabFlgField;
-        
-        private string fimPlus_USEField;
-        
-        private string kplus_USEField;
-        
-        private string fafilm_USEField;
-        
-        private string hBO_USEField;
-        
-        private string vTVcab_USEField;
-        
-        private string myTVShow_USEField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public System.DateTime ResponseTime {
-            get {
-                return this.responseTimeField;
-            }
-            set {
-                this.responseTimeField = value;
-                this.RaisePropertyChanged("ResponseTime");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
         public int Result {
             get {
                 return this.resultField;
@@ -6133,378 +7669,6 @@ namespace Billing.Vasc {
             }
         }
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string MyTVShow {
-            get {
-                return this.myTVShowField;
-            }
-            set {
-                this.myTVShowField = value;
-                this.RaisePropertyChanged("MyTVShow");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public string Ceeme {
-            get {
-                return this.ceemeField;
-            }
-            set {
-                this.ceemeField = value;
-                this.RaisePropertyChanged("Ceeme");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-        public string Danet {
-            get {
-                return this.danetField;
-            }
-            set {
-                this.danetField = value;
-                this.RaisePropertyChanged("Danet");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-        public string CloudGame {
-            get {
-                return this.cloudGameField;
-            }
-            set {
-                this.cloudGameField = value;
-                this.RaisePropertyChanged("CloudGame");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
-        public string PhimTruyen {
-            get {
-                return this.phimTruyenField;
-            }
-            set {
-                this.phimTruyenField = value;
-                this.RaisePropertyChanged("PhimTruyen");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
-        public string TroChoi {
-            get {
-                return this.troChoiField;
-            }
-            set {
-                this.troChoiField = value;
-                this.RaisePropertyChanged("TroChoi");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
-        public string Karaoke {
-            get {
-                return this.karaokeField;
-            }
-            set {
-                this.karaokeField = value;
-                this.RaisePropertyChanged("Karaoke");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=10)]
-        public string CaNhac {
-            get {
-                return this.caNhacField;
-            }
-            set {
-                this.caNhacField = value;
-                this.RaisePropertyChanged("CaNhac");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=11)]
-        public string DocTruyen {
-            get {
-                return this.docTruyenField;
-            }
-            set {
-                this.docTruyenField = value;
-                this.RaisePropertyChanged("DocTruyen");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=12)]
-        public string TheThao {
-            get {
-                return this.theThaoField;
-            }
-            set {
-                this.theThaoField = value;
-                this.RaisePropertyChanged("TheThao");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=13)]
-        public string SucKhoeLamDep {
-            get {
-                return this.sucKhoeLamDepField;
-            }
-            set {
-                this.sucKhoeLamDepField = value;
-                this.RaisePropertyChanged("SucKhoeLamDep");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=14)]
-        public string NhipCauMyTV {
-            get {
-                return this.nhipCauMyTVField;
-            }
-            set {
-                this.nhipCauMyTVField = value;
-                this.RaisePropertyChanged("NhipCauMyTV");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=15)]
-        public string PhongCachSong {
-            get {
-                return this.phongCachSongField;
-            }
-            set {
-                this.phongCachSongField = value;
-                this.RaisePropertyChanged("PhongCachSong");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=16)]
-        public string ThieuNhi {
-            get {
-                return this.thieuNhiField;
-            }
-            set {
-                this.thieuNhiField = value;
-                this.RaisePropertyChanged("ThieuNhi");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=17)]
-        public string GiaoDucDaoTao {
-            get {
-                return this.giaoDucDaoTaoField;
-            }
-            set {
-                this.giaoDucDaoTaoField = value;
-                this.RaisePropertyChanged("GiaoDucDaoTao");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=18)]
-        public string DaoTaoTuXa {
-            get {
-                return this.daoTaoTuXaField;
-            }
-            set {
-                this.daoTaoTuXaField = value;
-                this.RaisePropertyChanged("DaoTaoTuXa");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=19)]
-        public string KetQuaXoSo {
-            get {
-                return this.ketQuaXoSoField;
-            }
-            set {
-                this.ketQuaXoSoField = value;
-                this.RaisePropertyChanged("KetQuaXoSo");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=20)]
-        public string BinhChon {
-            get {
-                return this.binhChonField;
-            }
-            set {
-                this.binhChonField = value;
-                this.RaisePropertyChanged("BinhChon");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=21)]
-        public string PayTV {
-            get {
-                return this.payTVField;
-            }
-            set {
-                this.payTVField = value;
-                this.RaisePropertyChanged("PayTV");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=22)]
-        public string MyTVID {
-            get {
-                return this.myTVIDField;
-            }
-            set {
-                this.myTVIDField = value;
-                this.RaisePropertyChanged("MyTVID");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=23)]
-        public string FimPlus {
-            get {
-                return this.fimPlusField;
-            }
-            set {
-                this.fimPlusField = value;
-                this.RaisePropertyChanged("FimPlus");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=24)]
-        public string KplusFLG {
-            get {
-                return this.kplusFLGField;
-            }
-            set {
-                this.kplusFLGField = value;
-                this.RaisePropertyChanged("KplusFLG");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=25)]
-        public string FafilmFLG {
-            get {
-                return this.fafilmFLGField;
-            }
-            set {
-                this.fafilmFLGField = value;
-                this.RaisePropertyChanged("FafilmFLG");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=26)]
-        public string HBOFlg {
-            get {
-                return this.hBOFlgField;
-            }
-            set {
-                this.hBOFlgField = value;
-                this.RaisePropertyChanged("HBOFlg");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=27)]
-        public string VTVcabFlg {
-            get {
-                return this.vTVcabFlgField;
-            }
-            set {
-                this.vTVcabFlgField = value;
-                this.RaisePropertyChanged("VTVcabFlg");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=28)]
-        public string FimPlus_USE {
-            get {
-                return this.fimPlus_USEField;
-            }
-            set {
-                this.fimPlus_USEField = value;
-                this.RaisePropertyChanged("FimPlus_USE");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=29)]
-        public string Kplus_USE {
-            get {
-                return this.kplus_USEField;
-            }
-            set {
-                this.kplus_USEField = value;
-                this.RaisePropertyChanged("Kplus_USE");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=30)]
-        public string Fafilm_USE {
-            get {
-                return this.fafilm_USEField;
-            }
-            set {
-                this.fafilm_USEField = value;
-                this.RaisePropertyChanged("Fafilm_USE");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=31)]
-        public string HBO_USE {
-            get {
-                return this.hBO_USEField;
-            }
-            set {
-                this.hBO_USEField = value;
-                this.RaisePropertyChanged("HBO_USE");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=32)]
-        public string VTVcab_USE {
-            get {
-                return this.vTVcab_USEField;
-            }
-            set {
-                this.vTVcab_USEField = value;
-                this.RaisePropertyChanged("VTVcab_USE");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=33)]
-        public string MyTVShow_USE {
-            get {
-                return this.myTVShow_USEField;
-            }
-            set {
-                this.myTVShow_USEField = value;
-                this.RaisePropertyChanged("MyTVShow_USE");
-            }
-        }
-        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -6516,14 +7680,14 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ChangeSystemResp : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class DistrictVO : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private System.DateTime responseTimeField;
+        private string responseTimeField;
         
         private int resultField;
         
@@ -6531,7 +7695,7 @@ namespace Billing.Vasc {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public System.DateTime ResponseTime {
+        public string ResponseTime {
             get {
                 return this.responseTimeField;
             }
@@ -6576,201 +7740,7 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ChangeSystemReq : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string iPTVAccountField;
-        
-        private string sysFlgField;
-        
-        private string reasonField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string IPTVAccount {
-            get {
-                return this.iPTVAccountField;
-            }
-            set {
-                this.iPTVAccountField = value;
-                this.RaisePropertyChanged("IPTVAccount");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string SysFlg {
-            get {
-                return this.sysFlgField;
-            }
-            set {
-                this.sysFlgField = value;
-                this.RaisePropertyChanged("SysFlg");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string Reason {
-            get {
-                return this.reasonField;
-            }
-            set {
-                this.reasonField = value;
-                this.RaisePropertyChanged("Reason");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class MyTVPlusRequest : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string iPTVAccountField;
-        
-        private string operatorCDField;
-        
-        private string serviceCDField;
-        
-        private string reasonField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string IPTVAccount {
-            get {
-                return this.iPTVAccountField;
-            }
-            set {
-                this.iPTVAccountField = value;
-                this.RaisePropertyChanged("IPTVAccount");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string OperatorCD {
-            get {
-                return this.operatorCDField;
-            }
-            set {
-                this.operatorCDField = value;
-                this.RaisePropertyChanged("OperatorCD");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string ServiceCD {
-            get {
-                return this.serviceCDField;
-            }
-            set {
-                this.serviceCDField = value;
-                this.RaisePropertyChanged("ServiceCD");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string Reason {
-            get {
-                return this.reasonField;
-            }
-            set {
-                this.reasonField = value;
-                this.RaisePropertyChanged("Reason");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class UpdateSubTrialRequest : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string iPTVAccountField;
-        
-        private string codeIDField;
-        
-        private string reasonField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string IPTVAccount {
-            get {
-                return this.iPTVAccountField;
-            }
-            set {
-                this.iPTVAccountField = value;
-                this.RaisePropertyChanged("IPTVAccount");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string CodeID {
-            get {
-                return this.codeIDField;
-            }
-            set {
-                this.codeIDField = value;
-                this.RaisePropertyChanged("CodeID");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string Reason {
-            get {
-                return this.reasonField;
-            }
-            set {
-                this.reasonField = value;
-                this.RaisePropertyChanged("Reason");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -6886,7 +7856,7 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -7030,7 +8000,81 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ChangeSubscriberVO : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string iPTVACCOUNTField;
+        
+        private string responseTimeField;
+        
+        private int resultField;
+        
+        private string errordescField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string IPTVACCOUNT {
+            get {
+                return this.iPTVACCOUNTField;
+            }
+            set {
+                this.iPTVACCOUNTField = value;
+                this.RaisePropertyChanged("IPTVACCOUNT");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string ResponseTime {
+            get {
+                return this.responseTimeField;
+            }
+            set {
+                this.responseTimeField = value;
+                this.RaisePropertyChanged("ResponseTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+                this.RaisePropertyChanged("Result");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string Errordesc {
+            get {
+                return this.errordescField;
+            }
+            set {
+                this.errordescField = value;
+                this.RaisePropertyChanged("Errordesc");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -7328,136 +8372,428 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class OTTGetMemberPendingResult : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class STB_Prom_BuyDTO : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private string idField;
+        private string pROGRAMField;
         
-        private string mobileField;
+        private string uSERNAMEField;
         
-        private string area_codeField;
-        
-        private string statusField;
-        
-        private string otp_statusField;
-        
-        private string otpField;
-        
-        private string create_dateField;
-        
-        private string modify_dateField;
-        
-        private string manufacturer_idField;
+        private string bILLDATEField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string id {
+        public string PROGRAM {
             get {
-                return this.idField;
+                return this.pROGRAMField;
             }
             set {
-                this.idField = value;
-                this.RaisePropertyChanged("id");
+                this.pROGRAMField = value;
+                this.RaisePropertyChanged("PROGRAM");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string mobile {
+        public string USERNAME {
             get {
-                return this.mobileField;
+                return this.uSERNAMEField;
             }
             set {
-                this.mobileField = value;
-                this.RaisePropertyChanged("mobile");
+                this.uSERNAMEField = value;
+                this.RaisePropertyChanged("USERNAME");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string area_code {
+        public string BILLDATE {
             get {
-                return this.area_codeField;
+                return this.bILLDATEField;
             }
             set {
-                this.area_codeField = value;
-                this.RaisePropertyChanged("area_code");
+                this.bILLDATEField = value;
+                this.RaisePropertyChanged("BILLDATE");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class STB_Prom_Summary3855DTO : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string bILLDATEField;
+        
+        private int fIBER_0Field;
+        
+        private int fIBER_1Field;
+        
+        private int fIBER_MYTV_0Field;
+        
+        private int fIBER_MYTV_1Field;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string BILLDATE {
+            get {
+                return this.bILLDATEField;
+            }
+            set {
+                this.bILLDATEField = value;
+                this.RaisePropertyChanged("BILLDATE");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int FIBER_0 {
+            get {
+                return this.fIBER_0Field;
+            }
+            set {
+                this.fIBER_0Field = value;
+                this.RaisePropertyChanged("FIBER_0");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int FIBER_1 {
+            get {
+                return this.fIBER_1Field;
+            }
+            set {
+                this.fIBER_1Field = value;
+                this.RaisePropertyChanged("FIBER_1");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string status {
+        public int FIBER_MYTV_0 {
             get {
-                return this.statusField;
+                return this.fIBER_MYTV_0Field;
             }
             set {
-                this.statusField = value;
-                this.RaisePropertyChanged("status");
+                this.fIBER_MYTV_0Field = value;
+                this.RaisePropertyChanged("FIBER_MYTV_0");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public string otp_status {
+        public int FIBER_MYTV_1 {
             get {
-                return this.otp_statusField;
+                return this.fIBER_MYTV_1Field;
             }
             set {
-                this.otp_statusField = value;
-                this.RaisePropertyChanged("otp_status");
+                this.fIBER_MYTV_1Field = value;
+                this.RaisePropertyChanged("FIBER_MYTV_1");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class STB_Prom_SummaryDTO : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string bILLDATEField;
+        
+        private int pSCField;
+        
+        private int fIBER_MYTV_0Field;
+        
+        private int fIBER_MYTV_1Field;
+        
+        private int cOMBOField;
+        
+        private string nOTEField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string BILLDATE {
+            get {
+                return this.bILLDATEField;
+            }
+            set {
+                this.bILLDATEField = value;
+                this.RaisePropertyChanged("BILLDATE");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int PSC {
+            get {
+                return this.pSCField;
+            }
+            set {
+                this.pSCField = value;
+                this.RaisePropertyChanged("PSC");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int FIBER_MYTV_0 {
+            get {
+                return this.fIBER_MYTV_0Field;
+            }
+            set {
+                this.fIBER_MYTV_0Field = value;
+                this.RaisePropertyChanged("FIBER_MYTV_0");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public int FIBER_MYTV_1 {
+            get {
+                return this.fIBER_MYTV_1Field;
+            }
+            set {
+                this.fIBER_MYTV_1Field = value;
+                this.RaisePropertyChanged("FIBER_MYTV_1");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public int COMBO {
+            get {
+                return this.cOMBOField;
+            }
+            set {
+                this.cOMBOField = value;
+                this.RaisePropertyChanged("COMBO");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-        public string otp {
+        public string NOTE {
             get {
-                return this.otpField;
+                return this.nOTEField;
             }
             set {
-                this.otpField = value;
-                this.RaisePropertyChanged("otp");
+                this.nOTEField = value;
+                this.RaisePropertyChanged("NOTE");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class STB_Prom_BackDTO : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string pROGRAMField;
+        
+        private string uSERNAMEField;
+        
+        private string sTB_TYPEField;
+        
+        private string sTB_SERIALField;
+        
+        private string sTB_SERIAL_NEWField;
+        
+        private string sTB_DATEField;
+        
+        private string nOTEField;
+        
+        private bool iS_BACKField;
+        
+        private string nOTBACK_REASONField;
+        
+        private bool rEUSEField;
+        
+        private bool nOTREUSE_DAMAGEField;
+        
+        private string nOTREUSE_REASONField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string PROGRAM {
+            get {
+                return this.pROGRAMField;
+            }
+            set {
+                this.pROGRAMField = value;
+                this.RaisePropertyChanged("PROGRAM");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string USERNAME {
+            get {
+                return this.uSERNAMEField;
+            }
+            set {
+                this.uSERNAMEField = value;
+                this.RaisePropertyChanged("USERNAME");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string STB_TYPE {
+            get {
+                return this.sTB_TYPEField;
+            }
+            set {
+                this.sTB_TYPEField = value;
+                this.RaisePropertyChanged("STB_TYPE");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string STB_SERIAL {
+            get {
+                return this.sTB_SERIALField;
+            }
+            set {
+                this.sTB_SERIALField = value;
+                this.RaisePropertyChanged("STB_SERIAL");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public string STB_SERIAL_NEW {
+            get {
+                return this.sTB_SERIAL_NEWField;
+            }
+            set {
+                this.sTB_SERIAL_NEWField = value;
+                this.RaisePropertyChanged("STB_SERIAL_NEW");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public string STB_DATE {
+            get {
+                return this.sTB_DATEField;
+            }
+            set {
+                this.sTB_DATEField = value;
+                this.RaisePropertyChanged("STB_DATE");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-        public string create_date {
+        public string NOTE {
             get {
-                return this.create_dateField;
+                return this.nOTEField;
             }
             set {
-                this.create_dateField = value;
-                this.RaisePropertyChanged("create_date");
+                this.nOTEField = value;
+                this.RaisePropertyChanged("NOTE");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=7)]
-        public string modify_date {
+        public bool IS_BACK {
             get {
-                return this.modify_dateField;
+                return this.iS_BACKField;
             }
             set {
-                this.modify_dateField = value;
-                this.RaisePropertyChanged("modify_date");
+                this.iS_BACKField = value;
+                this.RaisePropertyChanged("IS_BACK");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=8)]
-        public string manufacturer_id {
+        public string NOTBACK_REASON {
             get {
-                return this.manufacturer_idField;
+                return this.nOTBACK_REASONField;
             }
             set {
-                this.manufacturer_idField = value;
-                this.RaisePropertyChanged("manufacturer_id");
+                this.nOTBACK_REASONField = value;
+                this.RaisePropertyChanged("NOTBACK_REASON");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
+        public bool REUSE {
+            get {
+                return this.rEUSEField;
+            }
+            set {
+                this.rEUSEField = value;
+                this.RaisePropertyChanged("REUSE");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=10)]
+        public bool NOTREUSE_DAMAGE {
+            get {
+                return this.nOTREUSE_DAMAGEField;
+            }
+            set {
+                this.nOTREUSE_DAMAGEField = value;
+                this.RaisePropertyChanged("NOTREUSE_DAMAGE");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=11)]
+        public string NOTREUSE_REASON {
+            get {
+                return this.nOTREUSE_REASONField;
+            }
+            set {
+                this.nOTREUSE_REASONField = value;
+                this.RaisePropertyChanged("NOTREUSE_REASON");
             }
         }
         
@@ -7472,168 +8808,108 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Smart_OTTGetMemberPendingVO : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class STB_Prom_ActiveDTO : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private int resultField;
+        private string pROGRAMField;
         
-        private string errorDescField;
+        private string uSERNAMEField;
         
-        private OTTGetMemberPendingResult[] dataField;
+        private bool iS_FIRSTField;
         
-        private int totalItemField;
+        private string sTB_TYPEField;
+        
+        private string sTB_SERIALField;
+        
+        private string sTB_DATEField;
+        
+        private string nOTEField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public int result {
+        public string PROGRAM {
             get {
-                return this.resultField;
+                return this.pROGRAMField;
             }
             set {
-                this.resultField = value;
-                this.RaisePropertyChanged("result");
+                this.pROGRAMField = value;
+                this.RaisePropertyChanged("PROGRAM");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string errorDesc {
+        public string USERNAME {
             get {
-                return this.errorDescField;
+                return this.uSERNAMEField;
             }
             set {
-                this.errorDescField = value;
-                this.RaisePropertyChanged("errorDesc");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=2)]
-        public OTTGetMemberPendingResult[] data {
-            get {
-                return this.dataField;
-            }
-            set {
-                this.dataField = value;
-                this.RaisePropertyChanged("data");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public int totalItem {
-            get {
-                return this.totalItemField;
-            }
-            set {
-                this.totalItemField = value;
-                this.RaisePropertyChanged("totalItem");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Smart_OTTGetMemberPendingRequest : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string area_codeField;
-        
-        private string mobileField;
-        
-        private int numberField;
-        
-        private int pageField;
-        
-        private string fromDateField;
-        
-        private string toDateField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string area_code {
-            get {
-                return this.area_codeField;
-            }
-            set {
-                this.area_codeField = value;
-                this.RaisePropertyChanged("area_code");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string mobile {
-            get {
-                return this.mobileField;
-            }
-            set {
-                this.mobileField = value;
-                this.RaisePropertyChanged("mobile");
+                this.uSERNAMEField = value;
+                this.RaisePropertyChanged("USERNAME");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public int number {
+        public bool IS_FIRST {
             get {
-                return this.numberField;
+                return this.iS_FIRSTField;
             }
             set {
-                this.numberField = value;
-                this.RaisePropertyChanged("number");
+                this.iS_FIRSTField = value;
+                this.RaisePropertyChanged("IS_FIRST");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public int page {
+        public string STB_TYPE {
             get {
-                return this.pageField;
+                return this.sTB_TYPEField;
             }
             set {
-                this.pageField = value;
-                this.RaisePropertyChanged("page");
+                this.sTB_TYPEField = value;
+                this.RaisePropertyChanged("STB_TYPE");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public string fromDate {
+        public string STB_SERIAL {
             get {
-                return this.fromDateField;
+                return this.sTB_SERIALField;
             }
             set {
-                this.fromDateField = value;
-                this.RaisePropertyChanged("fromDate");
+                this.sTB_SERIALField = value;
+                this.RaisePropertyChanged("STB_SERIAL");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-        public string toDate {
+        public string STB_DATE {
             get {
-                return this.toDateField;
+                return this.sTB_DATEField;
             }
             set {
-                this.toDateField = value;
-                this.RaisePropertyChanged("toDate");
+                this.sTB_DATEField = value;
+                this.RaisePropertyChanged("STB_DATE");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public string NOTE {
+            get {
+                return this.nOTEField;
+            }
+            set {
+                this.nOTEField = value;
+                this.RaisePropertyChanged("NOTE");
             }
         }
         
@@ -7648,12 +8924,12 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ChangeSubscriberVO : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class CommonVO : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string iPTVACCOUNTField;
         
@@ -7722,362 +8998,94 @@ namespace Billing.Vasc {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3221.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ChangeStatusHotelVO : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class STB_PromDTO : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private string userNameField;
+        private string pROGRAMField;
         
-        private string responseTimeField;
+        private string uSERNAMEField;
         
-        private int resultField;
+        private string sTB_TYPEField;
         
-        private string errordescField;
+        private string sTB_SERIALField;
+        
+        private string fIBER_MYTVField;
+        
+        private string nOTEField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string UserName {
+        public string PROGRAM {
             get {
-                return this.userNameField;
+                return this.pROGRAMField;
             }
             set {
-                this.userNameField = value;
-                this.RaisePropertyChanged("UserName");
+                this.pROGRAMField = value;
+                this.RaisePropertyChanged("PROGRAM");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string ResponseTime {
+        public string USERNAME {
             get {
-                return this.responseTimeField;
+                return this.uSERNAMEField;
             }
             set {
-                this.responseTimeField = value;
-                this.RaisePropertyChanged("ResponseTime");
+                this.uSERNAMEField = value;
+                this.RaisePropertyChanged("USERNAME");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public int Result {
+        public string STB_TYPE {
             get {
-                return this.resultField;
+                return this.sTB_TYPEField;
             }
             set {
-                this.resultField = value;
-                this.RaisePropertyChanged("Result");
+                this.sTB_TYPEField = value;
+                this.RaisePropertyChanged("STB_TYPE");
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string Errordesc {
+        public string STB_SERIAL {
             get {
-                return this.errordescField;
+                return this.sTB_SERIALField;
             }
             set {
-                this.errordescField = value;
-                this.RaisePropertyChanged("Errordesc");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ChangePWHotelVO : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string userNameField;
-        
-        private string responseTimeField;
-        
-        private int resultField;
-        
-        private string errordescField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string UserName {
-            get {
-                return this.userNameField;
-            }
-            set {
-                this.userNameField = value;
-                this.RaisePropertyChanged("UserName");
+                this.sTB_SERIALField = value;
+                this.RaisePropertyChanged("STB_SERIAL");
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string ResponseTime {
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public string FIBER_MYTV {
             get {
-                return this.responseTimeField;
+                return this.fIBER_MYTVField;
             }
             set {
-                this.responseTimeField = value;
-                this.RaisePropertyChanged("ResponseTime");
+                this.fIBER_MYTVField = value;
+                this.RaisePropertyChanged("FIBER_MYTV");
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public int Result {
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public string NOTE {
             get {
-                return this.resultField;
+                return this.nOTEField;
             }
             set {
-                this.resultField = value;
-                this.RaisePropertyChanged("Result");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string Errordesc {
-            get {
-                return this.errordescField;
-            }
-            set {
-                this.errordescField = value;
-                this.RaisePropertyChanged("Errordesc");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class DeleteHotelVO : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string userNameField;
-        
-        private string responseTimeField;
-        
-        private int resultField;
-        
-        private string errordescField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string UserName {
-            get {
-                return this.userNameField;
-            }
-            set {
-                this.userNameField = value;
-                this.RaisePropertyChanged("UserName");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string ResponseTime {
-            get {
-                return this.responseTimeField;
-            }
-            set {
-                this.responseTimeField = value;
-                this.RaisePropertyChanged("ResponseTime");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public int Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-                this.RaisePropertyChanged("Result");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string Errordesc {
-            get {
-                return this.errordescField;
-            }
-            set {
-                this.errordescField = value;
-                this.RaisePropertyChanged("Errordesc");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class EditHotelVO : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string userNameField;
-        
-        private string responseTimeField;
-        
-        private int resultField;
-        
-        private string errordescField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string UserName {
-            get {
-                return this.userNameField;
-            }
-            set {
-                this.userNameField = value;
-                this.RaisePropertyChanged("UserName");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string ResponseTime {
-            get {
-                return this.responseTimeField;
-            }
-            set {
-                this.responseTimeField = value;
-                this.RaisePropertyChanged("ResponseTime");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public int Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-                this.RaisePropertyChanged("Result");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string Errordesc {
-            get {
-                return this.errordescField;
-            }
-            set {
-                this.errordescField = value;
-                this.RaisePropertyChanged("Errordesc");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2117.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class AddHotelVO : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string userNameField;
-        
-        private string responseTimeField;
-        
-        private int resultField;
-        
-        private string errordescField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string UserName {
-            get {
-                return this.userNameField;
-            }
-            set {
-                this.userNameField = value;
-                this.RaisePropertyChanged("UserName");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string ResponseTime {
-            get {
-                return this.responseTimeField;
-            }
-            set {
-                this.responseTimeField = value;
-                this.RaisePropertyChanged("ResponseTime");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public int Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-                this.RaisePropertyChanged("Result");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string Errordesc {
-            get {
-                return this.errordescField;
-            }
-            set {
-                this.errordescField = value;
-                this.RaisePropertyChanged("Errordesc");
+                this.nOTEField = value;
+                this.RaisePropertyChanged("NOTE");
             }
         }
         
@@ -8094,420 +9102,228 @@ namespace Billing.Vasc {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="AddHotel", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class AddHotelRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="STB_PROM_Register", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class STB_PROM_RegisterRequest {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
         public Billing.Vasc.AuthHeader AuthHeader;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string strUserName;
+        public Billing.Vasc.STB_PromDTO stbDTO;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string strPassword;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
-        public string strName;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
-        public string strOwner;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
-        public string strCard;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=5)]
-        public string strAddress;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=6)]
-        public string strSigndate;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=7)]
-        public string strContractID;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=8)]
-        public string strBillDate;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=9)]
-        public string strMethod;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=10)]
-        public string strPayMode;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=11)]
-        public string strPackageID;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=12)]
-        public string strProviceID;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=13)]
-        public int iAccNumber;
-        
-        public AddHotelRequest() {
+        public STB_PROM_RegisterRequest() {
         }
         
-        public AddHotelRequest(Billing.Vasc.AuthHeader AuthHeader, string strUserName, string strPassword, string strName, string strOwner, string strCard, string strAddress, string strSigndate, string strContractID, string strBillDate, string strMethod, string strPayMode, string strPackageID, string strProviceID, int iAccNumber) {
+        public STB_PROM_RegisterRequest(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.STB_PromDTO stbDTO) {
             this.AuthHeader = AuthHeader;
-            this.strUserName = strUserName;
-            this.strPassword = strPassword;
-            this.strName = strName;
-            this.strOwner = strOwner;
-            this.strCard = strCard;
-            this.strAddress = strAddress;
-            this.strSigndate = strSigndate;
-            this.strContractID = strContractID;
-            this.strBillDate = strBillDate;
-            this.strMethod = strMethod;
-            this.strPayMode = strPayMode;
-            this.strPackageID = strPackageID;
-            this.strProviceID = strProviceID;
-            this.iAccNumber = iAccNumber;
+            this.stbDTO = stbDTO;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="AddHotelResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class AddHotelResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="STB_PROM_RegisterResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class STB_PROM_RegisterResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.AddHotelVO AddHotelResult;
+        public Billing.Vasc.CommonVO STB_PROM_RegisterResult;
         
-        public AddHotelResponse() {
+        public STB_PROM_RegisterResponse() {
         }
         
-        public AddHotelResponse(Billing.Vasc.AddHotelVO AddHotelResult) {
-            this.AddHotelResult = AddHotelResult;
+        public STB_PROM_RegisterResponse(Billing.Vasc.CommonVO STB_PROM_RegisterResult) {
+            this.STB_PROM_RegisterResult = STB_PROM_RegisterResult;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="EditHotel", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class EditHotelRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="STB_PROM_Active", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class STB_PROM_ActiveRequest {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
         public Billing.Vasc.AuthHeader AuthHeader;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string strUsername;
+        public Billing.Vasc.STB_Prom_ActiveDTO stbDTO;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string strName;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
-        public string strOwner;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
-        public string strCard;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
-        public string strAddress;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=5)]
-        public string strSigndate;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=6)]
-        public string strContractID;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=7)]
-        public string strBillDate;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=8)]
-        public string strPayMode;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=9)]
-        public string strPackageID;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=10)]
-        public int iAccNumber;
-        
-        public EditHotelRequest() {
+        public STB_PROM_ActiveRequest() {
         }
         
-        public EditHotelRequest(Billing.Vasc.AuthHeader AuthHeader, string strUsername, string strName, string strOwner, string strCard, string strAddress, string strSigndate, string strContractID, string strBillDate, string strPayMode, string strPackageID, int iAccNumber) {
+        public STB_PROM_ActiveRequest(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.STB_Prom_ActiveDTO stbDTO) {
             this.AuthHeader = AuthHeader;
-            this.strUsername = strUsername;
-            this.strName = strName;
-            this.strOwner = strOwner;
-            this.strCard = strCard;
-            this.strAddress = strAddress;
-            this.strSigndate = strSigndate;
-            this.strContractID = strContractID;
-            this.strBillDate = strBillDate;
-            this.strPayMode = strPayMode;
-            this.strPackageID = strPackageID;
-            this.iAccNumber = iAccNumber;
+            this.stbDTO = stbDTO;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="EditHotelResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class EditHotelResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="STB_PROM_ActiveResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class STB_PROM_ActiveResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.EditHotelVO EditHotelResult;
+        public Billing.Vasc.CommonVO STB_PROM_ActiveResult;
         
-        public EditHotelResponse() {
+        public STB_PROM_ActiveResponse() {
         }
         
-        public EditHotelResponse(Billing.Vasc.EditHotelVO EditHotelResult) {
-            this.EditHotelResult = EditHotelResult;
+        public STB_PROM_ActiveResponse(Billing.Vasc.CommonVO STB_PROM_ActiveResult) {
+            this.STB_PROM_ActiveResult = STB_PROM_ActiveResult;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteHotel", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class DeleteHotelRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="STB_PROM_Back", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class STB_PROM_BackRequest {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
         public Billing.Vasc.AuthHeader AuthHeader;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string strUsername;
+        public Billing.Vasc.STB_Prom_BackDTO stbDTO;
         
-        public DeleteHotelRequest() {
+        public STB_PROM_BackRequest() {
         }
         
-        public DeleteHotelRequest(Billing.Vasc.AuthHeader AuthHeader, string strUsername) {
+        public STB_PROM_BackRequest(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.STB_Prom_BackDTO stbDTO) {
             this.AuthHeader = AuthHeader;
-            this.strUsername = strUsername;
+            this.stbDTO = stbDTO;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteHotelResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class DeleteHotelResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="STB_PROM_BackResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class STB_PROM_BackResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.DeleteHotelVO DeleteHotelResult;
+        public Billing.Vasc.CommonVO STB_PROM_BackResult;
         
-        public DeleteHotelResponse() {
+        public STB_PROM_BackResponse() {
         }
         
-        public DeleteHotelResponse(Billing.Vasc.DeleteHotelVO DeleteHotelResult) {
-            this.DeleteHotelResult = DeleteHotelResult;
+        public STB_PROM_BackResponse(Billing.Vasc.CommonVO STB_PROM_BackResult) {
+            this.STB_PROM_BackResult = STB_PROM_BackResult;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangePWHotel", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangePWHotelRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="STB_PROM_Summary", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class STB_PROM_SummaryRequest {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
         public Billing.Vasc.AuthHeader AuthHeader;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string strUsername;
+        public Billing.Vasc.STB_Prom_SummaryDTO stbDTO;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string OldPassword;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
-        public string NewPassword;
-        
-        public ChangePWHotelRequest() {
+        public STB_PROM_SummaryRequest() {
         }
         
-        public ChangePWHotelRequest(Billing.Vasc.AuthHeader AuthHeader, string strUsername, string OldPassword, string NewPassword) {
+        public STB_PROM_SummaryRequest(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.STB_Prom_SummaryDTO stbDTO) {
             this.AuthHeader = AuthHeader;
-            this.strUsername = strUsername;
-            this.OldPassword = OldPassword;
-            this.NewPassword = NewPassword;
+            this.stbDTO = stbDTO;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangePWHotelResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangePWHotelResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="STB_PROM_SummaryResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class STB_PROM_SummaryResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangePWHotelVO ChangePWHotelResult;
+        public Billing.Vasc.CommonVO STB_PROM_SummaryResult;
         
-        public ChangePWHotelResponse() {
+        public STB_PROM_SummaryResponse() {
         }
         
-        public ChangePWHotelResponse(Billing.Vasc.ChangePWHotelVO ChangePWHotelResult) {
-            this.ChangePWHotelResult = ChangePWHotelResult;
+        public STB_PROM_SummaryResponse(Billing.Vasc.CommonVO STB_PROM_SummaryResult) {
+            this.STB_PROM_SummaryResult = STB_PROM_SummaryResult;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeStatusHotel", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangeStatusHotelRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="STB_PROM_Summary3855", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class STB_PROM_Summary3855Request {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
         public Billing.Vasc.AuthHeader AuthHeader;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string strUsername;
+        public Billing.Vasc.STB_Prom_Summary3855DTO stbDTO;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string strStatus;
-        
-        public ChangeStatusHotelRequest() {
+        public STB_PROM_Summary3855Request() {
         }
         
-        public ChangeStatusHotelRequest(Billing.Vasc.AuthHeader AuthHeader, string strUsername, string strStatus) {
+        public STB_PROM_Summary3855Request(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.STB_Prom_Summary3855DTO stbDTO) {
             this.AuthHeader = AuthHeader;
-            this.strUsername = strUsername;
-            this.strStatus = strStatus;
+            this.stbDTO = stbDTO;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeStatusHotelResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangeStatusHotelResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="STB_PROM_Summary3855Response", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class STB_PROM_Summary3855Response {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangeStatusHotelVO ChangeStatusHotelResult;
+        public Billing.Vasc.CommonVO STB_PROM_Summary3855Result;
         
-        public ChangeStatusHotelResponse() {
+        public STB_PROM_Summary3855Response() {
         }
         
-        public ChangeStatusHotelResponse(Billing.Vasc.ChangeStatusHotelVO ChangeStatusHotelResult) {
-            this.ChangeStatusHotelResult = ChangeStatusHotelResult;
+        public STB_PROM_Summary3855Response(Billing.Vasc.CommonVO STB_PROM_Summary3855Result) {
+            this.STB_PROM_Summary3855Result = STB_PROM_Summary3855Result;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ComboFAF_Update", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ComboFAF_UpdateRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="STB_PROM_Buy", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class STB_PROM_BuyRequest {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
         public Billing.Vasc.AuthHeader AuthHeader;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string MyTVAccount;
+        public Billing.Vasc.STB_Prom_BuyDTO stbDTO;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public int MonthFree;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
-        public string Operator;
-        
-        public ComboFAF_UpdateRequest() {
+        public STB_PROM_BuyRequest() {
         }
         
-        public ComboFAF_UpdateRequest(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, int MonthFree, string Operator) {
+        public STB_PROM_BuyRequest(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.STB_Prom_BuyDTO stbDTO) {
             this.AuthHeader = AuthHeader;
-            this.MyTVAccount = MyTVAccount;
-            this.MonthFree = MonthFree;
-            this.Operator = Operator;
+            this.stbDTO = stbDTO;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ComboFAF_UpdateResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ComboFAF_UpdateResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="STB_PROM_BuyResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class STB_PROM_BuyResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangeSubscriberVO ComboFAF_UpdateResult;
+        public Billing.Vasc.CommonVO STB_PROM_BuyResult;
         
-        public ComboFAF_UpdateResponse() {
+        public STB_PROM_BuyResponse() {
         }
         
-        public ComboFAF_UpdateResponse(Billing.Vasc.ChangeSubscriberVO ComboFAF_UpdateResult) {
-            this.ComboFAF_UpdateResult = ComboFAF_UpdateResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="PayTVFull_Register", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class PayTVFull_RegisterRequest {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string MyTVAccount;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public int Month;
-        
-        public PayTVFull_RegisterRequest() {
-        }
-        
-        public PayTVFull_RegisterRequest(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, int Month) {
-            this.AuthHeader = AuthHeader;
-            this.MyTVAccount = MyTVAccount;
-            this.Month = Month;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="PayTVFull_RegisterResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class PayTVFull_RegisterResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangeSubscriberVO PayTVFull_RegisterResult;
-        
-        public PayTVFull_RegisterResponse() {
-        }
-        
-        public PayTVFull_RegisterResponse(Billing.Vasc.ChangeSubscriberVO PayTVFull_RegisterResult) {
-            this.PayTVFull_RegisterResult = PayTVFull_RegisterResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="Smart_OTTGetMemberPending", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class Smart_OTTGetMemberPendingRequest1 {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.Smart_OTTGetMemberPendingRequest req;
-        
-        public Smart_OTTGetMemberPendingRequest1() {
-        }
-        
-        public Smart_OTTGetMemberPendingRequest1(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.Smart_OTTGetMemberPendingRequest req) {
-            this.AuthHeader = AuthHeader;
-            this.req = req;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="Smart_OTTGetMemberPendingResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class Smart_OTTGetMemberPendingResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.Smart_OTTGetMemberPendingVO Smart_OTTGetMemberPendingResult;
-        
-        public Smart_OTTGetMemberPendingResponse() {
-        }
-        
-        public Smart_OTTGetMemberPendingResponse(Billing.Vasc.Smart_OTTGetMemberPendingVO Smart_OTTGetMemberPendingResult) {
-            this.Smart_OTTGetMemberPendingResult = Smart_OTTGetMemberPendingResult;
+        public STB_PROM_BuyResponse(Billing.Vasc.CommonVO STB_PROM_BuyResult) {
+            this.STB_PROM_BuyResult = STB_PROM_BuyResult;
         }
     }
     
@@ -8628,6 +9444,536 @@ namespace Billing.Vasc {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="AddNewDistrict", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class AddNewDistrictRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string DistrictName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string ProvinceCD;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string DistrictCD;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        public string DistrictNote;
+        
+        public AddNewDistrictRequest() {
+        }
+        
+        public AddNewDistrictRequest(Billing.Vasc.AuthHeader AuthHeader, string DistrictName, string ProvinceCD, string DistrictCD, string DistrictNote) {
+            this.AuthHeader = AuthHeader;
+            this.DistrictName = DistrictName;
+            this.ProvinceCD = ProvinceCD;
+            this.DistrictCD = DistrictCD;
+            this.DistrictNote = DistrictNote;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="AddNewDistrictResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class AddNewDistrictResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.DistrictVO AddNewDistrictResult;
+        
+        public AddNewDistrictResponse() {
+        }
+        
+        public AddNewDistrictResponse(Billing.Vasc.DistrictVO AddNewDistrictResult) {
+            this.AddNewDistrictResult = AddNewDistrictResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="EditDistrict", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class EditDistrictRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string DistrictCD;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string DistrictName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string DistrictNote;
+        
+        public EditDistrictRequest() {
+        }
+        
+        public EditDistrictRequest(Billing.Vasc.AuthHeader AuthHeader, string DistrictCD, string DistrictName, string DistrictNote) {
+            this.AuthHeader = AuthHeader;
+            this.DistrictCD = DistrictCD;
+            this.DistrictName = DistrictName;
+            this.DistrictNote = DistrictNote;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="EditDistrictResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class EditDistrictResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.DistrictVO EditDistrictResult;
+        
+        public EditDistrictResponse() {
+        }
+        
+        public EditDistrictResponse(Billing.Vasc.DistrictVO EditDistrictResult) {
+            this.EditDistrictResult = EditDistrictResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteDistrict", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class DeleteDistrictRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string DistrictID;
+        
+        public DeleteDistrictRequest() {
+        }
+        
+        public DeleteDistrictRequest(Billing.Vasc.AuthHeader AuthHeader, string DistrictID) {
+            this.AuthHeader = AuthHeader;
+            this.DistrictID = DistrictID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteDistrictResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class DeleteDistrictResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.DistrictVO DeleteDistrictResult;
+        
+        public DeleteDistrictResponse() {
+        }
+        
+        public DeleteDistrictResponse(Billing.Vasc.DistrictVO DeleteDistrictResult) {
+            this.DeleteDistrictResult = DeleteDistrictResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeDistrictSubscriber", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangeDistrictSubscriberRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string IPTVACCOUNT;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string DistrictNo;
+        
+        public ChangeDistrictSubscriberRequest() {
+        }
+        
+        public ChangeDistrictSubscriberRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string DistrictNo) {
+            this.AuthHeader = AuthHeader;
+            this.IPTVACCOUNT = IPTVACCOUNT;
+            this.DistrictNo = DistrictNo;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeDistrictSubscriberResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangeDistrictSubscriberResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.ChangeDistrictSubscriberVO ChangeDistrictSubscriberResult;
+        
+        public ChangeDistrictSubscriberResponse() {
+        }
+        
+        public ChangeDistrictSubscriberResponse(Billing.Vasc.ChangeDistrictSubscriberVO ChangeDistrictSubscriberResult) {
+            this.ChangeDistrictSubscriberResult = ChangeDistrictSubscriberResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeSTB", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangeSTBRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string IPTVAccount;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string Reason;
+        
+        public ChangeSTBRequest() {
+        }
+        
+        public ChangeSTBRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Reason) {
+            this.AuthHeader = AuthHeader;
+            this.IPTVAccount = IPTVAccount;
+            this.Reason = Reason;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeSTBResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangeSTBResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.ChangeSTBVO ChangeSTBResult;
+        
+        public ChangeSTBResponse() {
+        }
+        
+        public ChangeSTBResponse(Billing.Vasc.ChangeSTBVO ChangeSTBResult) {
+            this.ChangeSTBResult = ChangeSTBResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetSTBInfo", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetSTBInfoRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string IPTVAccount;
+        
+        public GetSTBInfoRequest() {
+        }
+        
+        public GetSTBInfoRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount) {
+            this.AuthHeader = AuthHeader;
+            this.IPTVAccount = IPTVAccount;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetSTBInfoResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetSTBInfoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.GetSTBInfoVO GetSTBInfoResult;
+        
+        public GetSTBInfoResponse() {
+        }
+        
+        public GetSTBInfoResponse(Billing.Vasc.GetSTBInfoVO GetSTBInfoResult) {
+            this.GetSTBInfoResult = GetSTBInfoResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetSTBInfor", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetSTBInforRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string stbid;
+        
+        public GetSTBInforRequest() {
+        }
+        
+        public GetSTBInforRequest(Billing.Vasc.AuthHeader AuthHeader, string stbid) {
+            this.AuthHeader = AuthHeader;
+            this.stbid = stbid;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetSTBInforResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetSTBInforResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.StbInfoVO GetSTBInforResult;
+        
+        public GetSTBInforResponse() {
+        }
+        
+        public GetSTBInforResponse(Billing.Vasc.StbInfoVO GetSTBInforResult) {
+            this.GetSTBInforResult = GetSTBInforResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetHistorySTB", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetHistorySTBRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string stbid;
+        
+        public GetHistorySTBRequest() {
+        }
+        
+        public GetHistorySTBRequest(Billing.Vasc.AuthHeader AuthHeader, string stbid) {
+            this.AuthHeader = AuthHeader;
+            this.stbid = stbid;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetHistorySTBResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetHistorySTBResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.GetSTBHistoryInfoVO GetHistorySTBResult;
+        
+        public GetHistorySTBResponse() {
+        }
+        
+        public GetHistorySTBResponse(Billing.Vasc.GetSTBHistoryInfoVO GetHistorySTBResult) {
+            this.GetHistorySTBResult = GetHistorySTBResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetHisSubscriberChangeSTB", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetHisSubscriberChangeSTBRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string strMyTV;
+        
+        public GetHisSubscriberChangeSTBRequest() {
+        }
+        
+        public GetHisSubscriberChangeSTBRequest(Billing.Vasc.AuthHeader AuthHeader, string strMyTV) {
+            this.AuthHeader = AuthHeader;
+            this.strMyTV = strMyTV;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetHisSubscriberChangeSTBResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetHisSubscriberChangeSTBResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.GetSTBHistoryInfoVO GetHisSubscriberChangeSTBResult;
+        
+        public GetHisSubscriberChangeSTBResponse() {
+        }
+        
+        public GetHisSubscriberChangeSTBResponse(Billing.Vasc.GetSTBHistoryInfoVO GetHisSubscriberChangeSTBResult) {
+            this.GetHisSubscriberChangeSTBResult = GetHisSubscriberChangeSTBResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateDeviceInfo", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class UpdateDeviceInfoRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string MyTVAccount;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string strDeviceName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string strPortID;
+        
+        public UpdateDeviceInfoRequest() {
+        }
+        
+        public UpdateDeviceInfoRequest(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string strDeviceName, string strPortID) {
+            this.AuthHeader = AuthHeader;
+            this.MyTVAccount = MyTVAccount;
+            this.strDeviceName = strDeviceName;
+            this.strPortID = strPortID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateDeviceInfoResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class UpdateDeviceInfoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.ChangeSubscriberVO UpdateDeviceInfoResult;
+        
+        public UpdateDeviceInfoResponse() {
+        }
+        
+        public UpdateDeviceInfoResponse(Billing.Vasc.ChangeSubscriberVO UpdateDeviceInfoResult) {
+            this.UpdateDeviceInfoResult = UpdateDeviceInfoResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="STB_Rent_UpdateInfo", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class STB_Rent_UpdateInfoRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.STBRentDTO stbDTO;
+        
+        public STB_Rent_UpdateInfoRequest() {
+        }
+        
+        public STB_Rent_UpdateInfoRequest(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.STBRentDTO stbDTO) {
+            this.AuthHeader = AuthHeader;
+            this.stbDTO = stbDTO;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="STB_Rent_UpdateInfoResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class STB_Rent_UpdateInfoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.CommonVO STB_Rent_UpdateInfoResult;
+        
+        public STB_Rent_UpdateInfoResponse() {
+        }
+        
+        public STB_Rent_UpdateInfoResponse(Billing.Vasc.CommonVO STB_Rent_UpdateInfoResult) {
+            this.STB_Rent_UpdateInfoResult = STB_Rent_UpdateInfoResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Cust_UserMulti_UpdateInfo", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class Cust_UserMulti_UpdateInfoRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.CustUserMultiDTO custDTO;
+        
+        public Cust_UserMulti_UpdateInfoRequest() {
+        }
+        
+        public Cust_UserMulti_UpdateInfoRequest(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.CustUserMultiDTO custDTO) {
+            this.AuthHeader = AuthHeader;
+            this.custDTO = custDTO;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Cust_UserMulti_UpdateInfoResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class Cust_UserMulti_UpdateInfoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.CommonVO Cust_UserMulti_UpdateInfoResult;
+        
+        public Cust_UserMulti_UpdateInfoResponse() {
+        }
+        
+        public Cust_UserMulti_UpdateInfoResponse(Billing.Vasc.CommonVO Cust_UserMulti_UpdateInfoResult) {
+            this.Cust_UserMulti_UpdateInfoResult = Cust_UserMulti_UpdateInfoResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Cust_Trial_UpdateInfo", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class Cust_Trial_UpdateInfoRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.CustTrialDTO custDTO;
+        
+        public Cust_Trial_UpdateInfoRequest() {
+        }
+        
+        public Cust_Trial_UpdateInfoRequest(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.CustTrialDTO custDTO) {
+            this.AuthHeader = AuthHeader;
+            this.custDTO = custDTO;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Cust_Trial_UpdateInfoResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class Cust_Trial_UpdateInfoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.CommonVO Cust_Trial_UpdateInfoResult;
+        
+        public Cust_Trial_UpdateInfoResponse() {
+        }
+        
+        public Cust_Trial_UpdateInfoResponse(Billing.Vasc.CommonVO Cust_Trial_UpdateInfoResult) {
+            this.Cust_Trial_UpdateInfoResult = Cust_Trial_UpdateInfoResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateSubTrial", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
     public partial class UpdateSubTrialRequest1 {
         
@@ -8666,19 +10012,241 @@ namespace Billing.Vasc {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="TotalMyTVPlus", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class TotalMyTVPlusRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdatePackDaily", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class UpdatePackDailyRequest {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
         public Billing.Vasc.AuthHeader AuthHeader;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.MyTVPlusRequest objRequest;
+        public string MyTVAccount;
         
-        public TotalMyTVPlusRequest() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string Operator;
+        
+        public UpdatePackDailyRequest() {
         }
         
-        public TotalMyTVPlusRequest(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.MyTVPlusRequest objRequest) {
+        public UpdatePackDailyRequest(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string Operator) {
+            this.AuthHeader = AuthHeader;
+            this.MyTVAccount = MyTVAccount;
+            this.Operator = Operator;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdatePackDailyResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class UpdatePackDailyResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.ChangeSubscriberVO UpdatePackDailyResult;
+        
+        public UpdatePackDailyResponse() {
+        }
+        
+        public UpdatePackDailyResponse(Billing.Vasc.ChangeSubscriberVO UpdatePackDailyResult) {
+            this.UpdatePackDailyResult = UpdatePackDailyResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeFiberVNN", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangeFiberVNNRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string IPTVACCOUNT;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string FiberVNN;
+        
+        public ChangeFiberVNNRequest() {
+        }
+        
+        public ChangeFiberVNNRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string FiberVNN) {
+            this.AuthHeader = AuthHeader;
+            this.IPTVACCOUNT = IPTVACCOUNT;
+            this.FiberVNN = FiberVNN;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeFiberVNNResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangeFiberVNNResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.ChangeFiberVNNVO ChangeFiberVNNResult;
+        
+        public ChangeFiberVNNResponse() {
+        }
+        
+        public ChangeFiberVNNResponse(Billing.Vasc.ChangeFiberVNNVO ChangeFiberVNNResult) {
+            this.ChangeFiberVNNResult = ChangeFiberVNNResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateUserConference", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class UpdateUserConferenceRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string IPTVAccount;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string Operator;
+        
+        public UpdateUserConferenceRequest() {
+        }
+        
+        public UpdateUserConferenceRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Operator) {
+            this.AuthHeader = AuthHeader;
+            this.IPTVAccount = IPTVAccount;
+            this.Operator = Operator;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateUserConferenceResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class UpdateUserConferenceResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.ChangeSubscriberVO UpdateUserConferenceResult;
+        
+        public UpdateUserConferenceResponse() {
+        }
+        
+        public UpdateUserConferenceResponse(Billing.Vasc.ChangeSubscriberVO UpdateUserConferenceResult) {
+            this.UpdateUserConferenceResult = UpdateUserConferenceResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="MethodChangePay", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class MethodChangePayRequest1 {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string IPTVACCOUNT;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string Method;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string No_Month;
+        
+        public MethodChangePayRequest1() {
+        }
+        
+        public MethodChangePayRequest1(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string Method, string No_Month) {
+            this.AuthHeader = AuthHeader;
+            this.IPTVACCOUNT = IPTVACCOUNT;
+            this.Method = Method;
+            this.No_Month = No_Month;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="MethodChangePayResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class MethodChangePayResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.MethodChangePayVO MethodChangePayResult;
+        
+        public MethodChangePayResponse() {
+        }
+        
+        public MethodChangePayResponse(Billing.Vasc.MethodChangePayVO MethodChangePayResult) {
+            this.MethodChangePayResult = MethodChangePayResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="MethodChangePayV2", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class MethodChangePayV2Request {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string IPTVACCOUNT;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string Method;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string No_Month;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        public string sStartDate;
+        
+        public MethodChangePayV2Request() {
+        }
+        
+        public MethodChangePayV2Request(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string Method, string No_Month, string sStartDate) {
+            this.AuthHeader = AuthHeader;
+            this.IPTVACCOUNT = IPTVACCOUNT;
+            this.Method = Method;
+            this.No_Month = No_Month;
+            this.sStartDate = sStartDate;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="MethodChangePayV2Response", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class MethodChangePayV2Response {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.MethodChangePayVO MethodChangePayV2Result;
+        
+        public MethodChangePayV2Response() {
+        }
+        
+        public MethodChangePayV2Response(Billing.Vasc.MethodChangePayVO MethodChangePayV2Result) {
+            this.MethodChangePayV2Result = MethodChangePayV2Result;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="MethodChangePayV3", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class MethodChangePayV3Request {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.MethodChangePayRequest objRequest;
+        
+        public MethodChangePayV3Request() {
+        }
+        
+        public MethodChangePayV3Request(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.MethodChangePayRequest objRequest) {
             this.AuthHeader = AuthHeader;
             this.objRequest = objRequest;
         }
@@ -8687,36 +10255,74 @@ namespace Billing.Vasc {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="TotalMyTVPlusResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class TotalMyTVPlusResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="MethodChangePayV3Response", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class MethodChangePayV3Response {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangeSubscriberVO TotalMyTVPlusResult;
+        public Billing.Vasc.MethodChangePayVO MethodChangePayV3Result;
         
-        public TotalMyTVPlusResponse() {
+        public MethodChangePayV3Response() {
         }
         
-        public TotalMyTVPlusResponse(Billing.Vasc.ChangeSubscriberVO TotalMyTVPlusResult) {
-            this.TotalMyTVPlusResult = TotalMyTVPlusResult;
+        public MethodChangePayV3Response(Billing.Vasc.MethodChangePayVO MethodChangePayV3Result) {
+            this.MethodChangePayV3Result = MethodChangePayV3Result;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeSystem", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangeSystemRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Smart_OTTGetMemberPending", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class Smart_OTTGetMemberPendingRequest1 {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
         public Billing.Vasc.AuthHeader AuthHeader;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangeSystemReq objRequest;
+        public Billing.Vasc.Smart_OTTGetMemberPendingRequest req;
         
-        public ChangeSystemRequest() {
+        public Smart_OTTGetMemberPendingRequest1() {
         }
         
-        public ChangeSystemRequest(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.ChangeSystemReq objRequest) {
+        public Smart_OTTGetMemberPendingRequest1(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.Smart_OTTGetMemberPendingRequest req) {
+            this.AuthHeader = AuthHeader;
+            this.req = req;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Smart_OTTGetMemberPendingResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class Smart_OTTGetMemberPendingResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.Smart_OTTGetMemberPendingVO Smart_OTTGetMemberPendingResult;
+        
+        public Smart_OTTGetMemberPendingResponse() {
+        }
+        
+        public Smart_OTTGetMemberPendingResponse(Billing.Vasc.Smart_OTTGetMemberPendingVO Smart_OTTGetMemberPendingResult) {
+            this.Smart_OTTGetMemberPendingResult = Smart_OTTGetMemberPendingResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangePackageV3", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangePackageV3Request {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.ChangePackageRequest objRequest;
+        
+        public ChangePackageV3Request() {
+        }
+        
+        public ChangePackageV3Request(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.ChangePackageRequest objRequest) {
             this.AuthHeader = AuthHeader;
             this.objRequest = objRequest;
         }
@@ -8725,55 +10331,339 @@ namespace Billing.Vasc {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeSystemResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangeSystemResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangePackageV3Response", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangePackageV3Response {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangeSystemResp ChangeSystemResult;
+        public Billing.Vasc.ChangePackageVO ChangePackageV3Result;
         
-        public ChangeSystemResponse() {
+        public ChangePackageV3Response() {
         }
         
-        public ChangeSystemResponse(Billing.Vasc.ChangeSystemResp ChangeSystemResult) {
-            this.ChangeSystemResult = ChangeSystemResult;
+        public ChangePackageV3Response(Billing.Vasc.ChangePackageVO ChangePackageV3Result) {
+            this.ChangePackageV3Result = ChangePackageV3Result;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="getStatusBlockPayTV", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class getStatusBlockPayTVRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangePackage", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangePackageRequest1 {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
         public Billing.Vasc.AuthHeader AuthHeader;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string iptvaccount;
+        public string IPTVAccount;
         
-        public getStatusBlockPayTVRequest() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string PackageNo;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string ServiceCD;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        public string ServiceVAS;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
+        public string Reason;
+        
+        public ChangePackageRequest1() {
         }
         
-        public getStatusBlockPayTVRequest(Billing.Vasc.AuthHeader AuthHeader, string iptvaccount) {
+        public ChangePackageRequest1(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string PackageNo, string ServiceCD, string ServiceVAS, string Reason) {
             this.AuthHeader = AuthHeader;
-            this.iptvaccount = iptvaccount;
+            this.IPTVAccount = IPTVAccount;
+            this.PackageNo = PackageNo;
+            this.ServiceCD = ServiceCD;
+            this.ServiceVAS = ServiceVAS;
+            this.Reason = Reason;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="getStatusBlockPayTVResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class getStatusBlockPayTVResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangePackageResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangePackageResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.StatusBlockPayTVInfor getStatusBlockPayTVResult;
+        public Billing.Vasc.ChangePackageVO ChangePackageResult;
         
-        public getStatusBlockPayTVResponse() {
+        public ChangePackageResponse() {
         }
         
-        public getStatusBlockPayTVResponse(Billing.Vasc.StatusBlockPayTVInfor getStatusBlockPayTVResult) {
-            this.getStatusBlockPayTVResult = getStatusBlockPayTVResult;
+        public ChangePackageResponse(Billing.Vasc.ChangePackageVO ChangePackageResult) {
+            this.ChangePackageResult = ChangePackageResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangePackageAndMegaVNN", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangePackageAndMegaVNNRequest1 {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string IPTVAccount;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string PackageNo;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string ServiceCD;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        public string ServiceVAS;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
+        public string Reason;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=5)]
+        public string MegaMyTV;
+        
+        public ChangePackageAndMegaVNNRequest1() {
+        }
+        
+        public ChangePackageAndMegaVNNRequest1(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string PackageNo, string ServiceCD, string ServiceVAS, string Reason, string MegaMyTV) {
+            this.AuthHeader = AuthHeader;
+            this.IPTVAccount = IPTVAccount;
+            this.PackageNo = PackageNo;
+            this.ServiceCD = ServiceCD;
+            this.ServiceVAS = ServiceVAS;
+            this.Reason = Reason;
+            this.MegaMyTV = MegaMyTV;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangePackageAndMegaVNNResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangePackageAndMegaVNNResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.ChangePackageVO ChangePackageAndMegaVNNResult;
+        
+        public ChangePackageAndMegaVNNResponse() {
+        }
+        
+        public ChangePackageAndMegaVNNResponse(Billing.Vasc.ChangePackageVO ChangePackageAndMegaVNNResult) {
+            this.ChangePackageAndMegaVNNResult = ChangePackageAndMegaVNNResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangePackageAndMegaVNN_TitanSportHome", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangePackageAndMegaVNN_TitanSportHome {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.ChangePackageAndMegaVNNRequest objRequest;
+        
+        public ChangePackageAndMegaVNN_TitanSportHome() {
+        }
+        
+        public ChangePackageAndMegaVNN_TitanSportHome(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.ChangePackageAndMegaVNNRequest objRequest) {
+            this.AuthHeader = AuthHeader;
+            this.objRequest = objRequest;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangePackageAndMegaVNN_TitanSportHomeResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangePackageAndMegaVNN_TitanSportHome1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.ChangePackageVO ChangePackageAndMegaVNN_TitanSportHomeResult;
+        
+        public ChangePackageAndMegaVNN_TitanSportHome1() {
+        }
+        
+        public ChangePackageAndMegaVNN_TitanSportHome1(Billing.Vasc.ChangePackageVO ChangePackageAndMegaVNN_TitanSportHomeResult) {
+            this.ChangePackageAndMegaVNN_TitanSportHomeResult = ChangePackageAndMegaVNN_TitanSportHomeResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeMegaVNN", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangeMegaVNNRequest1 {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string IPTVAccount;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string MegaMyTV;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string Combo_FiberCD;
+        
+        public ChangeMegaVNNRequest1() {
+        }
+        
+        public ChangeMegaVNNRequest1(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string MegaMyTV, string Combo_FiberCD) {
+            this.AuthHeader = AuthHeader;
+            this.IPTVAccount = IPTVAccount;
+            this.MegaMyTV = MegaMyTV;
+            this.Combo_FiberCD = Combo_FiberCD;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeMegaVNNResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangeMegaVNNResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.ChangePackageVO ChangeMegaVNNResult;
+        
+        public ChangeMegaVNNResponse() {
+        }
+        
+        public ChangeMegaVNNResponse(Billing.Vasc.ChangePackageVO ChangeMegaVNNResult) {
+            this.ChangeMegaVNNResult = ChangeMegaVNNResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeMegaVNNV3", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangeMegaVNNV3Request {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.ChangeMegaVNNRequest objReq;
+        
+        public ChangeMegaVNNV3Request() {
+        }
+        
+        public ChangeMegaVNNV3Request(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.ChangeMegaVNNRequest objReq) {
+            this.AuthHeader = AuthHeader;
+            this.objReq = objReq;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeMegaVNNV3Response", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangeMegaVNNV3Response {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.ChangePackageVO ChangeMegaVNNV3Result;
+        
+        public ChangeMegaVNNV3Response() {
+        }
+        
+        public ChangeMegaVNNV3Response(Billing.Vasc.ChangePackageVO ChangeMegaVNNV3Result) {
+            this.ChangeMegaVNNV3Result = ChangeMegaVNNV3Result;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetPackageName", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetPackageNameRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string IPTVAccount;
+        
+        public GetPackageNameRequest() {
+        }
+        
+        public GetPackageNameRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount) {
+            this.AuthHeader = AuthHeader;
+            this.IPTVAccount = IPTVAccount;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetPackageNameResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetPackageNameResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.GetPackageNameVO GetPackageNameResult;
+        
+        public GetPackageNameResponse() {
+        }
+        
+        public GetPackageNameResponse(Billing.Vasc.GetPackageNameVO GetPackageNameResult) {
+            this.GetPackageNameResult = GetPackageNameResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetPackageEPG", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetPackageEPGRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string starttime;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string endtime;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string IPTVAccount;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        public string strAll;
+        
+        public GetPackageEPGRequest() {
+        }
+        
+        public GetPackageEPGRequest(Billing.Vasc.AuthHeader AuthHeader, string starttime, string endtime, string IPTVAccount, string strAll) {
+            this.AuthHeader = AuthHeader;
+            this.starttime = starttime;
+            this.endtime = endtime;
+            this.IPTVAccount = IPTVAccount;
+            this.strAll = strAll;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetPackageEPGResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetPackageEPGResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.GetPackageEPGVO GetPackageEPGResult;
+        
+        public GetPackageEPGResponse() {
+        }
+        
+        public GetPackageEPGResponse(Billing.Vasc.GetPackageEPGVO GetPackageEPGResult) {
+            this.GetPackageEPGResult = GetPackageEPGResult;
         }
     }
     
@@ -8852,308 +10742,256 @@ namespace Billing.Vasc {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateUserConference", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class UpdateUserConferenceRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdatePromotions", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class UpdatePromotionsRequest {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
         public Billing.Vasc.AuthHeader AuthHeader;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string IPTVAccount;
+        public string IPTVACCOUNT;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string Operator;
+        public string PromoCD;
         
-        public UpdateUserConferenceRequest() {
+        public UpdatePromotionsRequest() {
         }
         
-        public UpdateUserConferenceRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Operator) {
+        public UpdatePromotionsRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string PromoCD) {
             this.AuthHeader = AuthHeader;
-            this.IPTVAccount = IPTVAccount;
-            this.Operator = Operator;
+            this.IPTVACCOUNT = IPTVACCOUNT;
+            this.PromoCD = PromoCD;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateUserConferenceResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class UpdateUserConferenceResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdatePromotionsResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class UpdatePromotionsResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangeSubscriberVO UpdateUserConferenceResult;
+        public Billing.Vasc.UpdatePromoVO UpdatePromotionsResult;
         
-        public UpdateUserConferenceResponse() {
+        public UpdatePromotionsResponse() {
         }
         
-        public UpdateUserConferenceResponse(Billing.Vasc.ChangeSubscriberVO UpdateUserConferenceResult) {
-            this.UpdateUserConferenceResult = UpdateUserConferenceResult;
+        public UpdatePromotionsResponse(Billing.Vasc.UpdatePromoVO UpdatePromotionsResult) {
+            this.UpdatePromotionsResult = UpdatePromotionsResult;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateUserParent", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class UpdateUserParentRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeID_STBDiscount", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangeID_STBDiscountRequest {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
         public Billing.Vasc.AuthHeader AuthHeader;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.UpdateUserParentReq objRequest;
+        public string IPTVACCOUNT;
         
-        public UpdateUserParentRequest() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string sID_STB_Discount;
+        
+        public ChangeID_STBDiscountRequest() {
         }
         
-        public UpdateUserParentRequest(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.UpdateUserParentReq objRequest) {
+        public ChangeID_STBDiscountRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string sID_STB_Discount) {
             this.AuthHeader = AuthHeader;
-            this.objRequest = objRequest;
+            this.IPTVACCOUNT = IPTVACCOUNT;
+            this.sID_STB_Discount = sID_STB_Discount;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateUserParentResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class UpdateUserParentResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeID_STBDiscountResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangeID_STBDiscountResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangeSubscriberVO UpdateUserParentResult;
+        public Billing.Vasc.ChangeSubscriberVO ChangeID_STBDiscountResult;
         
-        public UpdateUserParentResponse() {
+        public ChangeID_STBDiscountResponse() {
         }
         
-        public UpdateUserParentResponse(Billing.Vasc.ChangeSubscriberVO UpdateUserParentResult) {
-            this.UpdateUserParentResult = UpdateUserParentResult;
+        public ChangeID_STBDiscountResponse(Billing.Vasc.ChangeSubscriberVO ChangeID_STBDiscountResult) {
+            this.ChangeID_STBDiscountResult = ChangeID_STBDiscountResult;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetUserParent", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetUserParentRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeFiberCD", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangeFiberCDRequest {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
         public Billing.Vasc.AuthHeader AuthHeader;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string iptvAccount;
+        public string IPTVACCOUNT;
         
-        public GetUserParentRequest() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string sFiberCD;
+        
+        public ChangeFiberCDRequest() {
         }
         
-        public GetUserParentRequest(Billing.Vasc.AuthHeader AuthHeader, string iptvAccount) {
+        public ChangeFiberCDRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string sFiberCD) {
             this.AuthHeader = AuthHeader;
-            this.iptvAccount = iptvAccount;
+            this.IPTVACCOUNT = IPTVACCOUNT;
+            this.sFiberCD = sFiberCD;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetUserParentResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetUserParentResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeFiberCDResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangeFiberCDResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.GetListSubscriberVO GetUserParentResult;
+        public Billing.Vasc.ChangeSubscriberVO ChangeFiberCDResult;
         
-        public GetUserParentResponse() {
+        public ChangeFiberCDResponse() {
         }
         
-        public GetUserParentResponse(Billing.Vasc.GetListSubscriberVO GetUserParentResult) {
-            this.GetUserParentResult = GetUserParentResult;
+        public ChangeFiberCDResponse(Billing.Vasc.ChangeSubscriberVO ChangeFiberCDResult) {
+            this.ChangeFiberCDResult = ChangeFiberCDResult;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="BlockPayTV", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class BlockPayTVRequest1 {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangePromotions", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangePromotionsRequest {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
         public Billing.Vasc.AuthHeader AuthHeader;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.BlockPayTVRequest objRequest;
+        public string IPTVACCOUNT;
         
-        public BlockPayTVRequest1() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string sPromo_ID;
+        
+        public ChangePromotionsRequest() {
         }
         
-        public BlockPayTVRequest1(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.BlockPayTVRequest objRequest) {
+        public ChangePromotionsRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string sPromo_ID) {
             this.AuthHeader = AuthHeader;
-            this.objRequest = objRequest;
+            this.IPTVACCOUNT = IPTVACCOUNT;
+            this.sPromo_ID = sPromo_ID;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="BlockPayTVResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class BlockPayTVResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangePromotionsResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangePromotionsResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.BlockPayTVResp BlockPayTVResult;
+        public Billing.Vasc.ChangePromotionsVO ChangePromotionsResult;
         
-        public BlockPayTVResponse() {
+        public ChangePromotionsResponse() {
         }
         
-        public BlockPayTVResponse(Billing.Vasc.BlockPayTVResp BlockPayTVResult) {
-            this.BlockPayTVResult = BlockPayTVResult;
+        public ChangePromotionsResponse(Billing.Vasc.ChangePromotionsVO ChangePromotionsResult) {
+            this.ChangePromotionsResult = ChangePromotionsResult;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetHisPayTV", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetHisPayTVRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangePromotionsV2", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangePromotionsV2Request {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
         public Billing.Vasc.AuthHeader AuthHeader;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string strMyTV;
+        public string IPTVACCOUNT;
         
-        public GetHisPayTVRequest() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string sPromo_ID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string option;
+        
+        public ChangePromotionsV2Request() {
         }
         
-        public GetHisPayTVRequest(Billing.Vasc.AuthHeader AuthHeader, string strMyTV) {
+        public ChangePromotionsV2Request(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string sPromo_ID, string option) {
             this.AuthHeader = AuthHeader;
-            this.strMyTV = strMyTV;
+            this.IPTVACCOUNT = IPTVACCOUNT;
+            this.sPromo_ID = sPromo_ID;
+            this.option = option;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetHisPayTVResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetHisPayTVResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangePromotionsV2Response", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangePromotionsV2Response {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.GetHisPayTVResp GetHisPayTVResult;
+        public Billing.Vasc.ChangePromotionsVO ChangePromotionsV2Result;
         
-        public GetHisPayTVResponse() {
+        public ChangePromotionsV2Response() {
         }
         
-        public GetHisPayTVResponse(Billing.Vasc.GetHisPayTVResp GetHisPayTVResult) {
-            this.GetHisPayTVResult = GetHisPayTVResult;
+        public ChangePromotionsV2Response(Billing.Vasc.ChangePromotionsVO ChangePromotionsV2Result) {
+            this.ChangePromotionsV2Result = ChangePromotionsV2Result;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetHisSubscriberChangeSTB", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetHisSubscriberChangeSTBRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdatePrepaid", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class UpdatePrepaidRequest {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
         public Billing.Vasc.AuthHeader AuthHeader;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string strMyTV;
+        public string MyTVAccount;
         
-        public GetHisSubscriberChangeSTBRequest() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public int iNo_Month;
+        
+        public UpdatePrepaidRequest() {
         }
         
-        public GetHisSubscriberChangeSTBRequest(Billing.Vasc.AuthHeader AuthHeader, string strMyTV) {
+        public UpdatePrepaidRequest(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, int iNo_Month) {
             this.AuthHeader = AuthHeader;
-            this.strMyTV = strMyTV;
+            this.MyTVAccount = MyTVAccount;
+            this.iNo_Month = iNo_Month;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetHisSubscriberChangeSTBResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetHisSubscriberChangeSTBResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdatePrepaidResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class UpdatePrepaidResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.GetSTBHistoryInfoVO GetHisSubscriberChangeSTBResult;
+        public Billing.Vasc.ChangeSubscriberVO UpdatePrepaidResult;
         
-        public GetHisSubscriberChangeSTBResponse() {
+        public UpdatePrepaidResponse() {
         }
         
-        public GetHisSubscriberChangeSTBResponse(Billing.Vasc.GetSTBHistoryInfoVO GetHisSubscriberChangeSTBResult) {
-            this.GetHisSubscriberChangeSTBResult = GetHisSubscriberChangeSTBResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetHistorySTB", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetHistorySTBRequest {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string stbid;
-        
-        public GetHistorySTBRequest() {
-        }
-        
-        public GetHistorySTBRequest(Billing.Vasc.AuthHeader AuthHeader, string stbid) {
-            this.AuthHeader = AuthHeader;
-            this.stbid = stbid;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetHistorySTBResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetHistorySTBResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.GetSTBHistoryInfoVO GetHistorySTBResult;
-        
-        public GetHistorySTBResponse() {
-        }
-        
-        public GetHistorySTBResponse(Billing.Vasc.GetSTBHistoryInfoVO GetHistorySTBResult) {
-            this.GetHistorySTBResult = GetHistorySTBResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetSTBInfor", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetSTBInforRequest {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string stbid;
-        
-        public GetSTBInforRequest() {
-        }
-        
-        public GetSTBInforRequest(Billing.Vasc.AuthHeader AuthHeader, string stbid) {
-            this.AuthHeader = AuthHeader;
-            this.stbid = stbid;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetSTBInforResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetSTBInforResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.StbInfoVO GetSTBInforResult;
-        
-        public GetSTBInforResponse() {
-        }
-        
-        public GetSTBInforResponse(Billing.Vasc.StbInfoVO GetSTBInforResult) {
-            this.GetSTBInforResult = GetSTBInforResult;
+        public UpdatePrepaidResponse(Billing.Vasc.ChangeSubscriberVO UpdatePrepaidResult) {
+            this.UpdatePrepaidResult = UpdatePrepaidResult;
         }
     }
     
@@ -11623,262 +13461,6 @@ namespace Billing.Vasc {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdatePromotions", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class UpdatePromotionsRequest {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string IPTVACCOUNT;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string PromoCD;
-        
-        public UpdatePromotionsRequest() {
-        }
-        
-        public UpdatePromotionsRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string PromoCD) {
-            this.AuthHeader = AuthHeader;
-            this.IPTVACCOUNT = IPTVACCOUNT;
-            this.PromoCD = PromoCD;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdatePromotionsResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class UpdatePromotionsResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.UpdatePromoVO UpdatePromotionsResult;
-        
-        public UpdatePromotionsResponse() {
-        }
-        
-        public UpdatePromotionsResponse(Billing.Vasc.UpdatePromoVO UpdatePromotionsResult) {
-            this.UpdatePromotionsResult = UpdatePromotionsResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="SuspendSubscriber", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class SuspendSubscriberRequest {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string IPTVAccount;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string Reason;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
-        public string Operator;
-        
-        public SuspendSubscriberRequest() {
-        }
-        
-        public SuspendSubscriberRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Reason, string Operator) {
-            this.AuthHeader = AuthHeader;
-            this.IPTVAccount = IPTVAccount;
-            this.Reason = Reason;
-            this.Operator = Operator;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="SuspendSubscriberResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class SuspendSubscriberResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.SuspendSubscriberVO SuspendSubscriberResult;
-        
-        public SuspendSubscriberResponse() {
-        }
-        
-        public SuspendSubscriberResponse(Billing.Vasc.SuspendSubscriberVO SuspendSubscriberResult) {
-            this.SuspendSubscriberResult = SuspendSubscriberResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="SuspendSubscriberV2", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class SuspendSubscriberV2Request {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string IPTVAccount;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public int ReasonID;
-        
-        public SuspendSubscriberV2Request() {
-        }
-        
-        public SuspendSubscriberV2Request(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, int ReasonID) {
-            this.AuthHeader = AuthHeader;
-            this.IPTVAccount = IPTVAccount;
-            this.ReasonID = ReasonID;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="SuspendSubscriberV2Response", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class SuspendSubscriberV2Response {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.SuspendSubscriberVO SuspendSubscriberV2Result;
-        
-        public SuspendSubscriberV2Response() {
-        }
-        
-        public SuspendSubscriberV2Response(Billing.Vasc.SuspendSubscriberVO SuspendSubscriberV2Result) {
-            this.SuspendSubscriberV2Result = SuspendSubscriberV2Result;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ResumeSubscriber", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ResumeSubscriberRequest {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string IPTVAccount;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string Reason;
-        
-        public ResumeSubscriberRequest() {
-        }
-        
-        public ResumeSubscriberRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Reason) {
-            this.AuthHeader = AuthHeader;
-            this.IPTVAccount = IPTVAccount;
-            this.Reason = Reason;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ResumeSubscriberResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ResumeSubscriberResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ResumeSubscriberVO ResumeSubscriberResult;
-        
-        public ResumeSubscriberResponse() {
-        }
-        
-        public ResumeSubscriberResponse(Billing.Vasc.ResumeSubscriberVO ResumeSubscriberResult) {
-            this.ResumeSubscriberResult = ResumeSubscriberResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="CancelSubscriber", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class CancelSubscriberRequest {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string IPTVAccount;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string Reason;
-        
-        public CancelSubscriberRequest() {
-        }
-        
-        public CancelSubscriberRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Reason) {
-            this.AuthHeader = AuthHeader;
-            this.IPTVAccount = IPTVAccount;
-            this.Reason = Reason;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="CancelSubscriberResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class CancelSubscriberResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.CancelSubscriberVO CancelSubscriberResult;
-        
-        public CancelSubscriberResponse() {
-        }
-        
-        public CancelSubscriberResponse(Billing.Vasc.CancelSubscriberVO CancelSubscriberResult) {
-            this.CancelSubscriberResult = CancelSubscriberResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="CancelSubscriberV2", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class CancelSubscriberV2Request {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string IPTVAccount;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public int ReasonID;
-        
-        public CancelSubscriberV2Request() {
-        }
-        
-        public CancelSubscriberV2Request(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, int ReasonID) {
-            this.AuthHeader = AuthHeader;
-            this.IPTVAccount = IPTVAccount;
-            this.ReasonID = ReasonID;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="CancelSubscriberV2Response", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class CancelSubscriberV2Response {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.CancelSubscriberVO CancelSubscriberV2Result;
-        
-        public CancelSubscriberV2Response() {
-        }
-        
-        public CancelSubscriberV2Response(Billing.Vasc.CancelSubscriberVO CancelSubscriberV2Result) {
-            this.CancelSubscriberV2Result = CancelSubscriberV2Result;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeSubscriberV3", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
     public partial class ChangeSubscriberV3Request {
         
@@ -12049,8 +13631,8 @@ namespace Billing.Vasc {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangePackage", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangePackageRequest1 {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="SuspendSubscriber", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class SuspendSubscriberRequest {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
         public Billing.Vasc.AuthHeader AuthHeader;
@@ -12059,52 +13641,44 @@ namespace Billing.Vasc {
         public string IPTVAccount;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string PackageNo;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
-        public string ServiceCD;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
-        public string ServiceVAS;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
         public string Reason;
         
-        public ChangePackageRequest1() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string Operator;
+        
+        public SuspendSubscriberRequest() {
         }
         
-        public ChangePackageRequest1(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string PackageNo, string ServiceCD, string ServiceVAS, string Reason) {
+        public SuspendSubscriberRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Reason, string Operator) {
             this.AuthHeader = AuthHeader;
             this.IPTVAccount = IPTVAccount;
-            this.PackageNo = PackageNo;
-            this.ServiceCD = ServiceCD;
-            this.ServiceVAS = ServiceVAS;
             this.Reason = Reason;
+            this.Operator = Operator;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangePackageResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangePackageResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="SuspendSubscriberResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class SuspendSubscriberResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangePackageVO ChangePackageResult;
+        public Billing.Vasc.SuspendSubscriberVO SuspendSubscriberResult;
         
-        public ChangePackageResponse() {
+        public SuspendSubscriberResponse() {
         }
         
-        public ChangePackageResponse(Billing.Vasc.ChangePackageVO ChangePackageResult) {
-            this.ChangePackageResult = ChangePackageResult;
+        public SuspendSubscriberResponse(Billing.Vasc.SuspendSubscriberVO SuspendSubscriberResult) {
+            this.SuspendSubscriberResult = SuspendSubscriberResult;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangePackageAndMegaVNN", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangePackageAndMegaVNNRequest1 {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="SuspendSubscriberV2", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class SuspendSubscriberV2Request {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
         public Billing.Vasc.AuthHeader AuthHeader;
@@ -12113,67 +13687,215 @@ namespace Billing.Vasc {
         public string IPTVAccount;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string PackageNo;
+        public int ReasonID;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
-        public string ServiceCD;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
-        public string ServiceVAS;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
-        public string Reason;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=5)]
-        public string MegaMyTV;
-        
-        public ChangePackageAndMegaVNNRequest1() {
+        public SuspendSubscriberV2Request() {
         }
         
-        public ChangePackageAndMegaVNNRequest1(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string PackageNo, string ServiceCD, string ServiceVAS, string Reason, string MegaMyTV) {
+        public SuspendSubscriberV2Request(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, int ReasonID) {
             this.AuthHeader = AuthHeader;
             this.IPTVAccount = IPTVAccount;
-            this.PackageNo = PackageNo;
-            this.ServiceCD = ServiceCD;
-            this.ServiceVAS = ServiceVAS;
-            this.Reason = Reason;
-            this.MegaMyTV = MegaMyTV;
+            this.ReasonID = ReasonID;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangePackageAndMegaVNNResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangePackageAndMegaVNNResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="SuspendSubscriberV2Response", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class SuspendSubscriberV2Response {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangePackageVO ChangePackageAndMegaVNNResult;
+        public Billing.Vasc.SuspendSubscriberVO SuspendSubscriberV2Result;
         
-        public ChangePackageAndMegaVNNResponse() {
+        public SuspendSubscriberV2Response() {
         }
         
-        public ChangePackageAndMegaVNNResponse(Billing.Vasc.ChangePackageVO ChangePackageAndMegaVNNResult) {
-            this.ChangePackageAndMegaVNNResult = ChangePackageAndMegaVNNResult;
+        public SuspendSubscriberV2Response(Billing.Vasc.SuspendSubscriberVO SuspendSubscriberV2Result) {
+            this.SuspendSubscriberV2Result = SuspendSubscriberV2Result;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangePackageAndMegaVNN_TitanSportHome", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangePackageAndMegaVNN_TitanSportHome {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CancelSubscriber", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class CancelSubscriberRequest {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
         public Billing.Vasc.AuthHeader AuthHeader;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangePackageAndMegaVNNRequest objRequest;
+        public string IPTVAccount;
         
-        public ChangePackageAndMegaVNN_TitanSportHome() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string Reason;
+        
+        public CancelSubscriberRequest() {
         }
         
-        public ChangePackageAndMegaVNN_TitanSportHome(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.ChangePackageAndMegaVNNRequest objRequest) {
+        public CancelSubscriberRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Reason) {
+            this.AuthHeader = AuthHeader;
+            this.IPTVAccount = IPTVAccount;
+            this.Reason = Reason;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CancelSubscriberResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class CancelSubscriberResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.CancelSubscriberVO CancelSubscriberResult;
+        
+        public CancelSubscriberResponse() {
+        }
+        
+        public CancelSubscriberResponse(Billing.Vasc.CancelSubscriberVO CancelSubscriberResult) {
+            this.CancelSubscriberResult = CancelSubscriberResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CancelSubscriberV2", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class CancelSubscriberV2Request {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string IPTVAccount;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public int ReasonID;
+        
+        public CancelSubscriberV2Request() {
+        }
+        
+        public CancelSubscriberV2Request(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, int ReasonID) {
+            this.AuthHeader = AuthHeader;
+            this.IPTVAccount = IPTVAccount;
+            this.ReasonID = ReasonID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CancelSubscriberV2Response", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class CancelSubscriberV2Response {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.CancelSubscriberVO CancelSubscriberV2Result;
+        
+        public CancelSubscriberV2Response() {
+        }
+        
+        public CancelSubscriberV2Response(Billing.Vasc.CancelSubscriberVO CancelSubscriberV2Result) {
+            this.CancelSubscriberV2Result = CancelSubscriberV2Result;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ResumeSubscriber", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ResumeSubscriberRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string IPTVAccount;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string Reason;
+        
+        public ResumeSubscriberRequest() {
+        }
+        
+        public ResumeSubscriberRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Reason) {
+            this.AuthHeader = AuthHeader;
+            this.IPTVAccount = IPTVAccount;
+            this.Reason = Reason;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ResumeSubscriberResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ResumeSubscriberResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.ResumeSubscriberVO ResumeSubscriberResult;
+        
+        public ResumeSubscriberResponse() {
+        }
+        
+        public ResumeSubscriberResponse(Billing.Vasc.ResumeSubscriberVO ResumeSubscriberResult) {
+            this.ResumeSubscriberResult = ResumeSubscriberResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetSubscriberInfo", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetSubscriberInfoRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string IPTVAccount;
+        
+        public GetSubscriberInfoRequest() {
+        }
+        
+        public GetSubscriberInfoRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount) {
+            this.AuthHeader = AuthHeader;
+            this.IPTVAccount = IPTVAccount;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetSubscriberInfoResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetSubscriberInfoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.GetSubscriberInfoVO GetSubscriberInfoResult;
+        
+        public GetSubscriberInfoResponse() {
+        }
+        
+        public GetSubscriberInfoResponse(Billing.Vasc.GetSubscriberInfoVO GetSubscriberInfoResult) {
+            this.GetSubscriberInfoResult = GetSubscriberInfoResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetSubscriberInfoV2", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetSubscriberInfoV2Request {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.GetSubscriberRequest objRequest;
+        
+        public GetSubscriberInfoV2Request() {
+        }
+        
+        public GetSubscriberInfoV2Request(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.GetSubscriberRequest objRequest) {
             this.AuthHeader = AuthHeader;
             this.objRequest = objRequest;
         }
@@ -12182,120 +13904,70 @@ namespace Billing.Vasc {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangePackageAndMegaVNN_TitanSportHomeResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangePackageAndMegaVNN_TitanSportHome1 {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetSubscriberInfoV2Response", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetSubscriberInfoV2Response {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangePackageVO ChangePackageAndMegaVNN_TitanSportHomeResult;
+        public Billing.Vasc.GetSubscriberVO GetSubscriberInfoV2Result;
         
-        public ChangePackageAndMegaVNN_TitanSportHome1() {
+        public GetSubscriberInfoV2Response() {
         }
         
-        public ChangePackageAndMegaVNN_TitanSportHome1(Billing.Vasc.ChangePackageVO ChangePackageAndMegaVNN_TitanSportHomeResult) {
-            this.ChangePackageAndMegaVNN_TitanSportHomeResult = ChangePackageAndMegaVNN_TitanSportHomeResult;
+        public GetSubscriberInfoV2Response(Billing.Vasc.GetSubscriberVO GetSubscriberInfoV2Result) {
+            this.GetSubscriberInfoV2Result = GetSubscriberInfoV2Result;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeMegaVNN", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangeMegaVNNRequest1 {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetListSubscriber", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetListSubscriberRequest {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
         public Billing.Vasc.AuthHeader AuthHeader;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string IPTVAccount;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string MegaMyTV;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
-        public string Combo_FiberCD;
-        
-        public ChangeMegaVNNRequest1() {
+        public GetListSubscriberRequest() {
         }
         
-        public ChangeMegaVNNRequest1(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string MegaMyTV, string Combo_FiberCD) {
+        public GetListSubscriberRequest(Billing.Vasc.AuthHeader AuthHeader) {
             this.AuthHeader = AuthHeader;
-            this.IPTVAccount = IPTVAccount;
-            this.MegaMyTV = MegaMyTV;
-            this.Combo_FiberCD = Combo_FiberCD;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeMegaVNNResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangeMegaVNNResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetListSubscriberResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetListSubscriberResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangePackageVO ChangeMegaVNNResult;
+        public Billing.Vasc.GetListSubscriberVO GetListSubscriberResult;
         
-        public ChangeMegaVNNResponse() {
+        public GetListSubscriberResponse() {
         }
         
-        public ChangeMegaVNNResponse(Billing.Vasc.ChangePackageVO ChangeMegaVNNResult) {
-            this.ChangeMegaVNNResult = ChangeMegaVNNResult;
+        public GetListSubscriberResponse(Billing.Vasc.GetListSubscriberVO GetListSubscriberResult) {
+            this.GetListSubscriberResult = GetListSubscriberResult;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeMegaVNNV3", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangeMegaVNNV3Request {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeSystem", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangeSystemRequest {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
         public Billing.Vasc.AuthHeader AuthHeader;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangeMegaVNNRequest objReq;
+        public Billing.Vasc.ChangeSystemReq objRequest;
         
-        public ChangeMegaVNNV3Request() {
+        public ChangeSystemRequest() {
         }
         
-        public ChangeMegaVNNV3Request(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.ChangeMegaVNNRequest objReq) {
-            this.AuthHeader = AuthHeader;
-            this.objReq = objReq;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeMegaVNNV3Response", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangeMegaVNNV3Response {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangePackageVO ChangeMegaVNNV3Result;
-        
-        public ChangeMegaVNNV3Response() {
-        }
-        
-        public ChangeMegaVNNV3Response(Billing.Vasc.ChangePackageVO ChangeMegaVNNV3Result) {
-            this.ChangeMegaVNNV3Result = ChangeMegaVNNV3Result;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangePackageV3", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangePackageV3Request {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangePackageRequest objRequest;
-        
-        public ChangePackageV3Request() {
-        }
-        
-        public ChangePackageV3Request(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.ChangePackageRequest objRequest) {
+        public ChangeSystemRequest(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.ChangeSystemReq objRequest) {
             this.AuthHeader = AuthHeader;
             this.objRequest = objRequest;
         }
@@ -12304,17 +13976,135 @@ namespace Billing.Vasc {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangePackageV3Response", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangePackageV3Response {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeSystemResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangeSystemResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangePackageVO ChangePackageV3Result;
+        public Billing.Vasc.ChangeSystemResp ChangeSystemResult;
         
-        public ChangePackageV3Response() {
+        public ChangeSystemResponse() {
         }
         
-        public ChangePackageV3Response(Billing.Vasc.ChangePackageVO ChangePackageV3Result) {
-            this.ChangePackageV3Result = ChangePackageV3Result;
+        public ChangeSystemResponse(Billing.Vasc.ChangeSystemResp ChangeSystemResult) {
+            this.ChangeSystemResult = ChangeSystemResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateUserParent", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class UpdateUserParentRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.UpdateUserParentReq objRequest;
+        
+        public UpdateUserParentRequest() {
+        }
+        
+        public UpdateUserParentRequest(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.UpdateUserParentReq objRequest) {
+            this.AuthHeader = AuthHeader;
+            this.objRequest = objRequest;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateUserParentResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class UpdateUserParentResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.ChangeSubscriberVO UpdateUserParentResult;
+        
+        public UpdateUserParentResponse() {
+        }
+        
+        public UpdateUserParentResponse(Billing.Vasc.ChangeSubscriberVO UpdateUserParentResult) {
+            this.UpdateUserParentResult = UpdateUserParentResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetUserParent", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetUserParentRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string iptvAccount;
+        
+        public GetUserParentRequest() {
+        }
+        
+        public GetUserParentRequest(Billing.Vasc.AuthHeader AuthHeader, string iptvAccount) {
+            this.AuthHeader = AuthHeader;
+            this.iptvAccount = iptvAccount;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetUserParentResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetUserParentResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.GetListSubscriberVO GetUserParentResult;
+        
+        public GetUserParentResponse() {
+        }
+        
+        public GetUserParentResponse(Billing.Vasc.GetListSubscriberVO GetUserParentResult) {
+            this.GetUserParentResult = GetUserParentResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeContract", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangeContractRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string IPTVACCOUNT;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string ContractNo;
+        
+        public ChangeContractRequest() {
+        }
+        
+        public ChangeContractRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string ContractNo) {
+            this.AuthHeader = AuthHeader;
+            this.IPTVACCOUNT = IPTVACCOUNT;
+            this.ContractNo = ContractNo;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeContractResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangeContractResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.ChangeContractVO ChangeContractResult;
+        
+        public ChangeContractResponse() {
+        }
+        
+        public ChangeContractResponse(Billing.Vasc.ChangeContractVO ChangeContractResult) {
+            this.ChangeContractResult = ChangeContractResult;
         }
     }
     
@@ -12447,842 +14237,6 @@ namespace Billing.Vasc {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeSTB", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangeSTBRequest {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string IPTVAccount;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string Reason;
-        
-        public ChangeSTBRequest() {
-        }
-        
-        public ChangeSTBRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Reason) {
-            this.AuthHeader = AuthHeader;
-            this.IPTVAccount = IPTVAccount;
-            this.Reason = Reason;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeSTBResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangeSTBResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangeSTBVO ChangeSTBResult;
-        
-        public ChangeSTBResponse() {
-        }
-        
-        public ChangeSTBResponse(Billing.Vasc.ChangeSTBVO ChangeSTBResult) {
-            this.ChangeSTBResult = ChangeSTBResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetSubscriberInfo", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetSubscriberInfoRequest {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string IPTVAccount;
-        
-        public GetSubscriberInfoRequest() {
-        }
-        
-        public GetSubscriberInfoRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount) {
-            this.AuthHeader = AuthHeader;
-            this.IPTVAccount = IPTVAccount;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetSubscriberInfoResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetSubscriberInfoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.GetSubscriberInfoVO GetSubscriberInfoResult;
-        
-        public GetSubscriberInfoResponse() {
-        }
-        
-        public GetSubscriberInfoResponse(Billing.Vasc.GetSubscriberInfoVO GetSubscriberInfoResult) {
-            this.GetSubscriberInfoResult = GetSubscriberInfoResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetSubscriberInfoV2", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetSubscriberInfoV2Request {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.GetSubscriberRequest objRequest;
-        
-        public GetSubscriberInfoV2Request() {
-        }
-        
-        public GetSubscriberInfoV2Request(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.GetSubscriberRequest objRequest) {
-            this.AuthHeader = AuthHeader;
-            this.objRequest = objRequest;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetSubscriberInfoV2Response", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetSubscriberInfoV2Response {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.GetSubscriberVO GetSubscriberInfoV2Result;
-        
-        public GetSubscriberInfoV2Response() {
-        }
-        
-        public GetSubscriberInfoV2Response(Billing.Vasc.GetSubscriberVO GetSubscriberInfoV2Result) {
-            this.GetSubscriberInfoV2Result = GetSubscriberInfoV2Result;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetPackageName", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetPackageNameRequest {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string IPTVAccount;
-        
-        public GetPackageNameRequest() {
-        }
-        
-        public GetPackageNameRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount) {
-            this.AuthHeader = AuthHeader;
-            this.IPTVAccount = IPTVAccount;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetPackageNameResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetPackageNameResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.GetPackageNameVO GetPackageNameResult;
-        
-        public GetPackageNameResponse() {
-        }
-        
-        public GetPackageNameResponse(Billing.Vasc.GetPackageNameVO GetPackageNameResult) {
-            this.GetPackageNameResult = GetPackageNameResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetSTBInfo", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetSTBInfoRequest {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string IPTVAccount;
-        
-        public GetSTBInfoRequest() {
-        }
-        
-        public GetSTBInfoRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount) {
-            this.AuthHeader = AuthHeader;
-            this.IPTVAccount = IPTVAccount;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetSTBInfoResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetSTBInfoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.GetSTBInfoVO GetSTBInfoResult;
-        
-        public GetSTBInfoResponse() {
-        }
-        
-        public GetSTBInfoResponse(Billing.Vasc.GetSTBInfoVO GetSTBInfoResult) {
-            this.GetSTBInfoResult = GetSTBInfoResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeBillCode", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangeBillCodeRequest {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string MyTVAccount;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string strBillcodeNew;
-        
-        public ChangeBillCodeRequest() {
-        }
-        
-        public ChangeBillCodeRequest(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string strBillcodeNew) {
-            this.AuthHeader = AuthHeader;
-            this.MyTVAccount = MyTVAccount;
-            this.strBillcodeNew = strBillcodeNew;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeBillCodeResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangeBillCodeResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangeBillCodeVO ChangeBillCodeResult;
-        
-        public ChangeBillCodeResponse() {
-        }
-        
-        public ChangeBillCodeResponse(Billing.Vasc.ChangeBillCodeVO ChangeBillCodeResult) {
-            this.ChangeBillCodeResult = ChangeBillCodeResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeDateBill", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangeDateBillRequest {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string MyTVAccount;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string strDateBillNew;
-        
-        public ChangeDateBillRequest() {
-        }
-        
-        public ChangeDateBillRequest(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string strDateBillNew) {
-            this.AuthHeader = AuthHeader;
-            this.MyTVAccount = MyTVAccount;
-            this.strDateBillNew = strDateBillNew;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeDateBillResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangeDateBillResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangeDateBillVO ChangeDateBillResult;
-        
-        public ChangeDateBillResponse() {
-        }
-        
-        public ChangeDateBillResponse(Billing.Vasc.ChangeDateBillVO ChangeDateBillResult) {
-            this.ChangeDateBillResult = ChangeDateBillResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="AddNewDistrict", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class AddNewDistrictRequest {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string DistrictName;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string ProvinceCD;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
-        public string DistrictCD;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
-        public string DistrictNote;
-        
-        public AddNewDistrictRequest() {
-        }
-        
-        public AddNewDistrictRequest(Billing.Vasc.AuthHeader AuthHeader, string DistrictName, string ProvinceCD, string DistrictCD, string DistrictNote) {
-            this.AuthHeader = AuthHeader;
-            this.DistrictName = DistrictName;
-            this.ProvinceCD = ProvinceCD;
-            this.DistrictCD = DistrictCD;
-            this.DistrictNote = DistrictNote;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="AddNewDistrictResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class AddNewDistrictResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.DistrictVO AddNewDistrictResult;
-        
-        public AddNewDistrictResponse() {
-        }
-        
-        public AddNewDistrictResponse(Billing.Vasc.DistrictVO AddNewDistrictResult) {
-            this.AddNewDistrictResult = AddNewDistrictResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="EditDistrict", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class EditDistrictRequest {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string DistrictCD;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string DistrictName;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
-        public string DistrictNote;
-        
-        public EditDistrictRequest() {
-        }
-        
-        public EditDistrictRequest(Billing.Vasc.AuthHeader AuthHeader, string DistrictCD, string DistrictName, string DistrictNote) {
-            this.AuthHeader = AuthHeader;
-            this.DistrictCD = DistrictCD;
-            this.DistrictName = DistrictName;
-            this.DistrictNote = DistrictNote;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="EditDistrictResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class EditDistrictResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.DistrictVO EditDistrictResult;
-        
-        public EditDistrictResponse() {
-        }
-        
-        public EditDistrictResponse(Billing.Vasc.DistrictVO EditDistrictResult) {
-            this.EditDistrictResult = EditDistrictResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteDistrict", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class DeleteDistrictRequest {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string DistrictID;
-        
-        public DeleteDistrictRequest() {
-        }
-        
-        public DeleteDistrictRequest(Billing.Vasc.AuthHeader AuthHeader, string DistrictID) {
-            this.AuthHeader = AuthHeader;
-            this.DistrictID = DistrictID;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteDistrictResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class DeleteDistrictResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.DistrictVO DeleteDistrictResult;
-        
-        public DeleteDistrictResponse() {
-        }
-        
-        public DeleteDistrictResponse(Billing.Vasc.DistrictVO DeleteDistrictResult) {
-            this.DeleteDistrictResult = DeleteDistrictResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="MethodChangePay", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class MethodChangePayRequest1 {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string IPTVACCOUNT;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string Method;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
-        public string No_Month;
-        
-        public MethodChangePayRequest1() {
-        }
-        
-        public MethodChangePayRequest1(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string Method, string No_Month) {
-            this.AuthHeader = AuthHeader;
-            this.IPTVACCOUNT = IPTVACCOUNT;
-            this.Method = Method;
-            this.No_Month = No_Month;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="MethodChangePayResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class MethodChangePayResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.MethodChangePayVO MethodChangePayResult;
-        
-        public MethodChangePayResponse() {
-        }
-        
-        public MethodChangePayResponse(Billing.Vasc.MethodChangePayVO MethodChangePayResult) {
-            this.MethodChangePayResult = MethodChangePayResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="MethodChangePayV2", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class MethodChangePayV2Request {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string IPTVACCOUNT;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string Method;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
-        public string No_Month;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
-        public string sStartDate;
-        
-        public MethodChangePayV2Request() {
-        }
-        
-        public MethodChangePayV2Request(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string Method, string No_Month, string sStartDate) {
-            this.AuthHeader = AuthHeader;
-            this.IPTVACCOUNT = IPTVACCOUNT;
-            this.Method = Method;
-            this.No_Month = No_Month;
-            this.sStartDate = sStartDate;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="MethodChangePayV2Response", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class MethodChangePayV2Response {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.MethodChangePayVO MethodChangePayV2Result;
-        
-        public MethodChangePayV2Response() {
-        }
-        
-        public MethodChangePayV2Response(Billing.Vasc.MethodChangePayVO MethodChangePayV2Result) {
-            this.MethodChangePayV2Result = MethodChangePayV2Result;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="MethodChangePayV3", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class MethodChangePayV3Request {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.MethodChangePayRequest objRequest;
-        
-        public MethodChangePayV3Request() {
-        }
-        
-        public MethodChangePayV3Request(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.MethodChangePayRequest objRequest) {
-            this.AuthHeader = AuthHeader;
-            this.objRequest = objRequest;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="MethodChangePayV3Response", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class MethodChangePayV3Response {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.MethodChangePayVO MethodChangePayV3Result;
-        
-        public MethodChangePayV3Response() {
-        }
-        
-        public MethodChangePayV3Response(Billing.Vasc.MethodChangePayVO MethodChangePayV3Result) {
-            this.MethodChangePayV3Result = MethodChangePayV3Result;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeContract", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangeContractRequest {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string IPTVACCOUNT;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string ContractNo;
-        
-        public ChangeContractRequest() {
-        }
-        
-        public ChangeContractRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string ContractNo) {
-            this.AuthHeader = AuthHeader;
-            this.IPTVACCOUNT = IPTVACCOUNT;
-            this.ContractNo = ContractNo;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeContractResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangeContractResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangeContractVO ChangeContractResult;
-        
-        public ChangeContractResponse() {
-        }
-        
-        public ChangeContractResponse(Billing.Vasc.ChangeContractVO ChangeContractResult) {
-            this.ChangeContractResult = ChangeContractResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeID_STBDiscount", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangeID_STBDiscountRequest {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string IPTVACCOUNT;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string sID_STB_Discount;
-        
-        public ChangeID_STBDiscountRequest() {
-        }
-        
-        public ChangeID_STBDiscountRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string sID_STB_Discount) {
-            this.AuthHeader = AuthHeader;
-            this.IPTVACCOUNT = IPTVACCOUNT;
-            this.sID_STB_Discount = sID_STB_Discount;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeID_STBDiscountResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangeID_STBDiscountResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangeSubscriberVO ChangeID_STBDiscountResult;
-        
-        public ChangeID_STBDiscountResponse() {
-        }
-        
-        public ChangeID_STBDiscountResponse(Billing.Vasc.ChangeSubscriberVO ChangeID_STBDiscountResult) {
-            this.ChangeID_STBDiscountResult = ChangeID_STBDiscountResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeFiberCD", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangeFiberCDRequest {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string IPTVACCOUNT;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string sFiberCD;
-        
-        public ChangeFiberCDRequest() {
-        }
-        
-        public ChangeFiberCDRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string sFiberCD) {
-            this.AuthHeader = AuthHeader;
-            this.IPTVACCOUNT = IPTVACCOUNT;
-            this.sFiberCD = sFiberCD;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeFiberCDResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangeFiberCDResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangeSubscriberVO ChangeFiberCDResult;
-        
-        public ChangeFiberCDResponse() {
-        }
-        
-        public ChangeFiberCDResponse(Billing.Vasc.ChangeSubscriberVO ChangeFiberCDResult) {
-            this.ChangeFiberCDResult = ChangeFiberCDResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangePromotions", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangePromotionsRequest {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string IPTVACCOUNT;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string sPromo_ID;
-        
-        public ChangePromotionsRequest() {
-        }
-        
-        public ChangePromotionsRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string sPromo_ID) {
-            this.AuthHeader = AuthHeader;
-            this.IPTVACCOUNT = IPTVACCOUNT;
-            this.sPromo_ID = sPromo_ID;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangePromotionsResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangePromotionsResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangePromotionsVO ChangePromotionsResult;
-        
-        public ChangePromotionsResponse() {
-        }
-        
-        public ChangePromotionsResponse(Billing.Vasc.ChangePromotionsVO ChangePromotionsResult) {
-            this.ChangePromotionsResult = ChangePromotionsResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangePromotionsV2", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangePromotionsV2Request {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string IPTVACCOUNT;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string sPromo_ID;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
-        public string option;
-        
-        public ChangePromotionsV2Request() {
-        }
-        
-        public ChangePromotionsV2Request(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string sPromo_ID, string option) {
-            this.AuthHeader = AuthHeader;
-            this.IPTVACCOUNT = IPTVACCOUNT;
-            this.sPromo_ID = sPromo_ID;
-            this.option = option;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangePromotionsV2Response", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangePromotionsV2Response {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangePromotionsVO ChangePromotionsV2Result;
-        
-        public ChangePromotionsV2Response() {
-        }
-        
-        public ChangePromotionsV2Response(Billing.Vasc.ChangePromotionsVO ChangePromotionsV2Result) {
-            this.ChangePromotionsV2Result = ChangePromotionsV2Result;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeDistrictSubscriber", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangeDistrictSubscriberRequest {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string IPTVACCOUNT;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string DistrictNo;
-        
-        public ChangeDistrictSubscriberRequest() {
-        }
-        
-        public ChangeDistrictSubscriberRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string DistrictNo) {
-            this.AuthHeader = AuthHeader;
-            this.IPTVACCOUNT = IPTVACCOUNT;
-            this.DistrictNo = DistrictNo;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeDistrictSubscriberResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangeDistrictSubscriberResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangeDistrictSubscriberVO ChangeDistrictSubscriberResult;
-        
-        public ChangeDistrictSubscriberResponse() {
-        }
-        
-        public ChangeDistrictSubscriberResponse(Billing.Vasc.ChangeDistrictSubscriberVO ChangeDistrictSubscriberResult) {
-            this.ChangeDistrictSubscriberResult = ChangeDistrictSubscriberResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetListSubscriber", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetListSubscriberRequest {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        public GetListSubscriberRequest() {
-        }
-        
-        public GetListSubscriberRequest(Billing.Vasc.AuthHeader AuthHeader) {
-            this.AuthHeader = AuthHeader;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetListSubscriberResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetListSubscriberResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.GetListSubscriberVO GetListSubscriberResult;
-        
-        public GetListSubscriberResponse() {
-        }
-        
-        public GetListSubscriberResponse(Billing.Vasc.GetListSubscriberVO GetListSubscriberResult) {
-            this.GetListSubscriberResult = GetListSubscriberResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeUserPassword", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
     public partial class ChangeUserPasswordRequest {
         
@@ -13367,146 +14321,302 @@ namespace Billing.Vasc {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetPackageEPG", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetPackageEPGRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="AddHotel", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class AddHotelRequest {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
         public Billing.Vasc.AuthHeader AuthHeader;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string starttime;
+        public string strUserName;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string endtime;
+        public string strPassword;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
-        public string IPTVAccount;
+        public string strName;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
-        public string strAll;
+        public string strOwner;
         
-        public GetPackageEPGRequest() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
+        public string strCard;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=5)]
+        public string strAddress;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=6)]
+        public string strSigndate;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=7)]
+        public string strContractID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=8)]
+        public string strBillDate;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=9)]
+        public string strMethod;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=10)]
+        public string strPayMode;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=11)]
+        public string strPackageID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=12)]
+        public string strProviceID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=13)]
+        public int iAccNumber;
+        
+        public AddHotelRequest() {
         }
         
-        public GetPackageEPGRequest(Billing.Vasc.AuthHeader AuthHeader, string starttime, string endtime, string IPTVAccount, string strAll) {
+        public AddHotelRequest(Billing.Vasc.AuthHeader AuthHeader, string strUserName, string strPassword, string strName, string strOwner, string strCard, string strAddress, string strSigndate, string strContractID, string strBillDate, string strMethod, string strPayMode, string strPackageID, string strProviceID, int iAccNumber) {
             this.AuthHeader = AuthHeader;
-            this.starttime = starttime;
-            this.endtime = endtime;
-            this.IPTVAccount = IPTVAccount;
-            this.strAll = strAll;
+            this.strUserName = strUserName;
+            this.strPassword = strPassword;
+            this.strName = strName;
+            this.strOwner = strOwner;
+            this.strCard = strCard;
+            this.strAddress = strAddress;
+            this.strSigndate = strSigndate;
+            this.strContractID = strContractID;
+            this.strBillDate = strBillDate;
+            this.strMethod = strMethod;
+            this.strPayMode = strPayMode;
+            this.strPackageID = strPackageID;
+            this.strProviceID = strProviceID;
+            this.iAccNumber = iAccNumber;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetPackageEPGResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetPackageEPGResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="AddHotelResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class AddHotelResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.GetPackageEPGVO GetPackageEPGResult;
+        public Billing.Vasc.AddHotelVO AddHotelResult;
         
-        public GetPackageEPGResponse() {
+        public AddHotelResponse() {
         }
         
-        public GetPackageEPGResponse(Billing.Vasc.GetPackageEPGVO GetPackageEPGResult) {
-            this.GetPackageEPGResult = GetPackageEPGResult;
+        public AddHotelResponse(Billing.Vasc.AddHotelVO AddHotelResult) {
+            this.AddHotelResult = AddHotelResult;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeFiberVNN", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangeFiberVNNRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="EditHotel", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class EditHotelRequest {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
         public Billing.Vasc.AuthHeader AuthHeader;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string IPTVACCOUNT;
+        public string strUsername;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string FiberVNN;
-        
-        public ChangeFiberVNNRequest() {
-        }
-        
-        public ChangeFiberVNNRequest(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string FiberVNN) {
-            this.AuthHeader = AuthHeader;
-            this.IPTVACCOUNT = IPTVACCOUNT;
-            this.FiberVNN = FiberVNN;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeFiberVNNResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class ChangeFiberVNNResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangeFiberVNNVO ChangeFiberVNNResult;
-        
-        public ChangeFiberVNNResponse() {
-        }
-        
-        public ChangeFiberVNNResponse(Billing.Vasc.ChangeFiberVNNVO ChangeFiberVNNResult) {
-            this.ChangeFiberVNNResult = ChangeFiberVNNResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateDeviceInfo", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class UpdateDeviceInfoRequest {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string MyTVAccount;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string strDeviceName;
+        public string strName;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
-        public string strPortID;
+        public string strOwner;
         
-        public UpdateDeviceInfoRequest() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        public string strCard;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
+        public string strAddress;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=5)]
+        public string strSigndate;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=6)]
+        public string strContractID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=7)]
+        public string strBillDate;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=8)]
+        public string strPayMode;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=9)]
+        public string strPackageID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=10)]
+        public int iAccNumber;
+        
+        public EditHotelRequest() {
         }
         
-        public UpdateDeviceInfoRequest(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string strDeviceName, string strPortID) {
+        public EditHotelRequest(Billing.Vasc.AuthHeader AuthHeader, string strUsername, string strName, string strOwner, string strCard, string strAddress, string strSigndate, string strContractID, string strBillDate, string strPayMode, string strPackageID, int iAccNumber) {
             this.AuthHeader = AuthHeader;
-            this.MyTVAccount = MyTVAccount;
-            this.strDeviceName = strDeviceName;
-            this.strPortID = strPortID;
+            this.strUsername = strUsername;
+            this.strName = strName;
+            this.strOwner = strOwner;
+            this.strCard = strCard;
+            this.strAddress = strAddress;
+            this.strSigndate = strSigndate;
+            this.strContractID = strContractID;
+            this.strBillDate = strBillDate;
+            this.strPayMode = strPayMode;
+            this.strPackageID = strPackageID;
+            this.iAccNumber = iAccNumber;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateDeviceInfoResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class UpdateDeviceInfoResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="EditHotelResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class EditHotelResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangeSubscriberVO UpdateDeviceInfoResult;
+        public Billing.Vasc.EditHotelVO EditHotelResult;
         
-        public UpdateDeviceInfoResponse() {
+        public EditHotelResponse() {
         }
         
-        public UpdateDeviceInfoResponse(Billing.Vasc.ChangeSubscriberVO UpdateDeviceInfoResult) {
-            this.UpdateDeviceInfoResult = UpdateDeviceInfoResult;
+        public EditHotelResponse(Billing.Vasc.EditHotelVO EditHotelResult) {
+            this.EditHotelResult = EditHotelResult;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateKplusInfo", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class UpdateKplusInfoRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteHotel", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class DeleteHotelRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string strUsername;
+        
+        public DeleteHotelRequest() {
+        }
+        
+        public DeleteHotelRequest(Billing.Vasc.AuthHeader AuthHeader, string strUsername) {
+            this.AuthHeader = AuthHeader;
+            this.strUsername = strUsername;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteHotelResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class DeleteHotelResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.DeleteHotelVO DeleteHotelResult;
+        
+        public DeleteHotelResponse() {
+        }
+        
+        public DeleteHotelResponse(Billing.Vasc.DeleteHotelVO DeleteHotelResult) {
+            this.DeleteHotelResult = DeleteHotelResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangePWHotel", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangePWHotelRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string strUsername;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string OldPassword;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string NewPassword;
+        
+        public ChangePWHotelRequest() {
+        }
+        
+        public ChangePWHotelRequest(Billing.Vasc.AuthHeader AuthHeader, string strUsername, string OldPassword, string NewPassword) {
+            this.AuthHeader = AuthHeader;
+            this.strUsername = strUsername;
+            this.OldPassword = OldPassword;
+            this.NewPassword = NewPassword;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangePWHotelResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangePWHotelResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.ChangePWHotelVO ChangePWHotelResult;
+        
+        public ChangePWHotelResponse() {
+        }
+        
+        public ChangePWHotelResponse(Billing.Vasc.ChangePWHotelVO ChangePWHotelResult) {
+            this.ChangePWHotelResult = ChangePWHotelResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeStatusHotel", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangeStatusHotelRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string strUsername;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string strStatus;
+        
+        public ChangeStatusHotelRequest() {
+        }
+        
+        public ChangeStatusHotelRequest(Billing.Vasc.AuthHeader AuthHeader, string strUsername, string strStatus) {
+            this.AuthHeader = AuthHeader;
+            this.strUsername = strUsername;
+            this.strStatus = strStatus;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeStatusHotelResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangeStatusHotelResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.ChangeStatusHotelVO ChangeStatusHotelResult;
+        
+        public ChangeStatusHotelResponse() {
+        }
+        
+        public ChangeStatusHotelResponse(Billing.Vasc.ChangeStatusHotelVO ChangeStatusHotelResult) {
+            this.ChangeStatusHotelResult = ChangeStatusHotelResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeBillCode", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangeBillCodeRequest {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
         public Billing.Vasc.AuthHeader AuthHeader;
@@ -13515,40 +14625,40 @@ namespace Billing.Vasc {
         public string MyTVAccount;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string strOperator;
+        public string strBillcodeNew;
         
-        public UpdateKplusInfoRequest() {
+        public ChangeBillCodeRequest() {
         }
         
-        public UpdateKplusInfoRequest(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string strOperator) {
+        public ChangeBillCodeRequest(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string strBillcodeNew) {
             this.AuthHeader = AuthHeader;
             this.MyTVAccount = MyTVAccount;
-            this.strOperator = strOperator;
+            this.strBillcodeNew = strBillcodeNew;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateKplusInfoResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class UpdateKplusInfoResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeBillCodeResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangeBillCodeResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangeSubscriberVO UpdateKplusInfoResult;
+        public Billing.Vasc.ChangeBillCodeVO ChangeBillCodeResult;
         
-        public UpdateKplusInfoResponse() {
+        public ChangeBillCodeResponse() {
         }
         
-        public UpdateKplusInfoResponse(Billing.Vasc.ChangeSubscriberVO UpdateKplusInfoResult) {
-            this.UpdateKplusInfoResult = UpdateKplusInfoResult;
+        public ChangeBillCodeResponse(Billing.Vasc.ChangeBillCodeVO ChangeBillCodeResult) {
+            this.ChangeBillCodeResult = ChangeBillCodeResult;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdatePrepaid", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class UpdatePrepaidRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeDateBill", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangeDateBillRequest {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
         public Billing.Vasc.AuthHeader AuthHeader;
@@ -13557,74 +14667,32 @@ namespace Billing.Vasc {
         public string MyTVAccount;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public int iNo_Month;
+        public string strDateBillNew;
         
-        public UpdatePrepaidRequest() {
+        public ChangeDateBillRequest() {
         }
         
-        public UpdatePrepaidRequest(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, int iNo_Month) {
+        public ChangeDateBillRequest(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string strDateBillNew) {
             this.AuthHeader = AuthHeader;
             this.MyTVAccount = MyTVAccount;
-            this.iNo_Month = iNo_Month;
+            this.strDateBillNew = strDateBillNew;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdatePrepaidResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class UpdatePrepaidResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ChangeDateBillResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ChangeDateBillResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangeSubscriberVO UpdatePrepaidResult;
+        public Billing.Vasc.ChangeDateBillVO ChangeDateBillResult;
         
-        public UpdatePrepaidResponse() {
+        public ChangeDateBillResponse() {
         }
         
-        public UpdatePrepaidResponse(Billing.Vasc.ChangeSubscriberVO UpdatePrepaidResult) {
-            this.UpdatePrepaidResult = UpdatePrepaidResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdatePackDaily", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class UpdatePackDailyRequest {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Billing.Vasc.AuthHeader AuthHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string MyTVAccount;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string Operator;
-        
-        public UpdatePackDailyRequest() {
-        }
-        
-        public UpdatePackDailyRequest(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string Operator) {
-            this.AuthHeader = AuthHeader;
-            this.MyTVAccount = MyTVAccount;
-            this.Operator = Operator;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdatePackDailyResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class UpdatePackDailyResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Billing.Vasc.ChangeSubscriberVO UpdatePackDailyResult;
-        
-        public UpdatePackDailyResponse() {
-        }
-        
-        public UpdatePackDailyResponse(Billing.Vasc.ChangeSubscriberVO UpdatePackDailyResult) {
-            this.UpdatePackDailyResult = UpdatePackDailyResult;
+        public ChangeDateBillResponse(Billing.Vasc.ChangeDateBillVO ChangeDateBillResult) {
+            this.ChangeDateBillResult = ChangeDateBillResult;
         }
     }
     
@@ -13750,6 +14818,288 @@ namespace Billing.Vasc {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getStatusBlockPayTV", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getStatusBlockPayTVRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string iptvaccount;
+        
+        public getStatusBlockPayTVRequest() {
+        }
+        
+        public getStatusBlockPayTVRequest(Billing.Vasc.AuthHeader AuthHeader, string iptvaccount) {
+            this.AuthHeader = AuthHeader;
+            this.iptvaccount = iptvaccount;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getStatusBlockPayTVResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getStatusBlockPayTVResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.StatusBlockPayTVInfor getStatusBlockPayTVResult;
+        
+        public getStatusBlockPayTVResponse() {
+        }
+        
+        public getStatusBlockPayTVResponse(Billing.Vasc.StatusBlockPayTVInfor getStatusBlockPayTVResult) {
+            this.getStatusBlockPayTVResult = getStatusBlockPayTVResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="BlockPayTV", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class BlockPayTVRequest1 {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.BlockPayTVRequest objRequest;
+        
+        public BlockPayTVRequest1() {
+        }
+        
+        public BlockPayTVRequest1(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.BlockPayTVRequest objRequest) {
+            this.AuthHeader = AuthHeader;
+            this.objRequest = objRequest;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="BlockPayTVResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class BlockPayTVResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.BlockPayTVResp BlockPayTVResult;
+        
+        public BlockPayTVResponse() {
+        }
+        
+        public BlockPayTVResponse(Billing.Vasc.BlockPayTVResp BlockPayTVResult) {
+            this.BlockPayTVResult = BlockPayTVResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateKplusInfo", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class UpdateKplusInfoRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string MyTVAccount;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string strOperator;
+        
+        public UpdateKplusInfoRequest() {
+        }
+        
+        public UpdateKplusInfoRequest(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string strOperator) {
+            this.AuthHeader = AuthHeader;
+            this.MyTVAccount = MyTVAccount;
+            this.strOperator = strOperator;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateKplusInfoResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class UpdateKplusInfoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.ChangeSubscriberVO UpdateKplusInfoResult;
+        
+        public UpdateKplusInfoResponse() {
+        }
+        
+        public UpdateKplusInfoResponse(Billing.Vasc.ChangeSubscriberVO UpdateKplusInfoResult) {
+            this.UpdateKplusInfoResult = UpdateKplusInfoResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="TotalMyTVPlus", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class TotalMyTVPlusRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.MyTVPlusRequest objRequest;
+        
+        public TotalMyTVPlusRequest() {
+        }
+        
+        public TotalMyTVPlusRequest(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.MyTVPlusRequest objRequest) {
+            this.AuthHeader = AuthHeader;
+            this.objRequest = objRequest;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="TotalMyTVPlusResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class TotalMyTVPlusResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.ChangeSubscriberVO TotalMyTVPlusResult;
+        
+        public TotalMyTVPlusResponse() {
+        }
+        
+        public TotalMyTVPlusResponse(Billing.Vasc.ChangeSubscriberVO TotalMyTVPlusResult) {
+            this.TotalMyTVPlusResult = TotalMyTVPlusResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetHisPayTV", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetHisPayTVRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string strMyTV;
+        
+        public GetHisPayTVRequest() {
+        }
+        
+        public GetHisPayTVRequest(Billing.Vasc.AuthHeader AuthHeader, string strMyTV) {
+            this.AuthHeader = AuthHeader;
+            this.strMyTV = strMyTV;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetHisPayTVResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetHisPayTVResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.GetHisPayTVResp GetHisPayTVResult;
+        
+        public GetHisPayTVResponse() {
+        }
+        
+        public GetHisPayTVResponse(Billing.Vasc.GetHisPayTVResp GetHisPayTVResult) {
+            this.GetHisPayTVResult = GetHisPayTVResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ComboFAF_Update", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ComboFAF_UpdateRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string MyTVAccount;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public int MonthFree;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string Operator;
+        
+        public ComboFAF_UpdateRequest() {
+        }
+        
+        public ComboFAF_UpdateRequest(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, int MonthFree, string Operator) {
+            this.AuthHeader = AuthHeader;
+            this.MyTVAccount = MyTVAccount;
+            this.MonthFree = MonthFree;
+            this.Operator = Operator;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ComboFAF_UpdateResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ComboFAF_UpdateResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.ChangeSubscriberVO ComboFAF_UpdateResult;
+        
+        public ComboFAF_UpdateResponse() {
+        }
+        
+        public ComboFAF_UpdateResponse(Billing.Vasc.ChangeSubscriberVO ComboFAF_UpdateResult) {
+            this.ComboFAF_UpdateResult = ComboFAF_UpdateResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="PayTVFull_Register", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class PayTVFull_RegisterRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Billing.Vasc.AuthHeader AuthHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string MyTVAccount;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public int Month;
+        
+        public PayTVFull_RegisterRequest() {
+        }
+        
+        public PayTVFull_RegisterRequest(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, int Month) {
+            this.AuthHeader = AuthHeader;
+            this.MyTVAccount = MyTVAccount;
+            this.Month = Month;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="PayTVFull_RegisterResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class PayTVFull_RegisterResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Billing.Vasc.ChangeSubscriberVO PayTVFull_RegisterResult;
+        
+        public PayTVFull_RegisterResponse() {
+        }
+        
+        public PayTVFull_RegisterResponse(Billing.Vasc.ChangeSubscriberVO PayTVFull_RegisterResult) {
+            this.PayTVFull_RegisterResult = PayTVFull_RegisterResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface SubscriberManagementSoapChannel : Billing.Vasc.SubscriberManagementSoap, System.ServiceModel.IClientChannel {
     }
@@ -13778,261 +15128,153 @@ namespace Billing.Vasc {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.AddHotelResponse Billing.Vasc.SubscriberManagementSoap.AddHotel(Billing.Vasc.AddHotelRequest request) {
-            return base.Channel.AddHotel(request);
+        Billing.Vasc.STB_PROM_RegisterResponse Billing.Vasc.SubscriberManagementSoap.STB_PROM_Register(Billing.Vasc.STB_PROM_RegisterRequest request) {
+            return base.Channel.STB_PROM_Register(request);
         }
         
-        public Billing.Vasc.AddHotelVO AddHotel(Billing.Vasc.AuthHeader AuthHeader, string strUserName, string strPassword, string strName, string strOwner, string strCard, string strAddress, string strSigndate, string strContractID, string strBillDate, string strMethod, string strPayMode, string strPackageID, string strProviceID, int iAccNumber) {
-            Billing.Vasc.AddHotelRequest inValue = new Billing.Vasc.AddHotelRequest();
+        public Billing.Vasc.CommonVO STB_PROM_Register(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.STB_PromDTO stbDTO) {
+            Billing.Vasc.STB_PROM_RegisterRequest inValue = new Billing.Vasc.STB_PROM_RegisterRequest();
             inValue.AuthHeader = AuthHeader;
-            inValue.strUserName = strUserName;
-            inValue.strPassword = strPassword;
-            inValue.strName = strName;
-            inValue.strOwner = strOwner;
-            inValue.strCard = strCard;
-            inValue.strAddress = strAddress;
-            inValue.strSigndate = strSigndate;
-            inValue.strContractID = strContractID;
-            inValue.strBillDate = strBillDate;
-            inValue.strMethod = strMethod;
-            inValue.strPayMode = strPayMode;
-            inValue.strPackageID = strPackageID;
-            inValue.strProviceID = strProviceID;
-            inValue.iAccNumber = iAccNumber;
-            Billing.Vasc.AddHotelResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).AddHotel(inValue);
-            return retVal.AddHotelResult;
+            inValue.stbDTO = stbDTO;
+            Billing.Vasc.STB_PROM_RegisterResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).STB_PROM_Register(inValue);
+            return retVal.STB_PROM_RegisterResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.AddHotelResponse> Billing.Vasc.SubscriberManagementSoap.AddHotelAsync(Billing.Vasc.AddHotelRequest request) {
-            return base.Channel.AddHotelAsync(request);
+        System.Threading.Tasks.Task<Billing.Vasc.STB_PROM_RegisterResponse> Billing.Vasc.SubscriberManagementSoap.STB_PROM_RegisterAsync(Billing.Vasc.STB_PROM_RegisterRequest request) {
+            return base.Channel.STB_PROM_RegisterAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Billing.Vasc.AddHotelResponse> AddHotelAsync(Billing.Vasc.AuthHeader AuthHeader, string strUserName, string strPassword, string strName, string strOwner, string strCard, string strAddress, string strSigndate, string strContractID, string strBillDate, string strMethod, string strPayMode, string strPackageID, string strProviceID, int iAccNumber) {
-            Billing.Vasc.AddHotelRequest inValue = new Billing.Vasc.AddHotelRequest();
+        public System.Threading.Tasks.Task<Billing.Vasc.STB_PROM_RegisterResponse> STB_PROM_RegisterAsync(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.STB_PromDTO stbDTO) {
+            Billing.Vasc.STB_PROM_RegisterRequest inValue = new Billing.Vasc.STB_PROM_RegisterRequest();
             inValue.AuthHeader = AuthHeader;
-            inValue.strUserName = strUserName;
-            inValue.strPassword = strPassword;
-            inValue.strName = strName;
-            inValue.strOwner = strOwner;
-            inValue.strCard = strCard;
-            inValue.strAddress = strAddress;
-            inValue.strSigndate = strSigndate;
-            inValue.strContractID = strContractID;
-            inValue.strBillDate = strBillDate;
-            inValue.strMethod = strMethod;
-            inValue.strPayMode = strPayMode;
-            inValue.strPackageID = strPackageID;
-            inValue.strProviceID = strProviceID;
-            inValue.iAccNumber = iAccNumber;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).AddHotelAsync(inValue);
+            inValue.stbDTO = stbDTO;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).STB_PROM_RegisterAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.EditHotelResponse Billing.Vasc.SubscriberManagementSoap.EditHotel(Billing.Vasc.EditHotelRequest request) {
-            return base.Channel.EditHotel(request);
+        Billing.Vasc.STB_PROM_ActiveResponse Billing.Vasc.SubscriberManagementSoap.STB_PROM_Active(Billing.Vasc.STB_PROM_ActiveRequest request) {
+            return base.Channel.STB_PROM_Active(request);
         }
         
-        public Billing.Vasc.EditHotelVO EditHotel(Billing.Vasc.AuthHeader AuthHeader, string strUsername, string strName, string strOwner, string strCard, string strAddress, string strSigndate, string strContractID, string strBillDate, string strPayMode, string strPackageID, int iAccNumber) {
-            Billing.Vasc.EditHotelRequest inValue = new Billing.Vasc.EditHotelRequest();
+        public Billing.Vasc.CommonVO STB_PROM_Active(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.STB_Prom_ActiveDTO stbDTO) {
+            Billing.Vasc.STB_PROM_ActiveRequest inValue = new Billing.Vasc.STB_PROM_ActiveRequest();
             inValue.AuthHeader = AuthHeader;
-            inValue.strUsername = strUsername;
-            inValue.strName = strName;
-            inValue.strOwner = strOwner;
-            inValue.strCard = strCard;
-            inValue.strAddress = strAddress;
-            inValue.strSigndate = strSigndate;
-            inValue.strContractID = strContractID;
-            inValue.strBillDate = strBillDate;
-            inValue.strPayMode = strPayMode;
-            inValue.strPackageID = strPackageID;
-            inValue.iAccNumber = iAccNumber;
-            Billing.Vasc.EditHotelResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).EditHotel(inValue);
-            return retVal.EditHotelResult;
+            inValue.stbDTO = stbDTO;
+            Billing.Vasc.STB_PROM_ActiveResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).STB_PROM_Active(inValue);
+            return retVal.STB_PROM_ActiveResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.EditHotelResponse> Billing.Vasc.SubscriberManagementSoap.EditHotelAsync(Billing.Vasc.EditHotelRequest request) {
-            return base.Channel.EditHotelAsync(request);
+        System.Threading.Tasks.Task<Billing.Vasc.STB_PROM_ActiveResponse> Billing.Vasc.SubscriberManagementSoap.STB_PROM_ActiveAsync(Billing.Vasc.STB_PROM_ActiveRequest request) {
+            return base.Channel.STB_PROM_ActiveAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Billing.Vasc.EditHotelResponse> EditHotelAsync(Billing.Vasc.AuthHeader AuthHeader, string strUsername, string strName, string strOwner, string strCard, string strAddress, string strSigndate, string strContractID, string strBillDate, string strPayMode, string strPackageID, int iAccNumber) {
-            Billing.Vasc.EditHotelRequest inValue = new Billing.Vasc.EditHotelRequest();
+        public System.Threading.Tasks.Task<Billing.Vasc.STB_PROM_ActiveResponse> STB_PROM_ActiveAsync(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.STB_Prom_ActiveDTO stbDTO) {
+            Billing.Vasc.STB_PROM_ActiveRequest inValue = new Billing.Vasc.STB_PROM_ActiveRequest();
             inValue.AuthHeader = AuthHeader;
-            inValue.strUsername = strUsername;
-            inValue.strName = strName;
-            inValue.strOwner = strOwner;
-            inValue.strCard = strCard;
-            inValue.strAddress = strAddress;
-            inValue.strSigndate = strSigndate;
-            inValue.strContractID = strContractID;
-            inValue.strBillDate = strBillDate;
-            inValue.strPayMode = strPayMode;
-            inValue.strPackageID = strPackageID;
-            inValue.iAccNumber = iAccNumber;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).EditHotelAsync(inValue);
+            inValue.stbDTO = stbDTO;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).STB_PROM_ActiveAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.DeleteHotelResponse Billing.Vasc.SubscriberManagementSoap.DeleteHotel(Billing.Vasc.DeleteHotelRequest request) {
-            return base.Channel.DeleteHotel(request);
+        Billing.Vasc.STB_PROM_BackResponse Billing.Vasc.SubscriberManagementSoap.STB_PROM_Back(Billing.Vasc.STB_PROM_BackRequest request) {
+            return base.Channel.STB_PROM_Back(request);
         }
         
-        public Billing.Vasc.DeleteHotelVO DeleteHotel(Billing.Vasc.AuthHeader AuthHeader, string strUsername) {
-            Billing.Vasc.DeleteHotelRequest inValue = new Billing.Vasc.DeleteHotelRequest();
+        public Billing.Vasc.CommonVO STB_PROM_Back(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.STB_Prom_BackDTO stbDTO) {
+            Billing.Vasc.STB_PROM_BackRequest inValue = new Billing.Vasc.STB_PROM_BackRequest();
             inValue.AuthHeader = AuthHeader;
-            inValue.strUsername = strUsername;
-            Billing.Vasc.DeleteHotelResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).DeleteHotel(inValue);
-            return retVal.DeleteHotelResult;
+            inValue.stbDTO = stbDTO;
+            Billing.Vasc.STB_PROM_BackResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).STB_PROM_Back(inValue);
+            return retVal.STB_PROM_BackResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.DeleteHotelResponse> Billing.Vasc.SubscriberManagementSoap.DeleteHotelAsync(Billing.Vasc.DeleteHotelRequest request) {
-            return base.Channel.DeleteHotelAsync(request);
+        System.Threading.Tasks.Task<Billing.Vasc.STB_PROM_BackResponse> Billing.Vasc.SubscriberManagementSoap.STB_PROM_BackAsync(Billing.Vasc.STB_PROM_BackRequest request) {
+            return base.Channel.STB_PROM_BackAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Billing.Vasc.DeleteHotelResponse> DeleteHotelAsync(Billing.Vasc.AuthHeader AuthHeader, string strUsername) {
-            Billing.Vasc.DeleteHotelRequest inValue = new Billing.Vasc.DeleteHotelRequest();
+        public System.Threading.Tasks.Task<Billing.Vasc.STB_PROM_BackResponse> STB_PROM_BackAsync(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.STB_Prom_BackDTO stbDTO) {
+            Billing.Vasc.STB_PROM_BackRequest inValue = new Billing.Vasc.STB_PROM_BackRequest();
             inValue.AuthHeader = AuthHeader;
-            inValue.strUsername = strUsername;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).DeleteHotelAsync(inValue);
+            inValue.stbDTO = stbDTO;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).STB_PROM_BackAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.ChangePWHotelResponse Billing.Vasc.SubscriberManagementSoap.ChangePWHotel(Billing.Vasc.ChangePWHotelRequest request) {
-            return base.Channel.ChangePWHotel(request);
+        Billing.Vasc.STB_PROM_SummaryResponse Billing.Vasc.SubscriberManagementSoap.STB_PROM_Summary(Billing.Vasc.STB_PROM_SummaryRequest request) {
+            return base.Channel.STB_PROM_Summary(request);
         }
         
-        public Billing.Vasc.ChangePWHotelVO ChangePWHotel(Billing.Vasc.AuthHeader AuthHeader, string strUsername, string OldPassword, string NewPassword) {
-            Billing.Vasc.ChangePWHotelRequest inValue = new Billing.Vasc.ChangePWHotelRequest();
+        public Billing.Vasc.CommonVO STB_PROM_Summary(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.STB_Prom_SummaryDTO stbDTO) {
+            Billing.Vasc.STB_PROM_SummaryRequest inValue = new Billing.Vasc.STB_PROM_SummaryRequest();
             inValue.AuthHeader = AuthHeader;
-            inValue.strUsername = strUsername;
-            inValue.OldPassword = OldPassword;
-            inValue.NewPassword = NewPassword;
-            Billing.Vasc.ChangePWHotelResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangePWHotel(inValue);
-            return retVal.ChangePWHotelResult;
+            inValue.stbDTO = stbDTO;
+            Billing.Vasc.STB_PROM_SummaryResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).STB_PROM_Summary(inValue);
+            return retVal.STB_PROM_SummaryResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangePWHotelResponse> Billing.Vasc.SubscriberManagementSoap.ChangePWHotelAsync(Billing.Vasc.ChangePWHotelRequest request) {
-            return base.Channel.ChangePWHotelAsync(request);
+        System.Threading.Tasks.Task<Billing.Vasc.STB_PROM_SummaryResponse> Billing.Vasc.SubscriberManagementSoap.STB_PROM_SummaryAsync(Billing.Vasc.STB_PROM_SummaryRequest request) {
+            return base.Channel.STB_PROM_SummaryAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Billing.Vasc.ChangePWHotelResponse> ChangePWHotelAsync(Billing.Vasc.AuthHeader AuthHeader, string strUsername, string OldPassword, string NewPassword) {
-            Billing.Vasc.ChangePWHotelRequest inValue = new Billing.Vasc.ChangePWHotelRequest();
+        public System.Threading.Tasks.Task<Billing.Vasc.STB_PROM_SummaryResponse> STB_PROM_SummaryAsync(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.STB_Prom_SummaryDTO stbDTO) {
+            Billing.Vasc.STB_PROM_SummaryRequest inValue = new Billing.Vasc.STB_PROM_SummaryRequest();
             inValue.AuthHeader = AuthHeader;
-            inValue.strUsername = strUsername;
-            inValue.OldPassword = OldPassword;
-            inValue.NewPassword = NewPassword;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangePWHotelAsync(inValue);
+            inValue.stbDTO = stbDTO;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).STB_PROM_SummaryAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.ChangeStatusHotelResponse Billing.Vasc.SubscriberManagementSoap.ChangeStatusHotel(Billing.Vasc.ChangeStatusHotelRequest request) {
-            return base.Channel.ChangeStatusHotel(request);
+        Billing.Vasc.STB_PROM_Summary3855Response Billing.Vasc.SubscriberManagementSoap.STB_PROM_Summary3855(Billing.Vasc.STB_PROM_Summary3855Request request) {
+            return base.Channel.STB_PROM_Summary3855(request);
         }
         
-        public Billing.Vasc.ChangeStatusHotelVO ChangeStatusHotel(Billing.Vasc.AuthHeader AuthHeader, string strUsername, string strStatus) {
-            Billing.Vasc.ChangeStatusHotelRequest inValue = new Billing.Vasc.ChangeStatusHotelRequest();
+        public Billing.Vasc.CommonVO STB_PROM_Summary3855(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.STB_Prom_Summary3855DTO stbDTO) {
+            Billing.Vasc.STB_PROM_Summary3855Request inValue = new Billing.Vasc.STB_PROM_Summary3855Request();
             inValue.AuthHeader = AuthHeader;
-            inValue.strUsername = strUsername;
-            inValue.strStatus = strStatus;
-            Billing.Vasc.ChangeStatusHotelResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeStatusHotel(inValue);
-            return retVal.ChangeStatusHotelResult;
+            inValue.stbDTO = stbDTO;
+            Billing.Vasc.STB_PROM_Summary3855Response retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).STB_PROM_Summary3855(inValue);
+            return retVal.STB_PROM_Summary3855Result;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangeStatusHotelResponse> Billing.Vasc.SubscriberManagementSoap.ChangeStatusHotelAsync(Billing.Vasc.ChangeStatusHotelRequest request) {
-            return base.Channel.ChangeStatusHotelAsync(request);
+        System.Threading.Tasks.Task<Billing.Vasc.STB_PROM_Summary3855Response> Billing.Vasc.SubscriberManagementSoap.STB_PROM_Summary3855Async(Billing.Vasc.STB_PROM_Summary3855Request request) {
+            return base.Channel.STB_PROM_Summary3855Async(request);
         }
         
-        public System.Threading.Tasks.Task<Billing.Vasc.ChangeStatusHotelResponse> ChangeStatusHotelAsync(Billing.Vasc.AuthHeader AuthHeader, string strUsername, string strStatus) {
-            Billing.Vasc.ChangeStatusHotelRequest inValue = new Billing.Vasc.ChangeStatusHotelRequest();
+        public System.Threading.Tasks.Task<Billing.Vasc.STB_PROM_Summary3855Response> STB_PROM_Summary3855Async(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.STB_Prom_Summary3855DTO stbDTO) {
+            Billing.Vasc.STB_PROM_Summary3855Request inValue = new Billing.Vasc.STB_PROM_Summary3855Request();
             inValue.AuthHeader = AuthHeader;
-            inValue.strUsername = strUsername;
-            inValue.strStatus = strStatus;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeStatusHotelAsync(inValue);
+            inValue.stbDTO = stbDTO;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).STB_PROM_Summary3855Async(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.ComboFAF_UpdateResponse Billing.Vasc.SubscriberManagementSoap.ComboFAF_Update(Billing.Vasc.ComboFAF_UpdateRequest request) {
-            return base.Channel.ComboFAF_Update(request);
+        Billing.Vasc.STB_PROM_BuyResponse Billing.Vasc.SubscriberManagementSoap.STB_PROM_Buy(Billing.Vasc.STB_PROM_BuyRequest request) {
+            return base.Channel.STB_PROM_Buy(request);
         }
         
-        public Billing.Vasc.ChangeSubscriberVO ComboFAF_Update(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, int MonthFree, string Operator) {
-            Billing.Vasc.ComboFAF_UpdateRequest inValue = new Billing.Vasc.ComboFAF_UpdateRequest();
+        public Billing.Vasc.CommonVO STB_PROM_Buy(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.STB_Prom_BuyDTO stbDTO) {
+            Billing.Vasc.STB_PROM_BuyRequest inValue = new Billing.Vasc.STB_PROM_BuyRequest();
             inValue.AuthHeader = AuthHeader;
-            inValue.MyTVAccount = MyTVAccount;
-            inValue.MonthFree = MonthFree;
-            inValue.Operator = Operator;
-            Billing.Vasc.ComboFAF_UpdateResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ComboFAF_Update(inValue);
-            return retVal.ComboFAF_UpdateResult;
+            inValue.stbDTO = stbDTO;
+            Billing.Vasc.STB_PROM_BuyResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).STB_PROM_Buy(inValue);
+            return retVal.STB_PROM_BuyResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.ComboFAF_UpdateResponse> Billing.Vasc.SubscriberManagementSoap.ComboFAF_UpdateAsync(Billing.Vasc.ComboFAF_UpdateRequest request) {
-            return base.Channel.ComboFAF_UpdateAsync(request);
+        System.Threading.Tasks.Task<Billing.Vasc.STB_PROM_BuyResponse> Billing.Vasc.SubscriberManagementSoap.STB_PROM_BuyAsync(Billing.Vasc.STB_PROM_BuyRequest request) {
+            return base.Channel.STB_PROM_BuyAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Billing.Vasc.ComboFAF_UpdateResponse> ComboFAF_UpdateAsync(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, int MonthFree, string Operator) {
-            Billing.Vasc.ComboFAF_UpdateRequest inValue = new Billing.Vasc.ComboFAF_UpdateRequest();
+        public System.Threading.Tasks.Task<Billing.Vasc.STB_PROM_BuyResponse> STB_PROM_BuyAsync(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.STB_Prom_BuyDTO stbDTO) {
+            Billing.Vasc.STB_PROM_BuyRequest inValue = new Billing.Vasc.STB_PROM_BuyRequest();
             inValue.AuthHeader = AuthHeader;
-            inValue.MyTVAccount = MyTVAccount;
-            inValue.MonthFree = MonthFree;
-            inValue.Operator = Operator;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ComboFAF_UpdateAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.PayTVFull_RegisterResponse Billing.Vasc.SubscriberManagementSoap.PayTVFull_Register(Billing.Vasc.PayTVFull_RegisterRequest request) {
-            return base.Channel.PayTVFull_Register(request);
-        }
-        
-        public Billing.Vasc.ChangeSubscriberVO PayTVFull_Register(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, int Month) {
-            Billing.Vasc.PayTVFull_RegisterRequest inValue = new Billing.Vasc.PayTVFull_RegisterRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.MyTVAccount = MyTVAccount;
-            inValue.Month = Month;
-            Billing.Vasc.PayTVFull_RegisterResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).PayTVFull_Register(inValue);
-            return retVal.PayTVFull_RegisterResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.PayTVFull_RegisterResponse> Billing.Vasc.SubscriberManagementSoap.PayTVFull_RegisterAsync(Billing.Vasc.PayTVFull_RegisterRequest request) {
-            return base.Channel.PayTVFull_RegisterAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.PayTVFull_RegisterResponse> PayTVFull_RegisterAsync(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, int Month) {
-            Billing.Vasc.PayTVFull_RegisterRequest inValue = new Billing.Vasc.PayTVFull_RegisterRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.MyTVAccount = MyTVAccount;
-            inValue.Month = Month;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).PayTVFull_RegisterAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.Smart_OTTGetMemberPendingResponse Billing.Vasc.SubscriberManagementSoap.Smart_OTTGetMemberPending(Billing.Vasc.Smart_OTTGetMemberPendingRequest1 request) {
-            return base.Channel.Smart_OTTGetMemberPending(request);
-        }
-        
-        public Billing.Vasc.Smart_OTTGetMemberPendingVO Smart_OTTGetMemberPending(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.Smart_OTTGetMemberPendingRequest req) {
-            Billing.Vasc.Smart_OTTGetMemberPendingRequest1 inValue = new Billing.Vasc.Smart_OTTGetMemberPendingRequest1();
-            inValue.AuthHeader = AuthHeader;
-            inValue.req = req;
-            Billing.Vasc.Smart_OTTGetMemberPendingResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).Smart_OTTGetMemberPending(inValue);
-            return retVal.Smart_OTTGetMemberPendingResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.Smart_OTTGetMemberPendingResponse> Billing.Vasc.SubscriberManagementSoap.Smart_OTTGetMemberPendingAsync(Billing.Vasc.Smart_OTTGetMemberPendingRequest1 request) {
-            return base.Channel.Smart_OTTGetMemberPendingAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.Smart_OTTGetMemberPendingResponse> Smart_OTTGetMemberPendingAsync(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.Smart_OTTGetMemberPendingRequest req) {
-            Billing.Vasc.Smart_OTTGetMemberPendingRequest1 inValue = new Billing.Vasc.Smart_OTTGetMemberPendingRequest1();
-            inValue.AuthHeader = AuthHeader;
-            inValue.req = req;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).Smart_OTTGetMemberPendingAsync(inValue);
+            inValue.stbDTO = stbDTO;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).STB_PROM_BuyAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -14111,6 +15353,349 @@ namespace Billing.Vasc {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.AddNewDistrictResponse Billing.Vasc.SubscriberManagementSoap.AddNewDistrict(Billing.Vasc.AddNewDistrictRequest request) {
+            return base.Channel.AddNewDistrict(request);
+        }
+        
+        public Billing.Vasc.DistrictVO AddNewDistrict(Billing.Vasc.AuthHeader AuthHeader, string DistrictName, string ProvinceCD, string DistrictCD, string DistrictNote) {
+            Billing.Vasc.AddNewDistrictRequest inValue = new Billing.Vasc.AddNewDistrictRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.DistrictName = DistrictName;
+            inValue.ProvinceCD = ProvinceCD;
+            inValue.DistrictCD = DistrictCD;
+            inValue.DistrictNote = DistrictNote;
+            Billing.Vasc.AddNewDistrictResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).AddNewDistrict(inValue);
+            return retVal.AddNewDistrictResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.AddNewDistrictResponse> Billing.Vasc.SubscriberManagementSoap.AddNewDistrictAsync(Billing.Vasc.AddNewDistrictRequest request) {
+            return base.Channel.AddNewDistrictAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.AddNewDistrictResponse> AddNewDistrictAsync(Billing.Vasc.AuthHeader AuthHeader, string DistrictName, string ProvinceCD, string DistrictCD, string DistrictNote) {
+            Billing.Vasc.AddNewDistrictRequest inValue = new Billing.Vasc.AddNewDistrictRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.DistrictName = DistrictName;
+            inValue.ProvinceCD = ProvinceCD;
+            inValue.DistrictCD = DistrictCD;
+            inValue.DistrictNote = DistrictNote;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).AddNewDistrictAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.EditDistrictResponse Billing.Vasc.SubscriberManagementSoap.EditDistrict(Billing.Vasc.EditDistrictRequest request) {
+            return base.Channel.EditDistrict(request);
+        }
+        
+        public Billing.Vasc.DistrictVO EditDistrict(Billing.Vasc.AuthHeader AuthHeader, string DistrictCD, string DistrictName, string DistrictNote) {
+            Billing.Vasc.EditDistrictRequest inValue = new Billing.Vasc.EditDistrictRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.DistrictCD = DistrictCD;
+            inValue.DistrictName = DistrictName;
+            inValue.DistrictNote = DistrictNote;
+            Billing.Vasc.EditDistrictResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).EditDistrict(inValue);
+            return retVal.EditDistrictResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.EditDistrictResponse> Billing.Vasc.SubscriberManagementSoap.EditDistrictAsync(Billing.Vasc.EditDistrictRequest request) {
+            return base.Channel.EditDistrictAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.EditDistrictResponse> EditDistrictAsync(Billing.Vasc.AuthHeader AuthHeader, string DistrictCD, string DistrictName, string DistrictNote) {
+            Billing.Vasc.EditDistrictRequest inValue = new Billing.Vasc.EditDistrictRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.DistrictCD = DistrictCD;
+            inValue.DistrictName = DistrictName;
+            inValue.DistrictNote = DistrictNote;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).EditDistrictAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.DeleteDistrictResponse Billing.Vasc.SubscriberManagementSoap.DeleteDistrict(Billing.Vasc.DeleteDistrictRequest request) {
+            return base.Channel.DeleteDistrict(request);
+        }
+        
+        public Billing.Vasc.DistrictVO DeleteDistrict(Billing.Vasc.AuthHeader AuthHeader, string DistrictID) {
+            Billing.Vasc.DeleteDistrictRequest inValue = new Billing.Vasc.DeleteDistrictRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.DistrictID = DistrictID;
+            Billing.Vasc.DeleteDistrictResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).DeleteDistrict(inValue);
+            return retVal.DeleteDistrictResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.DeleteDistrictResponse> Billing.Vasc.SubscriberManagementSoap.DeleteDistrictAsync(Billing.Vasc.DeleteDistrictRequest request) {
+            return base.Channel.DeleteDistrictAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.DeleteDistrictResponse> DeleteDistrictAsync(Billing.Vasc.AuthHeader AuthHeader, string DistrictID) {
+            Billing.Vasc.DeleteDistrictRequest inValue = new Billing.Vasc.DeleteDistrictRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.DistrictID = DistrictID;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).DeleteDistrictAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.ChangeDistrictSubscriberResponse Billing.Vasc.SubscriberManagementSoap.ChangeDistrictSubscriber(Billing.Vasc.ChangeDistrictSubscriberRequest request) {
+            return base.Channel.ChangeDistrictSubscriber(request);
+        }
+        
+        public Billing.Vasc.ChangeDistrictSubscriberVO ChangeDistrictSubscriber(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string DistrictNo) {
+            Billing.Vasc.ChangeDistrictSubscriberRequest inValue = new Billing.Vasc.ChangeDistrictSubscriberRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVACCOUNT = IPTVACCOUNT;
+            inValue.DistrictNo = DistrictNo;
+            Billing.Vasc.ChangeDistrictSubscriberResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeDistrictSubscriber(inValue);
+            return retVal.ChangeDistrictSubscriberResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangeDistrictSubscriberResponse> Billing.Vasc.SubscriberManagementSoap.ChangeDistrictSubscriberAsync(Billing.Vasc.ChangeDistrictSubscriberRequest request) {
+            return base.Channel.ChangeDistrictSubscriberAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.ChangeDistrictSubscriberResponse> ChangeDistrictSubscriberAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string DistrictNo) {
+            Billing.Vasc.ChangeDistrictSubscriberRequest inValue = new Billing.Vasc.ChangeDistrictSubscriberRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVACCOUNT = IPTVACCOUNT;
+            inValue.DistrictNo = DistrictNo;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeDistrictSubscriberAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.ChangeSTBResponse Billing.Vasc.SubscriberManagementSoap.ChangeSTB(Billing.Vasc.ChangeSTBRequest request) {
+            return base.Channel.ChangeSTB(request);
+        }
+        
+        public Billing.Vasc.ChangeSTBVO ChangeSTB(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Reason) {
+            Billing.Vasc.ChangeSTBRequest inValue = new Billing.Vasc.ChangeSTBRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVAccount = IPTVAccount;
+            inValue.Reason = Reason;
+            Billing.Vasc.ChangeSTBResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeSTB(inValue);
+            return retVal.ChangeSTBResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangeSTBResponse> Billing.Vasc.SubscriberManagementSoap.ChangeSTBAsync(Billing.Vasc.ChangeSTBRequest request) {
+            return base.Channel.ChangeSTBAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.ChangeSTBResponse> ChangeSTBAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Reason) {
+            Billing.Vasc.ChangeSTBRequest inValue = new Billing.Vasc.ChangeSTBRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVAccount = IPTVAccount;
+            inValue.Reason = Reason;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeSTBAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.GetSTBInfoResponse Billing.Vasc.SubscriberManagementSoap.GetSTBInfo(Billing.Vasc.GetSTBInfoRequest request) {
+            return base.Channel.GetSTBInfo(request);
+        }
+        
+        public Billing.Vasc.GetSTBInfoVO GetSTBInfo(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount) {
+            Billing.Vasc.GetSTBInfoRequest inValue = new Billing.Vasc.GetSTBInfoRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVAccount = IPTVAccount;
+            Billing.Vasc.GetSTBInfoResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).GetSTBInfo(inValue);
+            return retVal.GetSTBInfoResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.GetSTBInfoResponse> Billing.Vasc.SubscriberManagementSoap.GetSTBInfoAsync(Billing.Vasc.GetSTBInfoRequest request) {
+            return base.Channel.GetSTBInfoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.GetSTBInfoResponse> GetSTBInfoAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount) {
+            Billing.Vasc.GetSTBInfoRequest inValue = new Billing.Vasc.GetSTBInfoRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVAccount = IPTVAccount;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).GetSTBInfoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.GetSTBInforResponse Billing.Vasc.SubscriberManagementSoap.GetSTBInfor(Billing.Vasc.GetSTBInforRequest request) {
+            return base.Channel.GetSTBInfor(request);
+        }
+        
+        public Billing.Vasc.StbInfoVO GetSTBInfor(Billing.Vasc.AuthHeader AuthHeader, string stbid) {
+            Billing.Vasc.GetSTBInforRequest inValue = new Billing.Vasc.GetSTBInforRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.stbid = stbid;
+            Billing.Vasc.GetSTBInforResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).GetSTBInfor(inValue);
+            return retVal.GetSTBInforResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.GetSTBInforResponse> Billing.Vasc.SubscriberManagementSoap.GetSTBInforAsync(Billing.Vasc.GetSTBInforRequest request) {
+            return base.Channel.GetSTBInforAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.GetSTBInforResponse> GetSTBInforAsync(Billing.Vasc.AuthHeader AuthHeader, string stbid) {
+            Billing.Vasc.GetSTBInforRequest inValue = new Billing.Vasc.GetSTBInforRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.stbid = stbid;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).GetSTBInforAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.GetHistorySTBResponse Billing.Vasc.SubscriberManagementSoap.GetHistorySTB(Billing.Vasc.GetHistorySTBRequest request) {
+            return base.Channel.GetHistorySTB(request);
+        }
+        
+        public Billing.Vasc.GetSTBHistoryInfoVO GetHistorySTB(Billing.Vasc.AuthHeader AuthHeader, string stbid) {
+            Billing.Vasc.GetHistorySTBRequest inValue = new Billing.Vasc.GetHistorySTBRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.stbid = stbid;
+            Billing.Vasc.GetHistorySTBResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).GetHistorySTB(inValue);
+            return retVal.GetHistorySTBResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.GetHistorySTBResponse> Billing.Vasc.SubscriberManagementSoap.GetHistorySTBAsync(Billing.Vasc.GetHistorySTBRequest request) {
+            return base.Channel.GetHistorySTBAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.GetHistorySTBResponse> GetHistorySTBAsync(Billing.Vasc.AuthHeader AuthHeader, string stbid) {
+            Billing.Vasc.GetHistorySTBRequest inValue = new Billing.Vasc.GetHistorySTBRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.stbid = stbid;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).GetHistorySTBAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.GetHisSubscriberChangeSTBResponse Billing.Vasc.SubscriberManagementSoap.GetHisSubscriberChangeSTB(Billing.Vasc.GetHisSubscriberChangeSTBRequest request) {
+            return base.Channel.GetHisSubscriberChangeSTB(request);
+        }
+        
+        public Billing.Vasc.GetSTBHistoryInfoVO GetHisSubscriberChangeSTB(Billing.Vasc.AuthHeader AuthHeader, string strMyTV) {
+            Billing.Vasc.GetHisSubscriberChangeSTBRequest inValue = new Billing.Vasc.GetHisSubscriberChangeSTBRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.strMyTV = strMyTV;
+            Billing.Vasc.GetHisSubscriberChangeSTBResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).GetHisSubscriberChangeSTB(inValue);
+            return retVal.GetHisSubscriberChangeSTBResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.GetHisSubscriberChangeSTBResponse> Billing.Vasc.SubscriberManagementSoap.GetHisSubscriberChangeSTBAsync(Billing.Vasc.GetHisSubscriberChangeSTBRequest request) {
+            return base.Channel.GetHisSubscriberChangeSTBAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.GetHisSubscriberChangeSTBResponse> GetHisSubscriberChangeSTBAsync(Billing.Vasc.AuthHeader AuthHeader, string strMyTV) {
+            Billing.Vasc.GetHisSubscriberChangeSTBRequest inValue = new Billing.Vasc.GetHisSubscriberChangeSTBRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.strMyTV = strMyTV;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).GetHisSubscriberChangeSTBAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.UpdateDeviceInfoResponse Billing.Vasc.SubscriberManagementSoap.UpdateDeviceInfo(Billing.Vasc.UpdateDeviceInfoRequest request) {
+            return base.Channel.UpdateDeviceInfo(request);
+        }
+        
+        public Billing.Vasc.ChangeSubscriberVO UpdateDeviceInfo(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string strDeviceName, string strPortID) {
+            Billing.Vasc.UpdateDeviceInfoRequest inValue = new Billing.Vasc.UpdateDeviceInfoRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.MyTVAccount = MyTVAccount;
+            inValue.strDeviceName = strDeviceName;
+            inValue.strPortID = strPortID;
+            Billing.Vasc.UpdateDeviceInfoResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).UpdateDeviceInfo(inValue);
+            return retVal.UpdateDeviceInfoResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.UpdateDeviceInfoResponse> Billing.Vasc.SubscriberManagementSoap.UpdateDeviceInfoAsync(Billing.Vasc.UpdateDeviceInfoRequest request) {
+            return base.Channel.UpdateDeviceInfoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.UpdateDeviceInfoResponse> UpdateDeviceInfoAsync(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string strDeviceName, string strPortID) {
+            Billing.Vasc.UpdateDeviceInfoRequest inValue = new Billing.Vasc.UpdateDeviceInfoRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.MyTVAccount = MyTVAccount;
+            inValue.strDeviceName = strDeviceName;
+            inValue.strPortID = strPortID;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).UpdateDeviceInfoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.STB_Rent_UpdateInfoResponse Billing.Vasc.SubscriberManagementSoap.STB_Rent_UpdateInfo(Billing.Vasc.STB_Rent_UpdateInfoRequest request) {
+            return base.Channel.STB_Rent_UpdateInfo(request);
+        }
+        
+        public Billing.Vasc.CommonVO STB_Rent_UpdateInfo(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.STBRentDTO stbDTO) {
+            Billing.Vasc.STB_Rent_UpdateInfoRequest inValue = new Billing.Vasc.STB_Rent_UpdateInfoRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.stbDTO = stbDTO;
+            Billing.Vasc.STB_Rent_UpdateInfoResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).STB_Rent_UpdateInfo(inValue);
+            return retVal.STB_Rent_UpdateInfoResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.STB_Rent_UpdateInfoResponse> Billing.Vasc.SubscriberManagementSoap.STB_Rent_UpdateInfoAsync(Billing.Vasc.STB_Rent_UpdateInfoRequest request) {
+            return base.Channel.STB_Rent_UpdateInfoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.STB_Rent_UpdateInfoResponse> STB_Rent_UpdateInfoAsync(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.STBRentDTO stbDTO) {
+            Billing.Vasc.STB_Rent_UpdateInfoRequest inValue = new Billing.Vasc.STB_Rent_UpdateInfoRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.stbDTO = stbDTO;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).STB_Rent_UpdateInfoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.Cust_UserMulti_UpdateInfoResponse Billing.Vasc.SubscriberManagementSoap.Cust_UserMulti_UpdateInfo(Billing.Vasc.Cust_UserMulti_UpdateInfoRequest request) {
+            return base.Channel.Cust_UserMulti_UpdateInfo(request);
+        }
+        
+        public Billing.Vasc.CommonVO Cust_UserMulti_UpdateInfo(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.CustUserMultiDTO custDTO) {
+            Billing.Vasc.Cust_UserMulti_UpdateInfoRequest inValue = new Billing.Vasc.Cust_UserMulti_UpdateInfoRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.custDTO = custDTO;
+            Billing.Vasc.Cust_UserMulti_UpdateInfoResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).Cust_UserMulti_UpdateInfo(inValue);
+            return retVal.Cust_UserMulti_UpdateInfoResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.Cust_UserMulti_UpdateInfoResponse> Billing.Vasc.SubscriberManagementSoap.Cust_UserMulti_UpdateInfoAsync(Billing.Vasc.Cust_UserMulti_UpdateInfoRequest request) {
+            return base.Channel.Cust_UserMulti_UpdateInfoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.Cust_UserMulti_UpdateInfoResponse> Cust_UserMulti_UpdateInfoAsync(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.CustUserMultiDTO custDTO) {
+            Billing.Vasc.Cust_UserMulti_UpdateInfoRequest inValue = new Billing.Vasc.Cust_UserMulti_UpdateInfoRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.custDTO = custDTO;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).Cust_UserMulti_UpdateInfoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.Cust_Trial_UpdateInfoResponse Billing.Vasc.SubscriberManagementSoap.Cust_Trial_UpdateInfo(Billing.Vasc.Cust_Trial_UpdateInfoRequest request) {
+            return base.Channel.Cust_Trial_UpdateInfo(request);
+        }
+        
+        public Billing.Vasc.CommonVO Cust_Trial_UpdateInfo(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.CustTrialDTO custDTO) {
+            Billing.Vasc.Cust_Trial_UpdateInfoRequest inValue = new Billing.Vasc.Cust_Trial_UpdateInfoRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.custDTO = custDTO;
+            Billing.Vasc.Cust_Trial_UpdateInfoResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).Cust_Trial_UpdateInfo(inValue);
+            return retVal.Cust_Trial_UpdateInfoResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.Cust_Trial_UpdateInfoResponse> Billing.Vasc.SubscriberManagementSoap.Cust_Trial_UpdateInfoAsync(Billing.Vasc.Cust_Trial_UpdateInfoRequest request) {
+            return base.Channel.Cust_Trial_UpdateInfoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.Cust_Trial_UpdateInfoResponse> Cust_Trial_UpdateInfoAsync(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.CustTrialDTO custDTO) {
+            Billing.Vasc.Cust_Trial_UpdateInfoRequest inValue = new Billing.Vasc.Cust_Trial_UpdateInfoRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.custDTO = custDTO;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).Cust_Trial_UpdateInfoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         Billing.Vasc.UpdateSubTrialResponse Billing.Vasc.SubscriberManagementSoap.UpdateSubTrial(Billing.Vasc.UpdateSubTrialRequest1 request) {
             return base.Channel.UpdateSubTrial(request);
         }
@@ -14136,78 +15721,422 @@ namespace Billing.Vasc {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.TotalMyTVPlusResponse Billing.Vasc.SubscriberManagementSoap.TotalMyTVPlus(Billing.Vasc.TotalMyTVPlusRequest request) {
-            return base.Channel.TotalMyTVPlus(request);
+        Billing.Vasc.UpdatePackDailyResponse Billing.Vasc.SubscriberManagementSoap.UpdatePackDaily(Billing.Vasc.UpdatePackDailyRequest request) {
+            return base.Channel.UpdatePackDaily(request);
         }
         
-        public Billing.Vasc.ChangeSubscriberVO TotalMyTVPlus(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.MyTVPlusRequest objRequest) {
-            Billing.Vasc.TotalMyTVPlusRequest inValue = new Billing.Vasc.TotalMyTVPlusRequest();
+        public Billing.Vasc.ChangeSubscriberVO UpdatePackDaily(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string Operator) {
+            Billing.Vasc.UpdatePackDailyRequest inValue = new Billing.Vasc.UpdatePackDailyRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.MyTVAccount = MyTVAccount;
+            inValue.Operator = Operator;
+            Billing.Vasc.UpdatePackDailyResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).UpdatePackDaily(inValue);
+            return retVal.UpdatePackDailyResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.UpdatePackDailyResponse> Billing.Vasc.SubscriberManagementSoap.UpdatePackDailyAsync(Billing.Vasc.UpdatePackDailyRequest request) {
+            return base.Channel.UpdatePackDailyAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.UpdatePackDailyResponse> UpdatePackDailyAsync(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string Operator) {
+            Billing.Vasc.UpdatePackDailyRequest inValue = new Billing.Vasc.UpdatePackDailyRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.MyTVAccount = MyTVAccount;
+            inValue.Operator = Operator;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).UpdatePackDailyAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.ChangeFiberVNNResponse Billing.Vasc.SubscriberManagementSoap.ChangeFiberVNN(Billing.Vasc.ChangeFiberVNNRequest request) {
+            return base.Channel.ChangeFiberVNN(request);
+        }
+        
+        public Billing.Vasc.ChangeFiberVNNVO ChangeFiberVNN(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string FiberVNN) {
+            Billing.Vasc.ChangeFiberVNNRequest inValue = new Billing.Vasc.ChangeFiberVNNRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVACCOUNT = IPTVACCOUNT;
+            inValue.FiberVNN = FiberVNN;
+            Billing.Vasc.ChangeFiberVNNResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeFiberVNN(inValue);
+            return retVal.ChangeFiberVNNResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangeFiberVNNResponse> Billing.Vasc.SubscriberManagementSoap.ChangeFiberVNNAsync(Billing.Vasc.ChangeFiberVNNRequest request) {
+            return base.Channel.ChangeFiberVNNAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.ChangeFiberVNNResponse> ChangeFiberVNNAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string FiberVNN) {
+            Billing.Vasc.ChangeFiberVNNRequest inValue = new Billing.Vasc.ChangeFiberVNNRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVACCOUNT = IPTVACCOUNT;
+            inValue.FiberVNN = FiberVNN;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeFiberVNNAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.UpdateUserConferenceResponse Billing.Vasc.SubscriberManagementSoap.UpdateUserConference(Billing.Vasc.UpdateUserConferenceRequest request) {
+            return base.Channel.UpdateUserConference(request);
+        }
+        
+        public Billing.Vasc.ChangeSubscriberVO UpdateUserConference(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Operator) {
+            Billing.Vasc.UpdateUserConferenceRequest inValue = new Billing.Vasc.UpdateUserConferenceRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVAccount = IPTVAccount;
+            inValue.Operator = Operator;
+            Billing.Vasc.UpdateUserConferenceResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).UpdateUserConference(inValue);
+            return retVal.UpdateUserConferenceResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.UpdateUserConferenceResponse> Billing.Vasc.SubscriberManagementSoap.UpdateUserConferenceAsync(Billing.Vasc.UpdateUserConferenceRequest request) {
+            return base.Channel.UpdateUserConferenceAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.UpdateUserConferenceResponse> UpdateUserConferenceAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Operator) {
+            Billing.Vasc.UpdateUserConferenceRequest inValue = new Billing.Vasc.UpdateUserConferenceRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVAccount = IPTVAccount;
+            inValue.Operator = Operator;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).UpdateUserConferenceAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.MethodChangePayResponse Billing.Vasc.SubscriberManagementSoap.MethodChangePay(Billing.Vasc.MethodChangePayRequest1 request) {
+            return base.Channel.MethodChangePay(request);
+        }
+        
+        public Billing.Vasc.MethodChangePayVO MethodChangePay(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string Method, string No_Month) {
+            Billing.Vasc.MethodChangePayRequest1 inValue = new Billing.Vasc.MethodChangePayRequest1();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVACCOUNT = IPTVACCOUNT;
+            inValue.Method = Method;
+            inValue.No_Month = No_Month;
+            Billing.Vasc.MethodChangePayResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).MethodChangePay(inValue);
+            return retVal.MethodChangePayResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.MethodChangePayResponse> Billing.Vasc.SubscriberManagementSoap.MethodChangePayAsync(Billing.Vasc.MethodChangePayRequest1 request) {
+            return base.Channel.MethodChangePayAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.MethodChangePayResponse> MethodChangePayAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string Method, string No_Month) {
+            Billing.Vasc.MethodChangePayRequest1 inValue = new Billing.Vasc.MethodChangePayRequest1();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVACCOUNT = IPTVACCOUNT;
+            inValue.Method = Method;
+            inValue.No_Month = No_Month;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).MethodChangePayAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.MethodChangePayV2Response Billing.Vasc.SubscriberManagementSoap.MethodChangePayV2(Billing.Vasc.MethodChangePayV2Request request) {
+            return base.Channel.MethodChangePayV2(request);
+        }
+        
+        public Billing.Vasc.MethodChangePayVO MethodChangePayV2(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string Method, string No_Month, string sStartDate) {
+            Billing.Vasc.MethodChangePayV2Request inValue = new Billing.Vasc.MethodChangePayV2Request();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVACCOUNT = IPTVACCOUNT;
+            inValue.Method = Method;
+            inValue.No_Month = No_Month;
+            inValue.sStartDate = sStartDate;
+            Billing.Vasc.MethodChangePayV2Response retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).MethodChangePayV2(inValue);
+            return retVal.MethodChangePayV2Result;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.MethodChangePayV2Response> Billing.Vasc.SubscriberManagementSoap.MethodChangePayV2Async(Billing.Vasc.MethodChangePayV2Request request) {
+            return base.Channel.MethodChangePayV2Async(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.MethodChangePayV2Response> MethodChangePayV2Async(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string Method, string No_Month, string sStartDate) {
+            Billing.Vasc.MethodChangePayV2Request inValue = new Billing.Vasc.MethodChangePayV2Request();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVACCOUNT = IPTVACCOUNT;
+            inValue.Method = Method;
+            inValue.No_Month = No_Month;
+            inValue.sStartDate = sStartDate;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).MethodChangePayV2Async(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.MethodChangePayV3Response Billing.Vasc.SubscriberManagementSoap.MethodChangePayV3(Billing.Vasc.MethodChangePayV3Request request) {
+            return base.Channel.MethodChangePayV3(request);
+        }
+        
+        public Billing.Vasc.MethodChangePayVO MethodChangePayV3(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.MethodChangePayRequest objRequest) {
+            Billing.Vasc.MethodChangePayV3Request inValue = new Billing.Vasc.MethodChangePayV3Request();
             inValue.AuthHeader = AuthHeader;
             inValue.objRequest = objRequest;
-            Billing.Vasc.TotalMyTVPlusResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).TotalMyTVPlus(inValue);
-            return retVal.TotalMyTVPlusResult;
+            Billing.Vasc.MethodChangePayV3Response retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).MethodChangePayV3(inValue);
+            return retVal.MethodChangePayV3Result;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.TotalMyTVPlusResponse> Billing.Vasc.SubscriberManagementSoap.TotalMyTVPlusAsync(Billing.Vasc.TotalMyTVPlusRequest request) {
-            return base.Channel.TotalMyTVPlusAsync(request);
+        System.Threading.Tasks.Task<Billing.Vasc.MethodChangePayV3Response> Billing.Vasc.SubscriberManagementSoap.MethodChangePayV3Async(Billing.Vasc.MethodChangePayV3Request request) {
+            return base.Channel.MethodChangePayV3Async(request);
         }
         
-        public System.Threading.Tasks.Task<Billing.Vasc.TotalMyTVPlusResponse> TotalMyTVPlusAsync(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.MyTVPlusRequest objRequest) {
-            Billing.Vasc.TotalMyTVPlusRequest inValue = new Billing.Vasc.TotalMyTVPlusRequest();
+        public System.Threading.Tasks.Task<Billing.Vasc.MethodChangePayV3Response> MethodChangePayV3Async(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.MethodChangePayRequest objRequest) {
+            Billing.Vasc.MethodChangePayV3Request inValue = new Billing.Vasc.MethodChangePayV3Request();
             inValue.AuthHeader = AuthHeader;
             inValue.objRequest = objRequest;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).TotalMyTVPlusAsync(inValue);
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).MethodChangePayV3Async(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.ChangeSystemResponse Billing.Vasc.SubscriberManagementSoap.ChangeSystem(Billing.Vasc.ChangeSystemRequest request) {
-            return base.Channel.ChangeSystem(request);
+        Billing.Vasc.Smart_OTTGetMemberPendingResponse Billing.Vasc.SubscriberManagementSoap.Smart_OTTGetMemberPending(Billing.Vasc.Smart_OTTGetMemberPendingRequest1 request) {
+            return base.Channel.Smart_OTTGetMemberPending(request);
         }
         
-        public Billing.Vasc.ChangeSystemResp ChangeSystem(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.ChangeSystemReq objRequest) {
-            Billing.Vasc.ChangeSystemRequest inValue = new Billing.Vasc.ChangeSystemRequest();
+        public Billing.Vasc.Smart_OTTGetMemberPendingVO Smart_OTTGetMemberPending(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.Smart_OTTGetMemberPendingRequest req) {
+            Billing.Vasc.Smart_OTTGetMemberPendingRequest1 inValue = new Billing.Vasc.Smart_OTTGetMemberPendingRequest1();
+            inValue.AuthHeader = AuthHeader;
+            inValue.req = req;
+            Billing.Vasc.Smart_OTTGetMemberPendingResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).Smart_OTTGetMemberPending(inValue);
+            return retVal.Smart_OTTGetMemberPendingResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.Smart_OTTGetMemberPendingResponse> Billing.Vasc.SubscriberManagementSoap.Smart_OTTGetMemberPendingAsync(Billing.Vasc.Smart_OTTGetMemberPendingRequest1 request) {
+            return base.Channel.Smart_OTTGetMemberPendingAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.Smart_OTTGetMemberPendingResponse> Smart_OTTGetMemberPendingAsync(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.Smart_OTTGetMemberPendingRequest req) {
+            Billing.Vasc.Smart_OTTGetMemberPendingRequest1 inValue = new Billing.Vasc.Smart_OTTGetMemberPendingRequest1();
+            inValue.AuthHeader = AuthHeader;
+            inValue.req = req;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).Smart_OTTGetMemberPendingAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.ChangePackageV3Response Billing.Vasc.SubscriberManagementSoap.ChangePackageV3(Billing.Vasc.ChangePackageV3Request request) {
+            return base.Channel.ChangePackageV3(request);
+        }
+        
+        public Billing.Vasc.ChangePackageVO ChangePackageV3(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.ChangePackageRequest objRequest) {
+            Billing.Vasc.ChangePackageV3Request inValue = new Billing.Vasc.ChangePackageV3Request();
             inValue.AuthHeader = AuthHeader;
             inValue.objRequest = objRequest;
-            Billing.Vasc.ChangeSystemResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeSystem(inValue);
-            return retVal.ChangeSystemResult;
+            Billing.Vasc.ChangePackageV3Response retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangePackageV3(inValue);
+            return retVal.ChangePackageV3Result;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangeSystemResponse> Billing.Vasc.SubscriberManagementSoap.ChangeSystemAsync(Billing.Vasc.ChangeSystemRequest request) {
-            return base.Channel.ChangeSystemAsync(request);
+        System.Threading.Tasks.Task<Billing.Vasc.ChangePackageV3Response> Billing.Vasc.SubscriberManagementSoap.ChangePackageV3Async(Billing.Vasc.ChangePackageV3Request request) {
+            return base.Channel.ChangePackageV3Async(request);
         }
         
-        public System.Threading.Tasks.Task<Billing.Vasc.ChangeSystemResponse> ChangeSystemAsync(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.ChangeSystemReq objRequest) {
-            Billing.Vasc.ChangeSystemRequest inValue = new Billing.Vasc.ChangeSystemRequest();
+        public System.Threading.Tasks.Task<Billing.Vasc.ChangePackageV3Response> ChangePackageV3Async(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.ChangePackageRequest objRequest) {
+            Billing.Vasc.ChangePackageV3Request inValue = new Billing.Vasc.ChangePackageV3Request();
             inValue.AuthHeader = AuthHeader;
             inValue.objRequest = objRequest;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeSystemAsync(inValue);
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangePackageV3Async(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.getStatusBlockPayTVResponse Billing.Vasc.SubscriberManagementSoap.getStatusBlockPayTV(Billing.Vasc.getStatusBlockPayTVRequest request) {
-            return base.Channel.getStatusBlockPayTV(request);
+        Billing.Vasc.ChangePackageResponse Billing.Vasc.SubscriberManagementSoap.ChangePackage(Billing.Vasc.ChangePackageRequest1 request) {
+            return base.Channel.ChangePackage(request);
         }
         
-        public Billing.Vasc.StatusBlockPayTVInfor getStatusBlockPayTV(Billing.Vasc.AuthHeader AuthHeader, string iptvaccount) {
-            Billing.Vasc.getStatusBlockPayTVRequest inValue = new Billing.Vasc.getStatusBlockPayTVRequest();
+        public Billing.Vasc.ChangePackageVO ChangePackage(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string PackageNo, string ServiceCD, string ServiceVAS, string Reason) {
+            Billing.Vasc.ChangePackageRequest1 inValue = new Billing.Vasc.ChangePackageRequest1();
             inValue.AuthHeader = AuthHeader;
-            inValue.iptvaccount = iptvaccount;
-            Billing.Vasc.getStatusBlockPayTVResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).getStatusBlockPayTV(inValue);
-            return retVal.getStatusBlockPayTVResult;
+            inValue.IPTVAccount = IPTVAccount;
+            inValue.PackageNo = PackageNo;
+            inValue.ServiceCD = ServiceCD;
+            inValue.ServiceVAS = ServiceVAS;
+            inValue.Reason = Reason;
+            Billing.Vasc.ChangePackageResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangePackage(inValue);
+            return retVal.ChangePackageResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.getStatusBlockPayTVResponse> Billing.Vasc.SubscriberManagementSoap.getStatusBlockPayTVAsync(Billing.Vasc.getStatusBlockPayTVRequest request) {
-            return base.Channel.getStatusBlockPayTVAsync(request);
+        System.Threading.Tasks.Task<Billing.Vasc.ChangePackageResponse> Billing.Vasc.SubscriberManagementSoap.ChangePackageAsync(Billing.Vasc.ChangePackageRequest1 request) {
+            return base.Channel.ChangePackageAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Billing.Vasc.getStatusBlockPayTVResponse> getStatusBlockPayTVAsync(Billing.Vasc.AuthHeader AuthHeader, string iptvaccount) {
-            Billing.Vasc.getStatusBlockPayTVRequest inValue = new Billing.Vasc.getStatusBlockPayTVRequest();
+        public System.Threading.Tasks.Task<Billing.Vasc.ChangePackageResponse> ChangePackageAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string PackageNo, string ServiceCD, string ServiceVAS, string Reason) {
+            Billing.Vasc.ChangePackageRequest1 inValue = new Billing.Vasc.ChangePackageRequest1();
             inValue.AuthHeader = AuthHeader;
-            inValue.iptvaccount = iptvaccount;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).getStatusBlockPayTVAsync(inValue);
+            inValue.IPTVAccount = IPTVAccount;
+            inValue.PackageNo = PackageNo;
+            inValue.ServiceCD = ServiceCD;
+            inValue.ServiceVAS = ServiceVAS;
+            inValue.Reason = Reason;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangePackageAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.ChangePackageAndMegaVNNResponse Billing.Vasc.SubscriberManagementSoap.ChangePackageAndMegaVNN(Billing.Vasc.ChangePackageAndMegaVNNRequest1 request) {
+            return base.Channel.ChangePackageAndMegaVNN(request);
+        }
+        
+        public Billing.Vasc.ChangePackageVO ChangePackageAndMegaVNN(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string PackageNo, string ServiceCD, string ServiceVAS, string Reason, string MegaMyTV) {
+            Billing.Vasc.ChangePackageAndMegaVNNRequest1 inValue = new Billing.Vasc.ChangePackageAndMegaVNNRequest1();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVAccount = IPTVAccount;
+            inValue.PackageNo = PackageNo;
+            inValue.ServiceCD = ServiceCD;
+            inValue.ServiceVAS = ServiceVAS;
+            inValue.Reason = Reason;
+            inValue.MegaMyTV = MegaMyTV;
+            Billing.Vasc.ChangePackageAndMegaVNNResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangePackageAndMegaVNN(inValue);
+            return retVal.ChangePackageAndMegaVNNResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangePackageAndMegaVNNResponse> Billing.Vasc.SubscriberManagementSoap.ChangePackageAndMegaVNNAsync(Billing.Vasc.ChangePackageAndMegaVNNRequest1 request) {
+            return base.Channel.ChangePackageAndMegaVNNAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.ChangePackageAndMegaVNNResponse> ChangePackageAndMegaVNNAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string PackageNo, string ServiceCD, string ServiceVAS, string Reason, string MegaMyTV) {
+            Billing.Vasc.ChangePackageAndMegaVNNRequest1 inValue = new Billing.Vasc.ChangePackageAndMegaVNNRequest1();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVAccount = IPTVAccount;
+            inValue.PackageNo = PackageNo;
+            inValue.ServiceCD = ServiceCD;
+            inValue.ServiceVAS = ServiceVAS;
+            inValue.Reason = Reason;
+            inValue.MegaMyTV = MegaMyTV;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangePackageAndMegaVNNAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.ChangePackageAndMegaVNN_TitanSportHome1 Billing.Vasc.SubscriberManagementSoap.ChangePackageAndMegaVNNV3(Billing.Vasc.ChangePackageAndMegaVNN_TitanSportHome request) {
+            return base.Channel.ChangePackageAndMegaVNNV3(request);
+        }
+        
+        public Billing.Vasc.ChangePackageVO ChangePackageAndMegaVNNV3(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.ChangePackageAndMegaVNNRequest objRequest) {
+            Billing.Vasc.ChangePackageAndMegaVNN_TitanSportHome inValue = new Billing.Vasc.ChangePackageAndMegaVNN_TitanSportHome();
+            inValue.AuthHeader = AuthHeader;
+            inValue.objRequest = objRequest;
+            Billing.Vasc.ChangePackageAndMegaVNN_TitanSportHome1 retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangePackageAndMegaVNNV3(inValue);
+            return retVal.ChangePackageAndMegaVNN_TitanSportHomeResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangePackageAndMegaVNN_TitanSportHome1> Billing.Vasc.SubscriberManagementSoap.ChangePackageAndMegaVNNV3Async(Billing.Vasc.ChangePackageAndMegaVNN_TitanSportHome request) {
+            return base.Channel.ChangePackageAndMegaVNNV3Async(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.ChangePackageAndMegaVNN_TitanSportHome1> ChangePackageAndMegaVNNV3Async(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.ChangePackageAndMegaVNNRequest objRequest) {
+            Billing.Vasc.ChangePackageAndMegaVNN_TitanSportHome inValue = new Billing.Vasc.ChangePackageAndMegaVNN_TitanSportHome();
+            inValue.AuthHeader = AuthHeader;
+            inValue.objRequest = objRequest;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangePackageAndMegaVNNV3Async(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.ChangeMegaVNNResponse Billing.Vasc.SubscriberManagementSoap.ChangeMegaVNN(Billing.Vasc.ChangeMegaVNNRequest1 request) {
+            return base.Channel.ChangeMegaVNN(request);
+        }
+        
+        public Billing.Vasc.ChangePackageVO ChangeMegaVNN(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string MegaMyTV, string Combo_FiberCD) {
+            Billing.Vasc.ChangeMegaVNNRequest1 inValue = new Billing.Vasc.ChangeMegaVNNRequest1();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVAccount = IPTVAccount;
+            inValue.MegaMyTV = MegaMyTV;
+            inValue.Combo_FiberCD = Combo_FiberCD;
+            Billing.Vasc.ChangeMegaVNNResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeMegaVNN(inValue);
+            return retVal.ChangeMegaVNNResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangeMegaVNNResponse> Billing.Vasc.SubscriberManagementSoap.ChangeMegaVNNAsync(Billing.Vasc.ChangeMegaVNNRequest1 request) {
+            return base.Channel.ChangeMegaVNNAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.ChangeMegaVNNResponse> ChangeMegaVNNAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string MegaMyTV, string Combo_FiberCD) {
+            Billing.Vasc.ChangeMegaVNNRequest1 inValue = new Billing.Vasc.ChangeMegaVNNRequest1();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVAccount = IPTVAccount;
+            inValue.MegaMyTV = MegaMyTV;
+            inValue.Combo_FiberCD = Combo_FiberCD;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeMegaVNNAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.ChangeMegaVNNV3Response Billing.Vasc.SubscriberManagementSoap.ChangeMegaVNNV3(Billing.Vasc.ChangeMegaVNNV3Request request) {
+            return base.Channel.ChangeMegaVNNV3(request);
+        }
+        
+        public Billing.Vasc.ChangePackageVO ChangeMegaVNNV3(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.ChangeMegaVNNRequest objReq) {
+            Billing.Vasc.ChangeMegaVNNV3Request inValue = new Billing.Vasc.ChangeMegaVNNV3Request();
+            inValue.AuthHeader = AuthHeader;
+            inValue.objReq = objReq;
+            Billing.Vasc.ChangeMegaVNNV3Response retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeMegaVNNV3(inValue);
+            return retVal.ChangeMegaVNNV3Result;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangeMegaVNNV3Response> Billing.Vasc.SubscriberManagementSoap.ChangeMegaVNNV3Async(Billing.Vasc.ChangeMegaVNNV3Request request) {
+            return base.Channel.ChangeMegaVNNV3Async(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.ChangeMegaVNNV3Response> ChangeMegaVNNV3Async(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.ChangeMegaVNNRequest objReq) {
+            Billing.Vasc.ChangeMegaVNNV3Request inValue = new Billing.Vasc.ChangeMegaVNNV3Request();
+            inValue.AuthHeader = AuthHeader;
+            inValue.objReq = objReq;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeMegaVNNV3Async(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.GetPackageNameResponse Billing.Vasc.SubscriberManagementSoap.GetPackageName(Billing.Vasc.GetPackageNameRequest request) {
+            return base.Channel.GetPackageName(request);
+        }
+        
+        public Billing.Vasc.GetPackageNameVO GetPackageName(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount) {
+            Billing.Vasc.GetPackageNameRequest inValue = new Billing.Vasc.GetPackageNameRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVAccount = IPTVAccount;
+            Billing.Vasc.GetPackageNameResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).GetPackageName(inValue);
+            return retVal.GetPackageNameResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.GetPackageNameResponse> Billing.Vasc.SubscriberManagementSoap.GetPackageNameAsync(Billing.Vasc.GetPackageNameRequest request) {
+            return base.Channel.GetPackageNameAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.GetPackageNameResponse> GetPackageNameAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount) {
+            Billing.Vasc.GetPackageNameRequest inValue = new Billing.Vasc.GetPackageNameRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVAccount = IPTVAccount;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).GetPackageNameAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.GetPackageEPGResponse Billing.Vasc.SubscriberManagementSoap.GetPackageEPG(Billing.Vasc.GetPackageEPGRequest request) {
+            return base.Channel.GetPackageEPG(request);
+        }
+        
+        public Billing.Vasc.GetPackageEPGVO GetPackageEPG(Billing.Vasc.AuthHeader AuthHeader, string starttime, string endtime, string IPTVAccount, string strAll) {
+            Billing.Vasc.GetPackageEPGRequest inValue = new Billing.Vasc.GetPackageEPGRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.starttime = starttime;
+            inValue.endtime = endtime;
+            inValue.IPTVAccount = IPTVAccount;
+            inValue.strAll = strAll;
+            Billing.Vasc.GetPackageEPGResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).GetPackageEPG(inValue);
+            return retVal.GetPackageEPGResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.GetPackageEPGResponse> Billing.Vasc.SubscriberManagementSoap.GetPackageEPGAsync(Billing.Vasc.GetPackageEPGRequest request) {
+            return base.Channel.GetPackageEPGAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.GetPackageEPGResponse> GetPackageEPGAsync(Billing.Vasc.AuthHeader AuthHeader, string starttime, string endtime, string IPTVAccount, string strAll) {
+            Billing.Vasc.GetPackageEPGRequest inValue = new Billing.Vasc.GetPackageEPGRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.starttime = starttime;
+            inValue.endtime = endtime;
+            inValue.IPTVAccount = IPTVAccount;
+            inValue.strAll = strAll;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).GetPackageEPGAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -14259,205 +16188,167 @@ namespace Billing.Vasc {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.UpdateUserConferenceResponse Billing.Vasc.SubscriberManagementSoap.UpdateUserConference(Billing.Vasc.UpdateUserConferenceRequest request) {
-            return base.Channel.UpdateUserConference(request);
+        Billing.Vasc.UpdatePromotionsResponse Billing.Vasc.SubscriberManagementSoap.UpdatePromotions(Billing.Vasc.UpdatePromotionsRequest request) {
+            return base.Channel.UpdatePromotions(request);
         }
         
-        public Billing.Vasc.ChangeSubscriberVO UpdateUserConference(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Operator) {
-            Billing.Vasc.UpdateUserConferenceRequest inValue = new Billing.Vasc.UpdateUserConferenceRequest();
+        public Billing.Vasc.UpdatePromoVO UpdatePromotions(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string PromoCD) {
+            Billing.Vasc.UpdatePromotionsRequest inValue = new Billing.Vasc.UpdatePromotionsRequest();
             inValue.AuthHeader = AuthHeader;
-            inValue.IPTVAccount = IPTVAccount;
-            inValue.Operator = Operator;
-            Billing.Vasc.UpdateUserConferenceResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).UpdateUserConference(inValue);
-            return retVal.UpdateUserConferenceResult;
+            inValue.IPTVACCOUNT = IPTVACCOUNT;
+            inValue.PromoCD = PromoCD;
+            Billing.Vasc.UpdatePromotionsResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).UpdatePromotions(inValue);
+            return retVal.UpdatePromotionsResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.UpdateUserConferenceResponse> Billing.Vasc.SubscriberManagementSoap.UpdateUserConferenceAsync(Billing.Vasc.UpdateUserConferenceRequest request) {
-            return base.Channel.UpdateUserConferenceAsync(request);
+        System.Threading.Tasks.Task<Billing.Vasc.UpdatePromotionsResponse> Billing.Vasc.SubscriberManagementSoap.UpdatePromotionsAsync(Billing.Vasc.UpdatePromotionsRequest request) {
+            return base.Channel.UpdatePromotionsAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Billing.Vasc.UpdateUserConferenceResponse> UpdateUserConferenceAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Operator) {
-            Billing.Vasc.UpdateUserConferenceRequest inValue = new Billing.Vasc.UpdateUserConferenceRequest();
+        public System.Threading.Tasks.Task<Billing.Vasc.UpdatePromotionsResponse> UpdatePromotionsAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string PromoCD) {
+            Billing.Vasc.UpdatePromotionsRequest inValue = new Billing.Vasc.UpdatePromotionsRequest();
             inValue.AuthHeader = AuthHeader;
-            inValue.IPTVAccount = IPTVAccount;
-            inValue.Operator = Operator;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).UpdateUserConferenceAsync(inValue);
+            inValue.IPTVACCOUNT = IPTVACCOUNT;
+            inValue.PromoCD = PromoCD;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).UpdatePromotionsAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.UpdateUserParentResponse Billing.Vasc.SubscriberManagementSoap.UpdateUserParent(Billing.Vasc.UpdateUserParentRequest request) {
-            return base.Channel.UpdateUserParent(request);
+        Billing.Vasc.ChangeID_STBDiscountResponse Billing.Vasc.SubscriberManagementSoap.ChangeID_STBDiscount(Billing.Vasc.ChangeID_STBDiscountRequest request) {
+            return base.Channel.ChangeID_STBDiscount(request);
         }
         
-        public Billing.Vasc.ChangeSubscriberVO UpdateUserParent(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.UpdateUserParentReq objRequest) {
-            Billing.Vasc.UpdateUserParentRequest inValue = new Billing.Vasc.UpdateUserParentRequest();
+        public Billing.Vasc.ChangeSubscriberVO ChangeID_STBDiscount(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string sID_STB_Discount) {
+            Billing.Vasc.ChangeID_STBDiscountRequest inValue = new Billing.Vasc.ChangeID_STBDiscountRequest();
             inValue.AuthHeader = AuthHeader;
-            inValue.objRequest = objRequest;
-            Billing.Vasc.UpdateUserParentResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).UpdateUserParent(inValue);
-            return retVal.UpdateUserParentResult;
+            inValue.IPTVACCOUNT = IPTVACCOUNT;
+            inValue.sID_STB_Discount = sID_STB_Discount;
+            Billing.Vasc.ChangeID_STBDiscountResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeID_STBDiscount(inValue);
+            return retVal.ChangeID_STBDiscountResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.UpdateUserParentResponse> Billing.Vasc.SubscriberManagementSoap.UpdateUserParentAsync(Billing.Vasc.UpdateUserParentRequest request) {
-            return base.Channel.UpdateUserParentAsync(request);
+        System.Threading.Tasks.Task<Billing.Vasc.ChangeID_STBDiscountResponse> Billing.Vasc.SubscriberManagementSoap.ChangeID_STBDiscountAsync(Billing.Vasc.ChangeID_STBDiscountRequest request) {
+            return base.Channel.ChangeID_STBDiscountAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Billing.Vasc.UpdateUserParentResponse> UpdateUserParentAsync(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.UpdateUserParentReq objRequest) {
-            Billing.Vasc.UpdateUserParentRequest inValue = new Billing.Vasc.UpdateUserParentRequest();
+        public System.Threading.Tasks.Task<Billing.Vasc.ChangeID_STBDiscountResponse> ChangeID_STBDiscountAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string sID_STB_Discount) {
+            Billing.Vasc.ChangeID_STBDiscountRequest inValue = new Billing.Vasc.ChangeID_STBDiscountRequest();
             inValue.AuthHeader = AuthHeader;
-            inValue.objRequest = objRequest;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).UpdateUserParentAsync(inValue);
+            inValue.IPTVACCOUNT = IPTVACCOUNT;
+            inValue.sID_STB_Discount = sID_STB_Discount;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeID_STBDiscountAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.GetUserParentResponse Billing.Vasc.SubscriberManagementSoap.GetUserParent(Billing.Vasc.GetUserParentRequest request) {
-            return base.Channel.GetUserParent(request);
+        Billing.Vasc.ChangeFiberCDResponse Billing.Vasc.SubscriberManagementSoap.ChangeFiberCD(Billing.Vasc.ChangeFiberCDRequest request) {
+            return base.Channel.ChangeFiberCD(request);
         }
         
-        public Billing.Vasc.GetListSubscriberVO GetUserParent(Billing.Vasc.AuthHeader AuthHeader, string iptvAccount) {
-            Billing.Vasc.GetUserParentRequest inValue = new Billing.Vasc.GetUserParentRequest();
+        public Billing.Vasc.ChangeSubscriberVO ChangeFiberCD(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string sFiberCD) {
+            Billing.Vasc.ChangeFiberCDRequest inValue = new Billing.Vasc.ChangeFiberCDRequest();
             inValue.AuthHeader = AuthHeader;
-            inValue.iptvAccount = iptvAccount;
-            Billing.Vasc.GetUserParentResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).GetUserParent(inValue);
-            return retVal.GetUserParentResult;
+            inValue.IPTVACCOUNT = IPTVACCOUNT;
+            inValue.sFiberCD = sFiberCD;
+            Billing.Vasc.ChangeFiberCDResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeFiberCD(inValue);
+            return retVal.ChangeFiberCDResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.GetUserParentResponse> Billing.Vasc.SubscriberManagementSoap.GetUserParentAsync(Billing.Vasc.GetUserParentRequest request) {
-            return base.Channel.GetUserParentAsync(request);
+        System.Threading.Tasks.Task<Billing.Vasc.ChangeFiberCDResponse> Billing.Vasc.SubscriberManagementSoap.ChangeFiberCDAsync(Billing.Vasc.ChangeFiberCDRequest request) {
+            return base.Channel.ChangeFiberCDAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Billing.Vasc.GetUserParentResponse> GetUserParentAsync(Billing.Vasc.AuthHeader AuthHeader, string iptvAccount) {
-            Billing.Vasc.GetUserParentRequest inValue = new Billing.Vasc.GetUserParentRequest();
+        public System.Threading.Tasks.Task<Billing.Vasc.ChangeFiberCDResponse> ChangeFiberCDAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string sFiberCD) {
+            Billing.Vasc.ChangeFiberCDRequest inValue = new Billing.Vasc.ChangeFiberCDRequest();
             inValue.AuthHeader = AuthHeader;
-            inValue.iptvAccount = iptvAccount;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).GetUserParentAsync(inValue);
+            inValue.IPTVACCOUNT = IPTVACCOUNT;
+            inValue.sFiberCD = sFiberCD;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeFiberCDAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.BlockPayTVResponse Billing.Vasc.SubscriberManagementSoap.BlockPayTV(Billing.Vasc.BlockPayTVRequest1 request) {
-            return base.Channel.BlockPayTV(request);
+        Billing.Vasc.ChangePromotionsResponse Billing.Vasc.SubscriberManagementSoap.ChangePromotions(Billing.Vasc.ChangePromotionsRequest request) {
+            return base.Channel.ChangePromotions(request);
         }
         
-        public Billing.Vasc.BlockPayTVResp BlockPayTV(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.BlockPayTVRequest objRequest) {
-            Billing.Vasc.BlockPayTVRequest1 inValue = new Billing.Vasc.BlockPayTVRequest1();
+        public Billing.Vasc.ChangePromotionsVO ChangePromotions(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string sPromo_ID) {
+            Billing.Vasc.ChangePromotionsRequest inValue = new Billing.Vasc.ChangePromotionsRequest();
             inValue.AuthHeader = AuthHeader;
-            inValue.objRequest = objRequest;
-            Billing.Vasc.BlockPayTVResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).BlockPayTV(inValue);
-            return retVal.BlockPayTVResult;
+            inValue.IPTVACCOUNT = IPTVACCOUNT;
+            inValue.sPromo_ID = sPromo_ID;
+            Billing.Vasc.ChangePromotionsResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangePromotions(inValue);
+            return retVal.ChangePromotionsResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.BlockPayTVResponse> Billing.Vasc.SubscriberManagementSoap.BlockPayTVAsync(Billing.Vasc.BlockPayTVRequest1 request) {
-            return base.Channel.BlockPayTVAsync(request);
+        System.Threading.Tasks.Task<Billing.Vasc.ChangePromotionsResponse> Billing.Vasc.SubscriberManagementSoap.ChangePromotionsAsync(Billing.Vasc.ChangePromotionsRequest request) {
+            return base.Channel.ChangePromotionsAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Billing.Vasc.BlockPayTVResponse> BlockPayTVAsync(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.BlockPayTVRequest objRequest) {
-            Billing.Vasc.BlockPayTVRequest1 inValue = new Billing.Vasc.BlockPayTVRequest1();
+        public System.Threading.Tasks.Task<Billing.Vasc.ChangePromotionsResponse> ChangePromotionsAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string sPromo_ID) {
+            Billing.Vasc.ChangePromotionsRequest inValue = new Billing.Vasc.ChangePromotionsRequest();
             inValue.AuthHeader = AuthHeader;
-            inValue.objRequest = objRequest;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).BlockPayTVAsync(inValue);
+            inValue.IPTVACCOUNT = IPTVACCOUNT;
+            inValue.sPromo_ID = sPromo_ID;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangePromotionsAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.GetHisPayTVResponse Billing.Vasc.SubscriberManagementSoap.GetHisPayTV(Billing.Vasc.GetHisPayTVRequest request) {
-            return base.Channel.GetHisPayTV(request);
+        Billing.Vasc.ChangePromotionsV2Response Billing.Vasc.SubscriberManagementSoap.ChangePromotionsV2(Billing.Vasc.ChangePromotionsV2Request request) {
+            return base.Channel.ChangePromotionsV2(request);
         }
         
-        public Billing.Vasc.GetHisPayTVResp GetHisPayTV(Billing.Vasc.AuthHeader AuthHeader, string strMyTV) {
-            Billing.Vasc.GetHisPayTVRequest inValue = new Billing.Vasc.GetHisPayTVRequest();
+        public Billing.Vasc.ChangePromotionsVO ChangePromotionsV2(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string sPromo_ID, string option) {
+            Billing.Vasc.ChangePromotionsV2Request inValue = new Billing.Vasc.ChangePromotionsV2Request();
             inValue.AuthHeader = AuthHeader;
-            inValue.strMyTV = strMyTV;
-            Billing.Vasc.GetHisPayTVResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).GetHisPayTV(inValue);
-            return retVal.GetHisPayTVResult;
+            inValue.IPTVACCOUNT = IPTVACCOUNT;
+            inValue.sPromo_ID = sPromo_ID;
+            inValue.option = option;
+            Billing.Vasc.ChangePromotionsV2Response retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangePromotionsV2(inValue);
+            return retVal.ChangePromotionsV2Result;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.GetHisPayTVResponse> Billing.Vasc.SubscriberManagementSoap.GetHisPayTVAsync(Billing.Vasc.GetHisPayTVRequest request) {
-            return base.Channel.GetHisPayTVAsync(request);
+        System.Threading.Tasks.Task<Billing.Vasc.ChangePromotionsV2Response> Billing.Vasc.SubscriberManagementSoap.ChangePromotionsV2Async(Billing.Vasc.ChangePromotionsV2Request request) {
+            return base.Channel.ChangePromotionsV2Async(request);
         }
         
-        public System.Threading.Tasks.Task<Billing.Vasc.GetHisPayTVResponse> GetHisPayTVAsync(Billing.Vasc.AuthHeader AuthHeader, string strMyTV) {
-            Billing.Vasc.GetHisPayTVRequest inValue = new Billing.Vasc.GetHisPayTVRequest();
+        public System.Threading.Tasks.Task<Billing.Vasc.ChangePromotionsV2Response> ChangePromotionsV2Async(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string sPromo_ID, string option) {
+            Billing.Vasc.ChangePromotionsV2Request inValue = new Billing.Vasc.ChangePromotionsV2Request();
             inValue.AuthHeader = AuthHeader;
-            inValue.strMyTV = strMyTV;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).GetHisPayTVAsync(inValue);
+            inValue.IPTVACCOUNT = IPTVACCOUNT;
+            inValue.sPromo_ID = sPromo_ID;
+            inValue.option = option;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangePromotionsV2Async(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.GetHisSubscriberChangeSTBResponse Billing.Vasc.SubscriberManagementSoap.GetHisSubscriberChangeSTB(Billing.Vasc.GetHisSubscriberChangeSTBRequest request) {
-            return base.Channel.GetHisSubscriberChangeSTB(request);
+        Billing.Vasc.UpdatePrepaidResponse Billing.Vasc.SubscriberManagementSoap.UpdatePrepaid(Billing.Vasc.UpdatePrepaidRequest request) {
+            return base.Channel.UpdatePrepaid(request);
         }
         
-        public Billing.Vasc.GetSTBHistoryInfoVO GetHisSubscriberChangeSTB(Billing.Vasc.AuthHeader AuthHeader, string strMyTV) {
-            Billing.Vasc.GetHisSubscriberChangeSTBRequest inValue = new Billing.Vasc.GetHisSubscriberChangeSTBRequest();
+        public Billing.Vasc.ChangeSubscriberVO UpdatePrepaid(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, int iNo_Month) {
+            Billing.Vasc.UpdatePrepaidRequest inValue = new Billing.Vasc.UpdatePrepaidRequest();
             inValue.AuthHeader = AuthHeader;
-            inValue.strMyTV = strMyTV;
-            Billing.Vasc.GetHisSubscriberChangeSTBResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).GetHisSubscriberChangeSTB(inValue);
-            return retVal.GetHisSubscriberChangeSTBResult;
+            inValue.MyTVAccount = MyTVAccount;
+            inValue.iNo_Month = iNo_Month;
+            Billing.Vasc.UpdatePrepaidResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).UpdatePrepaid(inValue);
+            return retVal.UpdatePrepaidResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.GetHisSubscriberChangeSTBResponse> Billing.Vasc.SubscriberManagementSoap.GetHisSubscriberChangeSTBAsync(Billing.Vasc.GetHisSubscriberChangeSTBRequest request) {
-            return base.Channel.GetHisSubscriberChangeSTBAsync(request);
+        System.Threading.Tasks.Task<Billing.Vasc.UpdatePrepaidResponse> Billing.Vasc.SubscriberManagementSoap.UpdatePrepaidAsync(Billing.Vasc.UpdatePrepaidRequest request) {
+            return base.Channel.UpdatePrepaidAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Billing.Vasc.GetHisSubscriberChangeSTBResponse> GetHisSubscriberChangeSTBAsync(Billing.Vasc.AuthHeader AuthHeader, string strMyTV) {
-            Billing.Vasc.GetHisSubscriberChangeSTBRequest inValue = new Billing.Vasc.GetHisSubscriberChangeSTBRequest();
+        public System.Threading.Tasks.Task<Billing.Vasc.UpdatePrepaidResponse> UpdatePrepaidAsync(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, int iNo_Month) {
+            Billing.Vasc.UpdatePrepaidRequest inValue = new Billing.Vasc.UpdatePrepaidRequest();
             inValue.AuthHeader = AuthHeader;
-            inValue.strMyTV = strMyTV;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).GetHisSubscriberChangeSTBAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.GetHistorySTBResponse Billing.Vasc.SubscriberManagementSoap.GetHistorySTB(Billing.Vasc.GetHistorySTBRequest request) {
-            return base.Channel.GetHistorySTB(request);
-        }
-        
-        public Billing.Vasc.GetSTBHistoryInfoVO GetHistorySTB(Billing.Vasc.AuthHeader AuthHeader, string stbid) {
-            Billing.Vasc.GetHistorySTBRequest inValue = new Billing.Vasc.GetHistorySTBRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.stbid = stbid;
-            Billing.Vasc.GetHistorySTBResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).GetHistorySTB(inValue);
-            return retVal.GetHistorySTBResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.GetHistorySTBResponse> Billing.Vasc.SubscriberManagementSoap.GetHistorySTBAsync(Billing.Vasc.GetHistorySTBRequest request) {
-            return base.Channel.GetHistorySTBAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.GetHistorySTBResponse> GetHistorySTBAsync(Billing.Vasc.AuthHeader AuthHeader, string stbid) {
-            Billing.Vasc.GetHistorySTBRequest inValue = new Billing.Vasc.GetHistorySTBRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.stbid = stbid;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).GetHistorySTBAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.GetSTBInforResponse Billing.Vasc.SubscriberManagementSoap.GetSTBInfor(Billing.Vasc.GetSTBInforRequest request) {
-            return base.Channel.GetSTBInfor(request);
-        }
-        
-        public Billing.Vasc.StbInfoVO GetSTBInfor(Billing.Vasc.AuthHeader AuthHeader, string stbid) {
-            Billing.Vasc.GetSTBInforRequest inValue = new Billing.Vasc.GetSTBInforRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.stbid = stbid;
-            Billing.Vasc.GetSTBInforResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).GetSTBInfor(inValue);
-            return retVal.GetSTBInforResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.GetSTBInforResponse> Billing.Vasc.SubscriberManagementSoap.GetSTBInforAsync(Billing.Vasc.GetSTBInforRequest request) {
-            return base.Channel.GetSTBInforAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.GetSTBInforResponse> GetSTBInforAsync(Billing.Vasc.AuthHeader AuthHeader, string stbid) {
-            Billing.Vasc.GetSTBInforRequest inValue = new Billing.Vasc.GetSTBInforRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.stbid = stbid;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).GetSTBInforAsync(inValue);
+            inValue.MyTVAccount = MyTVAccount;
+            inValue.iNo_Month = iNo_Month;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).UpdatePrepaidAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -16390,170 +18281,6 @@ namespace Billing.Vasc {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.UpdatePromotionsResponse Billing.Vasc.SubscriberManagementSoap.UpdatePromotions(Billing.Vasc.UpdatePromotionsRequest request) {
-            return base.Channel.UpdatePromotions(request);
-        }
-        
-        public Billing.Vasc.UpdatePromoVO UpdatePromotions(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string PromoCD) {
-            Billing.Vasc.UpdatePromotionsRequest inValue = new Billing.Vasc.UpdatePromotionsRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVACCOUNT = IPTVACCOUNT;
-            inValue.PromoCD = PromoCD;
-            Billing.Vasc.UpdatePromotionsResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).UpdatePromotions(inValue);
-            return retVal.UpdatePromotionsResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.UpdatePromotionsResponse> Billing.Vasc.SubscriberManagementSoap.UpdatePromotionsAsync(Billing.Vasc.UpdatePromotionsRequest request) {
-            return base.Channel.UpdatePromotionsAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.UpdatePromotionsResponse> UpdatePromotionsAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string PromoCD) {
-            Billing.Vasc.UpdatePromotionsRequest inValue = new Billing.Vasc.UpdatePromotionsRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVACCOUNT = IPTVACCOUNT;
-            inValue.PromoCD = PromoCD;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).UpdatePromotionsAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.SuspendSubscriberResponse Billing.Vasc.SubscriberManagementSoap.SuspendSubscriber(Billing.Vasc.SuspendSubscriberRequest request) {
-            return base.Channel.SuspendSubscriber(request);
-        }
-        
-        public Billing.Vasc.SuspendSubscriberVO SuspendSubscriber(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Reason, string Operator) {
-            Billing.Vasc.SuspendSubscriberRequest inValue = new Billing.Vasc.SuspendSubscriberRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVAccount = IPTVAccount;
-            inValue.Reason = Reason;
-            inValue.Operator = Operator;
-            Billing.Vasc.SuspendSubscriberResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).SuspendSubscriber(inValue);
-            return retVal.SuspendSubscriberResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.SuspendSubscriberResponse> Billing.Vasc.SubscriberManagementSoap.SuspendSubscriberAsync(Billing.Vasc.SuspendSubscriberRequest request) {
-            return base.Channel.SuspendSubscriberAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.SuspendSubscriberResponse> SuspendSubscriberAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Reason, string Operator) {
-            Billing.Vasc.SuspendSubscriberRequest inValue = new Billing.Vasc.SuspendSubscriberRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVAccount = IPTVAccount;
-            inValue.Reason = Reason;
-            inValue.Operator = Operator;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).SuspendSubscriberAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.SuspendSubscriberV2Response Billing.Vasc.SubscriberManagementSoap.SuspendSubscriberV2(Billing.Vasc.SuspendSubscriberV2Request request) {
-            return base.Channel.SuspendSubscriberV2(request);
-        }
-        
-        public Billing.Vasc.SuspendSubscriberVO SuspendSubscriberV2(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, int ReasonID) {
-            Billing.Vasc.SuspendSubscriberV2Request inValue = new Billing.Vasc.SuspendSubscriberV2Request();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVAccount = IPTVAccount;
-            inValue.ReasonID = ReasonID;
-            Billing.Vasc.SuspendSubscriberV2Response retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).SuspendSubscriberV2(inValue);
-            return retVal.SuspendSubscriberV2Result;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.SuspendSubscriberV2Response> Billing.Vasc.SubscriberManagementSoap.SuspendSubscriberV2Async(Billing.Vasc.SuspendSubscriberV2Request request) {
-            return base.Channel.SuspendSubscriberV2Async(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.SuspendSubscriberV2Response> SuspendSubscriberV2Async(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, int ReasonID) {
-            Billing.Vasc.SuspendSubscriberV2Request inValue = new Billing.Vasc.SuspendSubscriberV2Request();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVAccount = IPTVAccount;
-            inValue.ReasonID = ReasonID;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).SuspendSubscriberV2Async(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.ResumeSubscriberResponse Billing.Vasc.SubscriberManagementSoap.ResumeSubscriber(Billing.Vasc.ResumeSubscriberRequest request) {
-            return base.Channel.ResumeSubscriber(request);
-        }
-        
-        public Billing.Vasc.ResumeSubscriberVO ResumeSubscriber(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Reason) {
-            Billing.Vasc.ResumeSubscriberRequest inValue = new Billing.Vasc.ResumeSubscriberRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVAccount = IPTVAccount;
-            inValue.Reason = Reason;
-            Billing.Vasc.ResumeSubscriberResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ResumeSubscriber(inValue);
-            return retVal.ResumeSubscriberResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.ResumeSubscriberResponse> Billing.Vasc.SubscriberManagementSoap.ResumeSubscriberAsync(Billing.Vasc.ResumeSubscriberRequest request) {
-            return base.Channel.ResumeSubscriberAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.ResumeSubscriberResponse> ResumeSubscriberAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Reason) {
-            Billing.Vasc.ResumeSubscriberRequest inValue = new Billing.Vasc.ResumeSubscriberRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVAccount = IPTVAccount;
-            inValue.Reason = Reason;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ResumeSubscriberAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.CancelSubscriberResponse Billing.Vasc.SubscriberManagementSoap.CancelSubscriber(Billing.Vasc.CancelSubscriberRequest request) {
-            return base.Channel.CancelSubscriber(request);
-        }
-        
-        public Billing.Vasc.CancelSubscriberVO CancelSubscriber(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Reason) {
-            Billing.Vasc.CancelSubscriberRequest inValue = new Billing.Vasc.CancelSubscriberRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVAccount = IPTVAccount;
-            inValue.Reason = Reason;
-            Billing.Vasc.CancelSubscriberResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).CancelSubscriber(inValue);
-            return retVal.CancelSubscriberResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.CancelSubscriberResponse> Billing.Vasc.SubscriberManagementSoap.CancelSubscriberAsync(Billing.Vasc.CancelSubscriberRequest request) {
-            return base.Channel.CancelSubscriberAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.CancelSubscriberResponse> CancelSubscriberAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Reason) {
-            Billing.Vasc.CancelSubscriberRequest inValue = new Billing.Vasc.CancelSubscriberRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVAccount = IPTVAccount;
-            inValue.Reason = Reason;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).CancelSubscriberAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.CancelSubscriberV2Response Billing.Vasc.SubscriberManagementSoap.CancelSubscriberV2(Billing.Vasc.CancelSubscriberV2Request request) {
-            return base.Channel.CancelSubscriberV2(request);
-        }
-        
-        public Billing.Vasc.CancelSubscriberVO CancelSubscriberV2(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, int ReasonID) {
-            Billing.Vasc.CancelSubscriberV2Request inValue = new Billing.Vasc.CancelSubscriberV2Request();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVAccount = IPTVAccount;
-            inValue.ReasonID = ReasonID;
-            Billing.Vasc.CancelSubscriberV2Response retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).CancelSubscriberV2(inValue);
-            return retVal.CancelSubscriberV2Result;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.CancelSubscriberV2Response> Billing.Vasc.SubscriberManagementSoap.CancelSubscriberV2Async(Billing.Vasc.CancelSubscriberV2Request request) {
-            return base.Channel.CancelSubscriberV2Async(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.CancelSubscriberV2Response> CancelSubscriberV2Async(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, int ReasonID) {
-            Billing.Vasc.CancelSubscriberV2Request inValue = new Billing.Vasc.CancelSubscriberV2Request();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVAccount = IPTVAccount;
-            inValue.ReasonID = ReasonID;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).CancelSubscriberV2Async(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         Billing.Vasc.ChangeSubscriberV3Response Billing.Vasc.SubscriberManagementSoap.ChangeSubscriberV3(Billing.Vasc.ChangeSubscriberV3Request request) {
             return base.Channel.ChangeSubscriberV3(request);
         }
@@ -16657,175 +18384,315 @@ namespace Billing.Vasc {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.ChangePackageResponse Billing.Vasc.SubscriberManagementSoap.ChangePackage(Billing.Vasc.ChangePackageRequest1 request) {
-            return base.Channel.ChangePackage(request);
+        Billing.Vasc.SuspendSubscriberResponse Billing.Vasc.SubscriberManagementSoap.SuspendSubscriber(Billing.Vasc.SuspendSubscriberRequest request) {
+            return base.Channel.SuspendSubscriber(request);
         }
         
-        public Billing.Vasc.ChangePackageVO ChangePackage(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string PackageNo, string ServiceCD, string ServiceVAS, string Reason) {
-            Billing.Vasc.ChangePackageRequest1 inValue = new Billing.Vasc.ChangePackageRequest1();
+        public Billing.Vasc.SuspendSubscriberVO SuspendSubscriber(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Reason, string Operator) {
+            Billing.Vasc.SuspendSubscriberRequest inValue = new Billing.Vasc.SuspendSubscriberRequest();
             inValue.AuthHeader = AuthHeader;
             inValue.IPTVAccount = IPTVAccount;
-            inValue.PackageNo = PackageNo;
-            inValue.ServiceCD = ServiceCD;
-            inValue.ServiceVAS = ServiceVAS;
             inValue.Reason = Reason;
-            Billing.Vasc.ChangePackageResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangePackage(inValue);
-            return retVal.ChangePackageResult;
+            inValue.Operator = Operator;
+            Billing.Vasc.SuspendSubscriberResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).SuspendSubscriber(inValue);
+            return retVal.SuspendSubscriberResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangePackageResponse> Billing.Vasc.SubscriberManagementSoap.ChangePackageAsync(Billing.Vasc.ChangePackageRequest1 request) {
-            return base.Channel.ChangePackageAsync(request);
+        System.Threading.Tasks.Task<Billing.Vasc.SuspendSubscriberResponse> Billing.Vasc.SubscriberManagementSoap.SuspendSubscriberAsync(Billing.Vasc.SuspendSubscriberRequest request) {
+            return base.Channel.SuspendSubscriberAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Billing.Vasc.ChangePackageResponse> ChangePackageAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string PackageNo, string ServiceCD, string ServiceVAS, string Reason) {
-            Billing.Vasc.ChangePackageRequest1 inValue = new Billing.Vasc.ChangePackageRequest1();
+        public System.Threading.Tasks.Task<Billing.Vasc.SuspendSubscriberResponse> SuspendSubscriberAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Reason, string Operator) {
+            Billing.Vasc.SuspendSubscriberRequest inValue = new Billing.Vasc.SuspendSubscriberRequest();
             inValue.AuthHeader = AuthHeader;
             inValue.IPTVAccount = IPTVAccount;
-            inValue.PackageNo = PackageNo;
-            inValue.ServiceCD = ServiceCD;
-            inValue.ServiceVAS = ServiceVAS;
             inValue.Reason = Reason;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangePackageAsync(inValue);
+            inValue.Operator = Operator;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).SuspendSubscriberAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.ChangePackageAndMegaVNNResponse Billing.Vasc.SubscriberManagementSoap.ChangePackageAndMegaVNN(Billing.Vasc.ChangePackageAndMegaVNNRequest1 request) {
-            return base.Channel.ChangePackageAndMegaVNN(request);
+        Billing.Vasc.SuspendSubscriberV2Response Billing.Vasc.SubscriberManagementSoap.SuspendSubscriberV2(Billing.Vasc.SuspendSubscriberV2Request request) {
+            return base.Channel.SuspendSubscriberV2(request);
         }
         
-        public Billing.Vasc.ChangePackageVO ChangePackageAndMegaVNN(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string PackageNo, string ServiceCD, string ServiceVAS, string Reason, string MegaMyTV) {
-            Billing.Vasc.ChangePackageAndMegaVNNRequest1 inValue = new Billing.Vasc.ChangePackageAndMegaVNNRequest1();
+        public Billing.Vasc.SuspendSubscriberVO SuspendSubscriberV2(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, int ReasonID) {
+            Billing.Vasc.SuspendSubscriberV2Request inValue = new Billing.Vasc.SuspendSubscriberV2Request();
             inValue.AuthHeader = AuthHeader;
             inValue.IPTVAccount = IPTVAccount;
-            inValue.PackageNo = PackageNo;
-            inValue.ServiceCD = ServiceCD;
-            inValue.ServiceVAS = ServiceVAS;
-            inValue.Reason = Reason;
-            inValue.MegaMyTV = MegaMyTV;
-            Billing.Vasc.ChangePackageAndMegaVNNResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangePackageAndMegaVNN(inValue);
-            return retVal.ChangePackageAndMegaVNNResult;
+            inValue.ReasonID = ReasonID;
+            Billing.Vasc.SuspendSubscriberV2Response retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).SuspendSubscriberV2(inValue);
+            return retVal.SuspendSubscriberV2Result;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangePackageAndMegaVNNResponse> Billing.Vasc.SubscriberManagementSoap.ChangePackageAndMegaVNNAsync(Billing.Vasc.ChangePackageAndMegaVNNRequest1 request) {
-            return base.Channel.ChangePackageAndMegaVNNAsync(request);
+        System.Threading.Tasks.Task<Billing.Vasc.SuspendSubscriberV2Response> Billing.Vasc.SubscriberManagementSoap.SuspendSubscriberV2Async(Billing.Vasc.SuspendSubscriberV2Request request) {
+            return base.Channel.SuspendSubscriberV2Async(request);
         }
         
-        public System.Threading.Tasks.Task<Billing.Vasc.ChangePackageAndMegaVNNResponse> ChangePackageAndMegaVNNAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string PackageNo, string ServiceCD, string ServiceVAS, string Reason, string MegaMyTV) {
-            Billing.Vasc.ChangePackageAndMegaVNNRequest1 inValue = new Billing.Vasc.ChangePackageAndMegaVNNRequest1();
+        public System.Threading.Tasks.Task<Billing.Vasc.SuspendSubscriberV2Response> SuspendSubscriberV2Async(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, int ReasonID) {
+            Billing.Vasc.SuspendSubscriberV2Request inValue = new Billing.Vasc.SuspendSubscriberV2Request();
             inValue.AuthHeader = AuthHeader;
             inValue.IPTVAccount = IPTVAccount;
-            inValue.PackageNo = PackageNo;
-            inValue.ServiceCD = ServiceCD;
-            inValue.ServiceVAS = ServiceVAS;
-            inValue.Reason = Reason;
-            inValue.MegaMyTV = MegaMyTV;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangePackageAndMegaVNNAsync(inValue);
+            inValue.ReasonID = ReasonID;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).SuspendSubscriberV2Async(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.ChangePackageAndMegaVNN_TitanSportHome1 Billing.Vasc.SubscriberManagementSoap.ChangePackageAndMegaVNNV3(Billing.Vasc.ChangePackageAndMegaVNN_TitanSportHome request) {
-            return base.Channel.ChangePackageAndMegaVNNV3(request);
+        Billing.Vasc.CancelSubscriberResponse Billing.Vasc.SubscriberManagementSoap.CancelSubscriber(Billing.Vasc.CancelSubscriberRequest request) {
+            return base.Channel.CancelSubscriber(request);
         }
         
-        public Billing.Vasc.ChangePackageVO ChangePackageAndMegaVNNV3(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.ChangePackageAndMegaVNNRequest objRequest) {
-            Billing.Vasc.ChangePackageAndMegaVNN_TitanSportHome inValue = new Billing.Vasc.ChangePackageAndMegaVNN_TitanSportHome();
+        public Billing.Vasc.CancelSubscriberVO CancelSubscriber(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Reason) {
+            Billing.Vasc.CancelSubscriberRequest inValue = new Billing.Vasc.CancelSubscriberRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVAccount = IPTVAccount;
+            inValue.Reason = Reason;
+            Billing.Vasc.CancelSubscriberResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).CancelSubscriber(inValue);
+            return retVal.CancelSubscriberResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.CancelSubscriberResponse> Billing.Vasc.SubscriberManagementSoap.CancelSubscriberAsync(Billing.Vasc.CancelSubscriberRequest request) {
+            return base.Channel.CancelSubscriberAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.CancelSubscriberResponse> CancelSubscriberAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Reason) {
+            Billing.Vasc.CancelSubscriberRequest inValue = new Billing.Vasc.CancelSubscriberRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVAccount = IPTVAccount;
+            inValue.Reason = Reason;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).CancelSubscriberAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.CancelSubscriberV2Response Billing.Vasc.SubscriberManagementSoap.CancelSubscriberV2(Billing.Vasc.CancelSubscriberV2Request request) {
+            return base.Channel.CancelSubscriberV2(request);
+        }
+        
+        public Billing.Vasc.CancelSubscriberVO CancelSubscriberV2(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, int ReasonID) {
+            Billing.Vasc.CancelSubscriberV2Request inValue = new Billing.Vasc.CancelSubscriberV2Request();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVAccount = IPTVAccount;
+            inValue.ReasonID = ReasonID;
+            Billing.Vasc.CancelSubscriberV2Response retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).CancelSubscriberV2(inValue);
+            return retVal.CancelSubscriberV2Result;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.CancelSubscriberV2Response> Billing.Vasc.SubscriberManagementSoap.CancelSubscriberV2Async(Billing.Vasc.CancelSubscriberV2Request request) {
+            return base.Channel.CancelSubscriberV2Async(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.CancelSubscriberV2Response> CancelSubscriberV2Async(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, int ReasonID) {
+            Billing.Vasc.CancelSubscriberV2Request inValue = new Billing.Vasc.CancelSubscriberV2Request();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVAccount = IPTVAccount;
+            inValue.ReasonID = ReasonID;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).CancelSubscriberV2Async(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.ResumeSubscriberResponse Billing.Vasc.SubscriberManagementSoap.ResumeSubscriber(Billing.Vasc.ResumeSubscriberRequest request) {
+            return base.Channel.ResumeSubscriber(request);
+        }
+        
+        public Billing.Vasc.ResumeSubscriberVO ResumeSubscriber(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Reason) {
+            Billing.Vasc.ResumeSubscriberRequest inValue = new Billing.Vasc.ResumeSubscriberRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVAccount = IPTVAccount;
+            inValue.Reason = Reason;
+            Billing.Vasc.ResumeSubscriberResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ResumeSubscriber(inValue);
+            return retVal.ResumeSubscriberResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.ResumeSubscriberResponse> Billing.Vasc.SubscriberManagementSoap.ResumeSubscriberAsync(Billing.Vasc.ResumeSubscriberRequest request) {
+            return base.Channel.ResumeSubscriberAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.ResumeSubscriberResponse> ResumeSubscriberAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Reason) {
+            Billing.Vasc.ResumeSubscriberRequest inValue = new Billing.Vasc.ResumeSubscriberRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVAccount = IPTVAccount;
+            inValue.Reason = Reason;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ResumeSubscriberAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.GetSubscriberInfoResponse Billing.Vasc.SubscriberManagementSoap.GetSubscriberInfo(Billing.Vasc.GetSubscriberInfoRequest request) {
+            return base.Channel.GetSubscriberInfo(request);
+        }
+        
+        public Billing.Vasc.GetSubscriberInfoVO GetSubscriberInfo(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount) {
+            Billing.Vasc.GetSubscriberInfoRequest inValue = new Billing.Vasc.GetSubscriberInfoRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVAccount = IPTVAccount;
+            Billing.Vasc.GetSubscriberInfoResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).GetSubscriberInfo(inValue);
+            return retVal.GetSubscriberInfoResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.GetSubscriberInfoResponse> Billing.Vasc.SubscriberManagementSoap.GetSubscriberInfoAsync(Billing.Vasc.GetSubscriberInfoRequest request) {
+            return base.Channel.GetSubscriberInfoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.GetSubscriberInfoResponse> GetSubscriberInfoAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount) {
+            Billing.Vasc.GetSubscriberInfoRequest inValue = new Billing.Vasc.GetSubscriberInfoRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVAccount = IPTVAccount;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).GetSubscriberInfoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.GetSubscriberInfoV2Response Billing.Vasc.SubscriberManagementSoap.GetSubscriberInfoV2(Billing.Vasc.GetSubscriberInfoV2Request request) {
+            return base.Channel.GetSubscriberInfoV2(request);
+        }
+        
+        public Billing.Vasc.GetSubscriberVO GetSubscriberInfoV2(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.GetSubscriberRequest objRequest) {
+            Billing.Vasc.GetSubscriberInfoV2Request inValue = new Billing.Vasc.GetSubscriberInfoV2Request();
             inValue.AuthHeader = AuthHeader;
             inValue.objRequest = objRequest;
-            Billing.Vasc.ChangePackageAndMegaVNN_TitanSportHome1 retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangePackageAndMegaVNNV3(inValue);
-            return retVal.ChangePackageAndMegaVNN_TitanSportHomeResult;
+            Billing.Vasc.GetSubscriberInfoV2Response retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).GetSubscriberInfoV2(inValue);
+            return retVal.GetSubscriberInfoV2Result;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangePackageAndMegaVNN_TitanSportHome1> Billing.Vasc.SubscriberManagementSoap.ChangePackageAndMegaVNNV3Async(Billing.Vasc.ChangePackageAndMegaVNN_TitanSportHome request) {
-            return base.Channel.ChangePackageAndMegaVNNV3Async(request);
+        System.Threading.Tasks.Task<Billing.Vasc.GetSubscriberInfoV2Response> Billing.Vasc.SubscriberManagementSoap.GetSubscriberInfoV2Async(Billing.Vasc.GetSubscriberInfoV2Request request) {
+            return base.Channel.GetSubscriberInfoV2Async(request);
         }
         
-        public System.Threading.Tasks.Task<Billing.Vasc.ChangePackageAndMegaVNN_TitanSportHome1> ChangePackageAndMegaVNNV3Async(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.ChangePackageAndMegaVNNRequest objRequest) {
-            Billing.Vasc.ChangePackageAndMegaVNN_TitanSportHome inValue = new Billing.Vasc.ChangePackageAndMegaVNN_TitanSportHome();
+        public System.Threading.Tasks.Task<Billing.Vasc.GetSubscriberInfoV2Response> GetSubscriberInfoV2Async(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.GetSubscriberRequest objRequest) {
+            Billing.Vasc.GetSubscriberInfoV2Request inValue = new Billing.Vasc.GetSubscriberInfoV2Request();
             inValue.AuthHeader = AuthHeader;
             inValue.objRequest = objRequest;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangePackageAndMegaVNNV3Async(inValue);
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).GetSubscriberInfoV2Async(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.ChangeMegaVNNResponse Billing.Vasc.SubscriberManagementSoap.ChangeMegaVNN(Billing.Vasc.ChangeMegaVNNRequest1 request) {
-            return base.Channel.ChangeMegaVNN(request);
+        Billing.Vasc.GetListSubscriberResponse Billing.Vasc.SubscriberManagementSoap.GetListSubscriber(Billing.Vasc.GetListSubscriberRequest request) {
+            return base.Channel.GetListSubscriber(request);
         }
         
-        public Billing.Vasc.ChangePackageVO ChangeMegaVNN(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string MegaMyTV, string Combo_FiberCD) {
-            Billing.Vasc.ChangeMegaVNNRequest1 inValue = new Billing.Vasc.ChangeMegaVNNRequest1();
+        public Billing.Vasc.GetListSubscriberVO GetListSubscriber(Billing.Vasc.AuthHeader AuthHeader) {
+            Billing.Vasc.GetListSubscriberRequest inValue = new Billing.Vasc.GetListSubscriberRequest();
             inValue.AuthHeader = AuthHeader;
-            inValue.IPTVAccount = IPTVAccount;
-            inValue.MegaMyTV = MegaMyTV;
-            inValue.Combo_FiberCD = Combo_FiberCD;
-            Billing.Vasc.ChangeMegaVNNResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeMegaVNN(inValue);
-            return retVal.ChangeMegaVNNResult;
+            Billing.Vasc.GetListSubscriberResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).GetListSubscriber(inValue);
+            return retVal.GetListSubscriberResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangeMegaVNNResponse> Billing.Vasc.SubscriberManagementSoap.ChangeMegaVNNAsync(Billing.Vasc.ChangeMegaVNNRequest1 request) {
-            return base.Channel.ChangeMegaVNNAsync(request);
+        System.Threading.Tasks.Task<Billing.Vasc.GetListSubscriberResponse> Billing.Vasc.SubscriberManagementSoap.GetListSubscriberAsync(Billing.Vasc.GetListSubscriberRequest request) {
+            return base.Channel.GetListSubscriberAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Billing.Vasc.ChangeMegaVNNResponse> ChangeMegaVNNAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string MegaMyTV, string Combo_FiberCD) {
-            Billing.Vasc.ChangeMegaVNNRequest1 inValue = new Billing.Vasc.ChangeMegaVNNRequest1();
+        public System.Threading.Tasks.Task<Billing.Vasc.GetListSubscriberResponse> GetListSubscriberAsync(Billing.Vasc.AuthHeader AuthHeader) {
+            Billing.Vasc.GetListSubscriberRequest inValue = new Billing.Vasc.GetListSubscriberRequest();
             inValue.AuthHeader = AuthHeader;
-            inValue.IPTVAccount = IPTVAccount;
-            inValue.MegaMyTV = MegaMyTV;
-            inValue.Combo_FiberCD = Combo_FiberCD;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeMegaVNNAsync(inValue);
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).GetListSubscriberAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.ChangeMegaVNNV3Response Billing.Vasc.SubscriberManagementSoap.ChangeMegaVNNV3(Billing.Vasc.ChangeMegaVNNV3Request request) {
-            return base.Channel.ChangeMegaVNNV3(request);
+        Billing.Vasc.ChangeSystemResponse Billing.Vasc.SubscriberManagementSoap.ChangeSystem(Billing.Vasc.ChangeSystemRequest request) {
+            return base.Channel.ChangeSystem(request);
         }
         
-        public Billing.Vasc.ChangePackageVO ChangeMegaVNNV3(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.ChangeMegaVNNRequest objReq) {
-            Billing.Vasc.ChangeMegaVNNV3Request inValue = new Billing.Vasc.ChangeMegaVNNV3Request();
-            inValue.AuthHeader = AuthHeader;
-            inValue.objReq = objReq;
-            Billing.Vasc.ChangeMegaVNNV3Response retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeMegaVNNV3(inValue);
-            return retVal.ChangeMegaVNNV3Result;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangeMegaVNNV3Response> Billing.Vasc.SubscriberManagementSoap.ChangeMegaVNNV3Async(Billing.Vasc.ChangeMegaVNNV3Request request) {
-            return base.Channel.ChangeMegaVNNV3Async(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.ChangeMegaVNNV3Response> ChangeMegaVNNV3Async(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.ChangeMegaVNNRequest objReq) {
-            Billing.Vasc.ChangeMegaVNNV3Request inValue = new Billing.Vasc.ChangeMegaVNNV3Request();
-            inValue.AuthHeader = AuthHeader;
-            inValue.objReq = objReq;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeMegaVNNV3Async(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.ChangePackageV3Response Billing.Vasc.SubscriberManagementSoap.ChangePackageV3(Billing.Vasc.ChangePackageV3Request request) {
-            return base.Channel.ChangePackageV3(request);
-        }
-        
-        public Billing.Vasc.ChangePackageVO ChangePackageV3(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.ChangePackageRequest objRequest) {
-            Billing.Vasc.ChangePackageV3Request inValue = new Billing.Vasc.ChangePackageV3Request();
+        public Billing.Vasc.ChangeSystemResp ChangeSystem(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.ChangeSystemReq objRequest) {
+            Billing.Vasc.ChangeSystemRequest inValue = new Billing.Vasc.ChangeSystemRequest();
             inValue.AuthHeader = AuthHeader;
             inValue.objRequest = objRequest;
-            Billing.Vasc.ChangePackageV3Response retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangePackageV3(inValue);
-            return retVal.ChangePackageV3Result;
+            Billing.Vasc.ChangeSystemResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeSystem(inValue);
+            return retVal.ChangeSystemResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangePackageV3Response> Billing.Vasc.SubscriberManagementSoap.ChangePackageV3Async(Billing.Vasc.ChangePackageV3Request request) {
-            return base.Channel.ChangePackageV3Async(request);
+        System.Threading.Tasks.Task<Billing.Vasc.ChangeSystemResponse> Billing.Vasc.SubscriberManagementSoap.ChangeSystemAsync(Billing.Vasc.ChangeSystemRequest request) {
+            return base.Channel.ChangeSystemAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Billing.Vasc.ChangePackageV3Response> ChangePackageV3Async(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.ChangePackageRequest objRequest) {
-            Billing.Vasc.ChangePackageV3Request inValue = new Billing.Vasc.ChangePackageV3Request();
+        public System.Threading.Tasks.Task<Billing.Vasc.ChangeSystemResponse> ChangeSystemAsync(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.ChangeSystemReq objRequest) {
+            Billing.Vasc.ChangeSystemRequest inValue = new Billing.Vasc.ChangeSystemRequest();
             inValue.AuthHeader = AuthHeader;
             inValue.objRequest = objRequest;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangePackageV3Async(inValue);
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeSystemAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.UpdateUserParentResponse Billing.Vasc.SubscriberManagementSoap.UpdateUserParent(Billing.Vasc.UpdateUserParentRequest request) {
+            return base.Channel.UpdateUserParent(request);
+        }
+        
+        public Billing.Vasc.ChangeSubscriberVO UpdateUserParent(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.UpdateUserParentReq objRequest) {
+            Billing.Vasc.UpdateUserParentRequest inValue = new Billing.Vasc.UpdateUserParentRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.objRequest = objRequest;
+            Billing.Vasc.UpdateUserParentResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).UpdateUserParent(inValue);
+            return retVal.UpdateUserParentResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.UpdateUserParentResponse> Billing.Vasc.SubscriberManagementSoap.UpdateUserParentAsync(Billing.Vasc.UpdateUserParentRequest request) {
+            return base.Channel.UpdateUserParentAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.UpdateUserParentResponse> UpdateUserParentAsync(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.UpdateUserParentReq objRequest) {
+            Billing.Vasc.UpdateUserParentRequest inValue = new Billing.Vasc.UpdateUserParentRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.objRequest = objRequest;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).UpdateUserParentAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.GetUserParentResponse Billing.Vasc.SubscriberManagementSoap.GetUserParent(Billing.Vasc.GetUserParentRequest request) {
+            return base.Channel.GetUserParent(request);
+        }
+        
+        public Billing.Vasc.GetListSubscriberVO GetUserParent(Billing.Vasc.AuthHeader AuthHeader, string iptvAccount) {
+            Billing.Vasc.GetUserParentRequest inValue = new Billing.Vasc.GetUserParentRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.iptvAccount = iptvAccount;
+            Billing.Vasc.GetUserParentResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).GetUserParent(inValue);
+            return retVal.GetUserParentResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.GetUserParentResponse> Billing.Vasc.SubscriberManagementSoap.GetUserParentAsync(Billing.Vasc.GetUserParentRequest request) {
+            return base.Channel.GetUserParentAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.GetUserParentResponse> GetUserParentAsync(Billing.Vasc.AuthHeader AuthHeader, string iptvAccount) {
+            Billing.Vasc.GetUserParentRequest inValue = new Billing.Vasc.GetUserParentRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.iptvAccount = iptvAccount;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).GetUserParentAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.ChangeContractResponse Billing.Vasc.SubscriberManagementSoap.ChangeContract(Billing.Vasc.ChangeContractRequest request) {
+            return base.Channel.ChangeContract(request);
+        }
+        
+        public Billing.Vasc.ChangeContractVO ChangeContract(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string ContractNo) {
+            Billing.Vasc.ChangeContractRequest inValue = new Billing.Vasc.ChangeContractRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVACCOUNT = IPTVACCOUNT;
+            inValue.ContractNo = ContractNo;
+            Billing.Vasc.ChangeContractResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeContract(inValue);
+            return retVal.ChangeContractResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangeContractResponse> Billing.Vasc.SubscriberManagementSoap.ChangeContractAsync(Billing.Vasc.ChangeContractRequest request) {
+            return base.Channel.ChangeContractAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.ChangeContractResponse> ChangeContractAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string ContractNo) {
+            Billing.Vasc.ChangeContractRequest inValue = new Billing.Vasc.ChangeContractRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.IPTVACCOUNT = IPTVACCOUNT;
+            inValue.ContractNo = ContractNo;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeContractAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -16910,544 +18777,6 @@ namespace Billing.Vasc {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.ChangeSTBResponse Billing.Vasc.SubscriberManagementSoap.ChangeSTB(Billing.Vasc.ChangeSTBRequest request) {
-            return base.Channel.ChangeSTB(request);
-        }
-        
-        public Billing.Vasc.ChangeSTBVO ChangeSTB(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Reason) {
-            Billing.Vasc.ChangeSTBRequest inValue = new Billing.Vasc.ChangeSTBRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVAccount = IPTVAccount;
-            inValue.Reason = Reason;
-            Billing.Vasc.ChangeSTBResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeSTB(inValue);
-            return retVal.ChangeSTBResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangeSTBResponse> Billing.Vasc.SubscriberManagementSoap.ChangeSTBAsync(Billing.Vasc.ChangeSTBRequest request) {
-            return base.Channel.ChangeSTBAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.ChangeSTBResponse> ChangeSTBAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount, string Reason) {
-            Billing.Vasc.ChangeSTBRequest inValue = new Billing.Vasc.ChangeSTBRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVAccount = IPTVAccount;
-            inValue.Reason = Reason;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeSTBAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.GetSubscriberInfoResponse Billing.Vasc.SubscriberManagementSoap.GetSubscriberInfo(Billing.Vasc.GetSubscriberInfoRequest request) {
-            return base.Channel.GetSubscriberInfo(request);
-        }
-        
-        public Billing.Vasc.GetSubscriberInfoVO GetSubscriberInfo(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount) {
-            Billing.Vasc.GetSubscriberInfoRequest inValue = new Billing.Vasc.GetSubscriberInfoRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVAccount = IPTVAccount;
-            Billing.Vasc.GetSubscriberInfoResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).GetSubscriberInfo(inValue);
-            return retVal.GetSubscriberInfoResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.GetSubscriberInfoResponse> Billing.Vasc.SubscriberManagementSoap.GetSubscriberInfoAsync(Billing.Vasc.GetSubscriberInfoRequest request) {
-            return base.Channel.GetSubscriberInfoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.GetSubscriberInfoResponse> GetSubscriberInfoAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount) {
-            Billing.Vasc.GetSubscriberInfoRequest inValue = new Billing.Vasc.GetSubscriberInfoRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVAccount = IPTVAccount;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).GetSubscriberInfoAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.GetSubscriberInfoV2Response Billing.Vasc.SubscriberManagementSoap.GetSubscriberInfoV2(Billing.Vasc.GetSubscriberInfoV2Request request) {
-            return base.Channel.GetSubscriberInfoV2(request);
-        }
-        
-        public Billing.Vasc.GetSubscriberVO GetSubscriberInfoV2(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.GetSubscriberRequest objRequest) {
-            Billing.Vasc.GetSubscriberInfoV2Request inValue = new Billing.Vasc.GetSubscriberInfoV2Request();
-            inValue.AuthHeader = AuthHeader;
-            inValue.objRequest = objRequest;
-            Billing.Vasc.GetSubscriberInfoV2Response retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).GetSubscriberInfoV2(inValue);
-            return retVal.GetSubscriberInfoV2Result;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.GetSubscriberInfoV2Response> Billing.Vasc.SubscriberManagementSoap.GetSubscriberInfoV2Async(Billing.Vasc.GetSubscriberInfoV2Request request) {
-            return base.Channel.GetSubscriberInfoV2Async(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.GetSubscriberInfoV2Response> GetSubscriberInfoV2Async(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.GetSubscriberRequest objRequest) {
-            Billing.Vasc.GetSubscriberInfoV2Request inValue = new Billing.Vasc.GetSubscriberInfoV2Request();
-            inValue.AuthHeader = AuthHeader;
-            inValue.objRequest = objRequest;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).GetSubscriberInfoV2Async(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.GetPackageNameResponse Billing.Vasc.SubscriberManagementSoap.GetPackageName(Billing.Vasc.GetPackageNameRequest request) {
-            return base.Channel.GetPackageName(request);
-        }
-        
-        public Billing.Vasc.GetPackageNameVO GetPackageName(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount) {
-            Billing.Vasc.GetPackageNameRequest inValue = new Billing.Vasc.GetPackageNameRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVAccount = IPTVAccount;
-            Billing.Vasc.GetPackageNameResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).GetPackageName(inValue);
-            return retVal.GetPackageNameResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.GetPackageNameResponse> Billing.Vasc.SubscriberManagementSoap.GetPackageNameAsync(Billing.Vasc.GetPackageNameRequest request) {
-            return base.Channel.GetPackageNameAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.GetPackageNameResponse> GetPackageNameAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount) {
-            Billing.Vasc.GetPackageNameRequest inValue = new Billing.Vasc.GetPackageNameRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVAccount = IPTVAccount;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).GetPackageNameAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.GetSTBInfoResponse Billing.Vasc.SubscriberManagementSoap.GetSTBInfo(Billing.Vasc.GetSTBInfoRequest request) {
-            return base.Channel.GetSTBInfo(request);
-        }
-        
-        public Billing.Vasc.GetSTBInfoVO GetSTBInfo(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount) {
-            Billing.Vasc.GetSTBInfoRequest inValue = new Billing.Vasc.GetSTBInfoRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVAccount = IPTVAccount;
-            Billing.Vasc.GetSTBInfoResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).GetSTBInfo(inValue);
-            return retVal.GetSTBInfoResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.GetSTBInfoResponse> Billing.Vasc.SubscriberManagementSoap.GetSTBInfoAsync(Billing.Vasc.GetSTBInfoRequest request) {
-            return base.Channel.GetSTBInfoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.GetSTBInfoResponse> GetSTBInfoAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVAccount) {
-            Billing.Vasc.GetSTBInfoRequest inValue = new Billing.Vasc.GetSTBInfoRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVAccount = IPTVAccount;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).GetSTBInfoAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.ChangeBillCodeResponse Billing.Vasc.SubscriberManagementSoap.ChangeBillCode(Billing.Vasc.ChangeBillCodeRequest request) {
-            return base.Channel.ChangeBillCode(request);
-        }
-        
-        public Billing.Vasc.ChangeBillCodeVO ChangeBillCode(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string strBillcodeNew) {
-            Billing.Vasc.ChangeBillCodeRequest inValue = new Billing.Vasc.ChangeBillCodeRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.MyTVAccount = MyTVAccount;
-            inValue.strBillcodeNew = strBillcodeNew;
-            Billing.Vasc.ChangeBillCodeResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeBillCode(inValue);
-            return retVal.ChangeBillCodeResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangeBillCodeResponse> Billing.Vasc.SubscriberManagementSoap.ChangeBillCodeAsync(Billing.Vasc.ChangeBillCodeRequest request) {
-            return base.Channel.ChangeBillCodeAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.ChangeBillCodeResponse> ChangeBillCodeAsync(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string strBillcodeNew) {
-            Billing.Vasc.ChangeBillCodeRequest inValue = new Billing.Vasc.ChangeBillCodeRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.MyTVAccount = MyTVAccount;
-            inValue.strBillcodeNew = strBillcodeNew;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeBillCodeAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.ChangeDateBillResponse Billing.Vasc.SubscriberManagementSoap.ChangeDateBill(Billing.Vasc.ChangeDateBillRequest request) {
-            return base.Channel.ChangeDateBill(request);
-        }
-        
-        public Billing.Vasc.ChangeDateBillVO ChangeDateBill(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string strDateBillNew) {
-            Billing.Vasc.ChangeDateBillRequest inValue = new Billing.Vasc.ChangeDateBillRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.MyTVAccount = MyTVAccount;
-            inValue.strDateBillNew = strDateBillNew;
-            Billing.Vasc.ChangeDateBillResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeDateBill(inValue);
-            return retVal.ChangeDateBillResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangeDateBillResponse> Billing.Vasc.SubscriberManagementSoap.ChangeDateBillAsync(Billing.Vasc.ChangeDateBillRequest request) {
-            return base.Channel.ChangeDateBillAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.ChangeDateBillResponse> ChangeDateBillAsync(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string strDateBillNew) {
-            Billing.Vasc.ChangeDateBillRequest inValue = new Billing.Vasc.ChangeDateBillRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.MyTVAccount = MyTVAccount;
-            inValue.strDateBillNew = strDateBillNew;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeDateBillAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.AddNewDistrictResponse Billing.Vasc.SubscriberManagementSoap.AddNewDistrict(Billing.Vasc.AddNewDistrictRequest request) {
-            return base.Channel.AddNewDistrict(request);
-        }
-        
-        public Billing.Vasc.DistrictVO AddNewDistrict(Billing.Vasc.AuthHeader AuthHeader, string DistrictName, string ProvinceCD, string DistrictCD, string DistrictNote) {
-            Billing.Vasc.AddNewDistrictRequest inValue = new Billing.Vasc.AddNewDistrictRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.DistrictName = DistrictName;
-            inValue.ProvinceCD = ProvinceCD;
-            inValue.DistrictCD = DistrictCD;
-            inValue.DistrictNote = DistrictNote;
-            Billing.Vasc.AddNewDistrictResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).AddNewDistrict(inValue);
-            return retVal.AddNewDistrictResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.AddNewDistrictResponse> Billing.Vasc.SubscriberManagementSoap.AddNewDistrictAsync(Billing.Vasc.AddNewDistrictRequest request) {
-            return base.Channel.AddNewDistrictAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.AddNewDistrictResponse> AddNewDistrictAsync(Billing.Vasc.AuthHeader AuthHeader, string DistrictName, string ProvinceCD, string DistrictCD, string DistrictNote) {
-            Billing.Vasc.AddNewDistrictRequest inValue = new Billing.Vasc.AddNewDistrictRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.DistrictName = DistrictName;
-            inValue.ProvinceCD = ProvinceCD;
-            inValue.DistrictCD = DistrictCD;
-            inValue.DistrictNote = DistrictNote;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).AddNewDistrictAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.EditDistrictResponse Billing.Vasc.SubscriberManagementSoap.EditDistrict(Billing.Vasc.EditDistrictRequest request) {
-            return base.Channel.EditDistrict(request);
-        }
-        
-        public Billing.Vasc.DistrictVO EditDistrict(Billing.Vasc.AuthHeader AuthHeader, string DistrictCD, string DistrictName, string DistrictNote) {
-            Billing.Vasc.EditDistrictRequest inValue = new Billing.Vasc.EditDistrictRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.DistrictCD = DistrictCD;
-            inValue.DistrictName = DistrictName;
-            inValue.DistrictNote = DistrictNote;
-            Billing.Vasc.EditDistrictResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).EditDistrict(inValue);
-            return retVal.EditDistrictResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.EditDistrictResponse> Billing.Vasc.SubscriberManagementSoap.EditDistrictAsync(Billing.Vasc.EditDistrictRequest request) {
-            return base.Channel.EditDistrictAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.EditDistrictResponse> EditDistrictAsync(Billing.Vasc.AuthHeader AuthHeader, string DistrictCD, string DistrictName, string DistrictNote) {
-            Billing.Vasc.EditDistrictRequest inValue = new Billing.Vasc.EditDistrictRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.DistrictCD = DistrictCD;
-            inValue.DistrictName = DistrictName;
-            inValue.DistrictNote = DistrictNote;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).EditDistrictAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.DeleteDistrictResponse Billing.Vasc.SubscriberManagementSoap.DeleteDistrict(Billing.Vasc.DeleteDistrictRequest request) {
-            return base.Channel.DeleteDistrict(request);
-        }
-        
-        public Billing.Vasc.DistrictVO DeleteDistrict(Billing.Vasc.AuthHeader AuthHeader, string DistrictID) {
-            Billing.Vasc.DeleteDistrictRequest inValue = new Billing.Vasc.DeleteDistrictRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.DistrictID = DistrictID;
-            Billing.Vasc.DeleteDistrictResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).DeleteDistrict(inValue);
-            return retVal.DeleteDistrictResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.DeleteDistrictResponse> Billing.Vasc.SubscriberManagementSoap.DeleteDistrictAsync(Billing.Vasc.DeleteDistrictRequest request) {
-            return base.Channel.DeleteDistrictAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.DeleteDistrictResponse> DeleteDistrictAsync(Billing.Vasc.AuthHeader AuthHeader, string DistrictID) {
-            Billing.Vasc.DeleteDistrictRequest inValue = new Billing.Vasc.DeleteDistrictRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.DistrictID = DistrictID;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).DeleteDistrictAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.MethodChangePayResponse Billing.Vasc.SubscriberManagementSoap.MethodChangePay(Billing.Vasc.MethodChangePayRequest1 request) {
-            return base.Channel.MethodChangePay(request);
-        }
-        
-        public Billing.Vasc.MethodChangePayVO MethodChangePay(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string Method, string No_Month) {
-            Billing.Vasc.MethodChangePayRequest1 inValue = new Billing.Vasc.MethodChangePayRequest1();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVACCOUNT = IPTVACCOUNT;
-            inValue.Method = Method;
-            inValue.No_Month = No_Month;
-            Billing.Vasc.MethodChangePayResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).MethodChangePay(inValue);
-            return retVal.MethodChangePayResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.MethodChangePayResponse> Billing.Vasc.SubscriberManagementSoap.MethodChangePayAsync(Billing.Vasc.MethodChangePayRequest1 request) {
-            return base.Channel.MethodChangePayAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.MethodChangePayResponse> MethodChangePayAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string Method, string No_Month) {
-            Billing.Vasc.MethodChangePayRequest1 inValue = new Billing.Vasc.MethodChangePayRequest1();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVACCOUNT = IPTVACCOUNT;
-            inValue.Method = Method;
-            inValue.No_Month = No_Month;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).MethodChangePayAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.MethodChangePayV2Response Billing.Vasc.SubscriberManagementSoap.MethodChangePayV2(Billing.Vasc.MethodChangePayV2Request request) {
-            return base.Channel.MethodChangePayV2(request);
-        }
-        
-        public Billing.Vasc.MethodChangePayVO MethodChangePayV2(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string Method, string No_Month, string sStartDate) {
-            Billing.Vasc.MethodChangePayV2Request inValue = new Billing.Vasc.MethodChangePayV2Request();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVACCOUNT = IPTVACCOUNT;
-            inValue.Method = Method;
-            inValue.No_Month = No_Month;
-            inValue.sStartDate = sStartDate;
-            Billing.Vasc.MethodChangePayV2Response retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).MethodChangePayV2(inValue);
-            return retVal.MethodChangePayV2Result;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.MethodChangePayV2Response> Billing.Vasc.SubscriberManagementSoap.MethodChangePayV2Async(Billing.Vasc.MethodChangePayV2Request request) {
-            return base.Channel.MethodChangePayV2Async(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.MethodChangePayV2Response> MethodChangePayV2Async(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string Method, string No_Month, string sStartDate) {
-            Billing.Vasc.MethodChangePayV2Request inValue = new Billing.Vasc.MethodChangePayV2Request();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVACCOUNT = IPTVACCOUNT;
-            inValue.Method = Method;
-            inValue.No_Month = No_Month;
-            inValue.sStartDate = sStartDate;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).MethodChangePayV2Async(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.MethodChangePayV3Response Billing.Vasc.SubscriberManagementSoap.MethodChangePayV3(Billing.Vasc.MethodChangePayV3Request request) {
-            return base.Channel.MethodChangePayV3(request);
-        }
-        
-        public Billing.Vasc.MethodChangePayVO MethodChangePayV3(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.MethodChangePayRequest objRequest) {
-            Billing.Vasc.MethodChangePayV3Request inValue = new Billing.Vasc.MethodChangePayV3Request();
-            inValue.AuthHeader = AuthHeader;
-            inValue.objRequest = objRequest;
-            Billing.Vasc.MethodChangePayV3Response retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).MethodChangePayV3(inValue);
-            return retVal.MethodChangePayV3Result;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.MethodChangePayV3Response> Billing.Vasc.SubscriberManagementSoap.MethodChangePayV3Async(Billing.Vasc.MethodChangePayV3Request request) {
-            return base.Channel.MethodChangePayV3Async(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.MethodChangePayV3Response> MethodChangePayV3Async(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.MethodChangePayRequest objRequest) {
-            Billing.Vasc.MethodChangePayV3Request inValue = new Billing.Vasc.MethodChangePayV3Request();
-            inValue.AuthHeader = AuthHeader;
-            inValue.objRequest = objRequest;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).MethodChangePayV3Async(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.ChangeContractResponse Billing.Vasc.SubscriberManagementSoap.ChangeContract(Billing.Vasc.ChangeContractRequest request) {
-            return base.Channel.ChangeContract(request);
-        }
-        
-        public Billing.Vasc.ChangeContractVO ChangeContract(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string ContractNo) {
-            Billing.Vasc.ChangeContractRequest inValue = new Billing.Vasc.ChangeContractRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVACCOUNT = IPTVACCOUNT;
-            inValue.ContractNo = ContractNo;
-            Billing.Vasc.ChangeContractResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeContract(inValue);
-            return retVal.ChangeContractResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangeContractResponse> Billing.Vasc.SubscriberManagementSoap.ChangeContractAsync(Billing.Vasc.ChangeContractRequest request) {
-            return base.Channel.ChangeContractAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.ChangeContractResponse> ChangeContractAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string ContractNo) {
-            Billing.Vasc.ChangeContractRequest inValue = new Billing.Vasc.ChangeContractRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVACCOUNT = IPTVACCOUNT;
-            inValue.ContractNo = ContractNo;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeContractAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.ChangeID_STBDiscountResponse Billing.Vasc.SubscriberManagementSoap.ChangeID_STBDiscount(Billing.Vasc.ChangeID_STBDiscountRequest request) {
-            return base.Channel.ChangeID_STBDiscount(request);
-        }
-        
-        public Billing.Vasc.ChangeSubscriberVO ChangeID_STBDiscount(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string sID_STB_Discount) {
-            Billing.Vasc.ChangeID_STBDiscountRequest inValue = new Billing.Vasc.ChangeID_STBDiscountRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVACCOUNT = IPTVACCOUNT;
-            inValue.sID_STB_Discount = sID_STB_Discount;
-            Billing.Vasc.ChangeID_STBDiscountResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeID_STBDiscount(inValue);
-            return retVal.ChangeID_STBDiscountResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangeID_STBDiscountResponse> Billing.Vasc.SubscriberManagementSoap.ChangeID_STBDiscountAsync(Billing.Vasc.ChangeID_STBDiscountRequest request) {
-            return base.Channel.ChangeID_STBDiscountAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.ChangeID_STBDiscountResponse> ChangeID_STBDiscountAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string sID_STB_Discount) {
-            Billing.Vasc.ChangeID_STBDiscountRequest inValue = new Billing.Vasc.ChangeID_STBDiscountRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVACCOUNT = IPTVACCOUNT;
-            inValue.sID_STB_Discount = sID_STB_Discount;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeID_STBDiscountAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.ChangeFiberCDResponse Billing.Vasc.SubscriberManagementSoap.ChangeFiberCD(Billing.Vasc.ChangeFiberCDRequest request) {
-            return base.Channel.ChangeFiberCD(request);
-        }
-        
-        public Billing.Vasc.ChangeSubscriberVO ChangeFiberCD(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string sFiberCD) {
-            Billing.Vasc.ChangeFiberCDRequest inValue = new Billing.Vasc.ChangeFiberCDRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVACCOUNT = IPTVACCOUNT;
-            inValue.sFiberCD = sFiberCD;
-            Billing.Vasc.ChangeFiberCDResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeFiberCD(inValue);
-            return retVal.ChangeFiberCDResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangeFiberCDResponse> Billing.Vasc.SubscriberManagementSoap.ChangeFiberCDAsync(Billing.Vasc.ChangeFiberCDRequest request) {
-            return base.Channel.ChangeFiberCDAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.ChangeFiberCDResponse> ChangeFiberCDAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string sFiberCD) {
-            Billing.Vasc.ChangeFiberCDRequest inValue = new Billing.Vasc.ChangeFiberCDRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVACCOUNT = IPTVACCOUNT;
-            inValue.sFiberCD = sFiberCD;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeFiberCDAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.ChangePromotionsResponse Billing.Vasc.SubscriberManagementSoap.ChangePromotions(Billing.Vasc.ChangePromotionsRequest request) {
-            return base.Channel.ChangePromotions(request);
-        }
-        
-        public Billing.Vasc.ChangePromotionsVO ChangePromotions(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string sPromo_ID) {
-            Billing.Vasc.ChangePromotionsRequest inValue = new Billing.Vasc.ChangePromotionsRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVACCOUNT = IPTVACCOUNT;
-            inValue.sPromo_ID = sPromo_ID;
-            Billing.Vasc.ChangePromotionsResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangePromotions(inValue);
-            return retVal.ChangePromotionsResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangePromotionsResponse> Billing.Vasc.SubscriberManagementSoap.ChangePromotionsAsync(Billing.Vasc.ChangePromotionsRequest request) {
-            return base.Channel.ChangePromotionsAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.ChangePromotionsResponse> ChangePromotionsAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string sPromo_ID) {
-            Billing.Vasc.ChangePromotionsRequest inValue = new Billing.Vasc.ChangePromotionsRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVACCOUNT = IPTVACCOUNT;
-            inValue.sPromo_ID = sPromo_ID;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangePromotionsAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.ChangePromotionsV2Response Billing.Vasc.SubscriberManagementSoap.ChangePromotionsV2(Billing.Vasc.ChangePromotionsV2Request request) {
-            return base.Channel.ChangePromotionsV2(request);
-        }
-        
-        public Billing.Vasc.ChangePromotionsVO ChangePromotionsV2(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string sPromo_ID, string option) {
-            Billing.Vasc.ChangePromotionsV2Request inValue = new Billing.Vasc.ChangePromotionsV2Request();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVACCOUNT = IPTVACCOUNT;
-            inValue.sPromo_ID = sPromo_ID;
-            inValue.option = option;
-            Billing.Vasc.ChangePromotionsV2Response retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangePromotionsV2(inValue);
-            return retVal.ChangePromotionsV2Result;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangePromotionsV2Response> Billing.Vasc.SubscriberManagementSoap.ChangePromotionsV2Async(Billing.Vasc.ChangePromotionsV2Request request) {
-            return base.Channel.ChangePromotionsV2Async(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.ChangePromotionsV2Response> ChangePromotionsV2Async(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string sPromo_ID, string option) {
-            Billing.Vasc.ChangePromotionsV2Request inValue = new Billing.Vasc.ChangePromotionsV2Request();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVACCOUNT = IPTVACCOUNT;
-            inValue.sPromo_ID = sPromo_ID;
-            inValue.option = option;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangePromotionsV2Async(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.ChangeDistrictSubscriberResponse Billing.Vasc.SubscriberManagementSoap.ChangeDistrictSubscriber(Billing.Vasc.ChangeDistrictSubscriberRequest request) {
-            return base.Channel.ChangeDistrictSubscriber(request);
-        }
-        
-        public Billing.Vasc.ChangeDistrictSubscriberVO ChangeDistrictSubscriber(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string DistrictNo) {
-            Billing.Vasc.ChangeDistrictSubscriberRequest inValue = new Billing.Vasc.ChangeDistrictSubscriberRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVACCOUNT = IPTVACCOUNT;
-            inValue.DistrictNo = DistrictNo;
-            Billing.Vasc.ChangeDistrictSubscriberResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeDistrictSubscriber(inValue);
-            return retVal.ChangeDistrictSubscriberResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangeDistrictSubscriberResponse> Billing.Vasc.SubscriberManagementSoap.ChangeDistrictSubscriberAsync(Billing.Vasc.ChangeDistrictSubscriberRequest request) {
-            return base.Channel.ChangeDistrictSubscriberAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.ChangeDistrictSubscriberResponse> ChangeDistrictSubscriberAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string DistrictNo) {
-            Billing.Vasc.ChangeDistrictSubscriberRequest inValue = new Billing.Vasc.ChangeDistrictSubscriberRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.IPTVACCOUNT = IPTVACCOUNT;
-            inValue.DistrictNo = DistrictNo;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeDistrictSubscriberAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.GetListSubscriberResponse Billing.Vasc.SubscriberManagementSoap.GetListSubscriber(Billing.Vasc.GetListSubscriberRequest request) {
-            return base.Channel.GetListSubscriber(request);
-        }
-        
-        public Billing.Vasc.GetListSubscriberVO GetListSubscriber(Billing.Vasc.AuthHeader AuthHeader) {
-            Billing.Vasc.GetListSubscriberRequest inValue = new Billing.Vasc.GetListSubscriberRequest();
-            inValue.AuthHeader = AuthHeader;
-            Billing.Vasc.GetListSubscriberResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).GetListSubscriber(inValue);
-            return retVal.GetListSubscriberResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.GetListSubscriberResponse> Billing.Vasc.SubscriberManagementSoap.GetListSubscriberAsync(Billing.Vasc.GetListSubscriberRequest request) {
-            return base.Channel.GetListSubscriberAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.GetListSubscriberResponse> GetListSubscriberAsync(Billing.Vasc.AuthHeader AuthHeader) {
-            Billing.Vasc.GetListSubscriberRequest inValue = new Billing.Vasc.GetListSubscriberRequest();
-            inValue.AuthHeader = AuthHeader;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).GetListSubscriberAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         Billing.Vasc.ChangeUserPasswordResponse Billing.Vasc.SubscriberManagementSoap.ChangeUserPassword(Billing.Vasc.ChangeUserPasswordRequest request) {
             return base.Channel.ChangeUserPassword(request);
         }
@@ -17502,171 +18831,234 @@ namespace Billing.Vasc {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.GetPackageEPGResponse Billing.Vasc.SubscriberManagementSoap.GetPackageEPG(Billing.Vasc.GetPackageEPGRequest request) {
-            return base.Channel.GetPackageEPG(request);
+        Billing.Vasc.AddHotelResponse Billing.Vasc.SubscriberManagementSoap.AddHotel(Billing.Vasc.AddHotelRequest request) {
+            return base.Channel.AddHotel(request);
         }
         
-        public Billing.Vasc.GetPackageEPGVO GetPackageEPG(Billing.Vasc.AuthHeader AuthHeader, string starttime, string endtime, string IPTVAccount, string strAll) {
-            Billing.Vasc.GetPackageEPGRequest inValue = new Billing.Vasc.GetPackageEPGRequest();
+        public Billing.Vasc.AddHotelVO AddHotel(Billing.Vasc.AuthHeader AuthHeader, string strUserName, string strPassword, string strName, string strOwner, string strCard, string strAddress, string strSigndate, string strContractID, string strBillDate, string strMethod, string strPayMode, string strPackageID, string strProviceID, int iAccNumber) {
+            Billing.Vasc.AddHotelRequest inValue = new Billing.Vasc.AddHotelRequest();
             inValue.AuthHeader = AuthHeader;
-            inValue.starttime = starttime;
-            inValue.endtime = endtime;
-            inValue.IPTVAccount = IPTVAccount;
-            inValue.strAll = strAll;
-            Billing.Vasc.GetPackageEPGResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).GetPackageEPG(inValue);
-            return retVal.GetPackageEPGResult;
+            inValue.strUserName = strUserName;
+            inValue.strPassword = strPassword;
+            inValue.strName = strName;
+            inValue.strOwner = strOwner;
+            inValue.strCard = strCard;
+            inValue.strAddress = strAddress;
+            inValue.strSigndate = strSigndate;
+            inValue.strContractID = strContractID;
+            inValue.strBillDate = strBillDate;
+            inValue.strMethod = strMethod;
+            inValue.strPayMode = strPayMode;
+            inValue.strPackageID = strPackageID;
+            inValue.strProviceID = strProviceID;
+            inValue.iAccNumber = iAccNumber;
+            Billing.Vasc.AddHotelResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).AddHotel(inValue);
+            return retVal.AddHotelResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.GetPackageEPGResponse> Billing.Vasc.SubscriberManagementSoap.GetPackageEPGAsync(Billing.Vasc.GetPackageEPGRequest request) {
-            return base.Channel.GetPackageEPGAsync(request);
+        System.Threading.Tasks.Task<Billing.Vasc.AddHotelResponse> Billing.Vasc.SubscriberManagementSoap.AddHotelAsync(Billing.Vasc.AddHotelRequest request) {
+            return base.Channel.AddHotelAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Billing.Vasc.GetPackageEPGResponse> GetPackageEPGAsync(Billing.Vasc.AuthHeader AuthHeader, string starttime, string endtime, string IPTVAccount, string strAll) {
-            Billing.Vasc.GetPackageEPGRequest inValue = new Billing.Vasc.GetPackageEPGRequest();
+        public System.Threading.Tasks.Task<Billing.Vasc.AddHotelResponse> AddHotelAsync(Billing.Vasc.AuthHeader AuthHeader, string strUserName, string strPassword, string strName, string strOwner, string strCard, string strAddress, string strSigndate, string strContractID, string strBillDate, string strMethod, string strPayMode, string strPackageID, string strProviceID, int iAccNumber) {
+            Billing.Vasc.AddHotelRequest inValue = new Billing.Vasc.AddHotelRequest();
             inValue.AuthHeader = AuthHeader;
-            inValue.starttime = starttime;
-            inValue.endtime = endtime;
-            inValue.IPTVAccount = IPTVAccount;
-            inValue.strAll = strAll;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).GetPackageEPGAsync(inValue);
+            inValue.strUserName = strUserName;
+            inValue.strPassword = strPassword;
+            inValue.strName = strName;
+            inValue.strOwner = strOwner;
+            inValue.strCard = strCard;
+            inValue.strAddress = strAddress;
+            inValue.strSigndate = strSigndate;
+            inValue.strContractID = strContractID;
+            inValue.strBillDate = strBillDate;
+            inValue.strMethod = strMethod;
+            inValue.strPayMode = strPayMode;
+            inValue.strPackageID = strPackageID;
+            inValue.strProviceID = strProviceID;
+            inValue.iAccNumber = iAccNumber;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).AddHotelAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.ChangeFiberVNNResponse Billing.Vasc.SubscriberManagementSoap.ChangeFiberVNN(Billing.Vasc.ChangeFiberVNNRequest request) {
-            return base.Channel.ChangeFiberVNN(request);
+        Billing.Vasc.EditHotelResponse Billing.Vasc.SubscriberManagementSoap.EditHotel(Billing.Vasc.EditHotelRequest request) {
+            return base.Channel.EditHotel(request);
         }
         
-        public Billing.Vasc.ChangeFiberVNNVO ChangeFiberVNN(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string FiberVNN) {
-            Billing.Vasc.ChangeFiberVNNRequest inValue = new Billing.Vasc.ChangeFiberVNNRequest();
+        public Billing.Vasc.EditHotelVO EditHotel(Billing.Vasc.AuthHeader AuthHeader, string strUsername, string strName, string strOwner, string strCard, string strAddress, string strSigndate, string strContractID, string strBillDate, string strPayMode, string strPackageID, int iAccNumber) {
+            Billing.Vasc.EditHotelRequest inValue = new Billing.Vasc.EditHotelRequest();
             inValue.AuthHeader = AuthHeader;
-            inValue.IPTVACCOUNT = IPTVACCOUNT;
-            inValue.FiberVNN = FiberVNN;
-            Billing.Vasc.ChangeFiberVNNResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeFiberVNN(inValue);
-            return retVal.ChangeFiberVNNResult;
+            inValue.strUsername = strUsername;
+            inValue.strName = strName;
+            inValue.strOwner = strOwner;
+            inValue.strCard = strCard;
+            inValue.strAddress = strAddress;
+            inValue.strSigndate = strSigndate;
+            inValue.strContractID = strContractID;
+            inValue.strBillDate = strBillDate;
+            inValue.strPayMode = strPayMode;
+            inValue.strPackageID = strPackageID;
+            inValue.iAccNumber = iAccNumber;
+            Billing.Vasc.EditHotelResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).EditHotel(inValue);
+            return retVal.EditHotelResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.ChangeFiberVNNResponse> Billing.Vasc.SubscriberManagementSoap.ChangeFiberVNNAsync(Billing.Vasc.ChangeFiberVNNRequest request) {
-            return base.Channel.ChangeFiberVNNAsync(request);
+        System.Threading.Tasks.Task<Billing.Vasc.EditHotelResponse> Billing.Vasc.SubscriberManagementSoap.EditHotelAsync(Billing.Vasc.EditHotelRequest request) {
+            return base.Channel.EditHotelAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Billing.Vasc.ChangeFiberVNNResponse> ChangeFiberVNNAsync(Billing.Vasc.AuthHeader AuthHeader, string IPTVACCOUNT, string FiberVNN) {
-            Billing.Vasc.ChangeFiberVNNRequest inValue = new Billing.Vasc.ChangeFiberVNNRequest();
+        public System.Threading.Tasks.Task<Billing.Vasc.EditHotelResponse> EditHotelAsync(Billing.Vasc.AuthHeader AuthHeader, string strUsername, string strName, string strOwner, string strCard, string strAddress, string strSigndate, string strContractID, string strBillDate, string strPayMode, string strPackageID, int iAccNumber) {
+            Billing.Vasc.EditHotelRequest inValue = new Billing.Vasc.EditHotelRequest();
             inValue.AuthHeader = AuthHeader;
-            inValue.IPTVACCOUNT = IPTVACCOUNT;
-            inValue.FiberVNN = FiberVNN;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeFiberVNNAsync(inValue);
+            inValue.strUsername = strUsername;
+            inValue.strName = strName;
+            inValue.strOwner = strOwner;
+            inValue.strCard = strCard;
+            inValue.strAddress = strAddress;
+            inValue.strSigndate = strSigndate;
+            inValue.strContractID = strContractID;
+            inValue.strBillDate = strBillDate;
+            inValue.strPayMode = strPayMode;
+            inValue.strPackageID = strPackageID;
+            inValue.iAccNumber = iAccNumber;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).EditHotelAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.UpdateDeviceInfoResponse Billing.Vasc.SubscriberManagementSoap.UpdateDeviceInfo(Billing.Vasc.UpdateDeviceInfoRequest request) {
-            return base.Channel.UpdateDeviceInfo(request);
+        Billing.Vasc.DeleteHotelResponse Billing.Vasc.SubscriberManagementSoap.DeleteHotel(Billing.Vasc.DeleteHotelRequest request) {
+            return base.Channel.DeleteHotel(request);
         }
         
-        public Billing.Vasc.ChangeSubscriberVO UpdateDeviceInfo(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string strDeviceName, string strPortID) {
-            Billing.Vasc.UpdateDeviceInfoRequest inValue = new Billing.Vasc.UpdateDeviceInfoRequest();
+        public Billing.Vasc.DeleteHotelVO DeleteHotel(Billing.Vasc.AuthHeader AuthHeader, string strUsername) {
+            Billing.Vasc.DeleteHotelRequest inValue = new Billing.Vasc.DeleteHotelRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.strUsername = strUsername;
+            Billing.Vasc.DeleteHotelResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).DeleteHotel(inValue);
+            return retVal.DeleteHotelResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.DeleteHotelResponse> Billing.Vasc.SubscriberManagementSoap.DeleteHotelAsync(Billing.Vasc.DeleteHotelRequest request) {
+            return base.Channel.DeleteHotelAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.DeleteHotelResponse> DeleteHotelAsync(Billing.Vasc.AuthHeader AuthHeader, string strUsername) {
+            Billing.Vasc.DeleteHotelRequest inValue = new Billing.Vasc.DeleteHotelRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.strUsername = strUsername;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).DeleteHotelAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.ChangePWHotelResponse Billing.Vasc.SubscriberManagementSoap.ChangePWHotel(Billing.Vasc.ChangePWHotelRequest request) {
+            return base.Channel.ChangePWHotel(request);
+        }
+        
+        public Billing.Vasc.ChangePWHotelVO ChangePWHotel(Billing.Vasc.AuthHeader AuthHeader, string strUsername, string OldPassword, string NewPassword) {
+            Billing.Vasc.ChangePWHotelRequest inValue = new Billing.Vasc.ChangePWHotelRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.strUsername = strUsername;
+            inValue.OldPassword = OldPassword;
+            inValue.NewPassword = NewPassword;
+            Billing.Vasc.ChangePWHotelResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangePWHotel(inValue);
+            return retVal.ChangePWHotelResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangePWHotelResponse> Billing.Vasc.SubscriberManagementSoap.ChangePWHotelAsync(Billing.Vasc.ChangePWHotelRequest request) {
+            return base.Channel.ChangePWHotelAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.ChangePWHotelResponse> ChangePWHotelAsync(Billing.Vasc.AuthHeader AuthHeader, string strUsername, string OldPassword, string NewPassword) {
+            Billing.Vasc.ChangePWHotelRequest inValue = new Billing.Vasc.ChangePWHotelRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.strUsername = strUsername;
+            inValue.OldPassword = OldPassword;
+            inValue.NewPassword = NewPassword;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangePWHotelAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.ChangeStatusHotelResponse Billing.Vasc.SubscriberManagementSoap.ChangeStatusHotel(Billing.Vasc.ChangeStatusHotelRequest request) {
+            return base.Channel.ChangeStatusHotel(request);
+        }
+        
+        public Billing.Vasc.ChangeStatusHotelVO ChangeStatusHotel(Billing.Vasc.AuthHeader AuthHeader, string strUsername, string strStatus) {
+            Billing.Vasc.ChangeStatusHotelRequest inValue = new Billing.Vasc.ChangeStatusHotelRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.strUsername = strUsername;
+            inValue.strStatus = strStatus;
+            Billing.Vasc.ChangeStatusHotelResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeStatusHotel(inValue);
+            return retVal.ChangeStatusHotelResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.ChangeStatusHotelResponse> Billing.Vasc.SubscriberManagementSoap.ChangeStatusHotelAsync(Billing.Vasc.ChangeStatusHotelRequest request) {
+            return base.Channel.ChangeStatusHotelAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.ChangeStatusHotelResponse> ChangeStatusHotelAsync(Billing.Vasc.AuthHeader AuthHeader, string strUsername, string strStatus) {
+            Billing.Vasc.ChangeStatusHotelRequest inValue = new Billing.Vasc.ChangeStatusHotelRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.strUsername = strUsername;
+            inValue.strStatus = strStatus;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeStatusHotelAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.ChangeBillCodeResponse Billing.Vasc.SubscriberManagementSoap.ChangeBillCode(Billing.Vasc.ChangeBillCodeRequest request) {
+            return base.Channel.ChangeBillCode(request);
+        }
+        
+        public Billing.Vasc.ChangeBillCodeVO ChangeBillCode(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string strBillcodeNew) {
+            Billing.Vasc.ChangeBillCodeRequest inValue = new Billing.Vasc.ChangeBillCodeRequest();
             inValue.AuthHeader = AuthHeader;
             inValue.MyTVAccount = MyTVAccount;
-            inValue.strDeviceName = strDeviceName;
-            inValue.strPortID = strPortID;
-            Billing.Vasc.UpdateDeviceInfoResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).UpdateDeviceInfo(inValue);
-            return retVal.UpdateDeviceInfoResult;
+            inValue.strBillcodeNew = strBillcodeNew;
+            Billing.Vasc.ChangeBillCodeResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeBillCode(inValue);
+            return retVal.ChangeBillCodeResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.UpdateDeviceInfoResponse> Billing.Vasc.SubscriberManagementSoap.UpdateDeviceInfoAsync(Billing.Vasc.UpdateDeviceInfoRequest request) {
-            return base.Channel.UpdateDeviceInfoAsync(request);
+        System.Threading.Tasks.Task<Billing.Vasc.ChangeBillCodeResponse> Billing.Vasc.SubscriberManagementSoap.ChangeBillCodeAsync(Billing.Vasc.ChangeBillCodeRequest request) {
+            return base.Channel.ChangeBillCodeAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Billing.Vasc.UpdateDeviceInfoResponse> UpdateDeviceInfoAsync(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string strDeviceName, string strPortID) {
-            Billing.Vasc.UpdateDeviceInfoRequest inValue = new Billing.Vasc.UpdateDeviceInfoRequest();
+        public System.Threading.Tasks.Task<Billing.Vasc.ChangeBillCodeResponse> ChangeBillCodeAsync(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string strBillcodeNew) {
+            Billing.Vasc.ChangeBillCodeRequest inValue = new Billing.Vasc.ChangeBillCodeRequest();
             inValue.AuthHeader = AuthHeader;
             inValue.MyTVAccount = MyTVAccount;
-            inValue.strDeviceName = strDeviceName;
-            inValue.strPortID = strPortID;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).UpdateDeviceInfoAsync(inValue);
+            inValue.strBillcodeNew = strBillcodeNew;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeBillCodeAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.UpdateKplusInfoResponse Billing.Vasc.SubscriberManagementSoap.UpdateKplusInfo(Billing.Vasc.UpdateKplusInfoRequest request) {
-            return base.Channel.UpdateKplusInfo(request);
+        Billing.Vasc.ChangeDateBillResponse Billing.Vasc.SubscriberManagementSoap.ChangeDateBill(Billing.Vasc.ChangeDateBillRequest request) {
+            return base.Channel.ChangeDateBill(request);
         }
         
-        public Billing.Vasc.ChangeSubscriberVO UpdateKplusInfo(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string strOperator) {
-            Billing.Vasc.UpdateKplusInfoRequest inValue = new Billing.Vasc.UpdateKplusInfoRequest();
+        public Billing.Vasc.ChangeDateBillVO ChangeDateBill(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string strDateBillNew) {
+            Billing.Vasc.ChangeDateBillRequest inValue = new Billing.Vasc.ChangeDateBillRequest();
             inValue.AuthHeader = AuthHeader;
             inValue.MyTVAccount = MyTVAccount;
-            inValue.strOperator = strOperator;
-            Billing.Vasc.UpdateKplusInfoResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).UpdateKplusInfo(inValue);
-            return retVal.UpdateKplusInfoResult;
+            inValue.strDateBillNew = strDateBillNew;
+            Billing.Vasc.ChangeDateBillResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeDateBill(inValue);
+            return retVal.ChangeDateBillResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.UpdateKplusInfoResponse> Billing.Vasc.SubscriberManagementSoap.UpdateKplusInfoAsync(Billing.Vasc.UpdateKplusInfoRequest request) {
-            return base.Channel.UpdateKplusInfoAsync(request);
+        System.Threading.Tasks.Task<Billing.Vasc.ChangeDateBillResponse> Billing.Vasc.SubscriberManagementSoap.ChangeDateBillAsync(Billing.Vasc.ChangeDateBillRequest request) {
+            return base.Channel.ChangeDateBillAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Billing.Vasc.UpdateKplusInfoResponse> UpdateKplusInfoAsync(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string strOperator) {
-            Billing.Vasc.UpdateKplusInfoRequest inValue = new Billing.Vasc.UpdateKplusInfoRequest();
+        public System.Threading.Tasks.Task<Billing.Vasc.ChangeDateBillResponse> ChangeDateBillAsync(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string strDateBillNew) {
+            Billing.Vasc.ChangeDateBillRequest inValue = new Billing.Vasc.ChangeDateBillRequest();
             inValue.AuthHeader = AuthHeader;
             inValue.MyTVAccount = MyTVAccount;
-            inValue.strOperator = strOperator;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).UpdateKplusInfoAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.UpdatePrepaidResponse Billing.Vasc.SubscriberManagementSoap.UpdatePrepaid(Billing.Vasc.UpdatePrepaidRequest request) {
-            return base.Channel.UpdatePrepaid(request);
-        }
-        
-        public Billing.Vasc.ChangeSubscriberVO UpdatePrepaid(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, int iNo_Month) {
-            Billing.Vasc.UpdatePrepaidRequest inValue = new Billing.Vasc.UpdatePrepaidRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.MyTVAccount = MyTVAccount;
-            inValue.iNo_Month = iNo_Month;
-            Billing.Vasc.UpdatePrepaidResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).UpdatePrepaid(inValue);
-            return retVal.UpdatePrepaidResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.UpdatePrepaidResponse> Billing.Vasc.SubscriberManagementSoap.UpdatePrepaidAsync(Billing.Vasc.UpdatePrepaidRequest request) {
-            return base.Channel.UpdatePrepaidAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.UpdatePrepaidResponse> UpdatePrepaidAsync(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, int iNo_Month) {
-            Billing.Vasc.UpdatePrepaidRequest inValue = new Billing.Vasc.UpdatePrepaidRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.MyTVAccount = MyTVAccount;
-            inValue.iNo_Month = iNo_Month;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).UpdatePrepaidAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Billing.Vasc.UpdatePackDailyResponse Billing.Vasc.SubscriberManagementSoap.UpdatePackDaily(Billing.Vasc.UpdatePackDailyRequest request) {
-            return base.Channel.UpdatePackDaily(request);
-        }
-        
-        public Billing.Vasc.ChangeSubscriberVO UpdatePackDaily(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string Operator) {
-            Billing.Vasc.UpdatePackDailyRequest inValue = new Billing.Vasc.UpdatePackDailyRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.MyTVAccount = MyTVAccount;
-            inValue.Operator = Operator;
-            Billing.Vasc.UpdatePackDailyResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).UpdatePackDaily(inValue);
-            return retVal.UpdatePackDailyResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Billing.Vasc.UpdatePackDailyResponse> Billing.Vasc.SubscriberManagementSoap.UpdatePackDailyAsync(Billing.Vasc.UpdatePackDailyRequest request) {
-            return base.Channel.UpdatePackDailyAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Billing.Vasc.UpdatePackDailyResponse> UpdatePackDailyAsync(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string Operator) {
-            Billing.Vasc.UpdatePackDailyRequest inValue = new Billing.Vasc.UpdatePackDailyRequest();
-            inValue.AuthHeader = AuthHeader;
-            inValue.MyTVAccount = MyTVAccount;
-            inValue.Operator = Operator;
-            return ((Billing.Vasc.SubscriberManagementSoap)(this)).UpdatePackDailyAsync(inValue);
+            inValue.strDateBillNew = strDateBillNew;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ChangeDateBillAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -17746,6 +19138,189 @@ namespace Billing.Vasc {
             Billing.Vasc.GetBillPackageRequest inValue = new Billing.Vasc.GetBillPackageRequest();
             inValue.AuthHeader = AuthHeader;
             return ((Billing.Vasc.SubscriberManagementSoap)(this)).GetBillPackageAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.getStatusBlockPayTVResponse Billing.Vasc.SubscriberManagementSoap.getStatusBlockPayTV(Billing.Vasc.getStatusBlockPayTVRequest request) {
+            return base.Channel.getStatusBlockPayTV(request);
+        }
+        
+        public Billing.Vasc.StatusBlockPayTVInfor getStatusBlockPayTV(Billing.Vasc.AuthHeader AuthHeader, string iptvaccount) {
+            Billing.Vasc.getStatusBlockPayTVRequest inValue = new Billing.Vasc.getStatusBlockPayTVRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.iptvaccount = iptvaccount;
+            Billing.Vasc.getStatusBlockPayTVResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).getStatusBlockPayTV(inValue);
+            return retVal.getStatusBlockPayTVResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.getStatusBlockPayTVResponse> Billing.Vasc.SubscriberManagementSoap.getStatusBlockPayTVAsync(Billing.Vasc.getStatusBlockPayTVRequest request) {
+            return base.Channel.getStatusBlockPayTVAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.getStatusBlockPayTVResponse> getStatusBlockPayTVAsync(Billing.Vasc.AuthHeader AuthHeader, string iptvaccount) {
+            Billing.Vasc.getStatusBlockPayTVRequest inValue = new Billing.Vasc.getStatusBlockPayTVRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.iptvaccount = iptvaccount;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).getStatusBlockPayTVAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.BlockPayTVResponse Billing.Vasc.SubscriberManagementSoap.BlockPayTV(Billing.Vasc.BlockPayTVRequest1 request) {
+            return base.Channel.BlockPayTV(request);
+        }
+        
+        public Billing.Vasc.BlockPayTVResp BlockPayTV(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.BlockPayTVRequest objRequest) {
+            Billing.Vasc.BlockPayTVRequest1 inValue = new Billing.Vasc.BlockPayTVRequest1();
+            inValue.AuthHeader = AuthHeader;
+            inValue.objRequest = objRequest;
+            Billing.Vasc.BlockPayTVResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).BlockPayTV(inValue);
+            return retVal.BlockPayTVResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.BlockPayTVResponse> Billing.Vasc.SubscriberManagementSoap.BlockPayTVAsync(Billing.Vasc.BlockPayTVRequest1 request) {
+            return base.Channel.BlockPayTVAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.BlockPayTVResponse> BlockPayTVAsync(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.BlockPayTVRequest objRequest) {
+            Billing.Vasc.BlockPayTVRequest1 inValue = new Billing.Vasc.BlockPayTVRequest1();
+            inValue.AuthHeader = AuthHeader;
+            inValue.objRequest = objRequest;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).BlockPayTVAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.UpdateKplusInfoResponse Billing.Vasc.SubscriberManagementSoap.UpdateKplusInfo(Billing.Vasc.UpdateKplusInfoRequest request) {
+            return base.Channel.UpdateKplusInfo(request);
+        }
+        
+        public Billing.Vasc.ChangeSubscriberVO UpdateKplusInfo(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string strOperator) {
+            Billing.Vasc.UpdateKplusInfoRequest inValue = new Billing.Vasc.UpdateKplusInfoRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.MyTVAccount = MyTVAccount;
+            inValue.strOperator = strOperator;
+            Billing.Vasc.UpdateKplusInfoResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).UpdateKplusInfo(inValue);
+            return retVal.UpdateKplusInfoResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.UpdateKplusInfoResponse> Billing.Vasc.SubscriberManagementSoap.UpdateKplusInfoAsync(Billing.Vasc.UpdateKplusInfoRequest request) {
+            return base.Channel.UpdateKplusInfoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.UpdateKplusInfoResponse> UpdateKplusInfoAsync(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, string strOperator) {
+            Billing.Vasc.UpdateKplusInfoRequest inValue = new Billing.Vasc.UpdateKplusInfoRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.MyTVAccount = MyTVAccount;
+            inValue.strOperator = strOperator;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).UpdateKplusInfoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.TotalMyTVPlusResponse Billing.Vasc.SubscriberManagementSoap.TotalMyTVPlus(Billing.Vasc.TotalMyTVPlusRequest request) {
+            return base.Channel.TotalMyTVPlus(request);
+        }
+        
+        public Billing.Vasc.ChangeSubscriberVO TotalMyTVPlus(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.MyTVPlusRequest objRequest) {
+            Billing.Vasc.TotalMyTVPlusRequest inValue = new Billing.Vasc.TotalMyTVPlusRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.objRequest = objRequest;
+            Billing.Vasc.TotalMyTVPlusResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).TotalMyTVPlus(inValue);
+            return retVal.TotalMyTVPlusResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.TotalMyTVPlusResponse> Billing.Vasc.SubscriberManagementSoap.TotalMyTVPlusAsync(Billing.Vasc.TotalMyTVPlusRequest request) {
+            return base.Channel.TotalMyTVPlusAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.TotalMyTVPlusResponse> TotalMyTVPlusAsync(Billing.Vasc.AuthHeader AuthHeader, Billing.Vasc.MyTVPlusRequest objRequest) {
+            Billing.Vasc.TotalMyTVPlusRequest inValue = new Billing.Vasc.TotalMyTVPlusRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.objRequest = objRequest;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).TotalMyTVPlusAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.GetHisPayTVResponse Billing.Vasc.SubscriberManagementSoap.GetHisPayTV(Billing.Vasc.GetHisPayTVRequest request) {
+            return base.Channel.GetHisPayTV(request);
+        }
+        
+        public Billing.Vasc.GetHisPayTVResp GetHisPayTV(Billing.Vasc.AuthHeader AuthHeader, string strMyTV) {
+            Billing.Vasc.GetHisPayTVRequest inValue = new Billing.Vasc.GetHisPayTVRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.strMyTV = strMyTV;
+            Billing.Vasc.GetHisPayTVResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).GetHisPayTV(inValue);
+            return retVal.GetHisPayTVResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.GetHisPayTVResponse> Billing.Vasc.SubscriberManagementSoap.GetHisPayTVAsync(Billing.Vasc.GetHisPayTVRequest request) {
+            return base.Channel.GetHisPayTVAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.GetHisPayTVResponse> GetHisPayTVAsync(Billing.Vasc.AuthHeader AuthHeader, string strMyTV) {
+            Billing.Vasc.GetHisPayTVRequest inValue = new Billing.Vasc.GetHisPayTVRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.strMyTV = strMyTV;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).GetHisPayTVAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.ComboFAF_UpdateResponse Billing.Vasc.SubscriberManagementSoap.ComboFAF_Update(Billing.Vasc.ComboFAF_UpdateRequest request) {
+            return base.Channel.ComboFAF_Update(request);
+        }
+        
+        public Billing.Vasc.ChangeSubscriberVO ComboFAF_Update(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, int MonthFree, string Operator) {
+            Billing.Vasc.ComboFAF_UpdateRequest inValue = new Billing.Vasc.ComboFAF_UpdateRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.MyTVAccount = MyTVAccount;
+            inValue.MonthFree = MonthFree;
+            inValue.Operator = Operator;
+            Billing.Vasc.ComboFAF_UpdateResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).ComboFAF_Update(inValue);
+            return retVal.ComboFAF_UpdateResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.ComboFAF_UpdateResponse> Billing.Vasc.SubscriberManagementSoap.ComboFAF_UpdateAsync(Billing.Vasc.ComboFAF_UpdateRequest request) {
+            return base.Channel.ComboFAF_UpdateAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.ComboFAF_UpdateResponse> ComboFAF_UpdateAsync(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, int MonthFree, string Operator) {
+            Billing.Vasc.ComboFAF_UpdateRequest inValue = new Billing.Vasc.ComboFAF_UpdateRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.MyTVAccount = MyTVAccount;
+            inValue.MonthFree = MonthFree;
+            inValue.Operator = Operator;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).ComboFAF_UpdateAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Billing.Vasc.PayTVFull_RegisterResponse Billing.Vasc.SubscriberManagementSoap.PayTVFull_Register(Billing.Vasc.PayTVFull_RegisterRequest request) {
+            return base.Channel.PayTVFull_Register(request);
+        }
+        
+        public Billing.Vasc.ChangeSubscriberVO PayTVFull_Register(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, int Month) {
+            Billing.Vasc.PayTVFull_RegisterRequest inValue = new Billing.Vasc.PayTVFull_RegisterRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.MyTVAccount = MyTVAccount;
+            inValue.Month = Month;
+            Billing.Vasc.PayTVFull_RegisterResponse retVal = ((Billing.Vasc.SubscriberManagementSoap)(this)).PayTVFull_Register(inValue);
+            return retVal.PayTVFull_RegisterResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Billing.Vasc.PayTVFull_RegisterResponse> Billing.Vasc.SubscriberManagementSoap.PayTVFull_RegisterAsync(Billing.Vasc.PayTVFull_RegisterRequest request) {
+            return base.Channel.PayTVFull_RegisterAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Billing.Vasc.PayTVFull_RegisterResponse> PayTVFull_RegisterAsync(Billing.Vasc.AuthHeader AuthHeader, string MyTVAccount, int Month) {
+            Billing.Vasc.PayTVFull_RegisterRequest inValue = new Billing.Vasc.PayTVFull_RegisterRequest();
+            inValue.AuthHeader = AuthHeader;
+            inValue.MyTVAccount = MyTVAccount;
+            inValue.Month = Month;
+            return ((Billing.Vasc.SubscriberManagementSoap)(this)).PayTVFull_RegisterAsync(inValue);
         }
     }
 }

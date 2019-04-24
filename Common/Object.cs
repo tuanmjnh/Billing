@@ -159,7 +159,7 @@ namespace Billing.Common
         public string file { get; set; }
         public string data_value { get; set; }
         public string DataSource { get; set; }
-        public string KYHD { get; set; }
+        public int KYHD { get; set; }
     }
     public class RemoveMainObj
     {
@@ -168,7 +168,7 @@ namespace Billing.Common
         public string ExtraValue { get; set; }
         public string PrimeryKey { get; set; }
         public int TYPE_BILL { get; set; }
-        public string TIME_BILL { get; set; }
+        public int KYHOADON { get; set; }
         public bool IsExtraValue { get; set; }
     }
     public class RemoveTableObj : RemoveMainObj

@@ -24,29 +24,33 @@ namespace Billing.Controllers
         [HttpGet]
         public JsonResult GetTableList(string database)
         {
-            var SQLServer = new TM.Connection.SQLServer();
+            var OWNER = "TTKD_BKN";
+            var Oracle = new TM.Connection.Oracle(OWNER);
             var index = 0;
             try
             {
-                var qry = "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE='BASE TABLE' ORDER BY TABLE_NAME";
-                var data = SQLServer.Connection.Query<Models.TABLES>(qry).ToList();
+                // var qry = "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE='BASE TABLE' ORDER BY TABLE_NAME";
+                var qry = $"SELECT DISTINCT OWNER,OBJECT_NAME TABLE_NAME FROM DBA_OBJECTS WHERE OBJECT_TYPE='TABLE' AND OWNER='{OWNER}';";
+                var data = Oracle.Connection.Query<Models.TABLES>(qry).ToList();
                 return Json(new { data = data, success = "Xử lý thành công!" }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex) { return Json(new { danger = ex.Message + " - Index: " + index }, JsonRequestBehavior.AllowGet); }
-            finally { SQLServer.Connection.Close(); }
+            finally { Oracle.Connection.Close(); }
         }
         [HttpPost, ValidateAntiForgeryToken]
         public JsonResult GetDetailsTableExport(string tableName)
         {
-            var SQLServer = new TM.Connection.SQLServer();
+            var OWNER = "TTKD_BKN";
+            var Oracle = new TM.Connection.Oracle(OWNER);
             var index = 0;
             try
             {
-                var qry = $"SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME=N'{tableName}';";
-                var data = SQLServer.Connection.Query<Models.COLUMNS>(qry).ToList();
+                // var qry = $"SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME=N'{tableName}';";
+                var qry = $"SELECT * FROM all_tab_cols WHERE table_name='{tableName}' AND owner='{OWNER}'";
+                var data = Oracle.Connection.Query<Models.COLUMNS>(qry).ToList();
                 //
                 qry = $"SELECT * FROM EXPORT_TABLE WHERE TABLE_TYPE={(int)Common.Objects.TABLE_TYPE.DBF} AND TABLE_NAME='{tableName}'";
-                var listETOld = SQLServer.Connection.Query<Models.EXPORT_TABLE>(qry).ToList();
+                var listETOld = Oracle.Connection.Query<Models.EXPORT_TABLE>(qry).ToList();
                 //
                 var listET = new List<Models.EXPORT_TABLE>();
                 foreach (var i in data)
@@ -55,12 +59,12 @@ namespace Billing.Controllers
                     if (check == null)
                     {
                         var tmp = new Models.EXPORT_TABLE();
-                        var MapDBF = MappingDBF(i.DATA_TYPE);
+                        var MapDBF = MappingOracleDBF(i.DATA_TYPE);
                         tmp.TABLE_TYPE = (int)Common.Objects.TABLE_TYPE.DBF;
                         tmp.TABLE_NAME = i.TABLE_NAME;
                         tmp.COLUMN_NAME = i.COLUMN_NAME;
                         tmp.COLUMN_TYPE = i.DATA_TYPE;
-                        tmp.COLUMN_LENGTH = i.CHARACTER_MAXIMUM_LENGTH;
+                        tmp.COLUMN_LENGTH = i.DATA_LENGTH;
                         tmp.COLUMN_NAME_EXPORT = i.COLUMN_NAME.Length > 10 ? i.COLUMN_NAME.Substring(0, 10).Trim('-').Trim('_') : i.COLUMN_NAME;
                         tmp.COLUMN_TYPE_EXPORT = MapDBF[0];
                         tmp.COLUMN_LENGTH_EXPORT = MapDBF[1];
@@ -70,31 +74,33 @@ namespace Billing.Controllers
                         listET.Add(tmp);
                     }
                 }
-                SQLServer.Connection.Insert(listET);
-                listET = SQLServer.Connection.Query<Models.EXPORT_TABLE>(qry).ToList();
+                Oracle.Connection.Insert(listET);
+                listET = Oracle.Connection.Query<Models.EXPORT_TABLE>(qry).ToList();
                 return Json(new { data = listET, success = "Xử lý thành công!" }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex) { return Json(new { danger = ex.Message + " - Index: " + index }, JsonRequestBehavior.AllowGet); }
-            finally { SQLServer.Connection.Close(); }
+            finally { Oracle.Connection.Close(); }
         }
         [HttpPost, ValidateAntiForgeryToken]
         public JsonResult UpdateTableExport(long id, string col, string val)
         {
-            var SQLServer = new TM.Connection.SQLServer();
+            var OWNER = "TTKD_BKN";
+            var Oracle = new TM.Connection.Oracle(OWNER);
             var index = 0;
             try
             {
                 var qry = $"UPDATE EXPORT_TABLE SET {col}='{val}' WHERE ID={id}";
-                SQLServer.Connection.Query(qry);
+                Oracle.Connection.Query(qry);
                 return Json(new { success = "Xử lý thành công!" }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex) { return Json(new { danger = ex.Message + " - Index: " + index }, JsonRequestBehavior.AllowGet); }
-            finally { SQLServer.Connection.Close(); }
+            finally { Oracle.Connection.Close(); }
         }
         [HttpPost, ValidateAntiForgeryToken]
         public JsonResult ExportToDBF(Common.DefaultObj obj)
         {
-            var SQLServer = new TM.Connection.SQLServer();
+            var OWNER = "TTKD_BKN";
+            var Oracle = new TM.Connection.Oracle(OWNER);
             var index = 0;
             obj.DataSource = Common.Directories.HDData;
             FileManagerController.InsertDirectory(obj.DataSource);
@@ -108,7 +114,7 @@ namespace Billing.Controllers
                 var tmp_qry_sql = "";
                 var condition = "";
                 var qry = $"SELECT * FROM EXPORT_TABLE WHERE TABLE_TYPE={(int)Common.Objects.TABLE_TYPE.DBF} AND TABLE_NAME='{obj.file}' AND FLAG=1 ORDER BY ORDERS";
-                var EXPORT_TABLE = SQLServer.Connection.Query<Models.EXPORT_TABLE>(qry).ToList();
+                var EXPORT_TABLE = Oracle.Connection.Query<Models.EXPORT_TABLE>(qry).ToList();
                 //
                 if (EXPORT_TABLE.Count <= 0)
                     return Json(new { warning = "Vui lòng cấu hình dữ liệu Export trước!" }, JsonRequestBehavior.AllowGet);
@@ -126,7 +132,7 @@ namespace Billing.Controllers
                 }
                 //
                 qry = $"SELECT {tmp_qry_sql.Trim(',')} FROM {obj.file} {(!string.IsNullOrEmpty(condition) ? "WHERE " + condition.Substring(0, condition.Length - 5) : "")}";
-                var data = SQLServer.Connection.Query<dynamic>(qry).ToList();
+                var data = Oracle.Connection.Query<dynamic>(qry).ToList();
                 //FoxPro.Insert(data);
                 //
                 qry = $"INSERT INTO {obj.file}({tmp_qry_fox.Trim(',')}) VALUES(";
@@ -139,22 +145,23 @@ namespace Billing.Controllers
                 return Json(new { success = "Xử lý thành công!" }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex) { return Json(new { danger = ex.Message + " - Index: " + index }, JsonRequestBehavior.AllowGet); }
-            finally { SQLServer.Connection.Close(); FoxPro.Connection.Close(); }
+            finally { Oracle.Connection.Close(); FoxPro.Connection.Close(); }
         }
         [HttpPost, ValidateAntiForgeryToken]
         public JsonResult CreateExport(Common.DefaultObj obj)
         {
-            var SQLServer = new TM.Connection.SQLServer();
+            var OWNER = "TTKD_BKN";
+            var Oracle = new TM.Connection.Oracle(OWNER);
             var index = 0;
             obj.DataSource = Common.Directories.HDData;
             //
             try
             {
-                var qry = $"SELECT a.*,a.DATA_TYPE AS COLUMN_TYPE,a.CHARACTER_MAXIMUM_LENGTH AS COLUMN_LENGTH,a.ORDINAL_POSITION AS ORDERS FROM INFORMATION_SCHEMA.COLUMNS a ORDER BY a.TABLE_NAME";
-                var data = SQLServer.Connection.Query<Models.EXPORT_TABLE>(qry).ToList();
+                var qry = $"SELECT a.*,a.data_type COLUMN_TYPE,data_length COLUMN_LENGTH,a.column_id ORDERS FROM all_tab_cols a WHERE a.owner='{OWNER}' order by a.table_name";
+                var data = Oracle.Connection.Query<Models.EXPORT_TABLE>(qry).ToList();
                 foreach (var i in data)
                 {
-                    var MapDBF = MappingDBF(i.COLUMN_TYPE);
+                    var MapDBF = MappingOracleDBF(i.COLUMN_TYPE);
                     i.TABLE_TYPE = (int)Common.Objects.TABLE_TYPE.EXPORT_CUSTOM;
                     i.COLUMN_NAME_EXPORT = i.COLUMN_NAME.Length > 10 ? i.COLUMN_NAME.Substring(0, 10).Trim('-').Trim('_') : i.COLUMN_NAME;
                     i.COLUMN_TYPE_EXPORT = MapDBF[0];
@@ -165,12 +172,13 @@ namespace Billing.Controllers
                 return Json(new { data = data, success = "Xử lý thành công!" }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex) { return Json(new { danger = ex.Message + " - Index: " + index }, JsonRequestBehavior.AllowGet); }
-            finally { SQLServer.Connection.Close(); }
+            finally { Oracle.Connection.Close(); }
         }
         [HttpPost, AllowAnonymous, ValidateJsonAntiForgeryToken]
         public JsonResult CreateExportSave(ExportCustom obj, List<Models.EXPORT_TABLE> DataList)
         {
-            var SQLServer = new TM.Connection.SQLServer();
+            var OWNER = "TTKD_BKN";
+            var Oracle = new TM.Connection.Oracle(OWNER);
             var index = 0;
             try
             {
@@ -187,12 +195,12 @@ namespace Billing.Controllers
                 var qry_insert = "INSERT INTO";
                 var qry_Condition = !string.IsNullOrEmpty(obj.Condition) ? $"WHERE {obj.Condition}" : "";
 
-                qry = $"SELECT * FROM EXPORT_CUSTOM WHERE LOWER(NAME)='{obj.ExportName.ToLower()}' AND TYPE_NAME='{obj.ExportType}'";
-                var EXPORT_CUSTOM = SQLServer.Connection.QueryFirstOrDefault<Models.EXPORT_CUSTOM>(qry);
+                qry = $"SELECT * FROM EXPORT_CUSTOM WHERE LOWER(NAME)=N'{obj.ExportName.ToLower()}' AND TYPE_NAME='{obj.ExportType}'";
+                var EXPORT_CUSTOM = Oracle.Connection.QueryFirstOrDefault<Models.EXPORT_CUSTOM>(qry);
                 if (EXPORT_CUSTOM == null)
                 {
                     EXPORT_CUSTOM = new Models.EXPORT_CUSTOM();
-                    EXPORT_CUSTOM.ID = Guid.NewGuid();
+                    EXPORT_CUSTOM.ID = Guid.NewGuid().ToString("N");
                     EXPORT_CUSTOM.NAME = obj.ExportName;
                     EXPORT_CUSTOM.TABLE_NAME = obj.ExportTableName.ToLower();
                     checkUpdate = false;
@@ -264,72 +272,84 @@ namespace Billing.Controllers
 
                 if (checkUpdate)
                 {
-                    SQLServer.Connection.Update(EXPORT_CUSTOM);
+                    Oracle.Connection.Update(EXPORT_CUSTOM);
                     //Remove EXPORT_TABLE Old
                     qry = $"DELETE FROM EXPORT_TABLE WHERE APP_KEY='{EXPORT_CUSTOM.ID}'";
-                    SQLServer.Connection.Query(qry);
+                    Oracle.Connection.Query(qry);
                 }
                 else
-                    SQLServer.Connection.Insert(EXPORT_CUSTOM);
+                    Oracle.Connection.Insert(EXPORT_CUSTOM);
+                //var x = new Models.TEST();
+                //x.ID = Guid.NewGuid().ToString("N");
+                //x.NAME = "tuanmjnh";
+                //x.LEVELS = 2;
+                //x.MONEY = 3.5M;
+                //x.TIME = DateTime.Now;
+                //Oracle.Connection.Insert(x);
+
                 //Insert EXPORT_TABLE New
-                if (DataList != null && DataList.Count > 0) SQLServer.Connection.Insert(DataList);
+                if (DataList != null && DataList.Count > 0) Oracle.Connection.Insert(DataList);
                 return Json(new { data = DataList, success = TM.Common.Language.msgUpdateSucsess }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex) { return Json(new { danger = ex.Message }, JsonRequestBehavior.AllowGet); }
-            finally { SQLServer.Connection.Close(); }
+            finally { Oracle.Connection.Close(); }
         }
         [HttpPost, ValidateAntiForgeryToken]
-        public JsonResult EditQueryExportCustom(Guid id, string ExportName, string ExportTableName, string ExportQueryCreate, string ExportQuerySelect, string Condition)
+        public JsonResult EditQueryExportCustom(string id, string ExportName, string ExportTableName, string ExportQueryCreate, string ExportQuerySelect, string Condition)
         {
-            var SQLServer = new TM.Connection.SQLServer();
+            var OWNER = "TTKD_BKN";
+            var Oracle = new TM.Connection.Oracle(OWNER);
             var index = 0;
             try
             {
                 var qry = $"UPDATE EXPORT_CUSTOM SET NAME='{ExportName}',TABLE_NAME='{ExportTableName}',QUERY_CREATE='{ExportQueryCreate}',QUERY_SELECT='{ExportQuerySelect}',CONDITION='{Condition}' WHERE ID='{id}'";
-                SQLServer.Connection.Query(qry);
+                Oracle.Connection.Query(qry);
                 return Json(new { success = TM.Common.Language.msgUpdateSucsess }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex) { return Json(new { danger = ex.Message }, JsonRequestBehavior.AllowGet); }
-            finally { SQLServer.Connection.Close(); }
+            finally { Oracle.Connection.Close(); }
         }
         [HttpGet]
         public JsonResult GetExportCustom(int flag = 1)
         {
-            var SQLServer = new TM.Connection.SQLServer();
+            var OWNER = "TTKD_BKN";
+            var Oracle = new TM.Connection.Oracle(OWNER);
             var index = 0;
             try
             {
                 var qry = $"SELECT * FROM EXPORT_CUSTOM WHERE FLAG={flag} ORDER BY TYPE_NAME DESC,NAME";
-                var data = SQLServer.Connection.Query<Models.EXPORT_CUSTOM>(qry);
+                var data = Oracle.Connection.Query<Models.EXPORT_CUSTOM>(qry);
                 return Json(new { data = data, roles = Authentication.Auth.AuthUser.roles, success = TM.Common.Language.msgUpdateSucsess }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex) { return Json(new { danger = ex.Message }, JsonRequestBehavior.AllowGet); }
-            finally { SQLServer.Connection.Close(); }
+            finally { Oracle.Connection.Close(); }
         }
         [HttpPost, ValidateAntiForgeryToken]
-        public JsonResult EditExportCustom(Guid id)
+        public JsonResult EditExportCustom(string id)
         {
-            var SQLServer = new TM.Connection.SQLServer();
+            var OWNER = "TTKD_BKN";
+            var Oracle = new TM.Connection.Oracle(OWNER);
             var index = 0;
             try
             {
                 var qry = $"SELECT * FROM EXPORT_CUSTOM WHERE ID='{id}'";
-                var EXPORT_CUSTOM = SQLServer.Connection.QueryFirstOrDefault<Models.EXPORT_CUSTOM>(qry);
+                var EXPORT_CUSTOM = Oracle.Connection.QueryFirstOrDefault<Models.EXPORT_CUSTOM>(qry);
                 if (EXPORT_CUSTOM == null)
                     return Json(new { success = TM.Common.Language.msgUpdateSucsess }, JsonRequestBehavior.AllowGet);
 
                 qry = $"SELECT * FROM EXPORT_TABLE WHERE APP_KEY='{EXPORT_CUSTOM.ID}' AND TABLE_TYPE={(int)Common.Objects.TABLE_TYPE.EXPORT_CUSTOM}";
-                var EXPORT_TABLE = SQLServer.Connection.Query<Models.EXPORT_TABLE>(qry).ToList();
+                var EXPORT_TABLE = Oracle.Connection.Query<Models.EXPORT_TABLE>(qry).ToList();
 
                 return Json(new { EXPORT_CUSTOM = EXPORT_CUSTOM, EXPORT_TABLE = EXPORT_TABLE, success = TM.Common.Language.msgUpdateSucsess }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex) { return Json(new { danger = ex.Message }, JsonRequestBehavior.AllowGet); }
-            finally { SQLServer.Connection.Close(); }
+            finally { Oracle.Connection.Close(); }
         }
         [HttpPost, ValidateAntiForgeryToken]
         public JsonResult ExportExportCustom(Common.DefaultObj obj)
         {
-            var SQLServer = new TM.Connection.SQLServer();
+            var OWNER = "TTKD_BKN";
+            var Oracle = new TM.Connection.Oracle(OWNER);
             var index = 0;
             obj.DataSource = Common.Directories.HDData;
             obj = getDefaultObj(obj);
@@ -338,11 +358,11 @@ namespace Billing.Controllers
             try
             {
                 var qry = $"SELECT * FROM EXPORT_CUSTOM WHERE ID='{obj.file}'";
-                var EXPORT_CUSTOM = SQLServer.Connection.QueryFirstOrDefault<Models.EXPORT_CUSTOM>(qry);
+                var EXPORT_CUSTOM = Oracle.Connection.QueryFirstOrDefault<Models.EXPORT_CUSTOM>(qry);
                 if (EXPORT_CUSTOM == null) return Json(new { success = TM.Common.Language.msgUpdateSucsess }, JsonRequestBehavior.AllowGet);
                 if (obj.data_value == Common.Objects.EXPORT_CUSTOM.DEFAULT.ToString())
                 {
-                    var rs = _ExportExportCustom(SQLServer, FoxPro, obj, EXPORT_CUSTOM);
+                    var rs = _ExportExportCustom(Oracle, FoxPro, obj, EXPORT_CUSTOM);
                     if (!rs) return Json(new { danger = "Lỗi kết xuất, vui lòng thử lại" }, JsonRequestBehavior.AllowGet);
                 }
                 else if (obj.data_value == Common.Objects.EXPORT_CUSTOM.MODULES.ToString())
@@ -353,8 +373,15 @@ namespace Billing.Controllers
                     {
                         if (string.IsNullOrEmpty(item)) continue;
                         qry = $"SELECT * FROM EXPORT_CUSTOM WHERE NAME='{item}' AND TYPE_NAME='{Common.Objects.EXPORT_CUSTOM.DEFAULT}'";
-                        var _export = SQLServer.Connection.QueryFirstOrDefault<Models.EXPORT_CUSTOM>(qry);
-                        var rs = _ExportExportCustom(SQLServer, FoxPro, obj, _export);
+                        var _export = Oracle.Connection.QueryFirstOrDefault<Models.EXPORT_CUSTOM>(qry);
+                        var rs = _ExportExportCustom(Oracle, FoxPro, obj, _export);
+
+                        //
+                        if (!string.IsNullOrEmpty(EXPORT_CUSTOM.QUERY_CREATE))
+                            _ExportQueryExportCustom(FoxPro, EXPORT_CUSTOM.TABLE_NAME, EXPORT_CUSTOM.QUERY_CREATE);
+                        if (!string.IsNullOrEmpty(EXPORT_CUSTOM.QUERY_END))
+                            _ExportQueryExportCustom(FoxPro, EXPORT_CUSTOM.TABLE_NAME, EXPORT_CUSTOM.QUERY_END);
+
                         if (!rs) return Json(new { danger = "Lỗi kết suất, vui lòng thử lại" }, JsonRequestBehavior.AllowGet);
                     }
                 }
@@ -366,9 +393,9 @@ namespace Billing.Controllers
                 return Json(new { success = "Kết xuất thành công!" }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex) { return Json(new { danger = ex.Message }, JsonRequestBehavior.AllowGet); }
-            finally { SQLServer.Connection.Close(); FoxPro.Connection.Close(); }
+            finally { Oracle.Connection.Close(); FoxPro.Connection.Close(); }
         }
-        public bool _ExportExportCustom(TM.Connection.SQLServer SQLServer, TM.Connection.OleDBF FoxPro, Common.DefaultObj obj, Models.EXPORT_CUSTOM EXPORT_CUSTOM)
+        public bool _ExportExportCustom(TM.Connection.Oracle Oracle, TM.Connection.OleDBF FoxPro, Common.DefaultObj obj, Models.EXPORT_CUSTOM EXPORT_CUSTOM)
         {
             try
             {
@@ -377,50 +404,69 @@ namespace Billing.Controllers
                 //Create New File
                 FoxPro.Connection.Query(EXPORT_CUSTOM.QUERY_CREATE);
 
-                var data = SQLServer.Connection.Query(EXPORT_CUSTOM.QUERY_SELECT.Replace("$timebill", obj.month_year_time)).ToList();
+                var data = Oracle.Connection.Query(EXPORT_CUSTOM.QUERY_SELECT.Replace("$kyhoadon", obj.KYHD.ToString())).ToList();
                 var qry = $"SELECT * FROM EXPORT_TABLE WHERE APP_KEY='{EXPORT_CUSTOM.ID}' AND TABLE_TYPE={(int)Common.Objects.TABLE_TYPE.EXPORT_CUSTOM}";
-                var EXPORT_TABLE = SQLServer.Connection.Query<Models.EXPORT_TABLE>(qry).ToList();
+                var EXPORT_TABLE = Oracle.Connection.Query<Models.EXPORT_TABLE>(qry).ToList();
                 var ColumnExport = new Dictionary<string, string>();
                 FoxPro.Connection.InsertList3(EXPORT_CUSTOM.TABLE_NAME, EXPORT_TABLE, data);
 
-                //
+                //Execute Query
                 FoxPro.Connection.Query($"USE {EXPORT_CUSTOM.TABLE_NAME}");
-                if (EXPORT_CUSTOM.QUERY_END != null)
-                {
-                    var QUERY_END = EXPORT_CUSTOM.QUERY_END.Trim(';').Split(';');
-                    foreach (var i in QUERY_END)
-                        FoxPro.Connection.Query(i.Trim().TrimStart('\n').Replace("$table", EXPORT_CUSTOM.TABLE_NAME));
-                }
+                _ExportQueryExportCustom(FoxPro, EXPORT_CUSTOM.TABLE_NAME, EXPORT_CUSTOM.QUERY_END);
+                //FoxPro.Connection.Query($"USE {EXPORT_CUSTOM.TABLE_NAME}");
+                //if (EXPORT_CUSTOM.QUERY_END != null)
+                //{
+                //    var QUERY_END = EXPORT_CUSTOM.QUERY_END.Trim(';').Split(';');
+                //    foreach (var i in QUERY_END)
+                //        FoxPro.Connection.Query(i.Trim().TrimStart('\n').Replace("$table", EXPORT_CUSTOM.TABLE_NAME));
+                //}
                 //Delete .BAK
                 FileManagerController.RemoveFileSource(obj.DataSource, false);
                 return true;
             }
             catch (Exception) { throw; }
         }
+        public bool _ExportQueryExportCustom(TM.Connection.OleDBF FoxPro, string table_name, string query)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(query))
+                {
+                    var QUERY_END = query.Trim(';').Split(';');
+                    foreach (var i in QUERY_END)
+                        FoxPro.Connection.Query(i.Trim().TrimStart('\n').Replace("$table", table_name));
+                }
+                return true;
+            }
+            catch (Exception) { throw; }
+            finally { FoxPro.Close(); }
+        }
         [HttpPost, ValidateAntiForgeryToken]
         public JsonResult DeleteExportCustom(Common.DefaultObj obj)
         {
-            var SQLServer = new TM.Connection.SQLServer();
+            var OWNER = "TTKD_BKN";
+            var Oracle = new TM.Connection.Oracle(OWNER);
             var index = 0;
             obj.DataSource = Common.Directories.HDData;
             obj = getDefaultObj(obj);
             try
             {
-                var data = SQLServer.Connection.Get<Models.EXPORT_CUSTOM>(obj.file);
+                var data = Oracle.Connection.Get<Models.EXPORT_CUSTOM>(obj.file);
                 if (data != null)
                 {
                     var qry = $"UPDATE EXPORT_CUSTOM SET FLAG={(data.FLAG == 0 ? 1 : 0)} WHERE ID='{obj.file}'";
-                    SQLServer.Connection.Query(qry);
+                    Oracle.Connection.Query(qry);
                 }
                 return Json(new { success = "Cập nhật thành công!" }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex) { return Json(new { danger = ex.Message }, JsonRequestBehavior.AllowGet); }
-            finally { SQLServer.Connection.Close(); }
+            finally { Oracle.Connection.Close(); }
         }
         [HttpPost, ValidateAntiForgeryToken]
         public JsonResult RemoveExportCustom(Common.DefaultObj obj)
         {
-            var SQLServer = new TM.Connection.SQLServer();
+            var OWNER = "TTKD_BKN";
+            var Oracle = new TM.Connection.Oracle(OWNER);
             var index = 0;
             obj.DataSource = Common.Directories.HDData;
             obj = getDefaultObj(obj);
@@ -428,14 +474,16 @@ namespace Billing.Controllers
             {
                 var qry = $@"DELETE EXPORT_TABLE WHERE APP_KEY='{obj.file}';
                              DELETE EXPORT_CUSTOM WHERE ID='{obj.file}';";
-                SQLServer.Connection.Query(qry);
+                Oracle.Connection.Query(qry);
                 return Json(new { success = "Xóa kết xuất thành công!" }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex) { return Json(new { danger = ex.Message }, JsonRequestBehavior.AllowGet); }
-            finally { SQLServer.Connection.Close(); }
+            finally { Oracle.Connection.Close(); }
         }
+        // SQLServer
         private string[] MappingDBF(string type)
         {
+            type = type.ToLower();
             switch (type)
             {
                 case "bigint":
@@ -460,6 +508,20 @@ namespace Billing.Controllers
                     return new[] { "d", "8" };
                 case "uniqueidentifier":
                     return new[] { "c", "36" };
+                default:
+                    return new[] { "c", "50" };
+            }
+        }
+        // Oracle
+        private string[] MappingOracleDBF(string type)
+        {
+            type = type.ToUpper();
+            switch (type)
+            {
+                case "NUMBER":
+                    return new[] { "n", "15" };
+                case "VARCHAR2":
+                    return new[] { "c", "50" };
                 default:
                     return new[] { "c", "50" };
             }
@@ -515,6 +577,7 @@ namespace Billing.Controllers
             obj.ckhMerginMonth = obj.ckhMerginMonth;
             //obj.file = $"BKN_th";
             obj.DataSource = Server.MapPath("~/" + obj.DataSource) + obj.time + "\\";
+            obj.KYHD = int.Parse(obj.datetime.ToString("yyyyMM") + "01");
             return obj;
         }
         private string CreateTable(string DataSource, string tableName, List<Models.EXPORT_TABLE> tableCol)
@@ -720,12 +783,20 @@ namespace Billing.Controllers
                         var vals = (DateTime)val;//((DateTime)i.Value);
                         strValue += $"DATE({vals.Year},{vals.Month},{vals.Day}),";
                     }
+                    if (i.COLUMN_TYPE == "date")
+                    {
+                        var vals = (DateTime)val;//((DateTime)i.Value);
+                        strValue += $"DATE({vals.Year},{vals.Month},{vals.Day}),";
+                    }
                     else if (i.COLUMN_TYPE == "uniqueidentifier")
                         strValue += $"'{((Guid)val).ToString()}',";
-                    else if (i.COLUMN_TYPE != "nvarchar" && i.COLUMN_TYPE != "ntext" && i.COLUMN_TYPE != "nchar" && i.COLUMN_TYPE != "varchar")
+
+                    //else if (i.COLUMN_TYPE != "nvarchar" && i.COLUMN_TYPE != "ntext" && i.COLUMN_TYPE != "nchar" && i.COLUMN_TYPE != "varchar")
+                    //    strValue += $"{val},";
+                    else if (i.COLUMN_TYPE != "varchar2" && i.COLUMN_TYPE != "ntext" && i.COLUMN_TYPE != "nchar" && i.COLUMN_TYPE != "varchar")
                         strValue += $"{val},";
                     else
-                        strValue += $"'{(val == null ? "''" : val.ToString().Trim().Replace("\'","").Trim('\'').UnicodeToTCVN3())}',";
+                        strValue += $"'{(val == null ? "''" : val.ToString().Trim().Replace("\'", "").Trim('\'').UnicodeToTCVN3())}',";
                     index++;
                 }
             }

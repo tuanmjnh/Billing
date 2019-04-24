@@ -47,6 +47,13 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a href="@Url.Action("Index","VASC", new { area = "" }, null)" class="dropdown-item">Vasc</a>
+                        <a href="@Url.Action("Index","VISA", new { area = "" }, null)" class="dropdown-item">Visa</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cài đặt</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a href="@Url.Action("Index","Connection", new { area = "" }, null)" class="dropdown-item">Connection</a>

@@ -50,7 +50,7 @@ namespace Billing.Controllers
         }
         //Tạo file hóa đơn XML
         [HttpPost, ValidateAntiForgeryToken]
-        public JsonResult XuLyHD(Common.DefaultObj obj)
+        public JsonResult XuLyHD(Common.DefaultObj obj, bool? ckhExcept)
         {
             var ok = new System.Text.StringBuilder();
             var err = new System.Text.StringBuilder();
@@ -89,6 +89,7 @@ namespace Billing.Controllers
                     "Remove Duplicate hoadon", null);
                 //Get data from HDDT
                 var data = FoxPro.Connection.Query<Models.HD_DT>($"SELECT * FROM {hdallhddt}").ToList().Trim(); //TM.OleDBF.ToDataTable("SELECT * FROM " + hdallhddt);
+
                 //HDDT Hoa don
                 using (System.IO.Stream outfile = new System.IO.FileStream(TM.IO.FileDirectory.MapPath(fileNameXMLFull), System.IO.FileMode.Create, System.IO.FileAccess.ReadWrite))
                 {
@@ -136,34 +137,47 @@ namespace Billing.Controllers
                         //</Product>
                         #endregion
                         var check = true;
+                        var MA_TT = i.MA_TT.Replace("-", "");
                         //Check EzPay
                         if (i.KIEU_TT == 1)
                         {
-                            err.Append($"<Inv><app_id>{i.APP_ID}</app_id><key>{i.MA_TT_HNI}</key><error>Is Ezpay</error></Inv>").AppendLine();
+                            err.Append($"<Inv><app_id>{i.APP_ID}</app_id><key>{MA_TT}</key><error>Is Ezpay</error></Inv>").AppendLine();
                             check = false;
                             hasError = true;
                         }
                         //Check Error
-                        if (string.IsNullOrEmpty(i.MA_TT_HNI))
+                        if (string.IsNullOrEmpty(MA_TT))
                         {
-                            err.Append($"<Inv><app_id>{i.APP_ID}</app_id><key>{i.MA_TT_HNI}</key><error>Null Or Empty</error></Inv>").AppendLine();
+                            err.Append($"<Inv><app_id>{i.APP_ID}</app_id><key>{MA_TT}</key><error>Null Or Empty</error></Inv>").AppendLine();
                             check = false;
                             hasError = true;
                         }
                         else
                         {
-                            if (listKey.Contains(i.MA_TT_HNI))
+                            if (listKey.Contains(MA_TT))
                             {
-                                err.Append($"<Inv><app_id>{i.APP_ID}</app_id><key>{i.MA_TT_HNI}</key><error>Trùng mã thanh toán</error></Inv>").AppendLine();
+                                err.Append($"<Inv><app_id>{i.APP_ID}</app_id><key>{MA_TT}</key><error>Trùng mã thanh toán</error></Inv>").AppendLine();
                                 check = false;
                                 hasError = true;
                             }
                         }
-                        if (!string.IsNullOrEmpty(obj.data_value) && obj.data_value.IndexOf($",{i.MA_TT_HNI}{hddttime},") < 0)
+                        if (ckhExcept.HasValue)
                         {
-                            err.Append($"<Inv><app_id>{i.APP_ID}</app_id><key>{i.MA_TT_HNI}</key><error>Loại bỏ</error></Inv>").AppendLine();
-                            check = false;
-                            hasError = true;
+                            if (!string.IsNullOrEmpty(obj.data_value) && obj.data_value.IndexOf($",{MA_TT},") < 0)
+                            {
+                                err.Append($"<Inv><app_id>{i.APP_ID}</app_id><key>{MA_TT}</key><error>Loại bỏ</error></Inv>").AppendLine();
+                                check = false;
+                                hasError = true;
+                            }
+                        }
+                        else
+                        {
+                            if (!string.IsNullOrEmpty(obj.data_value) && obj.data_value.IndexOf($",{MA_TT},") < 0)
+                            {
+                                err.Append($"<Inv><app_id>{i.APP_ID}</app_id><key>{MA_TT}</key><error>Loại bỏ</error></Inv>").AppendLine();
+                                check = false;
+                                hasError = true;
+                            }
                         }
                         //Run
                         if (check)
@@ -180,8 +194,8 @@ namespace Billing.Controllers
                             //var acc_tv = string.IsNullOrEmpty(dt.Rows[i]["acc_tv"].ToString().Trim());
                             //var ma_in = dt.Rows[i]["ma_in"].ToString().Trim();
                             var Invoice = "<Invoice>" +
-                                            $"<MaThanhToan><![CDATA[{getMaThanhToanHD(hddttime, i.MA_TT_HNI, i.MA_IN == 2 ? Common.HDDT.DetailDiDong : Common.HDDT.DetailCoDinh)}]]></MaThanhToan>" +
-                                            $"<CusCode><![CDATA[{i.MA_TT_HNI}]]></CusCode>" +
+                                            $"<MaThanhToan><![CDATA[{getMaThanhToanHD(hddttime, MA_TT, i.MA_IN == 2 ? Common.HDDT.DetailDiDong : Common.HDDT.DetailCoDinh)}]]></MaThanhToan>" +
+                                            $"<CusCode><![CDATA[{MA_TT}]]></CusCode>" +
                                             $"<CusName><![CDATA[{(obj.ckhTCVN3 ? i.TEN_TT.TCVN3ToUnicode() : i.TEN_TT)}]]></CusName>" +
                                             $"<CusAddress><![CDATA[{(obj.ckhTCVN3 ? i.DIACHI_TT.TCVN3ToUnicode() : i.DIACHI_TT)}]]></CusAddress>" +
                                             $"<CusPhone><![CDATA[{getCusPhone(i.ACC_NET, i.ACC_TV, i.SO_CD, i.SO_DD)}]]></CusPhone>" +
@@ -199,9 +213,9 @@ namespace Billing.Controllers
                                             $"<Extra>{i.MA_CBT};0;0</Extra>" +
                                             $"<ResourceCode>{i.MA_CBT}</ResourceCode>" +
                                         "</Invoice>";
-                            Invoice = $"<Inv><key>{i.MA_TT_HNI}{hddttime}</key>{Invoice}</Inv>";
+                            Invoice = $"<Inv><key>{MA_TT}{hddttime}</key>{Invoice}</Inv>";
                             ok.Append(Invoice).AppendLine();
-                            listKey.Add(i.MA_TT_HNI);
+                            listKey.Add(MA_TT);
                         }
                         if (index % 100 == 0)
                         {
@@ -271,6 +285,7 @@ namespace Billing.Controllers
                     foreach (var i in data)
                     {
                         index++;
+                        var MA_TT = i.MA_TT.Replace("-", "");
                         #region List Product
                         //<Product>
                         //<ProdName>Dịch vụ Internet</ProdName>
@@ -312,29 +327,29 @@ namespace Billing.Controllers
                         var check = true;
                         if (i.KIEU_TT == 1)
                         {
-                            err.Append($"<Inv><app_id>{i.APP_ID}</app_id><key>{i.MA_TT_HNI}</key><error>Is Ezpay</error></Inv>").AppendLine();
+                            err.Append($"<Inv><app_id>{i.APP_ID}</app_id><key>{MA_TT}</key><error>Is Ezpay</error></Inv>").AppendLine();
                             check = false;
                             hasError = true;
                         }
                         //Check Error
-                        if (string.IsNullOrEmpty(i.MA_TT_HNI))
+                        if (string.IsNullOrEmpty(MA_TT))
                         {
-                            err.Append($"<Customer><app_id>{i.APP_ID}</app_id><key>{i.MA_TT_HNI}</key><error>Null Or Empty HDDT Khách hàng</error></Customer>").AppendLine();
+                            err.Append($"<Customer><app_id>{i.APP_ID}</app_id><key>{MA_TT}</key><error>Null Or Empty HDDT Khách hàng</error></Customer>").AppendLine();
                             check = false;
                             hasError = true;
                         }
                         else
                         {
-                            if (listKey.Contains(i.MA_TT_HNI))
+                            if (listKey.Contains(MA_TT))
                             {
-                                err.Append($"<Customer><app_id>{i.APP_ID}</app_id><key>{i.MA_TT_HNI}</key><error>Trùng mã thanh toán Khách hàng</error></Customer>").AppendLine();
+                                err.Append($"<Customer><app_id>{i.APP_ID}</app_id><key>{MA_TT}</key><error>Trùng mã thanh toán Khách hàng</error></Customer>").AppendLine();
                                 check = false;
                                 hasError = true;
                             }
                         }
-                        if (!string.IsNullOrEmpty(obj.data_value) && obj.data_value.IndexOf($",{i.MA_TT_HNI}{hddttime},") < 0)
+                        if (!string.IsNullOrEmpty(obj.data_value) && obj.data_value.IndexOf($",{MA_TT}{hddttime},") < 0)
                         {
-                            err.Append($"<Inv><app_id>{i.APP_ID}</app_id><key>{i.MA_TT_HNI}</key><error>Loại bỏ</error></Inv>").AppendLine();
+                            err.Append($"<Inv><app_id>{i.APP_ID}</app_id><key>{MA_TT}</key><error>Loại bỏ</error></Inv>").AppendLine();
                             check = false;
                             hasError = true;
                         }
@@ -343,7 +358,7 @@ namespace Billing.Controllers
                         {
                             var customer = "<Customer>" +
                                                 $"<Name><![CDATA[{(obj.ckhTCVN3 ? i.TEN_TT.TCVN3ToUnicode() : i.TEN_TT)}]]></Name>" +
-                                                $"<Code>{i.MA_TT_HNI}</Code>" +
+                                                $"<Code>{MA_TT}</Code>" +
                                                 $"<TaxCode>{i.MS_THUE}</TaxCode>" +
                                                 $"<Address><![CDATA[{(obj.ckhTCVN3 ? i.DIACHI_TT.TCVN3ToUnicode() : i.TEN_TT)}]]></Address>" +
                                                  "<BankAccountName></BankAccountName>" +
@@ -355,10 +370,10 @@ namespace Billing.Controllers
                                                  "<ContactPerson></ContactPerson>" +
                                                  "<RepresentPerson></RepresentPerson>" +
                                                  "<CusType>0</CusType>" +
-                                                $"<MaThanhToan><![CDATA[{getMaThanhToanKH(obj.month_year_time, i.MA_TT_HNI, i.MA_IN == 2 ? Common.HDDT.DetailDiDong : Common.HDDT.DetailCoDinh)}]]></MaThanhToan>" +
+                                                $"<MaThanhToan><![CDATA[{getMaThanhToanKH(obj.month_year_time, MA_TT, i.MA_IN == 2 ? Common.HDDT.DetailDiDong : Common.HDDT.DetailCoDinh)}]]></MaThanhToan>" +
                                            "</Customer>";
                             ok.Append(customer).AppendLine();
-                            listKey.Add(i.MA_TT_HNI);
+                            listKey.Add(MA_TT);
                         }
                         if (index % 100 == 0)
                         {
@@ -397,7 +412,7 @@ namespace Billing.Controllers
             catch (Exception ex) { return Json(new { danger = $"{ex.Message} - Index: {index}" }, JsonRequestBehavior.AllowGet); }
             finally { FoxPro.Close(); }
         }
-        //Tạo file khách hàng XML
+        //XuLyHuyHD
         [HttpPost, ValidateAntiForgeryToken]
         public JsonResult XuLyHuyHD(Common.DefaultObj obj)
         {
@@ -409,19 +424,27 @@ namespace Billing.Controllers
                 string strUpload = "Cập nhật thành công ";
                 var fileUpload = new List<string>();
                 var upload = UploadBase(mapSource, strUpload, fileUpload, ".zip");
-                if (upload == (int)Common.Objects.ResultCode._extension)
-                    return Json(new { danger = "Tệp phải định dạng .dbf!" }, JsonRequestBehavior.AllowGet);
-                else if (upload == (int)Common.Objects.ResultCode._length)
-                    return Json(new { danger = "Chưa đủ tệp!" }, JsonRequestBehavior.AllowGet);
-                if (fileUpload.Count < 1) return Json(new { danger = "Không có tệp!" }, JsonRequestBehavior.AllowGet);
+                var file = "";
+                if (fileUpload.Count > 0) //return Json(new { danger = "Không có tệp!" }, JsonRequestBehavior.AllowGet);
+                {
+                    if (upload == (int)Common.Objects.ResultCode._extension)
+                        return Json(new { danger = "Tệp phải định dạng .zip!" }, JsonRequestBehavior.AllowGet);
+                    else if (upload == (int)Common.Objects.ResultCode._length)
+                        return Json(new { danger = "Chưa đủ tệp!" }, JsonRequestBehavior.AllowGet);
+                    file = mapSource + fileUpload[0];
+                }
+                else
+                {
+                    file = mapSource + "hoadon.zip";
+                }
                 //Xóa file HDDT cũ
                 // FileManagerController.DeleteDirFile(file);
                 var ok = new System.Text.StringBuilder();
-                var file = mapSource + fileUpload[0];
+                //
                 TM.IO.Zip.ExtractZipFile(file, null, mapSource);
-
+                //
                 var doc = new System.Xml.XmlDocument();
-                file = mapSource + fileUpload[0].Replace(".zip", ".xml");
+                file = file.Replace(".zip", ".xml");
                 doc.Load(file);
 
                 var file_hoadonhuy = "hoadonhuy.xml";
@@ -479,7 +502,65 @@ namespace Billing.Controllers
             finally { }
         }
 
-        private void RemoveDuplicate(string DataSource, string file, string[] colsNumberSum, string[] colsString, string extraEX = "", string ma_dvi = "ma_dvi", string ma_tt_hni = "ma_tt_hni", string extraConditions = null)
+        //XuLyHuyHD
+        [HttpPost, ValidateAntiForgeryToken]
+        public JsonResult XuLyHuyHDTheoMATT(Common.DefaultObj obj)
+        {
+            var index = 0;
+            try
+            {
+                obj.DataSource = Common.Directories.HDData;
+                obj = getDefaultObj(obj);
+                var source = Common.Directories.HDData + obj.time;
+                var hddttime = obj.datetime.ToString("MMyyyy");
+                string strUpload = "Cập nhật thành công ";
+                // var file = obj.DataSource + "hoadon.zip";
+                //
+                // TM.IO.Zip.ExtractZipFile(file, null, obj.DataSource);
+                // FileManagerController.DeleteDirFile(file);
+                var ok = new System.Text.StringBuilder();
+                //
+                var doc = new System.Xml.XmlDocument();
+                // file = file.Replace(".zip", ".xml");
+                // doc.Load(file);
+
+                var file_hoadonhuy = "hoadonhuy.xml";
+                var file_hoadonhuy_zip = "hoadonhuy.zip";
+
+                // Loại bỏ
+                obj.data_value = string.IsNullOrEmpty(obj.data_value) ? null : $",{obj.data_value.Trim(',')},";
+                using (System.IO.Stream outfile = new System.IO.FileStream(obj.DataSource + file_hoadonhuy, System.IO.FileMode.Create, System.IO.FileAccess.ReadWrite))
+                {
+                    ok.Append("<Inv>");
+                    var tthuy = obj.data_value.Trim().Trim(',').Split(',');
+                    foreach (var item in tthuy)
+                    {
+                        ok.Append($"<key>{item}{hddttime}</key>").AppendLine();
+                    }
+                    ok.Append("</Inv>").AppendLine();
+                    outfile.Write(System.Text.Encoding.UTF8.GetBytes(ok.ToString()), 0, System.Text.Encoding.UTF8.GetByteCount(ok.ToString()));
+                    //
+                    outfile.Close();
+                }
+                //ZipFile
+                if (obj.ckhZipFile)
+                    TM.IO.Zip.ZipFile(new List<string>() { obj.DataSource + file_hoadonhuy }, obj.DataSource + file_hoadonhuy_zip, 9, false);
+                //Insert To File Manager
+                FileManagerController.InsertFile(obj.DataSource + file_hoadonhuy);
+                FileManagerController.InsertFile(obj.DataSource + file_hoadonhuy_zip);
+                FileManagerController.DeleteDirFile(file_hoadonhuy);
+
+                return Json(new
+                {
+                    success = $"Tạo hóa đơn hủy thành công! Truy cập File Manager \"~\\{source.Replace("Uploads\\", "")}\" để tải file",
+                    url = UrlDownloadFiles($"{source}\\{file_hoadonhuy_zip}")
+                }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex) { return Json(new { danger = $"{ex.Message} - Index: {index}" }, JsonRequestBehavior.AllowGet); }
+            finally { }
+        }
+
+        private void RemoveDuplicate(string DataSource, string file, string[] colsNumberSum, string[] colsString, string extraEX = "", string ma_dvi = "ma_dvi", string ma_tt = "ma_tt", string extraConditions = null)
         {
             #region Coment
             ////Remove Duplicate
@@ -536,14 +617,14 @@ namespace Billing.Controllers
             {
                 //Cập nhật các đối tượng trùng dupe_flag=1
                 sql = $@"UPDATE {file} SET {dupe_flag}=1 WHERE {app_id} in(SELECT {app_id} FROM {file} o INNER JOIN 
-                (SELECT {ma_tt_hni},COUNT(*) AS dupeCount FROM {file} GROUP BY {ma_tt_hni} HAVING COUNT(*) > 1) oc ON o.{ma_tt_hni}=oc.{ma_tt_hni} 
-                WHERE NOT EMPTY(o.{ma_tt_hni}))";
+                (SELECT {ma_tt},COUNT(*) AS dupeCount FROM {file} GROUP BY {ma_tt} HAVING COUNT(*) > 1) oc ON o.{ma_tt}=oc.{ma_tt} 
+                WHERE NOT EMPTY(o.{ma_tt}))";
                 TM.OleDBF.Execute(sql, "Cập nhật các đối tượng trùng set dupe_flag=1 - " + file + " - " + extraEX);
 
                 //Cập nhật lại các đối tượng giữ lại và set dupe_flag=2
                 sql = $@"UPDATE {file} SET {dupe_flag}=2 WHERE {app_id} IN(SELECT MAX({app_id}) FROM {file} o INNER JOIN 
-                (SELECT {ma_tt_hni},COUNT(*) AS dupeCount FROM {file} GROUP BY {ma_tt_hni} HAVING COUNT(*) > 1) oc ON o.{ma_tt_hni}=oc.{ma_tt_hni} 
-                WHERE NOT EMPTY(o.{ma_tt_hni}) GROUP BY o.{ma_tt_hni})";
+                (SELECT {ma_tt},COUNT(*) AS dupeCount FROM {file} GROUP BY {ma_tt} HAVING COUNT(*) > 1) oc ON o.{ma_tt}=oc.{ma_tt} 
+                WHERE NOT EMPTY(o.{ma_tt}) GROUP BY o.{ma_tt})";
                 TM.OleDBF.Execute(sql, "Cập nhật lại các đối tượng giữ lại và set dupe_flag=2 - " + file + " - " + extraEX);
             }
             else
@@ -569,13 +650,13 @@ namespace Billing.Controllers
 
                 //Cập nhật các đối tượng trùng dupe_flag=1
                 sql = $@"UPDATE {file} SET {dupe_flag}=1 WHERE {app_id} in(SELECT {app_id} FROM {file} o INNER JOIN 
-                (SELECT {ma_tt_hni},{ma_dvi},COUNT(*) AS dupeCount FROM {file} GROUP BY {ma_tt_hni},{ma_dvi} HAVING COUNT(*) > 1) oc ON o.{ma_tt_hni}=oc.{ma_tt_hni} 
-                WHERE o.{ma_dvi}=oc.{ma_dvi} AND NOT EMPTY(o.{ma_tt_hni}))";
+                (SELECT {ma_tt},{ma_dvi},COUNT(*) AS dupeCount FROM {file} GROUP BY {ma_tt},{ma_dvi} HAVING COUNT(*) > 1) oc ON o.{ma_tt}=oc.{ma_tt} 
+                WHERE o.{ma_dvi}=oc.{ma_dvi} AND NOT EMPTY(o.{ma_tt}))";
                 TM.OleDBF.Execute(sql, "Cập nhật các đối tượng trùng set dupe_flag=1 - " + file + " - " + extraEX);
                 //Cập nhật lại các đối tượng giữ lại và set dupe_flag=2
                 sql = $@"UPDATE {file} SET {dupe_flag}=2{(extraConditions != null ? "," + extraConditions + " " : "")} WHERE {app_id} IN(SELECT MAX({app_id}) FROM {file} o INNER JOIN 
-                (SELECT {ma_tt_hni},{ma_dvi},COUNT(*) AS dupeCount FROM {file} GROUP BY {ma_tt_hni},{ma_dvi} HAVING COUNT(*) > 1) oc ON o.{ma_tt_hni}=oc.{ma_tt_hni} 
-                WHERE o.{ma_dvi}=oc.{ma_dvi} AND NOT EMPTY(o.{ma_tt_hni}) GROUP BY o.{ma_tt_hni},o.{ma_dvi})";
+                (SELECT {ma_tt},{ma_dvi},COUNT(*) AS dupeCount FROM {file} GROUP BY {ma_tt},{ma_dvi} HAVING COUNT(*) > 1) oc ON o.{ma_tt}=oc.{ma_tt} 
+                WHERE o.{ma_dvi}=oc.{ma_dvi} AND NOT EMPTY(o.{ma_tt}) GROUP BY o.{ma_tt},o.{ma_dvi})";
                 //o.{ma_dvi}=oc.{ma_dvi} AND 
                 TM.OleDBF.Execute(sql, "Cập nhật lại các đối tượng giữ lại và set dupe_flag=2 - " + file + " - " + extraEX);
             }
@@ -594,11 +675,11 @@ namespace Billing.Controllers
             //TM.OleDBF.Execute(string.Format(@"UPDATE a SET {0}=(SELECT SUM({0}) FROM {1} WHERE {2}=a.{2}) FROM {1} AS a WHERE {3}=2", tongcong, file, ma_cq, dupe_flag), "Cập nhật tổng cộng các đối tượng bị trùng - " + extraEX);
             if (colsNumberSum != null)
                 foreach (var item in colsNumberSum)
-                    TM.OleDBF.Execute($"UPDATE a SET {item}=(SELECT SUM({item}) FROM {file} WHERE {ma_tt_hni}=a.{ma_tt_hni}) FROM {file} AS a WHERE {dupe_flag}=2", "Cập nhật " + item + " của các đối tượng bị trùng - " + extraEX);
+                    TM.OleDBF.Execute($"UPDATE a SET {item}=(SELECT SUM({item}) FROM {file} WHERE {ma_tt}=a.{ma_tt}) FROM {file} AS a WHERE {dupe_flag}=2", "Cập nhật " + item + " của các đối tượng bị trùng - " + extraEX);
 
             if (colsString != null)
                 foreach (var item in colsString)
-                    try { TM.OleDBF.Execute($"UPDATE a SET {item}=(SELECT MAX({item}) FROM {file} WHERE {ma_tt_hni}=a.{ma_tt_hni} AND {item} is NOT null AND NOT EMPTY({item})) FROM {file} as a WHERE a.{item} is null OR EMPTY(a.{item})", "Cập nhật " + item + " của các đối tượng bị trùng - " + extraEX); } catch { }
+                    try { TM.OleDBF.Execute($"UPDATE a SET {item}=(SELECT MAX({item}) FROM {file} WHERE {ma_tt}=a.{ma_tt} AND {item} is NOT null AND NOT EMPTY({item})) FROM {file} as a WHERE a.{item} is null OR EMPTY(a.{item})", "Cập nhật " + item + " của các đối tượng bị trùng - " + extraEX); } catch { }
             //if (colsString != null)
             //    foreach (var item in colsString)
             //    {

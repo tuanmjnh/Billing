@@ -29,7 +29,7 @@ namespace Billing.Controllers
             try
             {
                 //Get DB PTTB
-                var qry = $"SELECT kh.KHACHHANG_ID,kh.MA_KH,a.THANHTOAN_ID,tt.MA_TT AS MA_TT_HNI,tt.MAPHO_ID,b.DICHVUVT_ID,tt.TEN_TT,tt.DIACHI_TT,tt.DIENTHOAI_TT AS DIENTHOAI,tt.MST AS MS_THUE,tt.MA_TUYENTHU AS MA_TUYEN,tt.DONVIQL_ID,a.DOITUONG_ID AS MA_DT,tttb.TRANGTHAITB_ID AS TH_SD,a.MA_TB,a.MA_TB AS ACCOUNT,a.DOITUONG_ID,a.GHICHU,a.LOAIHINHTB_ID,a.TRANGTHAITB_ID,a.TBDAYCHUNG_ID,a.NGAY_TRANGTHAITB AS NGAY_TTTB,a.NGAY_SUDUNG AS NGAY_SD,a.NGAY_CN,a.NGAY_HT,a.NGAY_CAT,qh.MA_QUANHUYEN AS MA_DVI,b.MA_LHTB FROM DB_THUEBAO_BKN a,DB_THANHTOAN_BKN tt,DB_KHACHHANG_BKN kh,LOAIHINH_TB_BKN b,TRANGTHAI_TB_BKN tttb, MA_PHO_BKN mp,PHUONG_XA_BKN px,QUAN_HUYEN_BKN qh WHERE a.THANHTOAN_ID=tt.THANHTOAN_ID AND tt.KHACHHANG_ID=kh.KHACHHANG_ID AND a.LOAIHINHTB_ID=b.LOAIHINHTB_ID AND tt.MAPHO_ID=mp.MAPHO_ID AND mp.PHUONGXA_ID=px.PHUONGXA_ID AND px.QUANHUYEN_ID=qh.QUANHUYEN_ID AND b.DICHVUVT_ID={TYPE_BILL} AND a.TRANGTHAITB_ID=tttb.TRANGTHAITB_ID ORDER BY qh.MA_QUANHUYEN,a.NGAY_CN,a.MA_TB";
+                var qry = $"SELECT kh.KHACHHANG_ID,kh.MA_KH,a.THANHTOAN_ID,tt.MA_TT AS MA_TT,tt.MAPHO_ID,b.DICHVUVT_ID,tt.TEN_TT,tt.DIACHI_TT,tt.DIENTHOAI_TT AS DIENTHOAI,tt.MST AS MS_THUE,tt.MA_TUYENTHU AS MA_TUYEN,tt.DONVIQL_ID,a.DOITUONG_ID AS MA_DT,tttb.TRANGTHAITB_ID AS TH_SD,a.MA_TB,a.MA_TB AS MA_TB,a.DOITUONG_ID,a.GHICHU,a.LOAIHINHTB_ID,a.TRANGTHAITB_ID,a.TBDAYCHUNG_ID,a.NGAY_TRANGTHAITB AS NGAY_TTTB,a.NGAY_SUDUNG AS NGAY_SD,a.NGAY_CN,a.NGAY_HT,a.NGAY_CAT,qh.MA_QUANHUYEN AS MA_DVI,b.MA_LHTB FROM DB_THUEBAO_BKN a,DB_THANHTOAN_BKN tt,DB_KHACHHANG_BKN kh,LOAIHINH_TB_BKN b,TRANGTHAI_TB_BKN tttb, MA_PHO_BKN mp,PHUONG_XA_BKN px,QUAN_HUYEN_BKN qh WHERE a.THANHTOAN_ID=tt.THANHTOAN_ID AND tt.KHACHHANG_ID=kh.KHACHHANG_ID AND a.LOAIHINHTB_ID=b.LOAIHINHTB_ID AND tt.MAPHO_ID=mp.MAPHO_ID AND mp.PHUONGXA_ID=px.PHUONGXA_ID AND px.QUANHUYEN_ID=qh.QUANHUYEN_ID AND b.DICHVUVT_ID={TYPE_BILL} AND a.TRANGTHAITB_ID=tttb.TRANGTHAITB_ID ORDER BY qh.MA_QUANHUYEN,a.NGAY_CN,a.MA_TB";
                 var dbpttb = Oracle.Connection.Query<Models.DANH_BA_TSL>(qry);
                 //Get data DB_DUONGTHU_BKN
                 qry = $"SELECT * FROM DB_DUONGTHU_BKN";
@@ -51,17 +51,17 @@ namespace Billing.Controllers
                 foreach (var i in dbpttb)
                 {
                     //check data TSL Remove
-                    if (tslRemove.Any(d => d.ACCOUNT == i.ACCOUNT)) continue;
+                    if (tslRemove.Any(d => d.MA_TB == i.MA_TB)) continue;
                     //Cập nhật hóa đơn TSL
                     var hdtsl = new Models.HD_TSL();
                     hdtsl.ID = Guid.NewGuid();
                     hdtsl.DBKH_ID = _dbkh_id;
                     hdtsl.TYPE_BILL = int.Parse(TYPE_BILL);
-                    hdtsl.TIME_BILL = obj.datetime;
+                    hdtsl.KYHOADON = obj.KYHD;
                     hdtsl.MAPHO_ID = i.MAPHO_ID;
                     hdtsl.THANHTOAN_ID = i.THANHTOAN_ID;
                     hdtsl.THUEBAO_ID = i.THUEBAO_ID;
-                    hdtsl.ACCOUNT = i.ACCOUNT;
+                    hdtsl.MA_TB = i.MA_TB;
                     hdtsl.MA_TB = i.MA_TB;
                     hdtsl.DOITUONG_ID = i.DOITUONG_ID;
                     hdtsl.TOC_DO = "TSL";
@@ -85,12 +85,12 @@ namespace Billing.Controllers
                     DataInsertHD.Add(hdtsl);
 
                     //Cập nhật danh bạ TSL
-                    var _tmp = dbkh.FirstOrDefault(d => d.ACCOUNT == i.ACCOUNT);
+                    var _tmp = dbkh.FirstOrDefault(d => d.MA_TB == i.MA_TB);
                     if (_tmp != null)
                     {
-                        if (DataUpdate.Any(d => d.ACCOUNT == i.ACCOUNT)) continue;
+                        if (DataUpdate.Any(d => d.MA_TB == i.MA_TB)) continue;
                         if (!string.IsNullOrEmpty(i.MA_KH)) _tmp.MA_KH = i.MA_KH.Trim();
-                        if (!string.IsNullOrEmpty(i.MA_TT_HNI)) _tmp.MA_TT_HNI = i.MA_TT_HNI.Trim();
+                        if (!string.IsNullOrEmpty(i.MA_TT)) _tmp.MA_TT = i.MA_TT.Trim();
                         if (!string.IsNullOrEmpty(i.TEN_TT)) _tmp.TEN_TT = i.TEN_TT.Trim();
                         if (!string.IsNullOrEmpty(i.DIACHI_TT)) _tmp.DIACHI_TT = i.DIACHI_TT.Trim();
                         if (!string.IsNullOrEmpty(i.DIENTHOAI)) _tmp.DIENTHOAI = i.DIENTHOAI.Trim();
@@ -112,11 +112,11 @@ namespace Billing.Controllers
                         _tmp.ISNULLMT = 0;
                         _tmp.FIX = 0;
                         _tmp.FLAG = 1;
-                        //Account Json
-                        //var account_json = Newtonsoft.Json.JsonConvert.DeserializeObject<Models.ACCOUNT_JSON>(_tmp.ACCOUNT);
-                        //account_json.TSL = i.ACCOUNT;
-                        //_tmp.ACCOUNT = Newtonsoft.Json.JsonConvert.SerializeObject(account_json);
-                        _tmp.ACCOUNT = i.ACCOUNT;
+                        //MA_TB Json
+                        //var MA_TB_json = Newtonsoft.Json.JsonConvert.DeserializeObject<Models.MA_TB_JSON>(_tmp.MA_TB);
+                        //MA_TB_json.TSL = i.MA_TB;
+                        //_tmp.MA_TB = Newtonsoft.Json.JsonConvert.SerializeObject(MA_TB_json);
+                        _tmp.MA_TB = i.MA_TB;
                         //
                         _dbkh_id = _tmp.ID;
                         DataUpdate.Add(_tmp);
@@ -124,13 +124,13 @@ namespace Billing.Controllers
                     }
                     else
                     {
-                        if (DataInsert.Any(d => d.ACCOUNT == i.ACCOUNT)) continue;
+                        if (DataInsert.Any(d => d.MA_TB == i.MA_TB)) continue;
                         var _d = new Models.DB_THANHTOAN_BKN();
                         _d.ID = _dbkh_id = Guid.NewGuid();
                         _d.TYPE_BILL = int.Parse(TYPE_BILL);
-                        _d.ACCOUNT = _d.MA_TB = i.MA_TB;
+                        _d.MA_TB = _d.MA_TB = i.MA_TB;
                         if (!string.IsNullOrEmpty(i.MA_KH)) _d.MA_KH = i.MA_KH.Trim();
-                        if (!string.IsNullOrEmpty(i.MA_TT_HNI)) _d.MA_TT_HNI = i.MA_TT_HNI.Trim();
+                        if (!string.IsNullOrEmpty(i.MA_TT)) _d.MA_TT = i.MA_TT.Trim();
                         if (!string.IsNullOrEmpty(i.TEN_TT)) _d.TEN_TT = i.TEN_TT.Trim();
                         if (!string.IsNullOrEmpty(i.TEN_TT)) _d.DIACHI_TT = i.TEN_TT.Trim();
                         if (!string.IsNullOrEmpty(i.DIENTHOAI)) _d.DIENTHOAI = i.DIENTHOAI.Trim();
@@ -152,11 +152,11 @@ namespace Billing.Controllers
                         _d.ISNULLMT = 0;
                         _d.FIX = 0;
                         _d.FLAG = 1;
-                        //Account Json
-                        //var account_json = new Models.ACCOUNT_JSON();
-                        //account_json.TSL = i.ACCOUNT;
-                        //_d.ACCOUNT = Newtonsoft.Json.JsonConvert.SerializeObject(account_json);
-                        _d.ACCOUNT = i.ACCOUNT;
+                        //MA_TB Json
+                        //var MA_TB_json = new Models.MA_TB_JSON();
+                        //MA_TB_json.TSL = i.MA_TB;
+                        //_d.MA_TB = Newtonsoft.Json.JsonConvert.SerializeObject(MA_TB_json);
+                        _d.MA_TB = i.MA_TB;
                         DataInsert.Add(_d);
                     }
                 }
@@ -277,13 +277,13 @@ namespace Billing.Controllers
             {
                 var qry = "";
                 //PERCENT
-                qry = $"UPDATE hd SET hd.TONG=hd.TONG*((100-dc.VALUE)/100) FROM HD_TSL hd INNER JOIN DISCOUNT dc ON hd.ACCOUNT=dc.ACCOUNT WHERE hd.TYPE_BILL={TYPE_BILL} AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND FORMAT(dc.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND dc.FLAG=1 AND dc.TYPEID={(int)Common.Objects.TYPE_DISCOUNT.PERCENT} AND ((hd.TIME_BILL>=dc.NGAY_BD AND dc.NGAY_KT IS NULL) OR (hd.TIME_BILL BETWEEN dc.NGAY_BD AND dc.NGAY_KT));";
+                qry = $"UPDATE hd SET hd.TONG=hd.TONG*((100-dc.VALUE)/100) FROM HD_TSL hd INNER JOIN DISCOUNT dc ON hd.MA_TB=dc.MA_TB WHERE hd.TYPE_BILL={TYPE_BILL} AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND FORMAT(dc.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND dc.FLAG=1 AND dc.TYPEID={(int)Common.Objects.TYPE_DISCOUNT.PERCENT} AND ((hd.TIME_BILL>=dc.NGAY_BD AND dc.NGAY_KT IS NULL) OR (hd.TIME_BILL BETWEEN dc.NGAY_BD AND dc.NGAY_KT));";
                 SQLServer.Connection.Query(qry);
                 //MONEY
-                qry = $"UPDATE hd SET hd.TONG=hd.TONG-dc.VALUE FROM HD_TSL hd INNER JOIN DISCOUNT dc ON hd.ACCOUNT=dc.ACCOUNT WHERE hd.TYPE_BILL={TYPE_BILL} AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND FORMAT(dc.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND dc.FLAG=1 AND dc.TYPEID={(int)Common.Objects.TYPE_DISCOUNT.MONEY} AND ((hd.TIME_BILL>=dc.NGAY_BD AND dc.NGAY_KT IS NULL) OR (hd.TIME_BILL BETWEEN dc.NGAY_BD AND dc.NGAY_KT));";
+                qry = $"UPDATE hd SET hd.TONG=hd.TONG-dc.VALUE FROM HD_TSL hd INNER JOIN DISCOUNT dc ON hd.MA_TB=dc.MA_TB WHERE hd.TYPE_BILL={TYPE_BILL} AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND FORMAT(dc.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND dc.FLAG=1 AND dc.TYPEID={(int)Common.Objects.TYPE_DISCOUNT.MONEY} AND ((hd.TIME_BILL>=dc.NGAY_BD AND dc.NGAY_KT IS NULL) OR (hd.TIME_BILL BETWEEN dc.NGAY_BD AND dc.NGAY_KT));";
                 SQLServer.Connection.Query(qry);
                 //FIX
-                qry = $"UPDATE hd SET hd.TONG=dc.VALUE FROM HD_TSL hd INNER JOIN DISCOUNT dc ON hd.ACCOUNT=dc.ACCOUNT WHERE hd.TYPE_BILL={TYPE_BILL} AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND FORMAT(dc.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND dc.FLAG=1 AND dc.TYPEID={(int)Common.Objects.TYPE_DISCOUNT.FIX} AND ((hd.TIME_BILL>=dc.NGAY_BD AND dc.NGAY_KT IS NULL) OR (hd.TIME_BILL BETWEEN dc.NGAY_BD AND dc.NGAY_KT));";
+                qry = $"UPDATE hd SET hd.TONG=dc.VALUE FROM HD_TSL hd INNER JOIN DISCOUNT dc ON hd.MA_TB=dc.MA_TB WHERE hd.TYPE_BILL={TYPE_BILL} AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND FORMAT(dc.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND dc.FLAG=1 AND dc.TYPEID={(int)Common.Objects.TYPE_DISCOUNT.FIX} AND ((hd.TIME_BILL>=dc.NGAY_BD AND dc.NGAY_KT IS NULL) OR (hd.TIME_BILL BETWEEN dc.NGAY_BD AND dc.NGAY_KT));";
                 SQLServer.Connection.Query(qry);
                 //UPDATE VAT
                 qry = $"UPDATE HD_TSL SET VAT=ROUND(TONG*0.1,0) WHERE TYPE_BILL={TYPE_BILL} AND FORMAT(TIME_BILL,'MM/yyyy')='{obj.month_year_time}';";
@@ -305,11 +305,11 @@ namespace Billing.Controllers
             var TYPE_BILL = "4";
             try
             {
-                var qry = $@"UPDATE hd SET hd.GOICUOCID=thdv.LOAIGOICUOC_ID FROM HD_TSL hd,DANHBA_GOICUOC_TICHHOP thdv WHERE hd.ACCOUNT=thdv.ACCOUNT AND thdv.NGAY_KT>=CAST('{obj.block_time}' as datetime) AND hd.TYPE_BILL=8 AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND FORMAT(thdv.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND thdv.FIX=0 AND thdv.FLAG=1;
-                             UPDATE hd SET hd.GOICUOCID=thdv.LOAIGOICUOC_ID FROM HD_TSL hd,DANHBA_GOICUOC_TICHHOP thdv WHERE hd.ACCOUNT=thdv.ACCOUNT AND thdv.NGAY_BD<CAST('{obj.block_time}' as datetime) AND thdv.NGAY_KT IS NULL AND hd.TYPE_BILL=8 AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND FORMAT(thdv.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND thdv.FIX=0 AND thdv.FLAG=1;";
+                var qry = $@"UPDATE hd SET hd.GOICUOCID=thdv.LOAIGOICUOC_ID FROM HD_TSL hd,DANHBA_GOICUOC_TICHHOP thdv WHERE hd.MA_TB=thdv.MA_TB AND thdv.NGAY_KT>=CAST('{obj.block_time}' as datetime) AND hd.TYPE_BILL=8 AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND FORMAT(thdv.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND thdv.FIX=0 AND thdv.FLAG=1;
+                             UPDATE hd SET hd.GOICUOCID=thdv.LOAIGOICUOC_ID FROM HD_TSL hd,DANHBA_GOICUOC_TICHHOP thdv WHERE hd.MA_TB=thdv.MA_TB AND thdv.NGAY_BD<CAST('{obj.block_time}' as datetime) AND thdv.NGAY_KT IS NULL AND hd.TYPE_BILL=8 AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND FORMAT(thdv.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND thdv.FIX=0 AND thdv.FLAG=1;";
                 SQLServer.Connection.Query(qry);
                 //Xử lý tích hợp thêm
-                qry = $"UPDATE hd SET hd.GOICUOCID=thdv.LOAIGOICUOC_ID FROM HD_TSL hd INNER JOIN DANHBA_GOICUOC_TICHHOP thdv ON hd.ACCOUNT=thdv.ACCOUNT WHERE hd.TYPE_BILL=8 AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND thdv.DICHVUVT_ID=8 AND thdv.FIX=1";
+                qry = $"UPDATE hd SET hd.GOICUOCID=thdv.LOAIGOICUOC_ID FROM HD_TSL hd INNER JOIN DANHBA_GOICUOC_TICHHOP thdv ON hd.MA_TB=thdv.MA_TB WHERE hd.TYPE_BILL=8 AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}' AND thdv.DICHVUVT_ID=8 AND thdv.FIX=1";
                 SQLServer.Connection.Query(qry);
                 //Cập nhật giá từ bảng giá đối với thuê bao tích hợp
                 qry = $@"UPDATE hd SET hd.TONG=bg.GIA+hd.PAYTV_FEE FROM HD_TSL hd INNER JOIN BGCUOC bg ON hd.GOICUOCID=bg.GOICUOCID WHERE hd.GOICUOCID>0 AND bg.DICHVUVT_ID=8 AND hd.TYPE_BILL=8 AND FORMAT(hd.TIME_BILL,'MM/yyyy')='{obj.month_year_time}'";
@@ -350,6 +350,7 @@ namespace Billing.Controllers
             obj.ckhMerginMonth = obj.ckhMerginMonth;
             obj.file = $"TH_{obj.year_time}{obj.month_time}";
             obj.DataSource = Server.MapPath("~/" + obj.DataSource) + obj.time + "\\";
+            obj.KYHD = int.Parse(obj.datetime.ToString("yyyyMM") + "01");
             return obj;
         }
     }
